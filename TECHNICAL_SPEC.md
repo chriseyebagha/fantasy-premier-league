@@ -50,7 +50,7 @@ Used primarily for GKs and DEFs to measure clean sheet probability combined with
 The algorithm selects a 15-man squad within a £100.0m budget (adjustable) using a greedy optimization approach:
 1.  **Value Score**: Calculates `Predicted Points / Cost`.
 2.  **Position Constraints**: Strictly adheres to 2 GKs, 5 DEFs, 5 MIDs, 3 FWDs.
-3.  **Elite Pass**: High-value assets (e.g., Salah, Haaland) are prioritized if their Explosivity is >= 70, even if their "Value Score" is lower, recognizing that "Fixture-Proof" status overrides raw ROI.
+3.  **Elite Pass**: High-value assets are prioritized if their Explosivity is >= 70, even if their "Value Score" is lower, recognizing that "Fixture-Proof" status overrides raw ROI.
 
 ### Tiered Captain Recommendations
 Players are categorized into four tactical tiers:
