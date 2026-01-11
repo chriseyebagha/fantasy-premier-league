@@ -1,0 +1,1282 @@
+{
+    "1": {
+        "timestamp": "2026-01-08T23:28:31.554078",
+        "predictions": [
+            {
+                "id": 106,
+                "web_name": "Collins",
+                "team": "Brentford",
+                "position": 2,
+                "price": 5.0,
+                "predicted_points": 6.6,
+                "explosivity": 0.0,
+                "defcon": 81.2,
+                "ownership": 2.7,
+                "features": {
+                    "xGI_90": 0.11000000000000001,
+                    "defcon": 81.2,
+                    "explosivity": 0.0,
+                    "form": 8.0,
+                    "ict_index": 91.1,
+                    "fixture_difficulty": 3,
+                    "selected_by": 2.7,
+                    "cost": 5.0
+                }
+            },
+            {
+                "id": 691,
+                "web_name": "Calvert-Lewin",
+                "team": "Leeds",
+                "position": 4,
+                "price": 6.0,
+                "predicted_points": 6.26,
+                "explosivity": 0.0,
+                "defcon": 0.0,
+                "ownership": 12.1,
+                "features": {
+                    "xGI_90": 0.6100000000000001,
+                    "defcon": 0.0,
+                    "explosivity": 0.0,
+                    "form": 6.8,
+                    "ict_index": 111.3,
+                    "fixture_difficulty": 2,
+                    "selected_by": 12.1,
+                    "cost": 6.0
+                }
+            },
+            {
+                "id": 47,
+                "web_name": "Rogers",
+                "team": "Aston Villa",
+                "position": 3,
+                "price": 7.6,
+                "predicted_points": 6.19,
+                "explosivity": 0.0,
+                "defcon": 0.0,
+                "ownership": 31.4,
+                "features": {
+                    "xGI_90": 0.27,
+                    "defcon": 0.0,
+                    "explosivity": 0.0,
+                    "form": 6.7,
+                    "ict_index": 126.8,
+                    "fixture_difficulty": 2,
+                    "selected_by": 31.4,
+                    "cost": 7.6
+                }
+            },
+            {
+                "id": 382,
+                "web_name": "Wirtz",
+                "team": "Liverpool",
+                "position": 3,
+                "price": 8.2,
+                "predicted_points": 6.05,
+                "explosivity": 0.0,
+                "defcon": 0.0,
+                "ownership": 10.6,
+                "features": {
+                    "xGI_90": 0.44,
+                    "defcon": 0.0,
+                    "explosivity": 0.0,
+                    "form": 6.5,
+                    "ict_index": 115.0,
+                    "fixture_difficulty": 2,
+                    "selected_by": 10.6,
+                    "cost": 8.2
+                }
+            },
+            {
+                "id": 101,
+                "web_name": "Kelleher",
+                "team": "Brentford",
+                "position": 1,
+                "price": 4.5,
+                "predicted_points": 5.76,
+                "explosivity": 0.0,
+                "defcon": 20.0,
+                "ownership": 9.4,
+                "features": {
+                    "xGI_90": 0.0,
+                    "defcon": 20.0,
+                    "explosivity": 0.0,
+                    "form": 6.8,
+                    "ict_index": 54.5,
+                    "fixture_difficulty": 3,
+                    "selected_by": 9.4,
+                    "cost": 4.5
+                }
+            },
+            {
+                "id": 107,
+                "web_name": "Lewis-Potter",
+                "team": "Brentford",
+                "position": 2,
+                "price": 4.9,
+                "predicted_points": 5.76,
+                "explosivity": 0.0,
+                "defcon": 100.0,
+                "ownership": 2.4,
+                "features": {
+                    "xGI_90": 0.22,
+                    "defcon": 100.0,
+                    "explosivity": 0.0,
+                    "form": 6.8,
+                    "ict_index": 46.6,
+                    "fixture_difficulty": 3,
+                    "selected_by": 2.4,
+                    "cost": 4.9
+                }
+            },
+            {
+                "id": 430,
+                "web_name": "Haaland",
+                "team": "Man City",
+                "position": 4,
+                "price": 15.1,
+                "predicted_points": 5.76,
+                "explosivity": 0.0,
+                "defcon": 0.0,
+                "ownership": 74.2,
+                "features": {
+                    "xGI_90": 0.97,
+                    "defcon": 0.0,
+                    "explosivity": 0.0,
+                    "form": 6.8,
+                    "ict_index": 200.4,
+                    "fixture_difficulty": 3,
+                    "selected_by": 74.2,
+                    "cost": 15.1
+                }
+            },
+            {
+                "id": 64,
+                "web_name": "Watkins",
+                "team": "Aston Villa",
+                "position": 4,
+                "price": 8.7,
+                "predicted_points": 5.7,
+                "explosivity": 0.0,
+                "defcon": 0.0,
+                "ownership": 13.6,
+                "features": {
+                    "xGI_90": 0.55,
+                    "defcon": 0.0,
+                    "explosivity": 0.0,
+                    "form": 6.0,
+                    "ict_index": 108.8,
+                    "fixture_difficulty": 2,
+                    "selected_by": 13.6,
+                    "cost": 8.7
+                }
+            },
+            {
+                "id": 350,
+                "web_name": "Aaronson",
+                "team": "Leeds",
+                "position": 3,
+                "price": 5.4,
+                "predicted_points": 5.7,
+                "explosivity": 0.0,
+                "defcon": 0.0,
+                "ownership": 0.4,
+                "features": {
+                    "xGI_90": 0.39,
+                    "defcon": 0.0,
+                    "explosivity": 0.0,
+                    "form": 6.0,
+                    "ict_index": 94.0,
+                    "fixture_difficulty": 2,
+                    "selected_by": 0.4,
+                    "cost": 5.4
+                }
+            },
+            {
+                "id": 488,
+                "web_name": "Bruno G.",
+                "team": "Newcastle",
+                "position": 3,
+                "price": 7.2,
+                "predicted_points": 5.7,
+                "explosivity": 0.0,
+                "defcon": 0.0,
+                "ownership": 20.7,
+                "features": {
+                    "xGI_90": 0.33,
+                    "defcon": 0.0,
+                    "explosivity": 0.0,
+                    "form": 6.0,
+                    "ict_index": 139.2,
+                    "fixture_difficulty": 2,
+                    "selected_by": 20.7,
+                    "cost": 7.2
+                }
+            },
+            {
+                "id": 329,
+                "web_name": "Wilson",
+                "team": "Fulham",
+                "position": 3,
+                "price": 5.8,
+                "predicted_points": 5.69,
+                "explosivity": 0.0,
+                "defcon": 0.0,
+                "ownership": 19.6,
+                "features": {
+                    "xGI_90": 0.38,
+                    "defcon": 0.0,
+                    "explosivity": 0.0,
+                    "form": 6.7,
+                    "ict_index": 114.9,
+                    "fixture_difficulty": 3,
+                    "selected_by": 19.6,
+                    "cost": 5.8
+                }
+            },
+            {
+                "id": 407,
+                "web_name": "Matheus N.",
+                "team": "Man City",
+                "position": 2,
+                "price": 5.5,
+                "predicted_points": 5.34,
+                "explosivity": 0.0,
+                "defcon": 59.6,
+                "ownership": 4.6,
+                "features": {
+                    "xGI_90": 0.08,
+                    "defcon": 59.6,
+                    "explosivity": 0.0,
+                    "form": 6.2,
+                    "ict_index": 71.0,
+                    "fixture_difficulty": 3,
+                    "selected_by": 4.6,
+                    "cost": 5.5
+                }
+            },
+            {
+                "id": 694,
+                "web_name": "Mukiele",
+                "team": "Sunderland",
+                "position": 2,
+                "price": 4.4,
+                "predicted_points": 5.2,
+                "explosivity": 0.0,
+                "defcon": 71.6,
+                "ownership": 9.6,
+                "features": {
+                    "xGI_90": 0.1,
+                    "defcon": 71.6,
+                    "explosivity": 0.0,
+                    "form": 6.0,
+                    "ict_index": 71.3,
+                    "fixture_difficulty": 3,
+                    "selected_by": 9.6,
+                    "cost": 4.4
+                }
+            },
+            {
+                "id": 366,
+                "web_name": "A.Becker",
+                "team": "Liverpool",
+                "position": 1,
+                "price": 5.4,
+                "predicted_points": 5.0,
+                "explosivity": 0.0,
+                "defcon": 30.0,
+                "ownership": 5.9,
+                "features": {
+                    "xGI_90": 0.0,
+                    "defcon": 30.0,
+                    "explosivity": 0.0,
+                    "form": 5.0,
+                    "ict_index": 28.0,
+                    "fixture_difficulty": 2,
+                    "selected_by": 5.9,
+                    "cost": 5.4
+                }
+            },
+            {
+                "id": 343,
+                "web_name": "Struijk",
+                "team": "Leeds",
+                "position": 2,
+                "price": 4.3,
+                "predicted_points": 4.79,
+                "explosivity": 0.0,
+                "defcon": 100.0,
+                "ownership": 0.3,
+                "features": {
+                    "xGI_90": 0.13,
+                    "defcon": 100.0,
+                    "explosivity": 0.0,
+                    "form": 4.7,
+                    "ict_index": 67.1,
+                    "fixture_difficulty": 2,
+                    "selected_by": 0.3,
+                    "cost": 4.3
+                }
+            }
+        ]
+    },
+    "2": {
+        "timestamp": "2026-01-08T23:28:31.710277",
+        "predictions": [
+            {
+                "id": 106,
+                "web_name": "Collins",
+                "team": "Brentford",
+                "position": 2,
+                "price": 5.0,
+                "predicted_points": 6.6,
+                "explosivity": 0.0,
+                "defcon": 81.2,
+                "ownership": 2.7,
+                "features": {
+                    "xGI_90": 0.11000000000000001,
+                    "defcon": 81.2,
+                    "explosivity": 0.0,
+                    "form": 8.0,
+                    "ict_index": 91.1,
+                    "fixture_difficulty": 3,
+                    "selected_by": 2.7,
+                    "cost": 5.0
+                }
+            },
+            {
+                "id": 691,
+                "web_name": "Calvert-Lewin",
+                "team": "Leeds",
+                "position": 4,
+                "price": 6.0,
+                "predicted_points": 6.26,
+                "explosivity": 0.0,
+                "defcon": 0.0,
+                "ownership": 12.1,
+                "features": {
+                    "xGI_90": 0.6100000000000001,
+                    "defcon": 0.0,
+                    "explosivity": 0.0,
+                    "form": 6.8,
+                    "ict_index": 111.3,
+                    "fixture_difficulty": 2,
+                    "selected_by": 12.1,
+                    "cost": 6.0
+                }
+            },
+            {
+                "id": 47,
+                "web_name": "Rogers",
+                "team": "Aston Villa",
+                "position": 3,
+                "price": 7.6,
+                "predicted_points": 6.19,
+                "explosivity": 0.0,
+                "defcon": 0.0,
+                "ownership": 31.4,
+                "features": {
+                    "xGI_90": 0.27,
+                    "defcon": 0.0,
+                    "explosivity": 0.0,
+                    "form": 6.7,
+                    "ict_index": 126.8,
+                    "fixture_difficulty": 2,
+                    "selected_by": 31.4,
+                    "cost": 7.6
+                }
+            },
+            {
+                "id": 382,
+                "web_name": "Wirtz",
+                "team": "Liverpool",
+                "position": 3,
+                "price": 8.2,
+                "predicted_points": 6.05,
+                "explosivity": 0.0,
+                "defcon": 0.0,
+                "ownership": 10.6,
+                "features": {
+                    "xGI_90": 0.44,
+                    "defcon": 0.0,
+                    "explosivity": 0.0,
+                    "form": 6.5,
+                    "ict_index": 115.0,
+                    "fixture_difficulty": 2,
+                    "selected_by": 10.6,
+                    "cost": 8.2
+                }
+            },
+            {
+                "id": 101,
+                "web_name": "Kelleher",
+                "team": "Brentford",
+                "position": 1,
+                "price": 4.5,
+                "predicted_points": 5.76,
+                "explosivity": 0.0,
+                "defcon": 20.0,
+                "ownership": 9.4,
+                "features": {
+                    "xGI_90": 0.0,
+                    "defcon": 20.0,
+                    "explosivity": 0.0,
+                    "form": 6.8,
+                    "ict_index": 54.5,
+                    "fixture_difficulty": 3,
+                    "selected_by": 9.4,
+                    "cost": 4.5
+                }
+            },
+            {
+                "id": 107,
+                "web_name": "Lewis-Potter",
+                "team": "Brentford",
+                "position": 2,
+                "price": 4.9,
+                "predicted_points": 5.76,
+                "explosivity": 0.0,
+                "defcon": 100.0,
+                "ownership": 2.4,
+                "features": {
+                    "xGI_90": 0.22,
+                    "defcon": 100.0,
+                    "explosivity": 0.0,
+                    "form": 6.8,
+                    "ict_index": 46.6,
+                    "fixture_difficulty": 3,
+                    "selected_by": 2.4,
+                    "cost": 4.9
+                }
+            },
+            {
+                "id": 430,
+                "web_name": "Haaland",
+                "team": "Man City",
+                "position": 4,
+                "price": 15.1,
+                "predicted_points": 5.76,
+                "explosivity": 0.0,
+                "defcon": 0.0,
+                "ownership": 74.2,
+                "features": {
+                    "xGI_90": 0.97,
+                    "defcon": 0.0,
+                    "explosivity": 0.0,
+                    "form": 6.8,
+                    "ict_index": 200.4,
+                    "fixture_difficulty": 3,
+                    "selected_by": 74.2,
+                    "cost": 15.1
+                }
+            },
+            {
+                "id": 64,
+                "web_name": "Watkins",
+                "team": "Aston Villa",
+                "position": 4,
+                "price": 8.7,
+                "predicted_points": 5.7,
+                "explosivity": 0.0,
+                "defcon": 0.0,
+                "ownership": 13.6,
+                "features": {
+                    "xGI_90": 0.55,
+                    "defcon": 0.0,
+                    "explosivity": 0.0,
+                    "form": 6.0,
+                    "ict_index": 108.8,
+                    "fixture_difficulty": 2,
+                    "selected_by": 13.6,
+                    "cost": 8.7
+                }
+            },
+            {
+                "id": 350,
+                "web_name": "Aaronson",
+                "team": "Leeds",
+                "position": 3,
+                "price": 5.4,
+                "predicted_points": 5.7,
+                "explosivity": 0.0,
+                "defcon": 0.0,
+                "ownership": 0.4,
+                "features": {
+                    "xGI_90": 0.39,
+                    "defcon": 0.0,
+                    "explosivity": 0.0,
+                    "form": 6.0,
+                    "ict_index": 94.0,
+                    "fixture_difficulty": 2,
+                    "selected_by": 0.4,
+                    "cost": 5.4
+                }
+            },
+            {
+                "id": 488,
+                "web_name": "Bruno G.",
+                "team": "Newcastle",
+                "position": 3,
+                "price": 7.2,
+                "predicted_points": 5.7,
+                "explosivity": 0.0,
+                "defcon": 0.0,
+                "ownership": 20.7,
+                "features": {
+                    "xGI_90": 0.33,
+                    "defcon": 0.0,
+                    "explosivity": 0.0,
+                    "form": 6.0,
+                    "ict_index": 139.2,
+                    "fixture_difficulty": 2,
+                    "selected_by": 20.7,
+                    "cost": 7.2
+                }
+            },
+            {
+                "id": 329,
+                "web_name": "Wilson",
+                "team": "Fulham",
+                "position": 3,
+                "price": 5.8,
+                "predicted_points": 5.69,
+                "explosivity": 0.0,
+                "defcon": 0.0,
+                "ownership": 19.6,
+                "features": {
+                    "xGI_90": 0.38,
+                    "defcon": 0.0,
+                    "explosivity": 0.0,
+                    "form": 6.7,
+                    "ict_index": 114.9,
+                    "fixture_difficulty": 3,
+                    "selected_by": 19.6,
+                    "cost": 5.8
+                }
+            },
+            {
+                "id": 407,
+                "web_name": "Matheus N.",
+                "team": "Man City",
+                "position": 2,
+                "price": 5.5,
+                "predicted_points": 5.34,
+                "explosivity": 0.0,
+                "defcon": 59.6,
+                "ownership": 4.6,
+                "features": {
+                    "xGI_90": 0.08,
+                    "defcon": 59.6,
+                    "explosivity": 0.0,
+                    "form": 6.2,
+                    "ict_index": 71.0,
+                    "fixture_difficulty": 3,
+                    "selected_by": 4.6,
+                    "cost": 5.5
+                }
+            },
+            {
+                "id": 694,
+                "web_name": "Mukiele",
+                "team": "Sunderland",
+                "position": 2,
+                "price": 4.4,
+                "predicted_points": 5.2,
+                "explosivity": 0.0,
+                "defcon": 71.6,
+                "ownership": 9.6,
+                "features": {
+                    "xGI_90": 0.1,
+                    "defcon": 71.6,
+                    "explosivity": 0.0,
+                    "form": 6.0,
+                    "ict_index": 71.3,
+                    "fixture_difficulty": 3,
+                    "selected_by": 9.6,
+                    "cost": 4.4
+                }
+            },
+            {
+                "id": 366,
+                "web_name": "A.Becker",
+                "team": "Liverpool",
+                "position": 1,
+                "price": 5.4,
+                "predicted_points": 5.0,
+                "explosivity": 0.0,
+                "defcon": 30.0,
+                "ownership": 5.9,
+                "features": {
+                    "xGI_90": 0.0,
+                    "defcon": 30.0,
+                    "explosivity": 0.0,
+                    "form": 5.0,
+                    "ict_index": 28.0,
+                    "fixture_difficulty": 2,
+                    "selected_by": 5.9,
+                    "cost": 5.4
+                }
+            },
+            {
+                "id": 343,
+                "web_name": "Struijk",
+                "team": "Leeds",
+                "position": 2,
+                "price": 4.3,
+                "predicted_points": 4.79,
+                "explosivity": 0.0,
+                "defcon": 100.0,
+                "ownership": 0.3,
+                "features": {
+                    "xGI_90": 0.13,
+                    "defcon": 100.0,
+                    "explosivity": 0.0,
+                    "form": 4.7,
+                    "ict_index": 67.1,
+                    "fixture_difficulty": 2,
+                    "selected_by": 0.3,
+                    "cost": 4.3
+                }
+            }
+        ]
+    },
+    "3": {
+        "timestamp": "2026-01-08T23:28:31.910552",
+        "predictions": [
+            {
+                "id": 106,
+                "web_name": "Collins",
+                "team": "Brentford",
+                "position": 2,
+                "price": 5.0,
+                "predicted_points": 6.6,
+                "explosivity": 0.0,
+                "defcon": 81.2,
+                "ownership": 2.7,
+                "features": {
+                    "xGI_90": 0.11000000000000001,
+                    "defcon": 81.2,
+                    "explosivity": 0.0,
+                    "form": 8.0,
+                    "ict_index": 91.1,
+                    "fixture_difficulty": 3,
+                    "selected_by": 2.7,
+                    "cost": 5.0
+                }
+            },
+            {
+                "id": 691,
+                "web_name": "Calvert-Lewin",
+                "team": "Leeds",
+                "position": 4,
+                "price": 6.0,
+                "predicted_points": 6.26,
+                "explosivity": 0.0,
+                "defcon": 0.0,
+                "ownership": 12.1,
+                "features": {
+                    "xGI_90": 0.6100000000000001,
+                    "defcon": 0.0,
+                    "explosivity": 0.0,
+                    "form": 6.8,
+                    "ict_index": 111.3,
+                    "fixture_difficulty": 2,
+                    "selected_by": 12.1,
+                    "cost": 6.0
+                }
+            },
+            {
+                "id": 47,
+                "web_name": "Rogers",
+                "team": "Aston Villa",
+                "position": 3,
+                "price": 7.6,
+                "predicted_points": 6.19,
+                "explosivity": 0.0,
+                "defcon": 0.0,
+                "ownership": 31.4,
+                "features": {
+                    "xGI_90": 0.27,
+                    "defcon": 0.0,
+                    "explosivity": 0.0,
+                    "form": 6.7,
+                    "ict_index": 126.8,
+                    "fixture_difficulty": 2,
+                    "selected_by": 31.4,
+                    "cost": 7.6
+                }
+            },
+            {
+                "id": 382,
+                "web_name": "Wirtz",
+                "team": "Liverpool",
+                "position": 3,
+                "price": 8.2,
+                "predicted_points": 6.05,
+                "explosivity": 0.0,
+                "defcon": 0.0,
+                "ownership": 10.6,
+                "features": {
+                    "xGI_90": 0.44,
+                    "defcon": 0.0,
+                    "explosivity": 0.0,
+                    "form": 6.5,
+                    "ict_index": 115.0,
+                    "fixture_difficulty": 2,
+                    "selected_by": 10.6,
+                    "cost": 8.2
+                }
+            },
+            {
+                "id": 101,
+                "web_name": "Kelleher",
+                "team": "Brentford",
+                "position": 1,
+                "price": 4.5,
+                "predicted_points": 5.76,
+                "explosivity": 0.0,
+                "defcon": 20.0,
+                "ownership": 9.4,
+                "features": {
+                    "xGI_90": 0.0,
+                    "defcon": 20.0,
+                    "explosivity": 0.0,
+                    "form": 6.8,
+                    "ict_index": 54.5,
+                    "fixture_difficulty": 3,
+                    "selected_by": 9.4,
+                    "cost": 4.5
+                }
+            },
+            {
+                "id": 107,
+                "web_name": "Lewis-Potter",
+                "team": "Brentford",
+                "position": 2,
+                "price": 4.9,
+                "predicted_points": 5.76,
+                "explosivity": 0.0,
+                "defcon": 100.0,
+                "ownership": 2.4,
+                "features": {
+                    "xGI_90": 0.22,
+                    "defcon": 100.0,
+                    "explosivity": 0.0,
+                    "form": 6.8,
+                    "ict_index": 46.6,
+                    "fixture_difficulty": 3,
+                    "selected_by": 2.4,
+                    "cost": 4.9
+                }
+            },
+            {
+                "id": 430,
+                "web_name": "Haaland",
+                "team": "Man City",
+                "position": 4,
+                "price": 15.1,
+                "predicted_points": 5.76,
+                "explosivity": 0.0,
+                "defcon": 0.0,
+                "ownership": 74.2,
+                "features": {
+                    "xGI_90": 0.97,
+                    "defcon": 0.0,
+                    "explosivity": 0.0,
+                    "form": 6.8,
+                    "ict_index": 200.4,
+                    "fixture_difficulty": 3,
+                    "selected_by": 74.2,
+                    "cost": 15.1
+                }
+            },
+            {
+                "id": 64,
+                "web_name": "Watkins",
+                "team": "Aston Villa",
+                "position": 4,
+                "price": 8.7,
+                "predicted_points": 5.7,
+                "explosivity": 0.0,
+                "defcon": 0.0,
+                "ownership": 13.6,
+                "features": {
+                    "xGI_90": 0.55,
+                    "defcon": 0.0,
+                    "explosivity": 0.0,
+                    "form": 6.0,
+                    "ict_index": 108.8,
+                    "fixture_difficulty": 2,
+                    "selected_by": 13.6,
+                    "cost": 8.7
+                }
+            },
+            {
+                "id": 350,
+                "web_name": "Aaronson",
+                "team": "Leeds",
+                "position": 3,
+                "price": 5.4,
+                "predicted_points": 5.7,
+                "explosivity": 0.0,
+                "defcon": 0.0,
+                "ownership": 0.4,
+                "features": {
+                    "xGI_90": 0.39,
+                    "defcon": 0.0,
+                    "explosivity": 0.0,
+                    "form": 6.0,
+                    "ict_index": 94.0,
+                    "fixture_difficulty": 2,
+                    "selected_by": 0.4,
+                    "cost": 5.4
+                }
+            },
+            {
+                "id": 488,
+                "web_name": "Bruno G.",
+                "team": "Newcastle",
+                "position": 3,
+                "price": 7.2,
+                "predicted_points": 5.7,
+                "explosivity": 0.0,
+                "defcon": 0.0,
+                "ownership": 20.7,
+                "features": {
+                    "xGI_90": 0.33,
+                    "defcon": 0.0,
+                    "explosivity": 0.0,
+                    "form": 6.0,
+                    "ict_index": 139.2,
+                    "fixture_difficulty": 2,
+                    "selected_by": 20.7,
+                    "cost": 7.2
+                }
+            },
+            {
+                "id": 329,
+                "web_name": "Wilson",
+                "team": "Fulham",
+                "position": 3,
+                "price": 5.8,
+                "predicted_points": 5.69,
+                "explosivity": 0.0,
+                "defcon": 0.0,
+                "ownership": 19.6,
+                "features": {
+                    "xGI_90": 0.38,
+                    "defcon": 0.0,
+                    "explosivity": 0.0,
+                    "form": 6.7,
+                    "ict_index": 114.9,
+                    "fixture_difficulty": 3,
+                    "selected_by": 19.6,
+                    "cost": 5.8
+                }
+            },
+            {
+                "id": 407,
+                "web_name": "Matheus N.",
+                "team": "Man City",
+                "position": 2,
+                "price": 5.5,
+                "predicted_points": 5.34,
+                "explosivity": 0.0,
+                "defcon": 59.6,
+                "ownership": 4.6,
+                "features": {
+                    "xGI_90": 0.08,
+                    "defcon": 59.6,
+                    "explosivity": 0.0,
+                    "form": 6.2,
+                    "ict_index": 71.0,
+                    "fixture_difficulty": 3,
+                    "selected_by": 4.6,
+                    "cost": 5.5
+                }
+            },
+            {
+                "id": 694,
+                "web_name": "Mukiele",
+                "team": "Sunderland",
+                "position": 2,
+                "price": 4.4,
+                "predicted_points": 5.2,
+                "explosivity": 0.0,
+                "defcon": 71.6,
+                "ownership": 9.6,
+                "features": {
+                    "xGI_90": 0.1,
+                    "defcon": 71.6,
+                    "explosivity": 0.0,
+                    "form": 6.0,
+                    "ict_index": 71.3,
+                    "fixture_difficulty": 3,
+                    "selected_by": 9.6,
+                    "cost": 4.4
+                }
+            },
+            {
+                "id": 366,
+                "web_name": "A.Becker",
+                "team": "Liverpool",
+                "position": 1,
+                "price": 5.4,
+                "predicted_points": 5.0,
+                "explosivity": 0.0,
+                "defcon": 30.0,
+                "ownership": 5.9,
+                "features": {
+                    "xGI_90": 0.0,
+                    "defcon": 30.0,
+                    "explosivity": 0.0,
+                    "form": 5.0,
+                    "ict_index": 28.0,
+                    "fixture_difficulty": 2,
+                    "selected_by": 5.9,
+                    "cost": 5.4
+                }
+            },
+            {
+                "id": 343,
+                "web_name": "Struijk",
+                "team": "Leeds",
+                "position": 2,
+                "price": 4.3,
+                "predicted_points": 4.79,
+                "explosivity": 0.0,
+                "defcon": 100.0,
+                "ownership": 0.3,
+                "features": {
+                    "xGI_90": 0.13,
+                    "defcon": 100.0,
+                    "explosivity": 0.0,
+                    "form": 4.7,
+                    "ict_index": 67.1,
+                    "fixture_difficulty": 2,
+                    "selected_by": 0.3,
+                    "cost": 4.3
+                }
+            }
+        ]
+    },
+    "22": {
+        "timestamp": "2026-01-09T09:25:42.985793",
+        "predictions": [
+            {
+                "id": 106,
+                "web_name": "Collins",
+                "team": "Brentford",
+                "position": 2,
+                "price": 5.0,
+                "predicted_points": 6.6,
+                "explosivity": 0.0,
+                "defcon": 81.2,
+                "ownership": 2.8,
+                "features": {
+                    "xGI_90": 0.11000000000000001,
+                    "defcon": 81.2,
+                    "explosivity": 0.0,
+                    "form": 8.0,
+                    "ict_index": 91.1,
+                    "fixture_difficulty": 3,
+                    "selected_by": 2.8,
+                    "cost": 5.0
+                }
+            },
+            {
+                "id": 691,
+                "web_name": "Calvert-Lewin",
+                "team": "Leeds",
+                "position": 4,
+                "price": 6.0,
+                "predicted_points": 6.26,
+                "explosivity": 0.0,
+                "defcon": 0.0,
+                "ownership": 12.3,
+                "features": {
+                    "xGI_90": 0.6100000000000001,
+                    "defcon": 0.0,
+                    "explosivity": 0.0,
+                    "form": 6.8,
+                    "ict_index": 111.3,
+                    "fixture_difficulty": 2,
+                    "selected_by": 12.3,
+                    "cost": 6.0
+                }
+            },
+            {
+                "id": 47,
+                "web_name": "Rogers",
+                "team": "Aston Villa",
+                "position": 3,
+                "price": 7.6,
+                "predicted_points": 6.19,
+                "explosivity": 0.0,
+                "defcon": 0.0,
+                "ownership": 31.5,
+                "features": {
+                    "xGI_90": 0.27,
+                    "defcon": 0.0,
+                    "explosivity": 0.0,
+                    "form": 6.7,
+                    "ict_index": 126.8,
+                    "fixture_difficulty": 2,
+                    "selected_by": 31.5,
+                    "cost": 7.6
+                }
+            },
+            {
+                "id": 382,
+                "web_name": "Wirtz",
+                "team": "Liverpool",
+                "position": 3,
+                "price": 8.2,
+                "predicted_points": 6.05,
+                "explosivity": 0.0,
+                "defcon": 0.0,
+                "ownership": 10.7,
+                "features": {
+                    "xGI_90": 0.44,
+                    "defcon": 0.0,
+                    "explosivity": 0.0,
+                    "form": 6.5,
+                    "ict_index": 115.0,
+                    "fixture_difficulty": 2,
+                    "selected_by": 10.7,
+                    "cost": 8.2
+                }
+            },
+            {
+                "id": 101,
+                "web_name": "Kelleher",
+                "team": "Brentford",
+                "position": 1,
+                "price": 4.5,
+                "predicted_points": 5.76,
+                "explosivity": 0.0,
+                "defcon": 20.0,
+                "ownership": 9.5,
+                "features": {
+                    "xGI_90": 0.0,
+                    "defcon": 20.0,
+                    "explosivity": 0.0,
+                    "form": 6.8,
+                    "ict_index": 54.5,
+                    "fixture_difficulty": 3,
+                    "selected_by": 9.5,
+                    "cost": 4.5
+                }
+            },
+            {
+                "id": 107,
+                "web_name": "Lewis-Potter",
+                "team": "Brentford",
+                "position": 2,
+                "price": 4.9,
+                "predicted_points": 5.76,
+                "explosivity": 0.0,
+                "defcon": 100.0,
+                "ownership": 2.4,
+                "features": {
+                    "xGI_90": 0.22,
+                    "defcon": 100.0,
+                    "explosivity": 0.0,
+                    "form": 6.8,
+                    "ict_index": 46.6,
+                    "fixture_difficulty": 3,
+                    "selected_by": 2.4,
+                    "cost": 4.9
+                }
+            },
+            {
+                "id": 430,
+                "web_name": "Haaland",
+                "team": "Man City",
+                "position": 4,
+                "price": 15.1,
+                "predicted_points": 5.76,
+                "explosivity": 0.0,
+                "defcon": 0.0,
+                "ownership": 74.2,
+                "features": {
+                    "xGI_90": 0.97,
+                    "defcon": 0.0,
+                    "explosivity": 0.0,
+                    "form": 6.8,
+                    "ict_index": 200.4,
+                    "fixture_difficulty": 3,
+                    "selected_by": 74.2,
+                    "cost": 15.1
+                }
+            },
+            {
+                "id": 64,
+                "web_name": "Watkins",
+                "team": "Aston Villa",
+                "position": 4,
+                "price": 8.7,
+                "predicted_points": 5.7,
+                "explosivity": 0.0,
+                "defcon": 0.0,
+                "ownership": 13.7,
+                "features": {
+                    "xGI_90": 0.55,
+                    "defcon": 0.0,
+                    "explosivity": 0.0,
+                    "form": 6.0,
+                    "ict_index": 108.8,
+                    "fixture_difficulty": 2,
+                    "selected_by": 13.7,
+                    "cost": 8.7
+                }
+            },
+            {
+                "id": 350,
+                "web_name": "Aaronson",
+                "team": "Leeds",
+                "position": 3,
+                "price": 5.4,
+                "predicted_points": 5.7,
+                "explosivity": 0.0,
+                "defcon": 0.0,
+                "ownership": 0.4,
+                "features": {
+                    "xGI_90": 0.39,
+                    "defcon": 0.0,
+                    "explosivity": 0.0,
+                    "form": 6.0,
+                    "ict_index": 94.0,
+                    "fixture_difficulty": 2,
+                    "selected_by": 0.4,
+                    "cost": 5.4
+                }
+            },
+            {
+                "id": 488,
+                "web_name": "Bruno G.",
+                "team": "Newcastle",
+                "position": 3,
+                "price": 7.2,
+                "predicted_points": 5.7,
+                "explosivity": 0.0,
+                "defcon": 0.0,
+                "ownership": 21.1,
+                "features": {
+                    "xGI_90": 0.33,
+                    "defcon": 0.0,
+                    "explosivity": 0.0,
+                    "form": 6.0,
+                    "ict_index": 139.2,
+                    "fixture_difficulty": 2,
+                    "selected_by": 21.1,
+                    "cost": 7.2
+                }
+            },
+            {
+                "id": 329,
+                "web_name": "Wilson",
+                "team": "Fulham",
+                "position": 3,
+                "price": 5.8,
+                "predicted_points": 5.69,
+                "explosivity": 0.0,
+                "defcon": 0.0,
+                "ownership": 19.8,
+                "features": {
+                    "xGI_90": 0.38,
+                    "defcon": 0.0,
+                    "explosivity": 0.0,
+                    "form": 6.7,
+                    "ict_index": 114.9,
+                    "fixture_difficulty": 3,
+                    "selected_by": 19.8,
+                    "cost": 5.8
+                }
+            },
+            {
+                "id": 407,
+                "web_name": "Matheus N.",
+                "team": "Man City",
+                "position": 2,
+                "price": 5.5,
+                "predicted_points": 5.34,
+                "explosivity": 0.0,
+                "defcon": 59.6,
+                "ownership": 4.6,
+                "features": {
+                    "xGI_90": 0.08,
+                    "defcon": 59.6,
+                    "explosivity": 0.0,
+                    "form": 6.2,
+                    "ict_index": 71.0,
+                    "fixture_difficulty": 3,
+                    "selected_by": 4.6,
+                    "cost": 5.5
+                }
+            },
+            {
+                "id": 694,
+                "web_name": "Mukiele",
+                "team": "Sunderland",
+                "position": 2,
+                "price": 4.4,
+                "predicted_points": 5.2,
+                "explosivity": 0.0,
+                "defcon": 71.6,
+                "ownership": 9.6,
+                "features": {
+                    "xGI_90": 0.1,
+                    "defcon": 71.6,
+                    "explosivity": 0.0,
+                    "form": 6.0,
+                    "ict_index": 71.3,
+                    "fixture_difficulty": 3,
+                    "selected_by": 9.6,
+                    "cost": 4.4
+                }
+            },
+            {
+                "id": 366,
+                "web_name": "A.Becker",
+                "team": "Liverpool",
+                "position": 1,
+                "price": 5.4,
+                "predicted_points": 5.0,
+                "explosivity": 0.0,
+                "defcon": 30.0,
+                "ownership": 5.9,
+                "features": {
+                    "xGI_90": 0.0,
+                    "defcon": 30.0,
+                    "explosivity": 0.0,
+                    "form": 5.0,
+                    "ict_index": 28.0,
+                    "fixture_difficulty": 2,
+                    "selected_by": 5.9,
+                    "cost": 5.4
+                }
+            },
+            {
+                "id": 343,
+                "web_name": "Struijk",
+                "team": "Leeds",
+                "position": 2,
+                "price": 4.3,
+                "predicted_points": 4.79,
+                "explosivity": 0.0,
+                "defcon": 100.0,
+                "ownership": 0.3,
+                "features": {
+                    "xGI_90": 0.13,
+                    "defcon": 100.0,
+                    "explosivity": 0.0,
+                    "form": 4.7,
+                    "ict_index": 67.1,
+                    "fixture_difficulty": 2,
+                    "selected_by": 0.3,
+                    "cost": 4.3
+                }
+            }
+        ]
+    }
+}

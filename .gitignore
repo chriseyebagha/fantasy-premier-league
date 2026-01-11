@@ -31,14 +31,9 @@ Thumbs.db
 # Environment
 .env
 .env.local
+venv_new/
+.venv/
 
-# Logs
-*.log
-npm-debug.log*
-
-# Test data
-fpl_bootstrap.json
-fpl_element_summary.json
-
-# Artifacts (optional - keep if you want them in repo)
+# Agent/AI metadata
+.agent/
 .gemini/

@@ -1,0 +1,85 @@
+import pandas as pd
+import numpy as np
+from typing import Dict, List, Optional
+
+class FeatureFactory:
+    """Derives high-signal metrics for the FPL model."""
+    
+    @staticmethod
+    def calculate_xgi(xg: float, xa: float) -> float:
+        """Expected Goal Involvement."""
+        return xg + xa
+
+    @staticmethod
+    def calculate_defcon(player_row: Dict, clean_sheet_prob: float) -> float:
+        """
+        Defensive Contribution (Defcon).
+        Combines Clean Sheet potential with attacking threat (xG/xA/xGI).
+        High Defcon = Defender/GK with significant haul potential.
+        """
+        # Element types: 1=GK, 2=DEF
+        if player_row['element_type'] not in [1, 2]:
+            return 0.0
+            
+        xg_90 = float(player_row.get('expected_goals_per_90', 0))
+        xa_90 = float(player_row.get('expected_assists_per_90', 0))
+        
+        # Attack weight: Defenders who shoot or cross/pass are prioritized
+        attacking_threat = (xg_90 * 1.5) + (xa_90 * 1.2)
+        
+        # Defcon = baseline clean sheet potential + extra attacking threat
+        # Normalized to roughly 0-100 scale
+        defcon_score = (clean_sheet_prob * 60) + (attacking_threat * 400)
+        return min(round(defcon_score, 1), 100.0)
+
+    @staticmethod
+    def calculate_explosivity_index(history: List[Dict], form: float = 0.0, xgi_90: float = 0.0) -> float:
+        """
+        Measures history of 10+ point hauls ('explosivity') and elite current performance.
+        Includes bonuses for 'Fixture-Proof' elite players.
+        """
+        if not history:
+            return 0.0
+            
+        hauls = sum(1 for m in history if m.get('total_points', 0) >= 10)
+        frequency = hauls / len(history) if history else 0
+        
+        # 1. Historical Weight (Max 40 pts)
+        recent_history = history[-6:]
+        recent_hauls = sum(1 for m in recent_history if m.get('total_points', 0) >= 10)
+        hist_score = (frequency * 30) + (recent_hauls * 10)
+        
+        # 2. Performance Bonuses (Unbiased metrics)
+        form_bonus = 15.0 if form >= 7.5 else 0.0
+        xgi_bonus = 15.0 if xgi_90 >= 0.70 else 0.0
+        haul_bonus = 20.0 if hauls >= 5 else 0.0
+        
+        # 3. Aggregated Score
+        score = hist_score + form_bonus + xgi_bonus + haul_bonus
+        
+        return min(round(score, 1), 100.0)
+
+    @classmethod
+    def prepare_features(cls, player_data: Dict, history: List[Dict], next_fixture_diff: int) -> Dict:
+        """Assembles a full feature vector for the XGBoost model."""
+        xg_90 = float(player_data.get('expected_goals_per_90', 0))
+        xa_90 = float(player_data.get('expected_assists_per_90', 0))
+        
+        # Simple heuristic for clean sheet prob based on fixture difficulty (will be refined)
+        cs_prob = 1.0 / next_fixture_diff if next_fixture_diff > 0 else 0.2
+        
+        # Explicitly count total seasonal hauls
+        hauls = sum(1 for m in history if m.get('total_points', 0) >= 10) if history else 0
+        
+        xgi_90 = cls.calculate_xgi(xg_90, xa_90)
+        return {
+            "xGI_90": xgi_90,
+            "defcon": cls.calculate_defcon(player_data, cs_prob),
+            "explosivity": cls.calculate_explosivity_index(history, float(player_data.get('form', 0)), xgi_90),
+            "form": float(player_data.get('form', 0)),
+            "ict_index": float(player_data.get('ict_index', 0)),
+            "fixture_difficulty": next_fixture_diff,
+            "selected_by": float(player_data.get('selected_by_percent', 0)),
+            "cost": player_data['now_cost'] / 10.0,
+            "hauls": hauls
+        }
