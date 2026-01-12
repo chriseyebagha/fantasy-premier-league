@@ -93,7 +93,7 @@ h1 {
   border-radius: 40px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
-  min-height: 850px;
+  min-height: 700px;
   box-shadow:
     0 40px 100px -20px rgba(0, 0, 0, 0.9),
     inset 0 0 100px rgba(0, 255, 128, 0.05);
@@ -124,11 +124,17 @@ h1 {
 .pitch-row {
   display: flex;
   justify-content: center;
-  gap: 1%;
+  gap: 4px;
   flex-wrap: nowrap;
   z-index: 1;
   width: 100%;
   margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .pitch-row {
+    gap: 1%;
+  }
 }
 
 /* Custom Scrollbar */
