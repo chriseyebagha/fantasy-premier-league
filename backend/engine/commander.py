@@ -101,10 +101,8 @@ class EngineCommander:
             prediction = float(predictions[i])
             
             # 2. Performance Boost (Balanced Season Pedigree vs Recent Form)
-            # Restoring Form weight while keeping a moderate Pedigree buff
-            # This allows "On-Form" players like Garner to challenge "Elite" players like Rice
-            # while the Minutes Resilience (above) ensures Rice isn't unfairly penalized for one rest.
-            performance_boost = (float(p.get('form') or 0) * 0.35) + (float(p.get('total_points') or 0) / 55.0)
+            # Removed additive boost to prevent double-counting.
+            # We rely on XGBoost's native handling of Form/Points and use multipliers below.
             
             # 3. Fixture Adjustment (Boost easy, Penalize hard)
             fixture_multiplier = 1.0
@@ -120,11 +118,10 @@ class EngineCommander:
             elif fdr >= 4: 
                 fixture_multiplier = 0.9 if is_fixture_proof else 0.75
             
-            # 4. Position Bias (Favor MIDs and FWDs for explosivity)
             # 5% Premium for Attackers, 10% Discount for Defenders (Clean Sheet Risk is high)
             pos_bias = 1.05 if p['element_type'] in [3, 4] else 0.90
             
-            final_score = round((prediction + performance_boost) * fixture_multiplier * pos_bias, 2)
+            final_score = round(prediction * fixture_multiplier * pos_bias, 2)
             
             processed.append({
                 "id": p['id'],
