@@ -9,7 +9,7 @@ This project is an automated, data-driven engine that predicts FPL outcomes usin
 ## 📚 Documentation
 - **[User Guide](./USER_GUIDE.md)**: How to use the "Captaincy Personas" and optimized squad to win your mini-leagues.
 - **[Technical Architecture](./TECHNICAL_ARCHITECTURE.md)**: A look under the hood. System diagrams, directory structure, and the logic behind the "Virtual Loop" automation.
-- **[Model & Metrics](./MODEL_AND_METRICS.md)**: Deep dive into the XGBoost regression model, the "Explosivity Index", and the "Defcon Score".
+- **[Model & Metrics](./MODEL_AND_METRICS.md)**: Deep dive into the XGBoost regression model, including exact formulas for the "Explosivity Index" and "Defcon Score".
 
 ## 🚀 Key Features
 - **🤖 XGBoost Engine**: Uses gradient boosting to value player potential over hype.
