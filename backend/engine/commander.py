@@ -100,10 +100,11 @@ class EngineCommander:
             # 1. Base ML Prediction
             prediction = float(predictions[i])
             
-            # 2. Performance Boost (Season-long reliability vs Recent Form)
-            # Final Aggressive Buff: Ensure seasonal "Star" pedigree (Rice) 
-            # overrides short-term rotation/form assets (Garner)
-            performance_boost = (float(p.get('form') or 0) * 0.2) + (float(p.get('total_points') or 0) / 30.0)
+            # 2. Performance Boost (Balanced Season Pedigree vs Recent Form)
+            # Restoring Form weight while keeping a moderate Pedigree buff
+            # This allows "On-Form" players like Garner to challenge "Elite" players like Rice
+            # while the Minutes Resilience (above) ensures Rice isn't unfairly penalized for one rest.
+            performance_boost = (float(p.get('form') or 0) * 0.35) + (float(p.get('total_points') or 0) / 55.0)
             
             # 3. Fixture Adjustment (Boost easy, Penalize hard)
             fixture_multiplier = 1.0
