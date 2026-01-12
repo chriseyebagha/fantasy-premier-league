@@ -112,6 +112,7 @@ export default function Home() {
           <PlayerDashboard
             squad={data.squad}
             bench={data.bench}
+            gameweek={data.gameweek}
             optimized_squad={data.optimized_squad}
             weights={data.recommendations.weights}
           />

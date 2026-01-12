@@ -6,6 +6,7 @@ import { Player } from '../types/player';
 interface PlayerDashboardProps {
     squad: Player[];
     bench: Player[];
+    gameweek?: number;
     weights?: any;
 }
 
@@ -37,8 +38,8 @@ const MiniPlayerCard = ({ player, isBench = false }: { player: any, isBench?: bo
             <div className="font-bold text-[8px] md:text-xs truncate uppercase tracking-tighter">{player.web_name}</div>
             <div className="flex flex-col items-center gap-0.5 mt-0.5">
                 <div className="text-[6px] md:text-[9px] text-text-muted leading-none whitespace-nowrap">
-                    <span className="md:hidden">vs {player.next_fixture}</span>
-                    <span className="hidden md:inline">{player.team} <span className="text-slate-400 font-normal ml-0.5 whitespace-nowrap">vs {player.next_fixture}</span></span>
+                    <span className="md:hidden">vs&nbsp;{player.next_fixture}</span>
+                    <span className="hidden md:inline">{player.team} <span className="text-slate-400 font-normal ml-0.5 whitespace-nowrap">vs&nbsp;{player.next_fixture}</span></span>
                 </div>
 
                 <div
@@ -83,7 +84,7 @@ const MiniPlayerCard = ({ player, isBench = false }: { player: any, isBench?: bo
     </div>
 );
 
-export default function PlayerDashboard({ squad, bench, weights, optimized_squad }: PlayerDashboardProps & { optimized_squad?: any }) {
+export default function PlayerDashboard({ squad, bench, gameweek, weights, optimized_squad }: PlayerDashboardProps & { optimized_squad?: any }) {
     // Use optimized squad if available, otherwise fallback to top-15
     const displaySquad = optimized_squad?.players?.starting_11 || squad;
     const displayBench = optimized_squad?.players?.bench || bench;
@@ -100,10 +101,10 @@ export default function PlayerDashboard({ squad, bench, weights, optimized_squad
     return (
         <div className="space-y-16">
             <div className="pitch-container relative overflow-visible">
-                <div className="absolute -top-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1">
-                    <div className="text-[10px] font-black tracking-[0.4em] text-slate-300 uppercase pointer-events-none">
-                        Neural Team Architecture
-                    </div>
+                <div className="absolute -top-16 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 w-full">
+                    <h2 className="text-sm md:text-2xl font-black uppercase tracking-[0.3em] md:tracking-[0.5em] text-slate-800 text-center whitespace-nowrap">
+                        Gameweek {gameweek || '22'} Team Selection
+                    </h2>
                     {optimized_squad && (
                         <div className="px-3 py-1 bg-primary-glow/10 border border-primary-glow/20 rounded-full text-[9px] font-bold text-primary-glow uppercase tracking-widest">
                             Formation {formation}
@@ -155,11 +156,11 @@ export default function PlayerDashboard({ squad, bench, weights, optimized_squad
                             </div>
                             <div className="flex flex-col border-l border-slate-200 pl-4">
                                 <span className="text-[8px] uppercase font-black tracking-widest text-text-muted mb-1">Projected XI</span>
-                                <span className="text-xs font-bold text-explosive-glow">{optimized_squad.starting_11_points} Pts</span>
+                                <span className="text-xs font-bold text-explosive-glow">{optimized_squad.total_predicted_points?.toFixed(1) || '0.0'} Pts</span>
                             </div>
                             <div className="flex flex-col border-l border-slate-200 pl-4 hidden md:flex">
                                 <span className="text-[8px] uppercase font-black tracking-widest text-text-muted mb-1">Bench Potential</span>
-                                <span className="text-xs font-bold text-slate-500">{optimized_squad.bench_points} Pts</span>
+                                <span className="text-xs font-bold text-slate-500">{optimized_squad.bench_predicted_points?.toFixed(1) || '0.0'} Pts</span>
                             </div>
                         </div>
                     </div>
