@@ -1,6 +1,6 @@
 {
     "status": "online",
-    "last_updated": "2026-01-12T06:34:05.284171+00:00",
+    "last_updated": "2026-01-12T06:47:35.978671+00:00",
     "gameweek": 22,
     "squad": [
         {
@@ -602,27 +602,6 @@
         "bench_predicted_points": 36.87
     },
     "recommendations": {
-        "easy_choice": {
-            "id": 430,
-            "web_name": "Haaland",
-            "team": "Man City",
-            "position": 4,
-            "price": 15.1,
-            "predicted_points": 12.85,
-            "goals": 20,
-            "assists": 4,
-            "xG": 18.47,
-            "xA": 1.26,
-            "avg_minutes": 90.0,
-            "can_start": true,
-            "next_fixture": "MAN (A)",
-            "next_fixture_difficulty": 3,
-            "explosivity": 56.4,
-            "defcon": 0.0,
-            "ownership": 74.3,
-            "hauls": 8,
-            "reason": "Haaland is the 'Easy Choice' based on 8 double-digit hauls and 74.3% ownership."
-        },
         "obvious": {
             "id": 47,
             "web_name": "Rogers",
