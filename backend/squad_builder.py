@@ -160,7 +160,7 @@ def get_all_predicted_players(dm: FPLDataManager, commander: EngineCommander) ->
         chance_mult = (float(chance) / 100.0) if chance is not None else 1.0
         
         diff = team_diff.get(p['team'], 3)
-        features = FeatureFactory.prepare_features(p, history, diff)
+        features = FeatureFactory.prepare_features(p, history, diff, next_gw)
         
         player_features.append(features)
         valid_players.append({
