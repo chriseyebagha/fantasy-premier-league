@@ -76,15 +76,20 @@ A 0-100 hybrid score for identifying "The Fun One" (defenders with attacking thr
 
 **Formula:**
 ```python
-Defcon = (Clean_Sheet_Prob * 60) + (Attacking_Threat * 400)
+Defcon = (Clean_Sheet_Prob * 60) + (Defensive_Work * 4) + (Attacking_Threat * 400)
 ```
 
-**1. Clean Sheet Probability**
+**1. Clean Sheet Probability (Foundation)**
 Derived inversely from FDR.
 - Easy Fixture (FDR 2) ≈ 50% chance (0.5)
-- Hard Fixture (FDR 5) ≈ 20% chance (0.2)
 
-**2. Attacking Threat**
+**2. Defensive Work Rate (BPS Magnet)**
+Built directly from FPL's `defensive_contribution_per_90` API field (Clearances, Blocks, Interceptions).
+- Elite defenders average ~8.0 contributions per 90.
+- Weighted x4.0 to contribute ~32 points to the Defcon score.
+- *Goal*: Identify defenders who get Bonus Points even without a clean sheet.
+
+**3. Attacking Threat**
 ```python
 Threat = (xG_per_90 * 1.5) + (xA_per_90 * 1.2)
 ```

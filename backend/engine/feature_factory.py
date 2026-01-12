@@ -24,12 +24,16 @@ class FeatureFactory:
         xg_90 = float(player_row.get('expected_goals_per_90', 0))
         xa_90 = float(player_row.get('expected_assists_per_90', 0))
         
+        defensive_action = float(player_row.get('defensive_contribution_per_90', 0))
+        
         # Attack weight: Defenders who shoot or cross/pass are prioritized
         attacking_threat = (xg_90 * 1.5) + (xa_90 * 1.2)
         
-        # Defcon = baseline clean sheet potential + extra attacking threat
-        # Normalized to roughly 0-100 scale
-        defcon_score = (clean_sheet_prob * 60) + (attacking_threat * 400)
+        # Defcon Score:
+        # 1. Clean Sheet Potential (Foundation)
+        # 2. Defensive Work Rate (Bonus Points magnet) - Weight: 4.0 (Scale ~8.0 -> 32 pts)
+        # 3. Attacking Threat (Goal/Assist upside) - Weight: 400 (Scale ~0.1 -> 40 pts)
+        defcon_score = (clean_sheet_prob * 60) + (defensive_action * 4.0) + (attacking_threat * 400)
         return min(round(defcon_score, 1), 100.0)
 
     @staticmethod
