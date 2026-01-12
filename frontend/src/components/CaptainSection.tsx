@@ -74,7 +74,7 @@ export default function CaptainSection({ captains, gameweek }: CaptainSectionPro
     return (
         <section className="mb-12 md:mb-20">
             <div className="mb-10 text-center md:text-left">
-                <h2 className="text-sm md:text-2xl font-black uppercase tracking-[0.3em] md:tracking-[0.5em] text-slate-800">
+                <h2 className="text-[10px] sm:text-sm md:text-2xl font-black uppercase tracking-widest sm:tracking-[0.3em] md:tracking-[0.5em] text-slate-800 leading-relaxed">
                     Gameweek {gameweek} Captaincy
                 </h2>
             </div>

@@ -101,13 +101,13 @@ export default function PlayerDashboard({ squad, bench, gameweek, weights, optim
     return (
         <div className="space-y-16">
             <div className="max-w-4xl mx-auto px-4 md:px-0">
-                <h2 className="text-sm md:text-2xl font-black uppercase tracking-[0.3em] md:tracking-[0.5em] text-slate-800 text-center whitespace-nowrap mb-8">
+                <h2 className="text-[10px] sm:text-sm md:text-2xl font-black uppercase tracking-widest sm:tracking-[0.3em] md:tracking-[0.5em] text-slate-800 text-center leading-relaxed mb-12">
                     Gameweek {gameweek || '22'} Team Selection
                 </h2>
             </div>
 
-            <div className="pitch-container relative overflow-visible !mt-4">
-                <div className="absolute -top-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 w-full pointer-events-none">
+            <div className="pitch-container relative overflow-visible !mt-0">
+                <div className="absolute -top-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 w-full pointer-events-none">
                     {optimized_squad && (
                         <div className="px-3 py-1 bg-primary-glow/10 border border-primary-glow/20 rounded-full text-[9px] font-bold text-primary-glow uppercase tracking-widest">
                             Formation {formation}
@@ -152,18 +152,18 @@ export default function PlayerDashboard({ squad, bench, gameweek, weights, optim
                 {/* Budget & Performance Card - Optimized Real Estate */}
                 {optimized_squad && (
                     <div className="glass-card !bg-slate-50/50 border-t-2 border-slate-200 !p-4 md:!p-6">
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-x-16">
                             <div className="flex flex-col">
-                                <span className="text-[8px] uppercase font-black tracking-widest text-text-muted mb-1">Cost</span>
-                                <span className="text-xs font-bold text-slate-800">£{optimized_squad.total_cost}m <span className="text-slate-400 font-medium">/ £100m</span></span>
+                                <span className="text-[8px] uppercase font-black tracking-widest text-text-muted mb-1.5 md:mb-2">Team Cost</span>
+                                <span className="text-[10px] md:text-sm font-bold text-slate-800">£{optimized_squad.total_cost}m <span className="text-slate-400 font-medium">/ £100m</span></span>
                             </div>
-                            <div className="flex flex-col border-l border-slate-200 pl-4">
-                                <span className="text-[8px] uppercase font-black tracking-widest text-text-muted mb-1">Projected XI</span>
-                                <span className="text-xs font-bold text-explosive-glow">{optimized_squad.total_predicted_points?.toFixed(1) || '0.0'} Pts</span>
+                            <div className="flex flex-col border-l border-slate-200/30 pl-8 md:pl-12">
+                                <span className="text-[8px] uppercase font-black tracking-widest text-text-muted mb-1.5 md:mb-2">Projected XI</span>
+                                <span className="text-[10px] md:text-sm font-bold text-explosive-glow">{optimized_squad.total_predicted_points?.toFixed(1) || '0.0'} <span className="text-[8px] md:text-[10px] uppercase ml-0.5">Pts</span></span>
                             </div>
-                            <div className="flex flex-col border-l border-slate-200 pl-4 hidden md:flex">
-                                <span className="text-[8px] uppercase font-black tracking-widest text-text-muted mb-1">Bench Potential</span>
-                                <span className="text-xs font-bold text-slate-500">{optimized_squad.bench_predicted_points?.toFixed(1) || '0.0'} Pts</span>
+                            <div className="flex flex-col border-l border-slate-200/30 pl-8 md:pl-12 hidden md:flex">
+                                <span className="text-[8px] uppercase font-black tracking-widest text-text-muted mb-1.5 md:mb-2">Bench Potential</span>
+                                <span className="text-[10px] md:text-sm font-bold text-slate-500">{optimized_squad.bench_predicted_points?.toFixed(1) || '0.0'} <span className="text-[8px] md:text-[10px] uppercase ml-0.5">Pts</span></span>
                             </div>
                         </div>
                     </div>

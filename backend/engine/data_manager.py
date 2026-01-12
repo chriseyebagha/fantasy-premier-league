@@ -45,3 +45,20 @@ class FPLDataManager:
             if event.get('is_next'):
                 return event.get('id', 1)
         return 1
+
+    def get_actual_points(self, gameweek: int) -> Dict[int, float]:
+        """Fetches actual points scored by all players in a specific gameweek."""
+        bootstrap = self.get_bootstrap_static()
+        players = bootstrap['elements']
+        actual_points = {}
+        
+        # We need individual summaries to get historical points for a specific GW
+        # However, for efficiency, if it's a past GW, we can often find it in player history
+        for p in players:
+            summary = self.get_player_summary(p['id'])
+            history = summary.get('history', [])
+            for entry in history:
+                if entry['round'] == gameweek:
+                    actual_points[p['id']] = float(entry['total_points'])
+                    break
+        return actual_points

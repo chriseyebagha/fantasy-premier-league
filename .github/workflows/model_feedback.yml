@@ -1,0 +1,44 @@
+name: Weekly Model Feedback Loop
+
+on:
+  schedule:
+    # Run every Tuesday at 08:00 UTC (typical GW completion window)
+    - cron: '0 8 * * 2'
+  workflow_dispatch: # Enable manual trigger
+
+jobs:
+  evaluate-and-retrain:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          token: ${{ secrets.PAT_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install pandas xgboost scikit-learn numpy requests joblib
+
+      - name: Run Model Evaluation & Retraining
+        run: |
+          export PYTHONPATH=$PYTHONPATH:.
+          python backend/evaluate_model.py
+
+      - name: Commit and Push Results
+        run: |
+          git config --global user.name "AI FPL Engine"
+          git config --global user.email "ai-engine@chriseyebagha.com"
+          git add backend/data/feedback_loop.json \
+                  backend/data/training_data.json \
+                  backend/data/performance_report.md \
+                  backend/data/model_*.joblib
+          git commit -m "Engine: Weekly Model Evaluation & Retraining [Skip CI]" || echo "No changes to commit"
+          git push origin main

@@ -134,6 +134,7 @@ class EngineCommander:
                 "defcon": float(features.get('defcon', 0)),
                 "ownership": float(features.get('selected_by', 0)),
                 "hauls": int(features.get('hauls', 0)),
+                "features": features # Essential for retraining
             })
 
         # Final Selection: 11 Starters (filtered by minutes) + 4 Bench
@@ -208,6 +209,10 @@ class EngineCommander:
         # 3. Fill bench (remaining top players, min constraint does NOT apply to bench)
         remaining.sort(key=lambda x: x['predicted_points'], reverse=True)
         bench = remaining[:4]
+        
+        # PERSIST: Save predictions for future feedback loop evaluation
+        # We save all 'processed' players who have features extracted
+        self.trainer.storage.save_predictions(next_gw, processed)
         
         return {"starters": starters, "bench": bench}
 
