@@ -34,7 +34,7 @@ jobs:
       - name: Run FPL Prediction (Deadline Aware)
         run: |
           export PYTHONPATH=$PYTHONPATH:.
-          python backend/generate_static.py
+          python backend/generate_static.py --force
 
       - name: Commit and Push Changes
         run: |
