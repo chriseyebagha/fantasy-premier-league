@@ -44,9 +44,9 @@ const CaptainCard = ({ subtitle, data, glowClass }: { subtitle: string, data: Ca
 
             {/* Context: Opponent */}
             <div className="mb-4">
-                <div className="text-[10px] md:text-xs font-bold text-slate-500 flex items-center gap-2">
-                    <span className="uppercase text-[9px] tracking-widest text-text-muted font-black">VS</span>
-                    <span className="text-slate-900 bg-slate-100 px-2 py-0.5 rounded-md">{data.next_fixture || 'Unknown'}</span>
+                <div className="text-[10px] md:text-xs font-bold text-slate-500 flex items-center gap-1.5">
+                    <span className="uppercase text-[9px] tracking-widest text-text-muted font-bold tracking-tight">vs</span>
+                    <span className="text-slate-900 bg-slate-100 px-2 py-0.5 rounded-md font-bold">{data.next_fixture || 'Unknown'}</span>
                 </div>
             </div>
 
@@ -73,10 +73,9 @@ export default function CaptainSection({ captains, gameweek }: CaptainSectionPro
 
     return (
         <section className="mb-12 md:mb-20">
-            <div className="mb-8 flex items-center gap-4">
-                <span className="bg-slate-900 text-white px-3 py-1 rounded-lg text-xs font-black tracking-widest uppercase shadow-lg shadow-slate-200">GW {gameweek}</span>
-                <h2 className="text-xs font-black uppercase tracking-[0.4em] text-slate-500">
-                    Captaincy
+            <div className="mb-10 text-center md:text-left">
+                <h2 className="text-sm md:text-xl font-black uppercase tracking-[0.4em] text-slate-800">
+                    GW {gameweek} Captaincy
                 </h2>
             </div>
 
@@ -99,30 +98,7 @@ export default function CaptainSection({ captains, gameweek }: CaptainSectionPro
                     />
                 </div>
 
-                {/* Premium Legend - Clean, pill style, no ugly lines */}
-                <div className="flex flex-wrap justify-center gap-x-12 gap-y-4 mt-4 px-8 py-5 bg-slate-50/80 rounded-3xl border border-slate-100/50 shadow-inner">
-                    <div className="flex items-center gap-4 group">
-                        <div className="w-3 h-3 rounded-full bg-primary-glow shadow-[0_0_12px_rgba(99,102,241,0.5)] transition-transform group-hover:scale-125"></div>
-                        <div className="flex flex-col">
-                            <span className="text-xs font-bold text-slate-800 tracking-tight leading-tight">Safe Pick</span>
-                            <span className="text-[9px] text-text-muted uppercase tracking-widest font-black">Reliable Points</span>
-                        </div>
-                    </div>
-                    <div className="flex items-center gap-4 group">
-                        <div className="w-3 h-3 rounded-full bg-joker-glow shadow-[0_0_12px_rgba(139,92,246,0.5)] transition-transform group-hover:scale-125"></div>
-                        <div className="flex flex-col">
-                            <span className="text-xs font-bold text-slate-800 tracking-tight leading-tight">Differential</span>
-                            <span className="text-[9px] text-text-muted uppercase tracking-widest font-black">High Variance</span>
-                        </div>
-                    </div>
-                    <div className="flex items-center gap-4 group">
-                        <div className="w-3 h-3 rounded-full bg-explosive-glow shadow-[0_0_12px_rgba(244,63,94,0.5)] transition-transform group-hover:scale-125"></div>
-                        <div className="flex flex-col">
-                            <span className="text-xs font-bold text-slate-800 tracking-tight leading-tight">Chaos Mode</span>
-                            <span className="text-[9px] text-text-muted uppercase tracking-widest font-black">Volatility Pick</span>
-                        </div>
-                    </div>
-                </div>
+                <div className="py-2" />
             </div>
         </section>
     );

@@ -37,8 +37,8 @@ const MiniPlayerCard = ({ player, isBench = false }: { player: any, isBench?: bo
             <div className="font-bold text-[8px] md:text-xs truncate uppercase tracking-tighter">{player.web_name}</div>
             <div className="flex flex-col items-center gap-0.5 mt-0.5">
                 <div className="text-[6px] md:text-[9px] text-text-muted leading-none whitespace-nowrap">
-                    <span className="md:hidden">{player.next_fixture}</span>
-                    <span className="hidden md:inline">{player.team} <span className="text-slate-400 font-normal ml-0.5">vs {player.next_fixture}</span></span>
+                    <span className="md:hidden">vs {player.next_fixture}</span>
+                    <span className="hidden md:inline">{player.team} <span className="text-slate-400 font-normal ml-0.5 whitespace-nowrap">vs {player.next_fixture}</span></span>
                 </div>
 
                 <div
@@ -133,41 +133,33 @@ export default function PlayerDashboard({ squad, bench, weights, optimized_squad
             </div>
 
             {/* Bench Row */}
-            <div className="relative">
-                <div className="flex items-center gap-4 mb-6">
-                    <h3 className="text-xs font-bold uppercase tracking-widest text-text-muted">Substitutes</h3>
-                    <div className="h-[1px] flex-1 bg-white/5" />
+            <div className="max-w-4xl mx-auto">
+                <div className="flex items-center gap-4 mb-8">
+                    <div className="h-[1px] flex-1 bg-slate-200/50" />
+                    <h3 className="text-xs md:text-sm font-black uppercase tracking-[0.3em] text-slate-400">Substitutes</h3>
+                    <div className="h-[1px] flex-1 bg-slate-200/50" />
                 </div>
-                <div className="flex flex-wrap justify-center gap-6">
+                <div className="flex flex-wrap justify-center gap-3 md:gap-8 hover:brightness-110 transition-all">
                     {displayBench?.map((p: any) => <MiniPlayerCard key={p.id} player={p} isBench />)}
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-                {/* Budget & Performance Card */}
+            <div className="max-w-xl mx-auto mt-12">
+                {/* Budget & Performance Card - Optimized Real Estate */}
                 {optimized_squad && (
-                    <div className="glass-card border-l-4 border-explosive-glow">
-                        <h3 className="text-sm font-bold mb-4 uppercase tracking-widest flex items-center gap-2">
-                            Team Value
-                        </h3>
-                        <div className="space-y-3">
-                            <div className="flex justify-between text-xs">
-                                <span className="text-text-muted">Total Cost</span>
-                                <span className="font-mono text-slate-800">£{optimized_squad.total_cost}m / £100m</span>
+                    <div className="glass-card !bg-slate-50/50 border-t-2 border-slate-200 !p-4 md:!p-6">
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                            <div className="flex flex-col">
+                                <span className="text-[8px] uppercase font-black tracking-widest text-text-muted mb-1">Cost</span>
+                                <span className="text-xs font-bold text-slate-800">£{optimized_squad.total_cost}m <span className="text-slate-400 font-medium">/ £100m</span></span>
                             </div>
-                            <div className="flex justify-between text-xs">
-                                <span className="text-text-muted">Projected Points (XI)</span>
-                                <span className="font-mono text-explosive-glow">{optimized_squad.starting_11_points}</span>
+                            <div className="flex flex-col border-l border-slate-200 pl-4">
+                                <span className="text-[8px] uppercase font-black tracking-widest text-text-muted mb-1">Projected XI</span>
+                                <span className="text-xs font-bold text-explosive-glow">{optimized_squad.starting_11_points} Pts</span>
                             </div>
-                            <div className="flex justify-between text-xs">
-                                <span className="text-text-muted">Bench Points potential</span>
-                                <span className="font-mono text-slate-400">{optimized_squad.bench_points}</span>
-                            </div>
-                            <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden mt-2">
-                                <div
-                                    className="h-full bg-explosive-glow shadow-[0_0_8px_#f97316]"
-                                    style={{ width: `${(optimized_squad.total_cost / 100) * 100}%` }}
-                                />
+                            <div className="flex flex-col border-l border-slate-200 pl-4 hidden md:flex">
+                                <span className="text-[8px] uppercase font-black tracking-widest text-text-muted mb-1">Bench Potential</span>
+                                <span className="text-xs font-bold text-slate-500">{optimized_squad.bench_points} Pts</span>
                             </div>
                         </div>
                     </div>
