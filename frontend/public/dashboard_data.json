@@ -1,6 +1,6 @@
 {
     "status": "online",
-    "last_updated": "2026-01-11T02:16:58.818559+00:00",
+    "last_updated": "2026-01-12T05:33:58.692729+00:00",
     "gameweek": 22,
     "squad": [
         {
@@ -20,7 +20,7 @@
             "next_fixture_difficulty": 2,
             "explosivity": 24.3,
             "defcon": 0.0,
-            "ownership": 31.7,
+            "ownership": 31.8,
             "hauls": 3
         },
         {
@@ -40,7 +40,7 @@
             "next_fixture_difficulty": 2,
             "explosivity": 13.0,
             "defcon": 0.0,
-            "ownership": 12.6,
+            "ownership": 12.7,
             "hauls": 2
         },
         {
@@ -60,7 +60,7 @@
             "next_fixture_difficulty": 2,
             "explosivity": 60.0,
             "defcon": 0.0,
-            "ownership": 21.6,
+            "ownership": 21.7,
             "hauls": 7
         },
         {
@@ -160,7 +160,7 @@
             "next_fixture_difficulty": 3,
             "explosivity": 66.4,
             "defcon": 0.0,
-            "ownership": 74.2,
+            "ownership": 74.3,
             "hauls": 8
         },
         {
@@ -200,7 +200,7 @@
             "next_fixture_difficulty": 3,
             "explosivity": 47.1,
             "defcon": 0.0,
-            "ownership": 34.3,
+            "ownership": 34.5,
             "hauls": 5
         },
         {
@@ -262,7 +262,7 @@
             "next_fixture_difficulty": 3,
             "explosivity": 14.3,
             "defcon": 0.0,
-            "ownership": 20.3,
+            "ownership": 20.5,
             "hauls": 3
         },
         {
@@ -282,7 +282,7 @@
             "next_fixture_difficulty": 3,
             "explosivity": 25.7,
             "defcon": 0.0,
-            "ownership": 26.6,
+            "ownership": 26.8,
             "hauls": 4
         },
         {
@@ -402,7 +402,7 @@
                 "next_fixture": "EVE (H)",
                 "next_fixture_difficulty": 2,
                 "explosivity": 24.3,
-                "ownership": 31.7
+                "ownership": 31.8
             },
             {
                 "id": 488,
@@ -421,7 +421,7 @@
                 "next_fixture": "WOL (A)",
                 "next_fixture_difficulty": 2,
                 "explosivity": 60.0,
-                "ownership": 21.6
+                "ownership": 21.7
             },
             {
                 "id": 382,
@@ -478,7 +478,7 @@
                 "next_fixture": "FUL (H)",
                 "next_fixture_difficulty": 2,
                 "explosivity": 13.0,
-                "ownership": 12.6
+                "ownership": 12.7
             },
             {
                 "id": 430,
@@ -497,7 +497,7 @@
                 "next_fixture": "MAN (A)",
                 "next_fixture_difficulty": 3,
                 "explosivity": 66.4,
-                "ownership": 74.2
+                "ownership": 74.3
             },
             {
                 "id": 64,
@@ -521,23 +521,23 @@
         ],
         "bench": [
             {
-                "id": 341,
-                "web_name": "Darlow",
-                "team": "Leeds",
-                "team_id": 11,
+                "id": 470,
+                "web_name": "D\u00fabravka",
+                "team": "Burnley",
+                "team_id": 3,
                 "position": 1,
-                "price": 3.9,
-                "predicted_points": 0.18,
-                "value_score": 0.05,
+                "price": 4.0,
+                "predicted_points": 4.58,
+                "value_score": 1.15,
                 "goals": 0,
                 "assists": 0,
                 "xG": 0.0,
-                "xA": 0.01,
-                "avg_minutes": 0.0,
-                "next_fixture": "FUL (H)",
-                "next_fixture_difficulty": 2,
-                "explosivity": 0.0,
-                "ownership": 2.0
+                "xA": 0.03,
+                "avg_minutes": 90.0,
+                "next_fixture": "LIV (A)",
+                "next_fixture_difficulty": 4,
+                "explosivity": 11.4,
+                "ownership": 33.1
             },
             {
                 "id": 303,
@@ -594,12 +594,12 @@
                 "next_fixture": "LEE (A)",
                 "next_fixture_difficulty": 3,
                 "explosivity": 14.3,
-                "ownership": 20.3
+                "ownership": 20.5
             }
         ],
-        "total_cost": 97.5,
+        "total_cost": 97.6,
         "total_predicted_points": 130.2,
-        "bench_predicted_points": 32.47
+        "bench_predicted_points": 36.87
     },
     "recommendations": {
         "easy_choice": {
@@ -619,9 +619,9 @@
             "next_fixture_difficulty": 3,
             "explosivity": 66.4,
             "defcon": 0.0,
-            "ownership": 74.2,
+            "ownership": 74.3,
             "hauls": 8,
-            "reason": "Haaland is the 'Easy Choice' based on 8 double-digit hauls and 74.2% ownership."
+            "reason": "Haaland is the 'Easy Choice' based on 8 double-digit hauls and 74.3% ownership."
         },
         "obvious": {
             "id": 430,
@@ -640,7 +640,7 @@
             "next_fixture_difficulty": 3,
             "explosivity": 66.4,
             "defcon": 0.0,
-            "ownership": 74.2,
+            "ownership": 74.3,
             "hauls": 8,
             "reason": "The algorithm identifies Haaland as the most reliable pick with 12.85 projected points."
         },
@@ -661,9 +661,9 @@
             "next_fixture_difficulty": 2,
             "explosivity": 60.0,
             "defcon": 0.0,
-            "ownership": 21.6,
+            "ownership": 21.7,
             "hauls": 7,
-            "reason": "Bruno G. is selected as the best relative differential (21.6% ownership) with explosive potential."
+            "reason": "Bruno G. is selected as the best relative differential (21.7% ownership) with explosive potential."
         },
         "fun_one": {
             "id": 106,
@@ -690,7 +690,7 @@
             "form_weight": 0.7,
             "fdr_weight": 0.5,
             "ict_weight": 0.3,
-            "model_type": "rf"
+            "model_type": "xgb"
         }
     }
 }
