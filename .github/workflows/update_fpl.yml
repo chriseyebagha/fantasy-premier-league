@@ -52,3 +52,11 @@ jobs:
           git add frontend/public/dashboard_data.json
           git status
           git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update FPL dashboard data" && git push)
+
+      - name: Trigger Portfolio Rebuild
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          repository: chriseyebagha/chris-website
+          event-type: update-fantasy-data
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
