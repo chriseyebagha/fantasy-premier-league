@@ -82,7 +82,11 @@ def run_prediction_and_save():
     }
     
     # Path to frontend public folder
-    output_path = os.path.join(os.path.dirname(__file__), '../frontend/public/dashboard_data.json')
+    output_dir = os.path.join(os.path.dirname(__file__), '../frontend/public')
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+        
+    output_path = os.path.join(output_dir, 'dashboard_data.json')
     
     print(f"Saving static data to {output_path}...")
     with open(output_path, 'w') as f:

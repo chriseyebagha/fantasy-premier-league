@@ -1,0 +1,334 @@
+update-fpl	Set up job	﻿2026-01-12T04:50:47.3246286Z Current runner version: '2.330.0'
+update-fpl	Set up job	2026-01-12T04:50:47.3270163Z ##[group]Runner Image Provisioner
+update-fpl	Set up job	2026-01-12T04:50:47.3271046Z Hosted Compute Agent
+update-fpl	Set up job	2026-01-12T04:50:47.3271687Z Version: 20251211.462
+update-fpl	Set up job	2026-01-12T04:50:47.3272255Z Commit: 6cbad8c2bb55d58165063d031ccabf57e2d2db61
+update-fpl	Set up job	2026-01-12T04:50:47.3272945Z Build Date: 2025-12-11T16:28:49Z
+update-fpl	Set up job	2026-01-12T04:50:47.3273624Z Worker ID: {1baddfd1-384c-4eb3-9811-e92b9a2fc0d7}
+update-fpl	Set up job	2026-01-12T04:50:47.3274368Z ##[endgroup]
+update-fpl	Set up job	2026-01-12T04:50:47.3274857Z ##[group]Operating System
+update-fpl	Set up job	2026-01-12T04:50:47.3275463Z Ubuntu
+update-fpl	Set up job	2026-01-12T04:50:47.3275921Z 24.04.3
+update-fpl	Set up job	2026-01-12T04:50:47.3276377Z LTS
+update-fpl	Set up job	2026-01-12T04:50:47.3276792Z ##[endgroup]
+update-fpl	Set up job	2026-01-12T04:50:47.3277456Z ##[group]Runner Image
+update-fpl	Set up job	2026-01-12T04:50:47.3278327Z Image: ubuntu-24.04
+update-fpl	Set up job	2026-01-12T04:50:47.3278795Z Version: 20260105.202.1
+update-fpl	Set up job	2026-01-12T04:50:47.3279873Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260105.202/images/ubuntu/Ubuntu2404-Readme.md
+update-fpl	Set up job	2026-01-12T04:50:47.3281181Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260105.202
+update-fpl	Set up job	2026-01-12T04:50:47.3282405Z ##[endgroup]
+update-fpl	Set up job	2026-01-12T04:50:47.3283367Z ##[group]GITHUB_TOKEN Permissions
+update-fpl	Set up job	2026-01-12T04:50:47.3285286Z Contents: write
+update-fpl	Set up job	2026-01-12T04:50:47.3285845Z Metadata: read
+update-fpl	Set up job	2026-01-12T04:50:47.3286306Z ##[endgroup]
+update-fpl	Set up job	2026-01-12T04:50:47.3288621Z Secret source: Actions
+update-fpl	Set up job	2026-01-12T04:50:47.3289297Z Prepare workflow directory
+update-fpl	Set up job	2026-01-12T04:50:47.3615543Z Prepare all required actions
+update-fpl	Set up job	2026-01-12T04:50:47.3654554Z Getting action download info
+update-fpl	Set up job	2026-01-12T04:50:47.8070173Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+update-fpl	Set up job	2026-01-12T04:50:48.1220010Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+update-fpl	Set up job	2026-01-12T04:50:48.3393682Z Complete job name: update-fpl
+update-fpl	Checkout Repository	﻿2026-01-12T04:50:48.4098124Z ##[group]Run actions/checkout@v4
+update-fpl	Checkout Repository	2026-01-12T04:50:48.4099047Z with:
+update-fpl	Checkout Repository	2026-01-12T04:50:48.4099617Z   token: ***
+update-fpl	Checkout Repository	2026-01-12T04:50:48.4100078Z   repository: chriseyebagha/fantasy-premier-league
+update-fpl	Checkout Repository	2026-01-12T04:50:48.4100660Z   ssh-strict: true
+update-fpl	Checkout Repository	2026-01-12T04:50:48.4101043Z   ssh-user: git
+update-fpl	Checkout Repository	2026-01-12T04:50:48.4101423Z   persist-credentials: true
+update-fpl	Checkout Repository	2026-01-12T04:50:48.4101859Z   clean: true
+update-fpl	Checkout Repository	2026-01-12T04:50:48.4102246Z   sparse-checkout-cone-mode: true
+update-fpl	Checkout Repository	2026-01-12T04:50:48.4102713Z   fetch-depth: 1
+update-fpl	Checkout Repository	2026-01-12T04:50:48.4103086Z   fetch-tags: false
+update-fpl	Checkout Repository	2026-01-12T04:50:48.4103470Z   show-progress: true
+update-fpl	Checkout Repository	2026-01-12T04:50:48.4103859Z   lfs: false
+update-fpl	Checkout Repository	2026-01-12T04:50:48.4104209Z   submodules: false
+update-fpl	Checkout Repository	2026-01-12T04:50:48.4104600Z   set-safe-directory: true
+update-fpl	Checkout Repository	2026-01-12T04:50:48.4105218Z ##[endgroup]
+update-fpl	Checkout Repository	2026-01-12T04:50:48.5159934Z Syncing repository: chriseyebagha/fantasy-premier-league
+update-fpl	Checkout Repository	2026-01-12T04:50:48.5161799Z ##[group]Getting Git version info
+update-fpl	Checkout Repository	2026-01-12T04:50:48.5162634Z Working directory is '/home/runner/work/fantasy-premier-league/fantasy-premier-league'
+update-fpl	Checkout Repository	2026-01-12T04:50:48.5163792Z [command]/usr/bin/git version
+update-fpl	Checkout Repository	2026-01-12T04:50:48.5963471Z git version 2.52.0
+update-fpl	Checkout Repository	2026-01-12T04:50:48.5989969Z ##[endgroup]
+update-fpl	Checkout Repository	2026-01-12T04:50:48.6004544Z Temporarily overriding HOME='/home/runner/work/_temp/fc5f1ba6-47f6-4b56-87bd-b8064d2388b1' before making global git config changes
+update-fpl	Checkout Repository	2026-01-12T04:50:48.6005894Z Adding repository directory to the temporary git global config as a safe directory
+update-fpl	Checkout Repository	2026-01-12T04:50:48.6017568Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/fantasy-premier-league/fantasy-premier-league
+update-fpl	Checkout Repository	2026-01-12T04:50:48.6088147Z Deleting the contents of '/home/runner/work/fantasy-premier-league/fantasy-premier-league'
+update-fpl	Checkout Repository	2026-01-12T04:50:48.6091644Z ##[group]Initializing the repository
+update-fpl	Checkout Repository	2026-01-12T04:50:48.6095634Z [command]/usr/bin/git init /home/runner/work/fantasy-premier-league/fantasy-premier-league
+update-fpl	Checkout Repository	2026-01-12T04:50:48.6571848Z hint: Using 'master' as the name for the initial branch. This default branch name
+update-fpl	Checkout Repository	2026-01-12T04:50:48.6573047Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+update-fpl	Checkout Repository	2026-01-12T04:50:48.6574064Z hint: to use in all of your new repositories, which will suppress this warning,
+update-fpl	Checkout Repository	2026-01-12T04:50:48.6575119Z hint: call:
+update-fpl	Checkout Repository	2026-01-12T04:50:48.6575554Z hint:
+update-fpl	Checkout Repository	2026-01-12T04:50:48.6576224Z hint: 	git config --global init.defaultBranch <name>
+update-fpl	Checkout Repository	2026-01-12T04:50:48.6576869Z hint:
+update-fpl	Checkout Repository	2026-01-12T04:50:48.6577453Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+update-fpl	Checkout Repository	2026-01-12T04:50:48.6578719Z hint: 'development'. The just-created branch can be renamed via this command:
+update-fpl	Checkout Repository	2026-01-12T04:50:48.6579504Z hint:
+update-fpl	Checkout Repository	2026-01-12T04:50:48.6579894Z hint: 	git branch -m <name>
+update-fpl	Checkout Repository	2026-01-12T04:50:48.6580368Z hint:
+update-fpl	Checkout Repository	2026-01-12T04:50:48.6580997Z hint: Disable this message with "git config set advice.defaultBranchName false"
+update-fpl	Checkout Repository	2026-01-12T04:50:48.6608275Z Initialized empty Git repository in /home/runner/work/fantasy-premier-league/fantasy-premier-league/.git/
+update-fpl	Checkout Repository	2026-01-12T04:50:48.6618979Z [command]/usr/bin/git remote add origin https://github.com/chriseyebagha/fantasy-premier-league
+update-fpl	Checkout Repository	2026-01-12T04:50:48.6686724Z ##[endgroup]
+update-fpl	Checkout Repository	2026-01-12T04:50:48.6687476Z ##[group]Disabling automatic garbage collection
+update-fpl	Checkout Repository	2026-01-12T04:50:48.6690837Z [command]/usr/bin/git config --local gc.auto 0
+update-fpl	Checkout Repository	2026-01-12T04:50:48.6719067Z ##[endgroup]
+update-fpl	Checkout Repository	2026-01-12T04:50:48.6719705Z ##[group]Setting up auth
+update-fpl	Checkout Repository	2026-01-12T04:50:48.6725713Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+update-fpl	Checkout Repository	2026-01-12T04:50:48.6755082Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+update-fpl	Checkout Repository	2026-01-12T04:50:48.8064807Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+update-fpl	Checkout Repository	2026-01-12T04:50:48.8093250Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+update-fpl	Checkout Repository	2026-01-12T04:50:48.8322360Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+update-fpl	Checkout Repository	2026-01-12T04:50:48.8363612Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+update-fpl	Checkout Repository	2026-01-12T04:50:48.8610869Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+update-fpl	Checkout Repository	2026-01-12T04:50:48.8645139Z ##[endgroup]
+update-fpl	Checkout Repository	2026-01-12T04:50:48.8646238Z ##[group]Fetching the repository
+update-fpl	Checkout Repository	2026-01-12T04:50:48.8653625Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +129a14207ceb03a926a748c585f3b8ecfb54ffc8:refs/remotes/origin/main
+update-fpl	Checkout Repository	2026-01-12T04:50:49.3965379Z From https://github.com/chriseyebagha/fantasy-premier-league
+update-fpl	Checkout Repository	2026-01-12T04:50:49.3966551Z  * [new ref]         129a14207ceb03a926a748c585f3b8ecfb54ffc8 -> origin/main
+update-fpl	Checkout Repository	2026-01-12T04:50:49.4038607Z ##[endgroup]
+update-fpl	Checkout Repository	2026-01-12T04:50:49.4039529Z ##[group]Determining the checkout info
+update-fpl	Checkout Repository	2026-01-12T04:50:49.4040735Z ##[endgroup]
+update-fpl	Checkout Repository	2026-01-12T04:50:49.4046252Z [command]/usr/bin/git sparse-checkout disable
+update-fpl	Checkout Repository	2026-01-12T04:50:49.4131707Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+update-fpl	Checkout Repository	2026-01-12T04:50:49.4158501Z ##[group]Checking out the ref
+update-fpl	Checkout Repository	2026-01-12T04:50:49.4162219Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+update-fpl	Checkout Repository	2026-01-12T04:50:49.4356197Z Switched to a new branch 'main'
+update-fpl	Checkout Repository	2026-01-12T04:50:49.4359075Z branch 'main' set up to track 'origin/main'.
+update-fpl	Checkout Repository	2026-01-12T04:50:49.4365686Z ##[endgroup]
+update-fpl	Checkout Repository	2026-01-12T04:50:49.4400813Z [command]/usr/bin/git log -1 --format=%H
+update-fpl	Checkout Repository	2026-01-12T04:50:49.4421919Z 129a14207ceb03a926a748c585f3b8ecfb54ffc8
+update-fpl	Set up Python	﻿2026-01-12T04:50:49.4648069Z ##[group]Run actions/setup-python@v5
+update-fpl	Set up Python	2026-01-12T04:50:49.4648566Z with:
+update-fpl	Set up Python	2026-01-12T04:50:49.4648904Z   python-version: 3.10
+update-fpl	Set up Python	2026-01-12T04:50:49.4649267Z   check-latest: false
+update-fpl	Set up Python	2026-01-12T04:50:49.4649754Z   token: ***
+update-fpl	Set up Python	2026-01-12T04:50:49.4650109Z   update-environment: true
+update-fpl	Set up Python	2026-01-12T04:50:49.4650496Z   allow-prereleases: false
+update-fpl	Set up Python	2026-01-12T04:50:49.4650862Z   freethreaded: false
+update-fpl	Set up Python	2026-01-12T04:50:49.4651426Z ##[endgroup]
+update-fpl	Set up Python	2026-01-12T04:50:49.6290381Z ##[group]Installed versions
+update-fpl	Set up Python	2026-01-12T04:50:49.6770115Z Successfully set up CPython (3.10.19)
+update-fpl	Set up Python	2026-01-12T04:50:49.6771815Z ##[endgroup]
+update-fpl	Install System Dependencies	﻿2026-01-12T04:50:49.6886691Z ##[group]Run sudo apt-get update
+update-fpl	Install System Dependencies	2026-01-12T04:50:49.6887228Z [36;1msudo apt-get update[0m
+update-fpl	Install System Dependencies	2026-01-12T04:50:49.6887638Z [36;1msudo apt-get install -y libgomp1[0m
+update-fpl	Install System Dependencies	2026-01-12T04:50:49.6970163Z shell: /usr/bin/bash -e {0}
+update-fpl	Install System Dependencies	2026-01-12T04:50:49.6970587Z env:
+update-fpl	Install System Dependencies	2026-01-12T04:50:49.6970967Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.19/x64
+update-fpl	Install System Dependencies	2026-01-12T04:50:49.6971536Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.19/x64/lib/pkgconfig
+update-fpl	Install System Dependencies	2026-01-12T04:50:49.6972113Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.19/x64
+update-fpl	Install System Dependencies	2026-01-12T04:50:49.6972619Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.19/x64
+update-fpl	Install System Dependencies	2026-01-12T04:50:49.6973124Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.19/x64
+update-fpl	Install System Dependencies	2026-01-12T04:50:49.6973625Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.19/x64/lib
+update-fpl	Install System Dependencies	2026-01-12T04:50:49.6974084Z ##[endgroup]
+update-fpl	Install System Dependencies	2026-01-12T04:50:49.8139576Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+update-fpl	Install System Dependencies	2026-01-12T04:50:49.8511329Z Hit:2 http://azure.archive.ubuntu.com/ubuntu noble InRelease
+update-fpl	Install System Dependencies	2026-01-12T04:50:49.8522383Z Hit:6 https://packages.microsoft.com/repos/azure-cli noble InRelease
+update-fpl	Install System Dependencies	2026-01-12T04:50:49.8524521Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+update-fpl	Install System Dependencies	2026-01-12T04:50:49.8589480Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+update-fpl	Install System Dependencies	2026-01-12T04:50:49.8668595Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+update-fpl	Install System Dependencies	2026-01-12T04:50:49.8715828Z Get:7 https://packages.microsoft.com/ubuntu/24.04/prod noble InRelease [3600 B]
+update-fpl	Install System Dependencies	2026-01-12T04:50:50.0584058Z Get:8 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1690 kB]
+update-fpl	Install System Dependencies	2026-01-12T04:50:50.0805603Z Get:9 http://azure.archive.ubuntu.com/ubuntu noble-updates/main Translation-en [312 kB]
+update-fpl	Install System Dependencies	2026-01-12T04:50:50.0833304Z Get:10 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Components [175 kB]
+update-fpl	Install System Dependencies	2026-01-12T04:50:50.0850845Z Get:11 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 c-n-f Metadata [15.8 kB]
+update-fpl	Install System Dependencies	2026-01-12T04:50:50.0860551Z Get:12 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1510 kB]
+update-fpl	Install System Dependencies	2026-01-12T04:50:50.0949781Z Get:13 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [307 kB]
+update-fpl	Install System Dependencies	2026-01-12T04:50:50.0983781Z Get:14 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Components [378 kB]
+update-fpl	Install System Dependencies	2026-01-12T04:50:50.1012308Z Get:15 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 c-n-f Metadata [31.5 kB]
+update-fpl	Install System Dependencies	2026-01-12T04:50:50.1030053Z Get:16 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [2418 kB]
+update-fpl	Install System Dependencies	2026-01-12T04:50:50.1147341Z Get:17 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted Translation-en [551 kB]
+update-fpl	Install System Dependencies	2026-01-12T04:50:50.1661833Z Get:18 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Components [212 B]
+update-fpl	Install System Dependencies	2026-01-12T04:50:50.1663722Z Get:19 http://azure.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Components [940 B]
+update-fpl	Install System Dependencies	2026-01-12T04:50:50.1674073Z Get:20 http://azure.archive.ubuntu.com/ubuntu noble-backports/main amd64 Components [7288 B]
+update-fpl	Install System Dependencies	2026-01-12T04:50:50.1679501Z Get:21 http://azure.archive.ubuntu.com/ubuntu noble-backports/universe amd64 Components [10.5 kB]
+update-fpl	Install System Dependencies	2026-01-12T04:50:50.1686386Z Get:22 http://azure.archive.ubuntu.com/ubuntu noble-backports/restricted amd64 Components [216 B]
+update-fpl	Install System Dependencies	2026-01-12T04:50:50.1692498Z Get:23 http://azure.archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Components [212 B]
+update-fpl	Install System Dependencies	2026-01-12T04:50:50.1703585Z Get:24 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Packages [1399 kB]
+update-fpl	Install System Dependencies	2026-01-12T04:50:50.1772644Z Get:25 http://azure.archive.ubuntu.com/ubuntu noble-security/main Translation-en [227 kB]
+update-fpl	Install System Dependencies	2026-01-12T04:50:50.1793427Z Get:26 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Components [21.5 kB]
+update-fpl	Install System Dependencies	2026-01-12T04:50:50.1800458Z Get:27 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 c-n-f Metadata [9716 B]
+update-fpl	Install System Dependencies	2026-01-12T04:50:50.1808693Z Get:28 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Packages [920 kB]
+update-fpl	Install System Dependencies	2026-01-12T04:50:50.1860753Z Get:29 http://azure.archive.ubuntu.com/ubuntu noble-security/universe Translation-en [208 kB]
+update-fpl	Install System Dependencies	2026-01-12T04:50:50.1880555Z Get:30 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Components [71.4 kB]
+update-fpl	Install System Dependencies	2026-01-12T04:50:50.1889943Z Get:31 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 c-n-f Metadata [19.6 kB]
+update-fpl	Install System Dependencies	2026-01-12T04:50:50.2245796Z Get:37 https://packages.microsoft.com/ubuntu/24.04/prod noble/main armhf Packages [11.4 kB]
+update-fpl	Install System Dependencies	2026-01-12T04:50:50.2283407Z Get:38 https://packages.microsoft.com/ubuntu/24.04/prod noble/main amd64 Packages [78.8 kB]
+update-fpl	Install System Dependencies	2026-01-12T04:50:50.2325238Z Get:39 https://packages.microsoft.com/ubuntu/24.04/prod noble/main arm64 Packages [60.1 kB]
+update-fpl	Install System Dependencies	2026-01-12T04:50:50.2331472Z Get:32 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [2290 kB]
+update-fpl	Install System Dependencies	2026-01-12T04:50:50.2434058Z Get:33 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted Translation-en [525 kB]
+update-fpl	Install System Dependencies	2026-01-12T04:50:50.2466238Z Get:34 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted amd64 Components [212 B]
+update-fpl	Install System Dependencies	2026-01-12T04:50:50.2475769Z Get:35 http://azure.archive.ubuntu.com/ubuntu noble-security/multiverse Translation-en [6188 B]
+update-fpl	Install System Dependencies	2026-01-12T04:50:50.2482248Z Get:36 http://azure.archive.ubuntu.com/ubuntu noble-security/multiverse amd64 Components [212 B]
+update-fpl	Install System Dependencies	2026-01-12T04:51:00.6440047Z Fetched 13.6 MB in 2s (8245 kB/s)
+update-fpl	Install System Dependencies	2026-01-12T04:51:01.3834365Z Reading package lists...
+update-fpl	Install System Dependencies	2026-01-12T04:51:01.4160009Z Reading package lists...
+update-fpl	Install System Dependencies	2026-01-12T04:51:01.5870439Z Building dependency tree...
+update-fpl	Install System Dependencies	2026-01-12T04:51:01.5877743Z Reading state information...
+update-fpl	Install System Dependencies	2026-01-12T04:51:01.7845441Z libgomp1 is already the newest version (14.2.0-4ubuntu2~24.04).
+update-fpl	Install System Dependencies	2026-01-12T04:51:01.7846336Z libgomp1 set to manually installed.
+update-fpl	Install System Dependencies	2026-01-12T04:51:01.7846959Z 0 upgraded, 0 newly installed, 0 to remove and 77 not upgraded.
+update-fpl	Install Python Dependencies	﻿2026-01-12T04:51:01.7905042Z ##[group]Run python -m pip install --upgrade pip
+update-fpl	Install Python Dependencies	2026-01-12T04:51:01.7905448Z [36;1mpython -m pip install --upgrade pip[0m
+update-fpl	Install Python Dependencies	2026-01-12T04:51:01.7905771Z [36;1mpip install -r backend/requirements.txt[0m
+update-fpl	Install Python Dependencies	2026-01-12T04:51:01.7940872Z shell: /usr/bin/bash -e {0}
+update-fpl	Install Python Dependencies	2026-01-12T04:51:01.7941115Z env:
+update-fpl	Install Python Dependencies	2026-01-12T04:51:01.7941351Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.19/x64
+update-fpl	Install Python Dependencies	2026-01-12T04:51:01.7941771Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.19/x64/lib/pkgconfig
+update-fpl	Install Python Dependencies	2026-01-12T04:51:01.7942211Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.19/x64
+update-fpl	Install Python Dependencies	2026-01-12T04:51:01.7942571Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.19/x64
+update-fpl	Install Python Dependencies	2026-01-12T04:51:01.7942916Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.19/x64
+update-fpl	Install Python Dependencies	2026-01-12T04:51:01.7943285Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.19/x64/lib
+update-fpl	Install Python Dependencies	2026-01-12T04:51:01.7943580Z ##[endgroup]
+update-fpl	Install Python Dependencies	2026-01-12T04:51:03.8089283Z Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.10.19/x64/lib/python3.10/site-packages (25.3)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:04.9739509Z Collecting flask (from -r backend/requirements.txt (line 1))
+update-fpl	Install Python Dependencies	2026-01-12T04:51:05.0303499Z   Downloading flask-3.1.2-py3-none-any.whl.metadata (3.2 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:05.0706781Z Collecting requests (from -r backend/requirements.txt (line 2))
+update-fpl	Install Python Dependencies	2026-01-12T04:51:05.0745249Z   Downloading requests-2.32.5-py3-none-any.whl.metadata (4.9 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:05.2381235Z Collecting pandas (from -r backend/requirements.txt (line 3))
+update-fpl	Install Python Dependencies	2026-01-12T04:51:05.2435464Z   Downloading pandas-2.3.3-cp310-cp310-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (91 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:05.3513691Z Collecting flask-cors (from -r backend/requirements.txt (line 4))
+update-fpl	Install Python Dependencies	2026-01-12T04:51:05.3560775Z   Downloading flask_cors-6.0.2-py3-none-any.whl.metadata (5.3 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:05.6142539Z Collecting numpy (from -r backend/requirements.txt (line 5))
+update-fpl	Install Python Dependencies	2026-01-12T04:51:05.6182432Z   Downloading numpy-2.2.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:05.6622113Z Collecting xgboost (from -r backend/requirements.txt (line 6))
+update-fpl	Install Python Dependencies	2026-01-12T04:51:05.6656927Z   Downloading xgboost-3.1.3-py3-none-manylinux_2_28_x86_64.whl.metadata (2.0 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:05.7867424Z Collecting scikit-learn (from -r backend/requirements.txt (line 7))
+update-fpl	Install Python Dependencies	2026-01-12T04:51:05.7910388Z   Downloading scikit_learn-1.7.2-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (11 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:05.8258121Z Collecting joblib (from -r backend/requirements.txt (line 8))
+update-fpl	Install Python Dependencies	2026-01-12T04:51:05.8291384Z   Downloading joblib-1.5.3-py3-none-any.whl.metadata (5.5 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:05.8408422Z Collecting blinker>=1.9.0 (from flask->-r backend/requirements.txt (line 1))
+update-fpl	Install Python Dependencies	2026-01-12T04:51:05.8446072Z   Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:05.8642464Z Collecting click>=8.1.3 (from flask->-r backend/requirements.txt (line 1))
+update-fpl	Install Python Dependencies	2026-01-12T04:51:05.8675486Z   Downloading click-8.3.1-py3-none-any.whl.metadata (2.6 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:05.8791364Z Collecting itsdangerous>=2.2.0 (from flask->-r backend/requirements.txt (line 1))
+update-fpl	Install Python Dependencies	2026-01-12T04:51:05.8824169Z   Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:05.9002159Z Collecting jinja2>=3.1.2 (from flask->-r backend/requirements.txt (line 1))
+update-fpl	Install Python Dependencies	2026-01-12T04:51:05.9035920Z   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:05.9682984Z Collecting markupsafe>=2.1.1 (from flask->-r backend/requirements.txt (line 1))
+update-fpl	Install Python Dependencies	2026-01-12T04:51:05.9720388Z   Downloading markupsafe-3.0.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:05.9960030Z Collecting werkzeug>=3.1.0 (from flask->-r backend/requirements.txt (line 1))
+update-fpl	Install Python Dependencies	2026-01-12T04:51:05.9993981Z   Downloading werkzeug-3.1.5-py3-none-any.whl.metadata (4.0 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:06.1029251Z Collecting charset_normalizer<4,>=2 (from requests->-r backend/requirements.txt (line 2))
+update-fpl	Install Python Dependencies	2026-01-12T04:51:06.1068815Z   Downloading charset_normalizer-3.4.4-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (37 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:06.1238360Z Collecting idna<4,>=2.5 (from requests->-r backend/requirements.txt (line 2))
+update-fpl	Install Python Dependencies	2026-01-12T04:51:06.1272967Z   Downloading idna-3.11-py3-none-any.whl.metadata (8.4 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:06.1615560Z Collecting urllib3<3,>=1.21.1 (from requests->-r backend/requirements.txt (line 2))
+update-fpl	Install Python Dependencies	2026-01-12T04:51:06.1692909Z   Downloading urllib3-2.6.3-py3-none-any.whl.metadata (6.9 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:06.1948481Z Collecting certifi>=2017.4.17 (from requests->-r backend/requirements.txt (line 2))
+update-fpl	Install Python Dependencies	2026-01-12T04:51:06.1983121Z   Downloading certifi-2026.1.4-py3-none-any.whl.metadata (2.5 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:06.2225085Z Collecting python-dateutil>=2.8.2 (from pandas->-r backend/requirements.txt (line 3))
+update-fpl	Install Python Dependencies	2026-01-12T04:51:06.2259532Z   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:06.2694876Z Collecting pytz>=2020.1 (from pandas->-r backend/requirements.txt (line 3))
+update-fpl	Install Python Dependencies	2026-01-12T04:51:06.2746268Z   Downloading pytz-2025.2-py2.py3-none-any.whl.metadata (22 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:06.2902025Z Collecting tzdata>=2022.7 (from pandas->-r backend/requirements.txt (line 3))
+update-fpl	Install Python Dependencies	2026-01-12T04:51:06.2936795Z   Downloading tzdata-2025.3-py2.py3-none-any.whl.metadata (1.4 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:06.3244264Z Collecting nvidia-nccl-cu12 (from xgboost->-r backend/requirements.txt (line 6))
+update-fpl	Install Python Dependencies	2026-01-12T04:51:06.3288546Z   Downloading nvidia_nccl_cu12-2.29.2-py3-none-manylinux_2_18_x86_64.whl.metadata (2.1 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:06.4833908Z Collecting scipy (from xgboost->-r backend/requirements.txt (line 6))
+update-fpl	Install Python Dependencies	2026-01-12T04:51:06.4883889Z   Downloading scipy-1.15.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:06.5270650Z Collecting threadpoolctl>=3.1.0 (from scikit-learn->-r backend/requirements.txt (line 7))
+update-fpl	Install Python Dependencies	2026-01-12T04:51:06.5305796Z   Downloading threadpoolctl-3.6.0-py3-none-any.whl.metadata (13 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:06.5602082Z Collecting six>=1.5 (from python-dateutil>=2.8.2->pandas->-r backend/requirements.txt (line 3))
+update-fpl	Install Python Dependencies	2026-01-12T04:51:06.5635920Z   Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:06.5891010Z Downloading flask-3.1.2-py3-none-any.whl (103 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:06.5952648Z Downloading requests-2.32.5-py3-none-any.whl (64 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:06.6008757Z Downloading charset_normalizer-3.4.4-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (153 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:06.6095384Z Downloading idna-3.11-py3-none-any.whl (71 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:06.6155099Z Downloading urllib3-2.6.3-py3-none-any.whl (131 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:06.6219891Z Downloading pandas-2.3.3-cp310-cp310-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (12.8 MB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:06.7397324Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.8/12.8 MB 112.4 MB/s  0:00:00
+update-fpl	Install Python Dependencies	2026-01-12T04:51:06.7447541Z Downloading flask_cors-6.0.2-py3-none-any.whl (13 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:06.7502574Z Downloading numpy-2.2.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.8 MB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:07.0934272Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.8/16.8 MB 49.0 MB/s  0:00:00
+update-fpl	Install Python Dependencies	2026-01-12T04:51:07.0999708Z Downloading xgboost-3.1.3-py3-none-manylinux_2_28_x86_64.whl (115.9 MB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:09.5754345Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 115.9/115.9 MB 46.8 MB/s  0:00:02
+update-fpl	Install Python Dependencies	2026-01-12T04:51:09.5798826Z Downloading scikit_learn-1.7.2-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (9.7 MB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:09.8189378Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.7/9.7 MB 42.0 MB/s  0:00:00
+update-fpl	Install Python Dependencies	2026-01-12T04:51:09.8224002Z Downloading joblib-1.5.3-py3-none-any.whl (309 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:09.8336065Z Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:09.8398934Z Downloading certifi-2026.1.4-py3-none-any.whl (152 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:09.8476602Z Downloading click-8.3.1-py3-none-any.whl (108 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:09.8547724Z Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:09.8608189Z Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:09.8684154Z Downloading markupsafe-3.0.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (20 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:09.8745014Z Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:09.8840039Z Downloading pytz-2025.2-py2.py3-none-any.whl (509 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:09.9024170Z Downloading scipy-1.15.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (37.7 MB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:10.7036322Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 37.7/37.7 MB 47.0 MB/s  0:00:00
+update-fpl	Install Python Dependencies	2026-01-12T04:51:10.7077054Z Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:10.7140985Z Downloading threadpoolctl-3.6.0-py3-none-any.whl (18 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:10.7200344Z Downloading tzdata-2025.3-py2.py3-none-any.whl (348 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:10.7317068Z Downloading werkzeug-3.1.5-py3-none-any.whl (225 kB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:10.7426579Z Downloading nvidia_nccl_cu12-2.29.2-py3-none-manylinux_2_18_x86_64.whl (289.8 MB)
+update-fpl	Install Python Dependencies	2026-01-12T04:51:17.9941443Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 289.8/289.8 MB 41.8 MB/s  0:00:07
+update-fpl	Install Python Dependencies	2026-01-12T04:51:18.5516868Z Installing collected packages: pytz, urllib3, tzdata, threadpoolctl, six, nvidia-nccl-cu12, numpy, markupsafe, joblib, itsdangerous, idna, click, charset_normalizer, certifi, blinker, werkzeug, scipy, requests, python-dateutil, jinja2, xgboost, scikit-learn, pandas, flask, flask-cors
+update-fpl	Install Python Dependencies	2026-01-12T04:51:34.2568760Z 
+update-fpl	Install Python Dependencies	2026-01-12T04:51:34.2615502Z Successfully installed blinker-1.9.0 certifi-2026.1.4 charset_normalizer-3.4.4 click-8.3.1 flask-3.1.2 flask-cors-6.0.2 idna-3.11 itsdangerous-2.2.0 jinja2-3.1.6 joblib-1.5.3 markupsafe-3.0.3 numpy-2.2.6 nvidia-nccl-cu12-2.29.2 pandas-2.3.3 python-dateutil-2.9.0.post0 pytz-2025.2 requests-2.32.5 scikit-learn-1.7.2 scipy-1.15.3 six-1.17.0 threadpoolctl-3.6.0 tzdata-2025.3 urllib3-2.6.3 werkzeug-3.1.5 xgboost-3.1.3
+update-fpl	Verify XGBoost	﻿2026-01-12T04:51:34.4861213Z ##[group]Run python -c "import xgboost; print('XGBoost version:', xgboost.__version__)"
+update-fpl	Verify XGBoost	2026-01-12T04:51:34.4861847Z [36;1mpython -c "import xgboost; print('XGBoost version:', xgboost.__version__)"[0m
+update-fpl	Verify XGBoost	2026-01-12T04:51:34.4895316Z shell: /usr/bin/bash -e {0}
+update-fpl	Verify XGBoost	2026-01-12T04:51:34.4895550Z env:
+update-fpl	Verify XGBoost	2026-01-12T04:51:34.4895786Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.19/x64
+update-fpl	Verify XGBoost	2026-01-12T04:51:34.4896207Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.19/x64/lib/pkgconfig
+update-fpl	Verify XGBoost	2026-01-12T04:51:34.4896607Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.19/x64
+update-fpl	Verify XGBoost	2026-01-12T04:51:34.4896952Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.19/x64
+update-fpl	Verify XGBoost	2026-01-12T04:51:34.4897306Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.19/x64
+update-fpl	Verify XGBoost	2026-01-12T04:51:34.4897680Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.19/x64/lib
+update-fpl	Verify XGBoost	2026-01-12T04:51:34.4898143Z ##[endgroup]
+update-fpl	Verify XGBoost	2026-01-12T04:51:35.6416980Z XGBoost version: 3.1.3
+update-fpl	Run FPL Prediction (Deadline Aware)	﻿2026-01-12T04:51:35.7541121Z ##[group]Run export PYTHONPATH="${PYTHONPATH}:${GITHUB_WORKSPACE}"
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:35.7541992Z [36;1mexport PYTHONPATH="${PYTHONPATH}:${GITHUB_WORKSPACE}"[0m
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:35.7542673Z [36;1mpython backend/generate_static.py --force[0m
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:35.7593034Z shell: /usr/bin/bash -e {0}
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:35.7593417Z env:
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:35.7593803Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.19/x64
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:35.7594529Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.19/x64/lib/pkgconfig
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:35.7595229Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.19/x64
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:35.7595842Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.19/x64
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:35.7596464Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.19/x64
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:35.7597107Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.19/x64/lib
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:35.7597640Z ##[endgroup]
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:53.8736012Z /opt/hostedtoolcache/Python/3.10.19/x64/lib/python3.10/pickle.py:1718: UserWarning: [04:51:53] WARNING: /workspace/src/collective/../data/../common/error_msg.h:83: If you are loading a serialized model (like pickle in Python, RDS in R) or
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:53.8737260Z configuration generated by an older version of XGBoost, please export the model by calling
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:53.8738085Z `Booster.save_model` from that version first, then load it back in current version. See:
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:53.8738416Z 
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:53.8738627Z     https://xgboost.readthedocs.io/en/stable/tutorials/saving_model.html
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:53.8738906Z 
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:53.8739078Z for more details about differences between saving model and serializing.
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:53.8739343Z 
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:53.8739412Z   setstate(state)
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:59.8428824Z Traceback (most recent call last):
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:59.8437199Z   File "/home/runner/work/fantasy-premier-league/fantasy-premier-league/backend/generate_static.py", line 103, in <module>
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:59.8438436Z     run_prediction_and_save()
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:59.8439456Z   File "/home/runner/work/fantasy-premier-league/fantasy-premier-league/backend/generate_static.py", line 88, in run_prediction_and_save
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:59.8440453Z     with open(output_path, 'w') as f:
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:59.8441599Z FileNotFoundError: [Errno 2] No such file or directory: '/home/runner/work/fantasy-premier-league/fantasy-premier-league/backend/../frontend/public/dashboard_data.json'
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:59.8442987Z Force flag detected. Proceeding with generation.
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:59.8443527Z Initializing FPL Engine for static generation...
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:59.8443971Z Generating top 15 players...
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:59.8444322Z Building budget-optimized squad...
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:59.8444765Z Building optimal squad with Thinking Engine metrics...
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:59.8445243Z Generating recommendations...
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:59.8446169Z Saving static data to /home/runner/work/fantasy-premier-league/fantasy-premier-league/backend/../frontend/public/dashboard_data.json...
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:59.8447430Z 
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:59.8448040Z ❌ ERROR during static generation:
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:59.8448404Z Type: FileNotFoundError
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:59.8449354Z Message: [Errno 2] No such file or directory: '/home/runner/work/fantasy-premier-league/fantasy-premier-league/backend/../frontend/public/dashboard_data.json'
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:59.8450283Z 
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:59.8450392Z Traceback:
+update-fpl	Run FPL Prediction (Deadline Aware)	2026-01-12T04:51:59.9633305Z ##[error]Process completed with exit code 1.
+update-fpl	Post Checkout Repository	﻿2026-01-12T04:51:59.9742784Z Post job cleanup.
+update-fpl	Post Checkout Repository	2026-01-12T04:52:00.0676113Z [command]/usr/bin/git version
+update-fpl	Post Checkout Repository	2026-01-12T04:52:00.0713783Z git version 2.52.0
+update-fpl	Post Checkout Repository	2026-01-12T04:52:00.0759666Z Temporarily overriding HOME='/home/runner/work/_temp/2044e9aa-3427-46cb-94ff-effef308aab1' before making global git config changes
+update-fpl	Post Checkout Repository	2026-01-12T04:52:00.0761026Z Adding repository directory to the temporary git global config as a safe directory
+update-fpl	Post Checkout Repository	2026-01-12T04:52:00.0766473Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/fantasy-premier-league/fantasy-premier-league
+update-fpl	Post Checkout Repository	2026-01-12T04:52:00.0803650Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+update-fpl	Post Checkout Repository	2026-01-12T04:52:00.0836527Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+update-fpl	Post Checkout Repository	2026-01-12T04:52:00.1088806Z fatal: No url found for submodule path 'frontend' in .gitmodules
+update-fpl	Post Checkout Repository	2026-01-12T04:52:00.1130163Z ##[warning]The process '/usr/bin/git' failed with exit code 128
+update-fpl	Complete job	﻿2026-01-12T04:52:00.1214653Z Cleaning up orphan processes
