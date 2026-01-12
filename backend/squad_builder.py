@@ -183,8 +183,9 @@ def get_all_predicted_players(dm: FPLDataManager, commander: EngineCommander) ->
         fdr = item['diff']
         
         # Model Prediction
+        # Model Prediction
         prediction = float(predictions[i])
-        performance_boost = (float(p['form']) * 0.4) + (float(p['total_points']) / 60.0)
+        # performance_boost removed to match commander.py and prevent inflation
         
         fixture_multiplier = 1.0
         if fdr <= 2: fixture_multiplier = 1.15
@@ -193,7 +194,7 @@ def get_all_predicted_players(dm: FPLDataManager, commander: EngineCommander) ->
         
         pos_bias = 1.05 if p['element_type'] in [3, 4] else 0.95
         
-        final_score = round((prediction + performance_boost) * fixture_multiplier * pos_bias * item['chance_mult'], 2)
+        final_score = int(round(prediction * fixture_multiplier * pos_bias * item['chance_mult']))
         
         # Calculate a value score for bench selection
         price = p['now_cost'] / 10.0
