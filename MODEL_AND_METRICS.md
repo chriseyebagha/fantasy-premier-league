@@ -65,9 +65,15 @@ Historical_Score = (Frequency * 30) + (Recent_Hauls * 10)
 | :--- | :--- | :--- |
 | **Form** | >= 7.5 | +15 pts |
 | **xGI/90** | >= 0.70 | +15 pts |
-| **Season Hauls** | >= 5 | +20 pts |
+| **Super Hot** | *See below* | +25 pts |
 
-*Assumption*: A player with >5 hauls is a "proven explosive asset" and deserves a massive bump, even if their recent form dips slightly.
+**"Super Hot" Criteria (`is_super_hot`)**
+A player receives the massive +25pt bump if *any* of the following are true:
+1.  **Recent Form**: 5+ hauls in the last 10 games (Hot Streak).
+2.  **Early Season (<= GW20)**: 5+ total hauls (Emerging Star).
+3.  **Late Season (> GW20)**: 10+ total hauls (Proven Heavy Hitter).
+
+*Assumption*: Consistent explosive returns define a premium asset. A player hitting these thresholds is "Fixture Proof".
 
 ---
 

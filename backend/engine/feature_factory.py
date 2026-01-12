@@ -37,34 +37,51 @@ class FeatureFactory:
         return min(round(defcon_score, 1), 100.0)
 
     @staticmethod
-    def calculate_explosivity_index(history: List[Dict], form: float = 0.0, xgi_90: float = 0.0) -> float:
+    def calculate_explosivity_index(history: List[Dict], current_gw: int, form: float = 0.0, xgi_90: float = 0.0) -> float:
         """
         Measures history of 10+ point hauls ('explosivity') and elite current performance.
-        Includes bonuses for 'Fixture-Proof' elite players.
+        Includes "Super Hot" bonuses based on season phase.
         """
         if not history:
             return 0.0
             
-        hauls = sum(1 for m in history if m.get('total_points', 0) >= 10)
-        frequency = hauls / len(history) if history else 0
+        # Count Double Digit Hauls
+        total_hauls = sum(1 for m in history if m.get('total_points', 0) >= 10)
         
-        # 1. Historical Weight (Max 40 pts)
-        recent_history = history[-6:]
-        recent_hauls = sum(1 for m in recent_history if m.get('total_points', 0) >= 10)
-        hist_score = (frequency * 30) + (recent_hauls * 10)
+        # Recent Form: Last 10 games
+        recent_10 = history[-10:] if len(history) >= 10 else history
+        recent_10_hauls = sum(1 for m in recent_10 if m.get('total_points', 0) >= 10)
         
-        # 2. Performance Bonuses (Unbiased metrics)
+        # Base Score (Max 40 pts)
+        frequency = total_hauls / len(history) if history else 0
+        hist_score = (frequency * 30) + (recent_10_hauls * 10) # Weighted to recent
+        
+        # 2. Performance Bonuses
         form_bonus = 15.0 if form >= 7.5 else 0.0
         xgi_bonus = 15.0 if xgi_90 >= 0.70 else 0.0
-        haul_bonus = 20.0 if hauls >= 5 else 0.0
         
-        # 3. Aggregated Score
+        # 3. "Super Hot" / Heavy Hitter Status (User defined logic)
+        # - Any time: 5 hauls in last 10 games
+        # - Early Season (<= GW20): 5 total hauls
+        # - Late Season (> GW20): 10 total hauls
+        is_super_hot = False
+        
+        if recent_10_hauls >= 5:
+            is_super_hot = True
+        elif current_gw <= 20 and total_hauls >= 5:
+            is_super_hot = True
+        elif current_gw > 20 and total_hauls >= 10:
+            is_super_hot = True
+            
+        haul_bonus = 25.0 if is_super_hot else 0.0
+        
+        # 4. Aggregated Score
         score = hist_score + form_bonus + xgi_bonus + haul_bonus
         
         return min(round(score, 1), 100.0)
 
     @classmethod
-    def prepare_features(cls, player_data: Dict, history: List[Dict], next_fixture_diff: int) -> Dict:
+    def prepare_features(cls, player_data: Dict, history: List[Dict], next_fixture_diff: int, current_gw: int) -> Dict:
         """Assembles a full feature vector for the XGBoost model."""
         xg_90 = float(player_data.get('expected_goals_per_90', 0))
         xa_90 = float(player_data.get('expected_assists_per_90', 0))
@@ -79,7 +96,7 @@ class FeatureFactory:
         return {
             "xGI_90": xgi_90,
             "defcon": cls.calculate_defcon(player_data, cs_prob),
-            "explosivity": cls.calculate_explosivity_index(history, float(player_data.get('form', 0)), xgi_90),
+            "explosivity": cls.calculate_explosivity_index(history, current_gw, float(player_data.get('form', 0)), xgi_90),
             "form": float(player_data.get('form', 0)),
             "ict_index": float(player_data.get('ict_index', 0)),
             "fixture_difficulty": next_fixture_diff,

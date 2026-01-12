@@ -43,7 +43,7 @@ class EngineCommander:
             
             # Prepare features
             diff = team_diff.get(p['team'], 3)
-            features = FeatureFactory.prepare_features(p, history, diff)
+            features = FeatureFactory.prepare_features(p, history, diff, next_gw)
             
             # Constraint: Must avg 65+ minutes to be a Starter candidate
             can_start = avg_minutes >= 65
