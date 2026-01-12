@@ -139,8 +139,8 @@ def get_all_predicted_players(dm: FPLDataManager, commander: EngineCommander) ->
         team_diff[f['team_h']] = f['team_h_difficulty']
         team_diff[f['team_a']] = f['team_a_difficulty']
 
-    # Process more candidates than the default top 15 (e.g., top 400)
-    candidates = sorted(players, key=lambda x: (float(x['form']) * 1.5) + float(x['points_per_game']), reverse=True)[:400]
+    # Process fewer candidates for stability (120 is plenty for a 15-man squad)
+    candidates = sorted(players, key=lambda x: (float(x['form']) * 1.5) + float(x['points_per_game']), reverse=True)[:120]
     
     valid_players = []
     player_features = []
@@ -148,6 +148,8 @@ def get_all_predicted_players(dm: FPLDataManager, commander: EngineCommander) ->
     for p in candidates:
         if p['status'] != 'a' and p['status'] != 'd': continue
         
+        import time
+        time.sleep(0.05) # Rate limit protection
         summary = dm.get_player_summary(p['id'])
         history = summary.get('history', [])
         last_5 = history[-5:] if history else []
