@@ -140,7 +140,7 @@ def get_all_predicted_players(dm: FPLDataManager, commander: EngineCommander) ->
         team_diff[f['team_a']] = f['team_a_difficulty']
 
     # Process fewer candidates for stability (120 is plenty for a 15-man squad)
-    candidates = sorted(players, key=lambda x: (float(x['form']) * 1.5) + float(x['points_per_game']), reverse=True)[:120]
+    candidates = sorted(players, key=lambda x: (float(x.get('form') or 0) * 1.5) + float(x.get('points_per_game') or 0), reverse=True)[:120]
     
     valid_players = []
     player_features = []

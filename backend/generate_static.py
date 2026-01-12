@@ -97,12 +97,21 @@ if __name__ == "__main__":
     
     dm_check = FPLDataManager()
     
-    if args.force:
-        print("Force flag detected. Proceeding with generation.")
-        run_prediction_and_save()
-    elif check_deadline_eligibility(dm_check):
-        print("Deadline criteria met. Proceeding with generation.")
-        run_prediction_and_save()
-    else:
-        print("Not a refresh day. Skipping generation.")
-        sys.exit(0)
+    try:
+        if args.force:
+            print("Force flag detected. Proceeding with generation.")
+            run_prediction_and_save()
+        elif check_deadline_eligibility(dm_check):
+            print("Deadline criteria met. Proceeding with generation.")
+            run_prediction_and_save()
+        else:
+            print("Not a refresh day. Skipping generation.")
+            sys.exit(0)
+    except Exception as e:
+        import traceback
+        print(f"\n❌ ERROR during static generation:")
+        print(f"Type: {type(e).__name__}")
+        print(f"Message: {str(e)}")
+        print("\nTraceback:")
+        traceback.print_exc()
+        sys.exit(1)

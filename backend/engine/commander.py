@@ -27,7 +27,7 @@ class EngineCommander:
             team_diff[f['team_a']] = f['team_a_difficulty']
 
         # 1. Performance-based Pre-filter (Top 120 players to minimize API calls)
-        candidates = sorted(players, key=lambda x: (float(x['form']) * 1.5) + float(x['points_per_game']), reverse=True)[:120]
+        candidates = sorted(players, key=lambda x: (float(x.get('form') or 0) * 1.5) + float(x.get('points_per_game') or 0), reverse=True)[:120]
         
         valid_players = []
         player_features = []
@@ -93,7 +93,7 @@ class EngineCommander:
             prediction = float(predictions[i])
             
             # 2. Performance Boost (Season-long reliability)
-            performance_boost = (float(p['form']) * 0.4) + (float(p['total_points']) / 60.0)
+            performance_boost = (float(p.get('form') or 0) * 0.4) + (float(p.get('total_points') or 0) / 60.0)
             
             # 3. Fixture Adjustment (Boost easy, Penalize hard)
             fixture_multiplier = 1.0
