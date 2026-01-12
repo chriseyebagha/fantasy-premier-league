@@ -35,11 +35,19 @@ class EngineCommander:
         for p in candidates:
             if p['status'] != 'a': continue
             
-            # Fetch Minutes History (Last 5 GWs)
+            # Smarter Minutes Tracking: Don't penalize consistent starters for one-off rests (e.g. Christmas)
             summary = self.dm.get_player_summary(p['id'])
             history = summary.get('history', [])
             last_5 = history[-5:] if history else []
-            avg_minutes = sum(m['minutes'] for m in last_5) / len(last_5) if last_5 else 0
+            appearances = [m['minutes'] for m in last_5 if m['minutes'] > 0]
+            starts_last_5 = len(appearances)
+            
+            if starts_last_5 >= 3:
+                # Consistent Starter: Use average of non-zero appearances
+                avg_minutes = sum(appearances) / starts_last_5 if starts_last_5 > 0 else 0
+            else:
+                # Bench/Rotation player: Use raw average of last 5
+                avg_minutes = sum(m['minutes'] for m in last_5) / len(last_5) if last_5 else 0
             
             # Prepare features
             diff = team_diff.get(p['team'], 3)
@@ -92,8 +100,10 @@ class EngineCommander:
             # 1. Base ML Prediction
             prediction = float(predictions[i])
             
-            # 2. Performance Boost (Season-long reliability)
-            performance_boost = (float(p.get('form') or 0) * 0.4) + (float(p.get('total_points') or 0) / 60.0)
+            # 2. Performance Boost (Season-long reliability vs Recent Form)
+            # Dramatically increased total_points weight to ensure 
+            # established assets (Rice) outrank short-term rotation (Garner)
+            performance_boost = (float(p.get('form') or 0) * 0.25) + (float(p.get('total_points') or 0) / 35.0)
             
             # 3. Fixture Adjustment (Boost easy, Penalize hard)
             fixture_multiplier = 1.0
