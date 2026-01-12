@@ -1,6 +1,6 @@
 {
     "status": "online",
-    "last_updated": "2026-01-12T16:33:11.696069+00:00",
+    "last_updated": "2026-01-12T16:45:45.923952+00:00",
     "gameweek": 22,
     "squad": [
         {
@@ -867,7 +867,7 @@
             "form_weight": 0.7,
             "fdr_weight": 0.5,
             "ict_weight": 0.3,
-            "model_type": "xgb"
+            "model_type": "rf"
         }
     }
 }
