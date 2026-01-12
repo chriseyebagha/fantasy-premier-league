@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-color: #050505;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-highlight: rgba(255, 255, 255, 0.12);
+
+  --primary-glow: #6366f1;
+  --explosive-glow: #f43f5e;
+  --joker-glow: #8b5cf6;
+  --fun-glow: #10b981;
+
+  --text-main: #ffffff;
+  --text-muted: #a1a1aa;
+
+  --space-unit: 4px;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+  background-image:
+    radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.15) 0, transparent 50%);
+  min-height: 100vh;
+}
+
+/* Glassmorphism primitives */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 24px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  background: var(--glass-highlight);
+  border-color: rgba(255, 255, 255, 0.18);
+  transform: translateY(-4px);
+}
+
+/* Typography Overrides */
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  background: linear-gradient(to right, #fff, #a1a1aa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stat-value {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--text-main);
+}
+
+/* Specific glows */
+.glow-explosive {
+  filter: drop-shadow(0 0 8px var(--explosive-glow));
+}
+
+.glow-joker {
+  filter: drop-shadow(0 0 8px var(--joker-glow));
+}
+
+.glow-fun {
+  filter: drop-shadow(0 0 8px var(--fun-glow));
+}
+
+/* Pitch Layout */
+.pitch-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 20px;
+  padding: 120px 160px;
+  background:
+    linear-gradient(rgba(5, 5, 5, 0.65), rgba(5, 5, 5, 0.65)),
+    url('/fantasy/pitch.png') no-repeat center center;
+  background-size: cover;
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  min-height: 950px;
+  box-shadow:
+    0 40px 100px -20px rgba(0, 0, 0, 0.9),
+    inset 0 0 100px rgba(0, 255, 128, 0.05);
+  overflow: hidden;
+}
+
+.pitch-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, transparent 0%, rgba(5, 5, 5, 0.4) 100%);
+  pointer-events: none;
+}
+
+.pitch-row {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 20px;
+  flex-wrap: wrap;
+  z-index: 1;
+  max-width: 75%;
+  margin: 0 auto;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--glass-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--glass-highlight);
+}
+
+/* Micro-animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
