@@ -24,7 +24,7 @@ const CaptainCard = ({ type, data, glowClass }: { type: string, data: Captain, g
     if (!data) return null;
 
     return (
-        <div className={`glass-card w-[32%] md:w-full max-w-[320px] flex-shrink-0 border-t-4 ${glowClass} !p-2 md:!p-4 shadow-sm hover:shadow-md transition-all`}>
+        <div className={`glass-card flex-1 min-w-0 md:w-full max-w-[320px] border-t-4 ${glowClass} !p-2 md:!p-4 shadow-sm hover:shadow-md transition-all`}>
             <div className="flex justify-between items-start mb-2 md:mb-3">
                 <div className="min-w-0 flex-1">
                     <span className="text-[7px] md:text-[9px] font-black uppercase tracking-[0.2em] text-text-muted mb-0.5 block truncate">
@@ -77,7 +77,7 @@ export default function CaptainSection({ captains }: CaptainSectionProps) {
             <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400 mb-4 flex items-center gap-4">
                 Recommended Selections
             </h2>
-            <div className="flex flex-nowrap justify-between md:justify-center gap-1 md:gap-8 pb-4 px-1 md:px-0">
+            <div className="flex flex-nowrap justify-between md:justify-center gap-2 md:gap-8 pb-4 px-1 md:px-0">
                 <CaptainCard
                     type="The Obvious One"
                     data={captains.obvious}
@@ -93,6 +93,22 @@ export default function CaptainSection({ captains }: CaptainSectionProps) {
                     data={captains.fun_one}
                     glowClass="border-explosive-glow"
                 />
+            </div>
+
+            {/* Legend */}
+            <div className="flex justify-center gap-4 md:gap-8 mt-2 px-2">
+                <div className="flex items-center gap-1.5 opacity-80">
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary-glow"></div>
+                    <span className="text-[9px] text-text-muted font-medium uppercase tracking-tight">Obvious: Reliable & Safe</span>
+                </div>
+                <div className="flex items-center gap-1.5 opacity-80">
+                    <div className="w-1.5 h-1.5 rounded-full bg-joker-glow"></div>
+                    <span className="text-[9px] text-text-muted font-medium uppercase tracking-tight">Joker: High Risk/Reward</span>
+                </div>
+                <div className="flex items-center gap-1.5 opacity-80">
+                    <div className="w-1.5 h-1.5 rounded-full bg-explosive-glow"></div>
+                    <span className="text-[9px] text-text-muted font-medium uppercase tracking-tight">Fun: Pure Chaos</span>
+                </div>
             </div>
         </section>
     );
