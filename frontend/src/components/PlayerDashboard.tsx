@@ -189,12 +189,7 @@ export default function PlayerDashboard({ squad, bench, weights, optimized_squad
                             <span className="text-text-muted">Difficulty Multiplier</span>
                             <span className="font-mono text-primary-glow">×{weights?.fdr_weight || '0.50'}</span>
                         </div>
-                        <div className="flex justify-between text-xs">
-                            <span className="text-text-muted">Model Architecture</span>
-                            <span className="px-2 py-0.5 bg-slate-100 rounded text-[10px] uppercase font-bold text-slate-400">
-                                {weights?.model_type || 'XGBoost v2'}
-                            </span>
-                        </div>
+
                     </div>
                 </div>
             </div>

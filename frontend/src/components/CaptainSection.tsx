@@ -13,7 +13,6 @@ interface Captain {
 
 interface CaptainSectionProps {
     captains: {
-        easy_choice: Captain;
         obvious: Captain;
         joker: Captain;
         fun_one: Captain;
@@ -25,7 +24,7 @@ const CaptainCard = ({ type, data, glowClass }: { type: string, data: Captain, g
     if (!data) return null;
 
     return (
-        <div className={`glass-card flex-1 min-w-[240px] border-t-4 ${glowClass} !p-4`}>
+        <div className={`glass-card flex-1 min-w-[180px] border-t-4 ${glowClass} !p-3`}>
             <div className="flex justify-between items-start mb-3">
                 <div className="min-w-0">
                     <span className="text-[9px] font-black uppercase tracking-[0.2em] text-text-muted mb-0.5 block">
@@ -78,14 +77,8 @@ export default function CaptainSection({ captains }: CaptainSectionProps) {
         <section className="mb-8">
             <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400 mb-4 flex items-center gap-4">
                 Recommended Selections
-                <div className="h-[1px] flex-1 bg-slate-200" />
             </h2>
             <div className="flex flex-nowrap overflow-x-auto pb-4 gap-4 no-scrollbar -mx-2 px-2 items-stretch">
-                <CaptainCard
-                    type="The Easy Choice"
-                    data={captains.easy_choice}
-                    glowClass="border-fun-glow"
-                />
                 <CaptainCard
                     type="The Obvious One"
                     data={captains.obvious}

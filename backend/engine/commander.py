@@ -214,7 +214,7 @@ class EngineCommander:
     def get_tier_captains(self, squad: List[Dict]) -> Dict[str, Dict]:
         """Categorizes players into four tiers with strict position and explosivity rules."""
         if not squad:
-            return {"easy_choice": {}, "obvious": {}, "joker": {}, "fun_one": {}, "weights": {}}
+            return {"obvious": {}, "joker": {}, "fun_one": {}, "weights": {}}
 
         # Explosivity Floor: A player must have >= 33 explosivity to be considered a captain
         EXPLOSIVITY_FLOOR = 33
@@ -231,19 +231,7 @@ class EngineCommander:
         if not defensive_pool:
             defensive_pool = [p for p in squad if p['position'] in [1, 2]]
 
-        # 1. Easy Choice: Attacking player, High Ownership (>25%) AND high seasonal hauls (>4)
-        easy_pool = [p for p in attacking_pool if p['ownership'] > 25 and p['hauls'] > 4]
-        if not easy_pool:
-            # Fallback to highest ownership attacking hauler
-            easy_pool = [p for p in attacking_pool if p['hauls'] > 0]
-            easy_pool.sort(key=lambda x: x['ownership'], reverse=True)
-            easy_reason_meta = "highest ownership profile"
-        else:
-            easy_pool.sort(key=lambda x: (x['hauls'], x['ownership']), reverse=True)
-            easy_reason_meta = f"{easy_pool[0]['hauls']} double-digit hauls"
-            
-        easy_choice = (easy_pool[0] if easy_pool else attacking_pool[0]).copy()
-        easy_choice['reason'] = f"{easy_choice['web_name']} is the 'Easy Choice' based on {easy_reason_meta} and {easy_choice['ownership']}% ownership."
+
 
         # 2. Obvious: Highest Predicted Points among attacking pool
         attacking_pool.sort(key=lambda x: x['predicted_points'], reverse=True)
@@ -275,7 +263,6 @@ class EngineCommander:
             fun_one['reason'] = f"The best defensive attacking prospect available, focusing on clean sheet security."
         
         return {
-            "easy_choice": easy_choice,
             "obvious": obvious,
             "joker": joker,
             "fun_one": fun_one,

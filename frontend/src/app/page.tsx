@@ -118,14 +118,6 @@ export default function Home() {
         </section>
       </div>
 
-      <footer className="py-20 border-t border-slate-200 bg-slate-50/50">
-        <div className="container mx-auto px-6 flex flex-col items-center gap-4">
-          <div className="text-3xl font-bold opacity-10 grayscale select-none tracking-tighter">ANTIGRAVITY SYSTEMS</div>
-          <p className="text-text-muted text-[10px] font-bold uppercase tracking-[0.3em]">
-            Precision FPL Engineering
-          </p>
-        </div>
-      </footer>
     </main>
   );
 }
