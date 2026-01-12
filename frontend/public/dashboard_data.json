@@ -1,6 +1,6 @@
 {
     "status": "online",
-    "last_updated": "2026-01-12T14:58:18.396306+00:00",
+    "last_updated": "2026-01-12T15:10:41.906180+00:00",
     "gameweek": 22,
     "squad": [
         {
@@ -21,7 +21,18 @@
             "explosivity": 34.3,
             "defcon": 0.0,
             "ownership": 31.8,
-            "hauls": 3
+            "hauls": 3,
+            "features": {
+                "xGI_90": 0.27,
+                "defcon": 0.0,
+                "explosivity": 34.3,
+                "form": 6.7,
+                "ict_index": 126.8,
+                "fixture_difficulty": 2,
+                "selected_by": 31.8,
+                "cost": 7.6,
+                "hauls": 3
+            }
         },
         {
             "id": 691,
@@ -41,27 +52,49 @@
             "explosivity": 13.0,
             "defcon": 0.0,
             "ownership": 12.7,
-            "hauls": 2
+            "hauls": 2,
+            "features": {
+                "xGI_90": 0.6100000000000001,
+                "defcon": 0.0,
+                "explosivity": 13.0,
+                "form": 6.8,
+                "ict_index": 111.3,
+                "fixture_difficulty": 2,
+                "selected_by": 12.7,
+                "cost": 6.0,
+                "hauls": 2
+            }
         },
         {
-            "id": 488,
-            "web_name": "Bruno G.",
-            "team": "Newcastle",
+            "id": 382,
+            "web_name": "Wirtz",
+            "team": "Liverpool",
             "position": 3,
-            "price": 7.2,
-            "predicted_points": 12.5,
-            "goals": 8,
-            "assists": 5,
-            "xG": 3.88,
-            "xA": 2.51,
-            "avg_minutes": 90.0,
+            "price": 8.2,
+            "predicted_points": 12.92,
+            "goals": 2,
+            "assists": 2,
+            "xG": 4.03,
+            "xA": 2.81,
+            "avg_minutes": 82.0,
             "can_start": true,
-            "next_fixture": "WOL (A)",
+            "next_fixture": "BUR (H)",
             "next_fixture_difficulty": 2,
-            "explosivity": 85.0,
+            "explosivity": 22.9,
             "defcon": 0.0,
-            "ownership": 21.7,
-            "hauls": 7
+            "ownership": 10.8,
+            "hauls": 2,
+            "features": {
+                "xGI_90": 0.44,
+                "defcon": 0.0,
+                "explosivity": 22.9,
+                "form": 6.8,
+                "ict_index": 115.0,
+                "fixture_difficulty": 2,
+                "selected_by": 10.8,
+                "cost": 8.2,
+                "hauls": 2
+            }
         },
         {
             "id": 106,
@@ -81,7 +114,18 @@
             "explosivity": 37.9,
             "defcon": 100.0,
             "ownership": 3.1,
-            "hauls": 2
+            "hauls": 2,
+            "features": {
+                "xGI_90": 0.11000000000000001,
+                "defcon": 100.0,
+                "explosivity": 37.9,
+                "form": 8.0,
+                "ict_index": 91.1,
+                "fixture_difficulty": 3,
+                "selected_by": 3.1,
+                "cost": 5.0,
+                "hauls": 2
+            }
         },
         {
             "id": 101,
@@ -101,7 +145,18 @@
             "explosivity": 22.9,
             "defcon": 20.0,
             "ownership": 9.6,
-            "hauls": 2
+            "hauls": 2,
+            "features": {
+                "xGI_90": 0.0,
+                "defcon": 20.0,
+                "explosivity": 22.9,
+                "form": 6.8,
+                "ict_index": 54.5,
+                "fixture_difficulty": 3,
+                "selected_by": 9.6,
+                "cost": 4.5,
+                "hauls": 2
+            }
         },
         {
             "id": 107,
@@ -121,7 +176,18 @@
             "explosivity": 11.4,
             "defcon": 100.0,
             "ownership": 2.4,
-            "hauls": 1
+            "hauls": 1,
+            "features": {
+                "xGI_90": 0.22,
+                "defcon": 100.0,
+                "explosivity": 11.4,
+                "form": 6.8,
+                "ict_index": 46.6,
+                "fixture_difficulty": 3,
+                "selected_by": 2.4,
+                "cost": 4.9,
+                "hauls": 1
+            }
         },
         {
             "id": 407,
@@ -141,7 +207,18 @@
             "explosivity": 25.7,
             "defcon": 89.6,
             "ownership": 4.6,
-            "hauls": 4
+            "hauls": 4,
+            "features": {
+                "xGI_90": 0.08,
+                "defcon": 89.6,
+                "explosivity": 25.7,
+                "form": 6.2,
+                "ict_index": 71.0,
+                "fixture_difficulty": 3,
+                "selected_by": 4.6,
+                "cost": 5.5,
+                "hauls": 4
+            }
         },
         {
             "id": 430,
@@ -161,27 +238,49 @@
             "explosivity": 56.4,
             "defcon": 0.0,
             "ownership": 74.3,
-            "hauls": 8
+            "hauls": 8,
+            "features": {
+                "xGI_90": 0.97,
+                "defcon": 0.0,
+                "explosivity": 56.4,
+                "form": 6.8,
+                "ict_index": 200.4,
+                "fixture_difficulty": 3,
+                "selected_by": 74.3,
+                "cost": 15.1,
+                "hauls": 8
+            }
         },
         {
-            "id": 382,
-            "web_name": "Wirtz",
-            "team": "Liverpool",
+            "id": 488,
+            "web_name": "Bruno G.",
+            "team": "Newcastle",
             "position": 3,
-            "price": 8.2,
-            "predicted_points": 12.42,
-            "goals": 2,
-            "assists": 2,
-            "xG": 4.03,
-            "xA": 2.81,
-            "avg_minutes": 82.0,
+            "price": 7.2,
+            "predicted_points": 12.5,
+            "goals": 8,
+            "assists": 5,
+            "xG": 3.88,
+            "xA": 2.51,
+            "avg_minutes": 90.0,
             "can_start": true,
-            "next_fixture": "BUR (H)",
+            "next_fixture": "WOL (A)",
             "next_fixture_difficulty": 2,
-            "explosivity": 22.9,
+            "explosivity": 85.0,
             "defcon": 0.0,
-            "ownership": 10.8,
-            "hauls": 2
+            "ownership": 21.7,
+            "hauls": 7,
+            "features": {
+                "xGI_90": 0.33,
+                "defcon": 0.0,
+                "explosivity": 85.0,
+                "form": 6.0,
+                "ict_index": 139.2,
+                "fixture_difficulty": 2,
+                "selected_by": 21.7,
+                "cost": 7.2,
+                "hauls": 7
+            }
         },
         {
             "id": 136,
@@ -201,8 +300,52 @@
             "explosivity": 37.1,
             "defcon": 0.0,
             "ownership": 34.5,
-            "hauls": 5
+            "hauls": 5,
+            "features": {
+                "xGI_90": 0.6900000000000001,
+                "defcon": 0.0,
+                "explosivity": 37.1,
+                "form": 6.7,
+                "ict_index": 161.8,
+                "fixture_difficulty": 3,
+                "selected_by": 34.5,
+                "cost": 7.1,
+                "hauls": 5
+            }
         },
+        {
+            "id": 303,
+            "web_name": "Garner",
+            "team": "Everton",
+            "position": 3,
+            "price": 5.1,
+            "predicted_points": 11.95,
+            "goals": 2,
+            "assists": 3,
+            "xG": 1.57,
+            "xA": 2.9,
+            "avg_minutes": 90.0,
+            "can_start": true,
+            "next_fixture": "AST (A)",
+            "next_fixture_difficulty": 3,
+            "explosivity": 12.9,
+            "defcon": 0.0,
+            "ownership": 3.6,
+            "hauls": 2,
+            "features": {
+                "xGI_90": 0.22000000000000003,
+                "defcon": 0.0,
+                "explosivity": 12.9,
+                "form": 7.0,
+                "ict_index": 109.8,
+                "fixture_difficulty": 3,
+                "selected_by": 3.6,
+                "cost": 5.1,
+                "hauls": 2
+            }
+        }
+    ],
+    "bench": [
         {
             "id": 350,
             "web_name": "Aaronson",
@@ -221,10 +364,19 @@
             "explosivity": 12.9,
             "defcon": 0.0,
             "ownership": 0.5,
-            "hauls": 2
-        }
-    ],
-    "bench": [
+            "hauls": 2,
+            "features": {
+                "xGI_90": 0.39,
+                "defcon": 0.0,
+                "explosivity": 12.9,
+                "form": 6.0,
+                "ict_index": 94.0,
+                "fixture_difficulty": 2,
+                "selected_by": 0.5,
+                "cost": 5.4,
+                "hauls": 2
+            }
+        },
         {
             "id": 64,
             "web_name": "Watkins",
@@ -243,7 +395,18 @@
             "explosivity": 22.9,
             "defcon": 0.0,
             "ownership": 13.8,
-            "hauls": 2
+            "hauls": 2,
+            "features": {
+                "xGI_90": 0.55,
+                "defcon": 0.0,
+                "explosivity": 22.9,
+                "form": 6.0,
+                "ict_index": 108.8,
+                "fixture_difficulty": 2,
+                "selected_by": 13.8,
+                "cost": 8.8,
+                "hauls": 2
+            }
         },
         {
             "id": 329,
@@ -263,7 +426,18 @@
             "explosivity": 24.3,
             "defcon": 0.0,
             "ownership": 20.5,
-            "hauls": 3
+            "hauls": 3,
+            "features": {
+                "xGI_90": 0.38,
+                "defcon": 0.0,
+                "explosivity": 24.3,
+                "form": 6.7,
+                "ict_index": 114.9,
+                "fixture_difficulty": 3,
+                "selected_by": 20.5,
+                "cost": 5.9,
+                "hauls": 3
+            }
         },
         {
             "id": 21,
@@ -283,31 +457,22 @@
             "explosivity": 25.7,
             "defcon": 0.0,
             "ownership": 26.8,
-            "hauls": 4
-        },
-        {
-            "id": 303,
-            "web_name": "Garner",
-            "team": "Everton",
-            "position": 3,
-            "price": 5.1,
-            "predicted_points": 11.22,
-            "goals": 2,
-            "assists": 3,
-            "xG": 1.57,
-            "xA": 2.9,
-            "avg_minutes": 90.0,
-            "can_start": true,
-            "next_fixture": "AST (A)",
-            "next_fixture_difficulty": 3,
-            "explosivity": 12.9,
-            "defcon": 0.0,
-            "ownership": 3.6,
-            "hauls": 2
+            "hauls": 4,
+            "features": {
+                "xGI_90": 0.34,
+                "defcon": 0.0,
+                "explosivity": 25.7,
+                "form": 6.3,
+                "ict_index": 132.8,
+                "fixture_difficulty": 3,
+                "selected_by": 26.8,
+                "cost": 7.3,
+                "hauls": 4
+            }
         }
     ],
     "optimized_squad": {
-        "formation": "3-4-3",
+        "formation": "3-5-2",
         "starting_11": [
             {
                 "id": 101,
@@ -405,6 +570,25 @@
                 "ownership": 31.8
             },
             {
+                "id": 382,
+                "web_name": "Wirtz",
+                "team": "Liverpool",
+                "team_id": 12,
+                "position": 3,
+                "price": 8.2,
+                "predicted_points": 12.92,
+                "value_score": 1.58,
+                "goals": 2,
+                "assists": 2,
+                "xG": 4.03,
+                "xA": 2.81,
+                "avg_minutes": 82.0,
+                "next_fixture": "BUR (H)",
+                "next_fixture_difficulty": 2,
+                "explosivity": 22.9,
+                "ownership": 10.8
+            },
+            {
                 "id": 488,
                 "web_name": "Bruno G.",
                 "team": "Newcastle",
@@ -424,23 +608,23 @@
                 "ownership": 21.7
             },
             {
-                "id": 382,
-                "web_name": "Wirtz",
-                "team": "Liverpool",
-                "team_id": 12,
+                "id": 303,
+                "web_name": "Garner",
+                "team": "Everton",
+                "team_id": 9,
                 "position": 3,
-                "price": 8.2,
-                "predicted_points": 12.42,
-                "value_score": 1.51,
+                "price": 5.1,
+                "predicted_points": 11.95,
+                "value_score": 2.34,
                 "goals": 2,
-                "assists": 2,
-                "xG": 4.03,
-                "xA": 2.81,
-                "avg_minutes": 82.0,
-                "next_fixture": "BUR (H)",
-                "next_fixture_difficulty": 2,
-                "explosivity": 22.9,
-                "ownership": 10.8
+                "assists": 3,
+                "xG": 1.57,
+                "xA": 2.9,
+                "avg_minutes": 90.0,
+                "next_fixture": "AST (A)",
+                "next_fixture_difficulty": 3,
+                "explosivity": 12.9,
+                "ownership": 3.6
             },
             {
                 "id": 350,
@@ -498,25 +682,6 @@
                 "next_fixture_difficulty": 3,
                 "explosivity": 56.4,
                 "ownership": 74.3
-            },
-            {
-                "id": 64,
-                "web_name": "Watkins",
-                "team": "Aston Villa",
-                "team_id": 2,
-                "position": 4,
-                "price": 8.8,
-                "predicted_points": 11.77,
-                "value_score": 1.34,
-                "goals": 7,
-                "assists": 2,
-                "xG": 8.68,
-                "xA": 0.82,
-                "avg_minutes": 73.6,
-                "next_fixture": "EVE (H)",
-                "next_fixture_difficulty": 2,
-                "explosivity": 22.9,
-                "ownership": 13.8
             }
         ],
         "bench": [
@@ -540,25 +705,6 @@
                 "ownership": 33.1
             },
             {
-                "id": 303,
-                "web_name": "Garner",
-                "team": "Everton",
-                "team_id": 9,
-                "position": 3,
-                "price": 5.1,
-                "predicted_points": 11.22,
-                "value_score": 2.2,
-                "goals": 2,
-                "assists": 3,
-                "xG": 1.57,
-                "xA": 2.9,
-                "avg_minutes": 90.0,
-                "next_fixture": "AST (A)",
-                "next_fixture_difficulty": 3,
-                "explosivity": 12.9,
-                "ownership": 3.6
-            },
-            {
                 "id": 694,
                 "web_name": "Mukiele",
                 "team": "Sunderland",
@@ -576,6 +722,25 @@
                 "next_fixture_difficulty": 3,
                 "explosivity": 14.5,
                 "ownership": 9.8
+            },
+            {
+                "id": 166,
+                "web_name": "Ayari",
+                "team": "Brighton",
+                "team_id": 6,
+                "position": 3,
+                "price": 4.8,
+                "predicted_points": 9.68,
+                "value_score": 2.02,
+                "goals": 2,
+                "assists": 2,
+                "xG": 2.43,
+                "xA": 0.92,
+                "avg_minutes": 88.4,
+                "next_fixture": "BOU (H)",
+                "next_fixture_difficulty": 3,
+                "explosivity": 11.4,
+                "ownership": 0.3
             },
             {
                 "id": 329,
@@ -597,9 +762,9 @@
                 "ownership": 20.5
             }
         ],
-        "total_cost": 97.6,
-        "total_predicted_points": 130.2,
-        "bench_predicted_points": 36.87
+        "total_cost": 93.6,
+        "total_predicted_points": 130.88,
+        "bench_predicted_points": 35.33
     },
     "recommendations": {
         "obvious": {
@@ -621,6 +786,17 @@
             "defcon": 0.0,
             "ownership": 31.8,
             "hauls": 3,
+            "features": {
+                "xGI_90": 0.27,
+                "defcon": 0.0,
+                "explosivity": 34.3,
+                "form": 6.7,
+                "ict_index": 126.8,
+                "fixture_difficulty": 2,
+                "selected_by": 31.8,
+                "cost": 7.6,
+                "hauls": 3
+            },
             "reason": "The algorithm identifies Rogers as the most reliable pick with 13.36 projected points."
         },
         "joker": {
@@ -642,6 +818,17 @@
             "defcon": 0.0,
             "ownership": 21.7,
             "hauls": 7,
+            "features": {
+                "xGI_90": 0.33,
+                "defcon": 0.0,
+                "explosivity": 85.0,
+                "form": 6.0,
+                "ict_index": 139.2,
+                "fixture_difficulty": 2,
+                "selected_by": 21.7,
+                "cost": 7.2,
+                "hauls": 7
+            },
             "reason": "Bruno G. is selected as the best relative differential (21.7% ownership) with explosive potential."
         },
         "fun_one": {
@@ -663,6 +850,17 @@
             "defcon": 100.0,
             "ownership": 3.1,
             "hauls": 2,
+            "features": {
+                "xGI_90": 0.11000000000000001,
+                "defcon": 100.0,
+                "explosivity": 37.9,
+                "form": 8.0,
+                "ict_index": 91.1,
+                "fixture_difficulty": 3,
+                "selected_by": 3.1,
+                "cost": 5.0,
+                "hauls": 2
+            },
             "reason": "Elite Defcon level (100.0): Collins is picked for their massive clean sheet bonus and offensive participation."
         },
         "weights": {
