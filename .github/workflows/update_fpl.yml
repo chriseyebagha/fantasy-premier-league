@@ -36,6 +36,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r backend/requirements.txt
 
+      - name: Verify XGBoost
+        run: |
+          python -c "import xgboost; print('XGBoost version:', xgboost.__version__)"
+
       - name: Run FPL Prediction (Deadline Aware)
         run: |
           export PYTHONPATH="${PYTHONPATH}:${GITHUB_WORKSPACE}"
