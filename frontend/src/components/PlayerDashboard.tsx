@@ -38,19 +38,16 @@ const MiniPlayerCard = ({ player, isBench = false }: { player: any, isBench?: bo
             <div className="font-bold text-xs truncate uppercase tracking-tighter">{player.web_name}</div>
             <div className="flex flex-col items-center gap-0.5 mt-0.5">
                 <div className="text-[9px] text-text-muted leading-none">{player.team}</div>
-                <div className="flex items-center gap-1 mt-1">
-                    <span className="text-[8px] font-black py-0.5 px-1.5 rounded bg-slate-100 border border-slate-200 text-slate-600">
-                        {player.position}
-                    </span>
-                    <div
-                        className="w-1.5 h-1.5 rounded-full shadow-[0_0_8px_rgba(255,255,255,0.3)]"
-                        style={{
-                            backgroundColor: player.next_fixture_difficulty <= 2 ? '#10b981' :
-                                player.next_fixture_difficulty <= 3 ? '#f59e0b' :
-                                    player.next_fixture_difficulty <= 4 ? '#f97316' : '#ef4444'
-                        }}
-                    />
-                </div>
+
+                <div
+                    className="w-1.5 h-1.5 rounded-full shadow-[0_0_8px_rgba(255,255,255,0.3)]"
+                    style={{
+                        backgroundColor: player.next_fixture_difficulty <= 2 ? '#10b981' :
+                            player.next_fixture_difficulty <= 3 ? '#f59e0b' :
+                                player.next_fixture_difficulty <= 4 ? '#f97316' : '#ef4444'
+                    }}
+                />
+
             </div>
         </div>
 
@@ -82,7 +79,7 @@ const MiniPlayerCard = ({ player, isBench = false }: { player: any, isBench?: bo
                 <div className="text-[10px] font-bold text-explosive-glow">{player.explosivity.toFixed(0)}%</div>
             </div>
         </div>
-    </div>
+    </div >
 );
 
 export default function PlayerDashboard({ squad, bench, weights, optimized_squad }: PlayerDashboardProps & { optimized_squad?: any }) {

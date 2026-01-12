@@ -61,7 +61,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-bg-color text-text-color selection:bg-primary-glow/30" suppressHydrationWarning>
       {/* Premium Header */}
-      <header className="sticky top-0 z-50 py-6 border-b border-slate-200 bg-bg-color/80 backdrop-blur-xl">
+      <header className="sticky top-0 z-50 py-6 bg-bg-color/80 backdrop-blur-xl">
         <div className="container mx-auto px-6 flex justify-between items-center">
           <div>
             <h1 className="text-4xl font-black bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-500 uppercase tracking-tight">
