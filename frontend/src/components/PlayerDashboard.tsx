@@ -100,11 +100,14 @@ export default function PlayerDashboard({ squad, bench, gameweek, weights, optim
 
     return (
         <div className="space-y-16">
-            <div className="pitch-container relative overflow-visible">
-                <div className="absolute -top-16 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 w-full">
-                    <h2 className="text-sm md:text-2xl font-black uppercase tracking-[0.3em] md:tracking-[0.5em] text-slate-800 text-center whitespace-nowrap">
-                        Gameweek {gameweek || '22'} Team Selection
-                    </h2>
+            <div className="max-w-4xl mx-auto px-4 md:px-0">
+                <h2 className="text-sm md:text-2xl font-black uppercase tracking-[0.3em] md:tracking-[0.5em] text-slate-800 text-center whitespace-nowrap mb-8">
+                    Gameweek {gameweek || '22'} Team Selection
+                </h2>
+            </div>
+
+            <div className="pitch-container relative overflow-visible !mt-4">
+                <div className="absolute -top-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 w-full pointer-events-none">
                     {optimized_squad && (
                         <div className="px-3 py-1 bg-primary-glow/10 border border-primary-glow/20 rounded-full text-[9px] font-bold text-primary-glow uppercase tracking-widest">
                             Formation {formation}
