@@ -97,9 +97,11 @@ h1 {
   box-shadow:
     0 40px 100px -20px rgba(0, 0, 0, 0.9),
     inset 0 0 100px rgba(0, 255, 128, 0.05);
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
   max-width: 1100px;
   margin: 0 auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .pitch-container::before {

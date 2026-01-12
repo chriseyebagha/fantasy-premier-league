@@ -24,7 +24,7 @@ const CaptainCard = ({ type, data, glowClass }: { type: string, data: Captain, g
     if (!data) return null;
 
     return (
-        <div className={`glass-card w-full max-w-[320px] flex-shrink-0 border-t-4 ${glowClass} !p-4 shadow-sm hover:shadow-md transition-all`}>
+        <div className={`glass-card w-[85vw] md:w-full max-w-[320px] flex-shrink-0 border-t-4 ${glowClass} !p-4 shadow-sm hover:shadow-md transition-all snap-center`}>
             <div className="flex justify-between items-start mb-3">
                 <div className="min-w-0">
                     <span className="text-[9px] font-black uppercase tracking-[0.2em] text-text-muted mb-0.5 block">
@@ -78,7 +78,7 @@ export default function CaptainSection({ captains }: CaptainSectionProps) {
             <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400 mb-4 flex items-center gap-4">
                 Recommended Selections
             </h2>
-            <div className="flex flex-wrap md:flex-nowrap justify-center gap-8 pb-4 px-2 items-stretch">
+            <div className="flex flex-nowrap overflow-x-auto md:overflow-visible pb-8 md:pb-4 gap-4 md:gap-8 px-4 md:px-0 justify-start md:justify-center items-stretch snap-x snap-mandatory no-scrollbar">
                 <CaptainCard
                     type="The Obvious One"
                     data={captains.obvious}
