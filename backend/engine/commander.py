@@ -101,9 +101,9 @@ class EngineCommander:
             prediction = float(predictions[i])
             
             # 2. Performance Boost (Season-long reliability vs Recent Form)
-            # Dramatically increased total_points weight to ensure 
-            # established assets (Rice) outrank short-term rotation (Garner)
-            performance_boost = (float(p.get('form') or 0) * 0.25) + (float(p.get('total_points') or 0) / 35.0)
+            # Final Aggressive Buff: Ensure seasonal "Star" pedigree (Rice) 
+            # overrides short-term rotation/form assets (Garner)
+            performance_boost = (float(p.get('form') or 0) * 0.2) + (float(p.get('total_points') or 0) / 30.0)
             
             # 3. Fixture Adjustment (Boost easy, Penalize hard)
             fixture_multiplier = 1.0
