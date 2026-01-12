@@ -103,7 +103,7 @@ export default function Home() {
       <div className="container mx-auto px-6 py-12">
         {/* Tiered Captains */}
         <section className="mb-20">
-          <CaptainSection captains={data.recommendations} />
+          <CaptainSection captains={data.recommendations} gameweek={data.gameweek} />
         </section>
 
         {/* Neural Squad */}
