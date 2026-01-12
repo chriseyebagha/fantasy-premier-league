@@ -1,6 +1,6 @@
 {
     "status": "online",
-    "last_updated": "2026-01-12T05:57:17.140511+00:00",
+    "last_updated": "2026-01-12T06:01:33.059462+00:00",
     "gameweek": 22,
     "squad": [
         {
@@ -18,7 +18,7 @@
             "can_start": true,
             "next_fixture": "EVE (H)",
             "next_fixture_difficulty": 2,
-            "explosivity": 24.3,
+            "explosivity": 34.3,
             "defcon": 0.0,
             "ownership": 31.8,
             "hauls": 3
@@ -58,7 +58,7 @@
             "can_start": true,
             "next_fixture": "WOL (A)",
             "next_fixture_difficulty": 2,
-            "explosivity": 60.0,
+            "explosivity": 85.0,
             "defcon": 0.0,
             "ownership": 21.7,
             "hauls": 7
@@ -158,7 +158,7 @@
             "can_start": true,
             "next_fixture": "MAN (A)",
             "next_fixture_difficulty": 3,
-            "explosivity": 66.4,
+            "explosivity": 56.4,
             "defcon": 0.0,
             "ownership": 74.3,
             "hauls": 8
@@ -198,7 +198,7 @@
             "can_start": true,
             "next_fixture": "CHE (A)",
             "next_fixture_difficulty": 3,
-            "explosivity": 47.1,
+            "explosivity": 37.1,
             "defcon": 0.0,
             "ownership": 34.5,
             "hauls": 5
@@ -240,7 +240,7 @@
             "can_start": true,
             "next_fixture": "EVE (H)",
             "next_fixture_difficulty": 2,
-            "explosivity": 12.9,
+            "explosivity": 22.9,
             "defcon": 0.0,
             "ownership": 13.8,
             "hauls": 2
@@ -260,7 +260,7 @@
             "can_start": true,
             "next_fixture": "LEE (A)",
             "next_fixture_difficulty": 3,
-            "explosivity": 14.3,
+            "explosivity": 24.3,
             "defcon": 0.0,
             "ownership": 20.5,
             "hauls": 3
@@ -401,7 +401,7 @@
                 "avg_minutes": 88.2,
                 "next_fixture": "EVE (H)",
                 "next_fixture_difficulty": 2,
-                "explosivity": 24.3,
+                "explosivity": 34.3,
                 "ownership": 31.8
             },
             {
@@ -420,7 +420,7 @@
                 "avg_minutes": 90.0,
                 "next_fixture": "WOL (A)",
                 "next_fixture_difficulty": 2,
-                "explosivity": 60.0,
+                "explosivity": 85.0,
                 "ownership": 21.7
             },
             {
@@ -496,7 +496,7 @@
                 "avg_minutes": 90.0,
                 "next_fixture": "MAN (A)",
                 "next_fixture_difficulty": 3,
-                "explosivity": 66.4,
+                "explosivity": 56.4,
                 "ownership": 74.3
             },
             {
@@ -515,7 +515,7 @@
                 "avg_minutes": 73.6,
                 "next_fixture": "EVE (H)",
                 "next_fixture_difficulty": 2,
-                "explosivity": 12.9,
+                "explosivity": 22.9,
                 "ownership": 13.8
             }
         ],
@@ -593,7 +593,7 @@
                 "avg_minutes": 86.2,
                 "next_fixture": "LEE (A)",
                 "next_fixture_difficulty": 3,
-                "explosivity": 14.3,
+                "explosivity": 24.3,
                 "ownership": 20.5
             }
         ],
@@ -617,32 +617,32 @@
             "can_start": true,
             "next_fixture": "MAN (A)",
             "next_fixture_difficulty": 3,
-            "explosivity": 66.4,
+            "explosivity": 56.4,
             "defcon": 0.0,
             "ownership": 74.3,
             "hauls": 8,
             "reason": "Haaland is the 'Easy Choice' based on 8 double-digit hauls and 74.3% ownership."
         },
         "obvious": {
-            "id": 430,
-            "web_name": "Haaland",
-            "team": "Man City",
-            "position": 4,
-            "price": 15.1,
-            "predicted_points": 12.85,
-            "goals": 20,
+            "id": 47,
+            "web_name": "Rogers",
+            "team": "Aston Villa",
+            "position": 3,
+            "price": 7.6,
+            "predicted_points": 13.36,
+            "goals": 7,
             "assists": 4,
-            "xG": 18.47,
-            "xA": 1.26,
-            "avg_minutes": 90.0,
+            "xG": 3.42,
+            "xA": 2.36,
+            "avg_minutes": 88.2,
             "can_start": true,
-            "next_fixture": "MAN (A)",
-            "next_fixture_difficulty": 3,
-            "explosivity": 66.4,
+            "next_fixture": "EVE (H)",
+            "next_fixture_difficulty": 2,
+            "explosivity": 34.3,
             "defcon": 0.0,
-            "ownership": 74.3,
-            "hauls": 8,
-            "reason": "The algorithm identifies Haaland as the most reliable pick with 12.85 projected points."
+            "ownership": 31.8,
+            "hauls": 3,
+            "reason": "The algorithm identifies Rogers as the most reliable pick with 13.36 projected points."
         },
         "joker": {
             "id": 488,
@@ -659,7 +659,7 @@
             "can_start": true,
             "next_fixture": "WOL (A)",
             "next_fixture_difficulty": 2,
-            "explosivity": 60.0,
+            "explosivity": 85.0,
             "defcon": 0.0,
             "ownership": 21.7,
             "hauls": 7,
