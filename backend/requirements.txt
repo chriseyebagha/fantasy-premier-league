@@ -3,3 +3,6 @@ requests
 pandas
 flask-cors
 numpy
+xgboost
+scikit-learn
+joblib
