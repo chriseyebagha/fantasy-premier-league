@@ -121,7 +121,7 @@ class EngineCommander:
             # 5% Premium for Attackers, 10% Discount for Defenders (Clean Sheet Risk is high)
             pos_bias = 1.05 if p['element_type'] in [3, 4] else 0.90
             
-            final_score = int(round(prediction * fixture_multiplier * pos_bias))
+            final_score = round(prediction * fixture_multiplier * pos_bias, 2)
             
             processed.append({
                 "id": p['id'],

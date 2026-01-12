@@ -194,7 +194,7 @@ def get_all_predicted_players(dm: FPLDataManager, commander: EngineCommander) ->
         
         pos_bias = 1.05 if p['element_type'] in [3, 4] else 0.95
         
-        final_score = int(round(prediction * fixture_multiplier * pos_bias * item['chance_mult']))
+        final_score = round(prediction * fixture_multiplier * pos_bias * item['chance_mult'], 2)
         
         # Calculate a value score for bench selection
         price = p['now_cost'] / 10.0

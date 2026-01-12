@@ -8,6 +8,7 @@ interface PlayerDashboardProps {
     bench: Player[];
     gameweek?: number;
     weights?: any;
+    captainId?: number;
 }
 
 const PositionBadge = ({ position }: { position: number }) => {
@@ -26,11 +27,21 @@ const PositionBadge = ({ position }: { position: number }) => {
     );
 };
 
-const MiniPlayerCard = ({ player, isBench = false }: { player: any, isBench?: boolean }) => (
-    <div className={`glass-card !p-0.5 md:!p-3 flex flex-col gap-0 md:gap-2 group animate-float ${isBench ? 'w-20 md:w-32 opacity-70 scale-95 border-white/5' : 'w-[18.5%] md:w-[130px] lg:w-[150px] flex-shrink-0 !bg-black/60 shadow-2xl !rounded-lg md:!rounded-2xl'}`} style={{ animationDelay: `${Math.random() * 2}s` }}>
+const MiniPlayerCard = ({ player, isBench = false, isCaptain = false }: { player: any, isBench?: boolean, isCaptain?: boolean }) => (
+    <div className={`glass-card !p-0.5 md:!p-3 flex flex-col gap-0 md:gap-2 group animate-float relative ${isBench ? 'w-20 md:w-32 opacity-70 scale-95 border-white/5' : 'w-[18.5%] md:w-[130px] lg:w-[150px] flex-shrink-0 !bg-black/60 shadow-2xl !rounded-lg md:!rounded-2xl'}`} style={{ animationDelay: `${Math.random() * 2}s` }}>
+
+        {/* Captain Armband */}
+        {isCaptain && !isBench && (
+            <div className="absolute -top-1 -right-1 md:-top-2 md:-right-2 z-10">
+                <div className="bg-yellow-500 text-black text-[8px] md:text-[10px] font-black w-4 h-4 md:w-6 md:h-6 flex items-center justify-center rounded-full border-2 border-slate-900 shadow-lg shadow-yellow-500/50">
+                    C
+                </div>
+            </div>
+        )}
+
         <div className="flex justify-between items-start">
             <div className="w-full text-center md:text-right">
-                <div className={`text-[8px] md:text-lg font-bold ${isBench ? 'text-slate-400' : 'text-primary-glow'}`}>{player.predicted_points.toFixed(1)}</div>
+                <div className={`text-[8px] md:text-lg font-bold ${isBench ? 'text-slate-400' : 'text-primary-glow'}`}>{Math.round(player.predicted_points)}</div>
             </div>
         </div>
 
@@ -84,7 +95,7 @@ const MiniPlayerCard = ({ player, isBench = false }: { player: any, isBench?: bo
     </div>
 );
 
-export default function PlayerDashboard({ squad, bench, gameweek, weights, optimized_squad }: PlayerDashboardProps & { optimized_squad?: any }) {
+export default function PlayerDashboard({ squad, bench, gameweek, weights, optimized_squad, captainId }: PlayerDashboardProps & { optimized_squad?: any }) {
     // Use optimized squad if available, otherwise fallback to top-15
     const displaySquad = optimized_squad?.players?.starting_11 || squad;
     const displayBench = optimized_squad?.players?.bench || bench;
@@ -117,22 +128,22 @@ export default function PlayerDashboard({ squad, bench, gameweek, weights, optim
 
                 {/* Forwards */}
                 <div className="pitch-row">
-                    {fwds.map((p: any) => <MiniPlayerCard key={p.id} player={p} />)}
+                    {fwds.map((p: any) => <MiniPlayerCard key={p.id} player={p} isCaptain={p.id === captainId} />)}
                 </div>
 
                 {/* Midfielders */}
                 <div className="pitch-row">
-                    {mids.map((p: any) => <MiniPlayerCard key={p.id} player={p} />)}
+                    {mids.map((p: any) => <MiniPlayerCard key={p.id} player={p} isCaptain={p.id === captainId} />)}
                 </div>
 
                 {/* Defenders */}
                 <div className="pitch-row">
-                    {defs.map((p: any) => <MiniPlayerCard key={p.id} player={p} />)}
+                    {defs.map((p: any) => <MiniPlayerCard key={p.id} player={p} isCaptain={p.id === captainId} />)}
                 </div>
 
                 {/* Goalie */}
                 <div className="pitch-row">
-                    {gks.map((p: any) => <MiniPlayerCard key={p.id} player={p} />)}
+                    {gks.map((p: any) => <MiniPlayerCard key={p.id} player={p} isCaptain={p.id === captainId} />)}
                 </div>
             </div>
 
@@ -159,11 +170,11 @@ export default function PlayerDashboard({ squad, bench, gameweek, weights, optim
                             </div>
                             <div className="flex flex-col border-l border-slate-200/30 pl-8 md:pl-12">
                                 <span className="text-[8px] uppercase font-black tracking-widest text-text-muted mb-1.5 md:mb-2">Projected XI</span>
-                                <span className="text-[10px] md:text-sm font-bold text-explosive-glow">{optimized_squad.total_predicted_points?.toFixed(1) || '0.0'} <span className="text-[8px] md:text-[10px] uppercase ml-0.5">Pts</span></span>
+                                <span className="text-[10px] md:text-sm font-bold text-explosive-glow">{Math.round(optimized_squad.total_predicted_points || 0)} <span className="text-[8px] md:text-[10px] uppercase ml-0.5">Pts</span></span>
                             </div>
                             <div className="flex flex-col border-l border-slate-200/30 pl-8 md:pl-12 hidden md:flex">
                                 <span className="text-[8px] uppercase font-black tracking-widest text-text-muted mb-1.5 md:mb-2">Bench Potential</span>
-                                <span className="text-[10px] md:text-sm font-bold text-slate-500">{optimized_squad.bench_predicted_points?.toFixed(1) || '0.0'} <span className="text-[8px] md:text-[10px] uppercase ml-0.5">Pts</span></span>
+                                <span className="text-[10px] md:text-sm font-bold text-slate-500">{Math.round(optimized_squad.bench_predicted_points || 0)} <span className="text-[8px] md:text-[10px] uppercase ml-0.5">Pts</span></span>
                             </div>
                         </div>
                     </div>

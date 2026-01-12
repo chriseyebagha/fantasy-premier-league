@@ -115,6 +115,7 @@ export default function Home() {
             gameweek={data.gameweek}
             optimized_squad={data.optimized_squad}
             weights={data.recommendations.weights}
+            captainId={data.recommendations.obvious?.id}
           />
         </section>
       </div>
