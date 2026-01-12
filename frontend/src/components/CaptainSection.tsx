@@ -35,7 +35,7 @@ const CaptainCard = ({ type, data, glowClass }: { type: string, data: Captain, g
                     <p className="text-text-muted text-[10px] uppercase font-medium">{data.team || 'Unknown'}</p>
                 </div>
                 <div className="text-right ml-2">
-                    <div className="text-xl font-black text-white leading-none">
+                    <div className="text-xl font-black text-slate-900 leading-none">
                         {(data.predicted_points || 0).toFixed(1)}
                     </div>
                     <div className="text-[8px] uppercase text-text-muted font-bold tracking-tighter">Exp Pts</div>
@@ -46,7 +46,7 @@ const CaptainCard = ({ type, data, glowClass }: { type: string, data: Captain, g
                 <div className="flex justify-between items-center text-[10px]">
                     <span className="text-text-muted uppercase font-bold tracking-tighter">Explosivity</span>
                     <div className="flex items-center gap-2">
-                        <div className="h-1 w-16 bg-white/10 rounded-full overflow-hidden">
+                        <div className="h-1 w-16 bg-slate-200 rounded-full overflow-hidden">
                             <div
                                 className={`h-full rounded-full transition-all duration-1000 ${glowClass.replace('border-', 'bg-').replace('-glow', '')}`}
                                 style={{ width: `${data.explosivity || 0}%` }}
@@ -62,7 +62,7 @@ const CaptainCard = ({ type, data, glowClass }: { type: string, data: Captain, g
                 </div>
 
                 {data.reason && (
-                    <p className="text-[9px] text-text-muted italic leading-tight border-l-2 border-white/10 pl-2">
+                    <p className="text-[9px] text-text-muted italic leading-tight border-l-2 border-slate-200 pl-2">
                         "{data.reason}"
                     </p>
                 )}
@@ -76,9 +76,9 @@ export default function CaptainSection({ captains }: CaptainSectionProps) {
 
     return (
         <section className="mb-8">
-            <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-white/20 mb-4 flex items-center gap-4">
+            <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400 mb-4 flex items-center gap-4">
                 Recommended Selections
-                <div className="h-[1px] flex-1 bg-white/5" />
+                <div className="h-[1px] flex-1 bg-slate-200" />
             </h2>
             <div className="flex flex-nowrap overflow-x-auto pb-4 gap-4 no-scrollbar -mx-2 px-2 items-stretch">
                 <CaptainCard

@@ -30,7 +30,7 @@ const MiniPlayerCard = ({ player, isBench = false }: { player: any, isBench?: bo
         <div className="flex justify-between items-start">
             <PositionBadge position={player.position} />
             <div className="text-right">
-                <div className={`text-lg font-bold ${isBench ? 'text-white/60' : 'text-primary-glow'}`}>{player.predicted_points.toFixed(1)}</div>
+                <div className={`text-lg font-bold ${isBench ? 'text-slate-400' : 'text-primary-glow'}`}>{player.predicted_points.toFixed(1)}</div>
             </div>
         </div>
 
@@ -39,8 +39,8 @@ const MiniPlayerCard = ({ player, isBench = false }: { player: any, isBench?: bo
             <div className="flex flex-col items-center gap-0.5 mt-0.5">
                 <div className="text-[9px] text-text-muted leading-none">{player.team}</div>
                 <div className="flex items-center gap-1 mt-1">
-                    <span className="text-[8px] font-black py-0.5 px-1.5 rounded bg-white/5 border border-white/10 text-white/90">
-                        {player.next_fixture}
+                    <span className="text-[8px] font-black py-0.5 px-1.5 rounded bg-slate-100 border border-slate-200 text-slate-600">
+                        {player.position}
                     </span>
                     <div
                         className="w-1.5 h-1.5 rounded-full shadow-[0_0_8px_rgba(255,255,255,0.3)]"
@@ -58,11 +58,11 @@ const MiniPlayerCard = ({ player, isBench = false }: { player: any, isBench?: bo
         <div className="grid grid-cols-3 gap-1 py-1 border-y border-white/5 my-1">
             <div className="text-[8px] flex flex-col items-center">
                 <span className="text-text-muted uppercase text-[7px] leading-tight">Goals/Asst</span>
-                <span className="text-white font-bold">{player.goals}/{player.assists}</span>
+                <span className="text-slate-900 font-bold">{player.goals}/{player.assists}</span>
             </div>
             <div className="text-[8px] flex flex-col items-center border-l border-white/5">
                 <span className="text-text-muted uppercase text-[7px] leading-tight">xG/xA</span>
-                <span className="text-white/80">{player.xG}/{player.xA}</span>
+                <span className="text-slate-500">{player.xG}/{player.xA}</span>
             </div>
             <div className="text-[8px] flex flex-col items-center border-l border-white/5">
                 <span className="text-text-muted uppercase text-[7px] leading-tight">Avg Min</span>
@@ -74,8 +74,8 @@ const MiniPlayerCard = ({ player, isBench = false }: { player: any, isBench?: bo
 
         <div className="mt-auto pt-1 flex flex-col gap-1">
             <div className="flex justify-between items-center">
-                <div className="text-[9px] text-text-muted uppercase font-medium">Price <span className="text-white">£{player.price.toFixed(1)}m</span></div>
-                <div className="text-[9px] text-text-muted uppercase font-medium">TSB <span className="text-white">{player.ownership}%</span></div>
+                <div className="text-[9px] text-text-muted uppercase font-medium">Price <span className="text-slate-700">£{player.price.toFixed(1)}m</span></div>
+                <div className="text-[9px] text-text-muted uppercase font-medium">TSB <span className="text-slate-700">{player.ownership}%</span></div>
             </div>
             <div className="flex justify-between items-center pt-1 border-t border-white/5">
                 <span className="text-[8px] text-text-muted uppercase tracking-wider">Explosivity</span>
@@ -103,7 +103,7 @@ export default function PlayerDashboard({ squad, bench, weights, optimized_squad
         <div className="space-y-16">
             <div className="pitch-container relative overflow-visible">
                 <div className="absolute -top-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1">
-                    <div className="text-[10px] font-black tracking-[0.4em] text-white/10 uppercase pointer-events-none">
+                    <div className="text-[10px] font-black tracking-[0.4em] text-slate-300 uppercase pointer-events-none">
                         Neural Team Architecture
                     </div>
                     {optimized_squad && (
@@ -155,7 +155,7 @@ export default function PlayerDashboard({ squad, bench, weights, optimized_squad
                         <div className="space-y-3">
                             <div className="flex justify-between text-xs">
                                 <span className="text-text-muted">Total Squad Cost</span>
-                                <span className="font-mono text-white">£{optimized_squad.total_cost}m / £100m</span>
+                                <span className="font-mono text-slate-800">£{optimized_squad.total_cost}m / £100m</span>
                             </div>
                             <div className="flex justify-between text-xs">
                                 <span className="text-text-muted">Projected Points (XI)</span>
@@ -163,7 +163,7 @@ export default function PlayerDashboard({ squad, bench, weights, optimized_squad
                             </div>
                             <div className="flex justify-between text-xs">
                                 <span className="text-text-muted">Bench Points potential</span>
-                                <span className="font-mono text-white/40">{optimized_squad.bench_points}</span>
+                                <span className="font-mono text-slate-400">{optimized_squad.bench_points}</span>
                             </div>
                             <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden mt-2">
                                 <div
@@ -191,7 +191,7 @@ export default function PlayerDashboard({ squad, bench, weights, optimized_squad
                         </div>
                         <div className="flex justify-between text-xs">
                             <span className="text-text-muted">Model Architecture</span>
-                            <span className="px-2 py-0.5 bg-white/5 rounded text-[10px] uppercase font-bold text-white/40">
+                            <span className="px-2 py-0.5 bg-slate-100 rounded text-[10px] uppercase font-bold text-slate-400">
                                 {weights?.model_type || 'XGBoost v2'}
                             </span>
                         </div>

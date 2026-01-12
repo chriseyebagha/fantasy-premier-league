@@ -49,7 +49,7 @@ export default function Home() {
           <p className="text-text-muted text-sm mb-6">{error || 'The FPL backend is currently disconnected.'}</p>
           <button
             onClick={fetchDashboard}
-            className="px-8 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-[10px] font-bold tracking-widest transition-all"
+            className="px-8 py-3 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-full text-[10px] font-bold tracking-widest transition-all"
           >
             RETRY CONNECTION
           </button>
@@ -61,10 +61,10 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-bg-color text-text-color selection:bg-primary-glow/30" suppressHydrationWarning>
       {/* Premium Header */}
-      <header className="sticky top-0 z-50 py-6 border-b border-white/5 bg-bg-color/80 backdrop-blur-xl">
+      <header className="sticky top-0 z-50 py-6 border-b border-slate-200 bg-bg-color/80 backdrop-blur-xl">
         <div className="container mx-auto px-6 flex justify-between items-center">
           <div>
-            <h1 className="text-4xl font-black bg-clip-text text-transparent bg-gradient-to-r from-white to-white/40 uppercase tracking-tight">
+            <h1 className="text-4xl font-black bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-500 uppercase tracking-tight">
               Gameweek {data.gameweek}
             </h1>
           </div>
@@ -74,14 +74,14 @@ export default function Home() {
               <a
                 href="https://github.com/chriseyebagha/fantasy-premier-league/blob/main/TECHNICAL_SPEC.md"
                 target="_blank"
-                className="hover:text-white transition-colors"
+                className="hover:text-slate-900 transition-colors"
               >
                 Technical Spec
               </a>
               <a
                 href="https://github.com/chriseyebagha/fantasy-premier-league"
                 target="_blank"
-                className="hover:text-white transition-colors"
+                className="hover:text-slate-900 transition-colors"
               >
                 View Source
               </a>
@@ -89,7 +89,7 @@ export default function Home() {
 
             <button
               onClick={fetchDashboard}
-              className="p-2.5 hover:bg-white/5 rounded-full transition-all border border-transparent hover:border-white/10"
+              className="p-2.5 hover:bg-slate-100 rounded-full transition-all border border-transparent hover:border-slate-200"
               title="Refresh Engine"
             >
               <svg className="w-5 h-5 text-text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -118,7 +118,7 @@ export default function Home() {
         </section>
       </div>
 
-      <footer className="py-20 border-t border-white/5 bg-black/20">
+      <footer className="py-20 border-t border-slate-200 bg-slate-50/50">
         <div className="container mx-auto px-6 flex flex-col items-center gap-4">
           <div className="text-3xl font-bold opacity-10 grayscale select-none tracking-tighter">ANTIGRAVITY SYSTEMS</div>
           <p className="text-text-muted text-[10px] font-bold uppercase tracking-[0.3em]">
