@@ -91,9 +91,9 @@ Derived inversely from FDR.
 
 **2. Defensive Work Rate (BPS Magnet)**
 Built directly from FPL's `defensive_contribution_per_90` API field (Clearances, Blocks, Interceptions).
-- Elite defenders average ~8.0 contributions per 90.
-- Weighted x4.0 to contribute ~32 points to the Defcon score.
-- *Goal*: Identify defenders who get Bonus Points even without a clean sheet.
+- **Context**: Defenders with 10+ defensive actions (CBI + Tackles) in a match get **+2 additional points**.
+- **Bonus**: High defensive work rate is the primary driver for Bonus Points (BPS) in low-scoring games.
+- Weighted x4.0 to heavily reward players who hit this "monster" threshold (e.g., 12 actions * 4 = 48 pts).
 
 **3. Attacking Threat**
 ```python
