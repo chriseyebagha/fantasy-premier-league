@@ -22,46 +22,46 @@ interface CaptainSectionProps {
     gameweek: number;
 }
 
-const CaptainCard = ({ type, subtitle, data, glowClass }: { type: string, subtitle: string, data: Captain, glowClass: string }) => {
+const CaptainCard = ({ subtitle, data, glowClass }: { subtitle: string, data: Captain, glowClass: string }) => {
     if (!data) return null;
 
     return (
-        <div className={`glass-card flex-1 min-w-0 md:w-full max-w-[320px] border-t-4 ${glowClass} !p-3 md:!p-4 shadow-sm hover:shadow-md transition-all flex flex-col`}>
+        <div className={`glass-card flex-1 min-w-0 md:w-full max-w-[320px] border-t-4 ${glowClass} !p-4 md:!p-5 shadow-sm hover:shadow-xl transition-all flex flex-col hover:-translate-y-1`}>
             {/* Header: Label & Points */}
-            <div className="flex justify-between items-start mb-2">
+            <div className="flex justify-between items-start mb-3">
                 <div className="min-w-0 flex-1">
-                    <span className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-text-muted mb-0.5 block truncate">
+                    <span className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-text-muted mb-1 block truncate">
                         {subtitle}
                     </span>
-                    <h3 className="text-sm md:text-xl font-bold truncate leading-tight">{data.web_name || 'N/A'}</h3>
+                    <h3 className="text-sm md:text-xl font-black text-slate-800 truncate leading-tight uppercase tracking-tight">{data.web_name || 'N/A'}</h3>
                 </div>
-                <div className="text-right ml-2 bg-slate-100/50 px-1.5 py-0.5 rounded">
-                    <div className="text-lg md:text-2xl font-black text-slate-900 leading-none">
+                <div className="text-right ml-2 bg-slate-900 text-white px-2 py-1 rounded-lg shadow-lg shadow-slate-200">
+                    <div className="text-lg md:text-2xl font-black leading-none">
                         {(data.predicted_points || 0).toFixed(1)}
                     </div>
                 </div>
             </div>
 
             {/* Context: Opponent */}
-            <div className="mb-3">
-                <div className="text-[10px] md:text-xs font-medium text-slate-500 flex items-center gap-1">
-                    <span className="uppercase text-[9px] tracking-wider text-text-muted">vs</span>
-                    <span className="text-slate-800 font-bold bg-white/60 px-1 rounded">{data.next_fixture || 'Unknown'}</span>
+            <div className="mb-4">
+                <div className="text-[10px] md:text-xs font-bold text-slate-500 flex items-center gap-2">
+                    <span className="uppercase text-[9px] tracking-widest text-text-muted font-black">VS</span>
+                    <span className="text-slate-900 bg-slate-100 px-2 py-0.5 rounded-md">{data.next_fixture || 'Unknown'}</span>
                 </div>
             </div>
 
             {/* Stats Grid - Uniform Height Spacer */}
-            <div className="mt-auto space-y-2 pt-2 border-t border-slate-100">
+            <div className="mt-auto space-y-2.5 pt-3 border-t border-slate-100">
                 <div className="flex justify-between items-center text-[10px]">
-                    <span className="text-text-muted uppercase font-bold tracking-tighter text-[9px]">Explosivity</span>
-                    <span className={`font-bold ${data.explosivity > 50 ? 'text-explosive-glow' : 'text-slate-700'}`}>
+                    <span className="text-text-muted uppercase font-black tracking-widest text-[8px]">Explosivity</span>
+                    <span className={`font-black ${data.explosivity > 50 ? 'text-explosive-glow' : 'text-slate-800'}`}>
                         {(data.explosivity || 0).toFixed(0)}%
                     </span>
                 </div>
 
                 <div className="flex justify-between text-[10px]">
-                    <span className="text-text-muted uppercase font-bold tracking-tighter text-[9px]">Ownership</span>
-                    <span className="font-bold">{typeof data.ownership === 'number' ? data.ownership.toFixed(1) : (data.ownership || '0')}%</span>
+                    <span className="text-text-muted uppercase font-black tracking-widest text-[8px]">Ownership</span>
+                    <span className="font-black text-slate-800">{typeof data.ownership === 'number' ? data.ownership.toFixed(1) : (data.ownership || '0')}%</span>
                 </div>
             </div>
         </div>
@@ -72,56 +72,55 @@ export default function CaptainSection({ captains, gameweek }: CaptainSectionPro
     if (!captains) return null;
 
     return (
-        <section className="mb-8">
-            <div className="mb-4 flex items-center gap-3">
-                <span className="bg-slate-800 text-white px-2 py-0.5 rounded text-[10px] font-black tracking-widest uppercase">GW {gameweek}</span>
-                <h2 className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">
+        <section className="mb-12 md:mb-20">
+            <div className="mb-8 flex items-center gap-4">
+                <span className="bg-slate-900 text-white px-3 py-1 rounded-lg text-xs font-black tracking-widest uppercase shadow-lg shadow-slate-200">GW {gameweek}</span>
+                <h2 className="text-xs font-black uppercase tracking-[0.4em] text-slate-500">
                     Captaincy
                 </h2>
             </div>
 
-            <div className="flex flex-nowrap justify-between md:justify-center gap-2 md:gap-8 pb-4 px-1 md:px-0">
-                <CaptainCard
-                    type="obvious"
-                    subtitle="Safe Pick"
-                    data={captains.obvious}
-                    glowClass="border-primary-glow"
-                />
-                <CaptainCard
-                    type="joker"
-                    subtitle="Differential"
-                    data={captains.joker}
-                    glowClass="border-joker-glow"
-                />
-                <CaptainCard
-                    type="fun"
-                    subtitle="Chaos Mode"
-                    data={captains.fun_one}
-                    glowClass="border-explosive-glow"
-                />
-            </div>
+            <div className="max-w-5xl mx-auto">
+                <div className="flex flex-nowrap justify-center gap-4 md:gap-8 pb-8 px-1 md:px-0">
+                    <CaptainCard
+                        subtitle="Safe Pick"
+                        data={captains.obvious}
+                        glowClass="border-primary-glow"
+                    />
+                    <CaptainCard
+                        subtitle="Differential"
+                        data={captains.joker}
+                        glowClass="border-joker-glow"
+                    />
+                    <CaptainCard
+                        subtitle="Chaos Mode"
+                        data={captains.fun_one}
+                        glowClass="border-explosive-glow"
+                    />
+                </div>
 
-            {/* Premium Legend */}
-            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-2 px-4 py-3 bg-white/40 rounded-xl backdrop-blur-sm border border-white/20">
-                <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-primary-glow shadow-[0_0_8px_#6366f1]"></div>
-                    <div className="flex flex-col">
-                        <span className="text-[10px] font-bold text-slate-700 leading-none">Safe</span>
-                        <span className="text-[8px] text-text-muted uppercase tracking-tight">Reliable Points</span>
+                {/* Premium Legend - Clean, pill style, no ugly lines */}
+                <div className="flex flex-wrap justify-center gap-x-12 gap-y-4 mt-4 px-8 py-5 bg-slate-50/80 rounded-3xl border border-slate-100/50 shadow-inner">
+                    <div className="flex items-center gap-4 group">
+                        <div className="w-3 h-3 rounded-full bg-primary-glow shadow-[0_0_12px_rgba(99,102,241,0.5)] transition-transform group-hover:scale-125"></div>
+                        <div className="flex flex-col">
+                            <span className="text-xs font-bold text-slate-800 tracking-tight leading-tight">Safe Pick</span>
+                            <span className="text-[9px] text-text-muted uppercase tracking-widest font-black">Reliable Points</span>
+                        </div>
                     </div>
-                </div>
-                <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-joker-glow shadow-[0_0_8px_#8b5cf6]"></div>
-                    <div className="flex flex-col">
-                        <span className="text-[10px] font-bold text-slate-700 leading-none">Diff</span>
-                        <span className="text-[8px] text-text-muted uppercase tracking-tight">High Risk/Reward</span>
+                    <div className="flex items-center gap-4 group">
+                        <div className="w-3 h-3 rounded-full bg-joker-glow shadow-[0_0_12px_rgba(139,92,246,0.5)] transition-transform group-hover:scale-125"></div>
+                        <div className="flex flex-col">
+                            <span className="text-xs font-bold text-slate-800 tracking-tight leading-tight">Differential</span>
+                            <span className="text-[9px] text-text-muted uppercase tracking-widest font-black">High Variance</span>
+                        </div>
                     </div>
-                </div>
-                <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-explosive-glow shadow-[0_0_8px_#f43f5e]"></div>
-                    <div className="flex flex-col">
-                        <span className="text-[10px] font-bold text-slate-700 leading-none">Chaos</span>
-                        <span className="text-[8px] text-text-muted uppercase tracking-tight">Pure Volatility</span>
+                    <div className="flex items-center gap-4 group">
+                        <div className="w-3 h-3 rounded-full bg-explosive-glow shadow-[0_0_12px_rgba(244,63,94,0.5)] transition-transform group-hover:scale-125"></div>
+                        <div className="flex flex-col">
+                            <span className="text-xs font-bold text-slate-800 tracking-tight leading-tight">Chaos Mode</span>
+                            <span className="text-[9px] text-text-muted uppercase tracking-widest font-black">Volatility Pick</span>
+                        </div>
                     </div>
                 </div>
             </div>

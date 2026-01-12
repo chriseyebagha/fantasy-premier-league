@@ -102,12 +102,12 @@ export default function Home() {
 
       <div className="container mx-auto px-6 py-12">
         {/* Tiered Captains */}
-        <section className="mb-20">
+        <section className="mb-24 md:mb-32">
           <CaptainSection captains={data.recommendations} gameweek={data.gameweek} />
         </section>
 
         {/* Neural Squad */}
-        <section className="mb-20">
+        <section className="mb-24 md:mb-32">
 
           <PlayerDashboard
             squad={data.squad}
