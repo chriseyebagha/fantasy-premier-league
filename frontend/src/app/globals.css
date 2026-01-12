@@ -117,17 +117,20 @@ h1 {
 
 .pitch-row {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   gap: 20px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   z-index: 1;
   width: 100%;
+  min-width: max-content;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {

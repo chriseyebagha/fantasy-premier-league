@@ -37,7 +37,9 @@ const MiniPlayerCard = ({ player, isBench = false }: { player: any, isBench?: bo
         <div className="text-center">
             <div className="font-bold text-xs truncate uppercase tracking-tighter">{player.web_name}</div>
             <div className="flex flex-col items-center gap-0.5 mt-0.5">
-                <div className="text-[9px] text-text-muted leading-none">{player.team}</div>
+                <div className="text-[9px] text-text-muted leading-none">
+                    {player.team} <span className="text-slate-400 font-normal ml-0.5">vs {player.next_fixture}</span>
+                </div>
 
                 <div
                     className="w-1.5 h-1.5 rounded-full shadow-[0_0_8px_rgba(255,255,255,0.3)]"
