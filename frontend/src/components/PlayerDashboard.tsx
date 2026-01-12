@@ -27,7 +27,7 @@ const PositionBadge = ({ position }: { position: number }) => {
 };
 
 const MiniPlayerCard = ({ player, isBench = false }: { player: any, isBench?: boolean }) => (
-    <div className={`glass-card !p-1 md:!p-3 flex flex-col gap-1 md:gap-2 group animate-float ${isBench ? 'opacity-70 scale-95 border-white/5' : 'w-[19%] md:w-auto md:min-w-[130px] md:max-w-[150px] !bg-black/60 shadow-2xl'}`} style={{ animationDelay: `${Math.random() * 2}s` }}>
+    <div className={`glass-card !p-1 md:!p-3 flex flex-col gap-1 md:gap-2 group animate-float ${isBench ? 'w-24 md:w-32 opacity-70 scale-95 border-white/5' : 'w-[18%] md:w-[130px] lg:w-[150px] flex-shrink-0 !bg-black/60 shadow-2xl'}`} style={{ animationDelay: `${Math.random() * 2}s` }}>
         <div className="flex justify-between items-start">
             <div className="w-full text-center md:text-right">
                 <div className={`text-[10px] md:text-lg font-bold ${isBench ? 'text-slate-400' : 'text-primary-glow'}`}>{player.predicted_points.toFixed(1)}</div>
