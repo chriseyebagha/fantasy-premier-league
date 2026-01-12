@@ -148,11 +148,11 @@ export default function PlayerDashboard({ squad, bench, weights, optimized_squad
                 {optimized_squad && (
                     <div className="glass-card border-l-4 border-explosive-glow">
                         <h3 className="text-sm font-bold mb-4 uppercase tracking-widest flex items-center gap-2">
-                            Economic Efficiency Auditor
+                            Team Value
                         </h3>
                         <div className="space-y-3">
                             <div className="flex justify-between text-xs">
-                                <span className="text-text-muted">Total Squad Cost</span>
+                                <span className="text-text-muted">Total Cost</span>
                                 <span className="font-mono text-slate-800">£{optimized_squad.total_cost}m / £100m</span>
                             </div>
                             <div className="flex justify-between text-xs">
@@ -172,24 +172,6 @@ export default function PlayerDashboard({ squad, bench, weights, optimized_squad
                         </div>
                     </div>
                 )}
-
-                {/* Weights Card */}
-                <div className="glass-card border-l-4 border-primary-glow">
-                    <h3 className="text-sm font-bold mb-4 uppercase tracking-widest flex items-center gap-2">
-                        Algorithm Weights Auditor
-                    </h3>
-                    <div className="space-y-3">
-                        <div className="flex justify-between text-xs">
-                            <span className="text-text-muted">Form Coefficient</span>
-                            <span className="font-mono text-primary-glow">×{weights?.form_weight || '0.70'}</span>
-                        </div>
-                        <div className="flex justify-between text-xs">
-                            <span className="text-text-muted">Difficulty Multiplier</span>
-                            <span className="font-mono text-primary-glow">×{weights?.fdr_weight || '0.50'}</span>
-                        </div>
-
-                    </div>
-                </div>
             </div>
         </div>
     );

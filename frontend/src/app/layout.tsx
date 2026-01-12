@@ -14,7 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: 'FPL Predictor - Advanced Fantasy Premier League Analytics',
-  description: 'AI-powered FPL analytics with squad optimization, captain recommendations, and price predictions. Make smarter Fantasy Premier League decisions.',
+  description: 'AI-powered FPL analytics with squad optimization, captain recommendations, and price predictions. Level up your Fantasy Premier League strategy with machine learning insights.',
+  keywords: 'FPL, Fantasy Premier League, FPL Predictor, Fantasy Football, AI FPL, FPL Tips, FPL Analytics, FPL Optimize, Chris Eyebagha',
 };
 
 export default function RootLayout({
