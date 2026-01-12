@@ -26,35 +26,34 @@ const PositionBadge = ({ position }: { position: number }) => {
 };
 
 const MiniPlayerCard = ({ player, isBench = false }: { player: any, isBench?: boolean }) => (
-    <div className={`glass-card !p-3 flex flex-col gap-2 group animate-float ${isBench ? 'opacity-70 scale-95 border-white/5' : 'min-w-[130px] max-w-[150px] !bg-black/60 shadow-2xl'}`} style={{ animationDelay: `${Math.random() * 2}s` }}>
+    <div className={`glass-card !p-1 md:!p-3 flex flex-col gap-1 md:gap-2 group animate-float ${isBench ? 'opacity-70 scale-95 border-white/5' : 'w-[19%] md:w-auto md:min-w-[130px] md:max-w-[150px] !bg-black/60 shadow-2xl'}`} style={{ animationDelay: `${Math.random() * 2}s` }}>
         <div className="flex justify-between items-start">
-            <PositionBadge position={player.position} />
-            <div className="text-right">
-                <div className={`text-lg font-bold ${isBench ? 'text-slate-400' : 'text-primary-glow'}`}>{player.predicted_points.toFixed(1)}</div>
+            <div className="w-full text-center md:text-right">
+                <div className={`text-[10px] md:text-lg font-bold ${isBench ? 'text-slate-400' : 'text-primary-glow'}`}>{player.predicted_points.toFixed(1)}</div>
             </div>
         </div>
 
         <div className="text-center">
-            <div className="font-bold text-xs truncate uppercase tracking-tighter">{player.web_name}</div>
+            <div className="font-bold text-[8px] md:text-xs truncate uppercase tracking-tighter">{player.web_name}</div>
             <div className="flex flex-col items-center gap-0.5 mt-0.5">
-                <div className="text-[9px] text-text-muted leading-none">
-                    {player.team} <span className="text-slate-400 font-normal ml-0.5">vs {player.next_fixture}</span>
+                <div className="text-[6px] md:text-[9px] text-text-muted leading-none whitespace-nowrap">
+                    <span className="md:hidden">{player.next_fixture}</span>
+                    <span className="hidden md:inline">{player.team} <span className="text-slate-400 font-normal ml-0.5">vs {player.next_fixture}</span></span>
                 </div>
 
                 <div
-                    className="w-1.5 h-1.5 rounded-full shadow-[0_0_8px_rgba(255,255,255,0.3)]"
+                    className="w-1 md:w-1.5 h-1 md:h-1.5 rounded-full shadow-[0_0_8px_rgba(255,255,255,0.3)]"
                     style={{
                         backgroundColor: player.next_fixture_difficulty <= 2 ? '#10b981' :
                             player.next_fixture_difficulty <= 3 ? '#f59e0b' :
                                 player.next_fixture_difficulty <= 4 ? '#f97316' : '#ef4444'
                     }}
                 />
-
             </div>
         </div>
 
-        {/* Real Stats Row */}
-        <div className="grid grid-cols-3 gap-1 py-1 border-y border-white/5 my-1">
+        {/* Real Stats Row - Hidden on Mobile */}
+        <div className="hidden md:grid grid-cols-3 gap-1 py-1 border-y border-white/5 my-1">
             <div className="text-[8px] flex flex-col items-center">
                 <span className="text-text-muted uppercase text-[7px] leading-tight">Goals/Asst</span>
                 <span className="text-slate-900 font-bold">{player.goals}/{player.assists}</span>
@@ -71,7 +70,7 @@ const MiniPlayerCard = ({ player, isBench = false }: { player: any, isBench?: bo
             </div>
         </div>
 
-        <div className="mt-auto pt-1 flex flex-col gap-1">
+        <div className="hidden md:flex mt-auto pt-1 flex-col gap-1">
             <div className="flex justify-between items-center">
                 <div className="text-[9px] text-text-muted uppercase font-medium">Price <span className="text-slate-700">£{player.price.toFixed(1)}m</span></div>
                 <div className="text-[9px] text-text-muted uppercase font-medium">TSB <span className="text-slate-700">{player.ownership}%</span></div>
@@ -81,7 +80,7 @@ const MiniPlayerCard = ({ player, isBench = false }: { player: any, isBench?: bo
                 <div className="text-[10px] font-bold text-explosive-glow">{player.explosivity.toFixed(0)}%</div>
             </div>
         </div>
-    </div >
+    </div>
 );
 
 export default function PlayerDashboard({ squad, bench, weights, optimized_squad }: PlayerDashboardProps & { optimized_squad?: any }) {
