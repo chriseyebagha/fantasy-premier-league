@@ -20,9 +20,24 @@ This project is an automated, data-driven engine that predicts FPL outcomes usin
 
 ## 🏗️ Portfolio Integration
 This repository is designed as a standalone micro-frontend.
-- **Repo**: `fantasy-premier-league` (This repo).
-- **Host**: `chriseyebagha.com` (Main portfolio).
-- **Integration**: The main portfolio serves the build output of this project at the `/fantasy` route, creating a seamless user experience while keeping the codebases distinct.
+- **Integration**: `chriseyebagha.com` (Main) pulls data from `fantasy-premier-league` (This Repo).
+- **Trigger**: When this repo updates, it sends a signal to the main repo to rebuild.
+
+### 🔌 Connect Your Portfolio (One-Time Setup)
+To allow this FPL engine to trigger your website build, you must add a secret:
+
+1.  **Generate Token**:
+    - Go to [GitHub Developer Settings > Tokens (Classic)](https://github.com/settings/tokens/new).
+    - Generate a new token with **`repo`** scope.
+    - Copy the token immediately.
+
+2.  **Add Secret**:
+    - Go to `fantasy-premier-league` > **Settings** > **Secrets and variables** > **Actions**.
+    - Click **"New repository secret"**.
+    - Name: `PAT_TOKEN`
+    - Value: *(Paste your copied token)*.
+
+Once added, the "Virtual Loop" is fully connected! 🔄
 
 ## 🛠️ Quick Start (for Contributors)
 1.  **Clone & Install**:
