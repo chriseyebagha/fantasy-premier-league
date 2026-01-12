@@ -27,15 +27,15 @@ const PositionBadge = ({ position }: { position: number }) => {
 };
 
 const MiniPlayerCard = ({ player, isBench = false }: { player: any, isBench?: boolean }) => (
-    <div className={`glass-card !p-1 md:!p-3 flex flex-col gap-1 md:gap-2 group animate-float ${isBench ? 'w-24 md:w-32 opacity-70 scale-95 border-white/5' : 'w-[18%] md:w-[130px] lg:w-[150px] flex-shrink-0 !bg-black/60 shadow-2xl'}`} style={{ animationDelay: `${Math.random() * 2}s` }}>
+    <div className={`glass-card !p-0.5 md:!p-3 flex flex-col gap-0.5 md:gap-2 group animate-float ${isBench ? 'w-20 md:w-32 opacity-70 scale-95 border-white/5' : 'w-[17.5%] md:w-[130px] lg:w-[150px] flex-shrink-0 !bg-black/60 shadow-2xl'}`} style={{ animationDelay: `${Math.random() * 2}s` }}>
         <div className="flex justify-between items-start">
             <div className="w-full text-center md:text-right">
-                <div className={`text-[10px] md:text-lg font-bold ${isBench ? 'text-slate-400' : 'text-primary-glow'}`}>{player.predicted_points.toFixed(1)}</div>
+                <div className={`text-[8px] md:text-lg font-bold ${isBench ? 'text-slate-400' : 'text-primary-glow'}`}>{player.predicted_points.toFixed(1)}</div>
             </div>
         </div>
 
         <div className="text-center">
-            <div className="font-bold text-[8px] md:text-xs truncate uppercase tracking-tighter">{player.web_name}</div>
+            <div className="font-black text-[6px] md:text-xs truncate uppercase tracking-tighter text-white/90">{player.web_name}</div>
             <div className="flex flex-col items-center gap-0.5 mt-0.5">
                 <div className="text-[6px] md:text-[9px] text-text-muted leading-none whitespace-nowrap">
                     <span className="md:hidden">vs&nbsp;{player.next_fixture}</span>
