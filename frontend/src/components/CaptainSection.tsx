@@ -37,7 +37,7 @@ const CaptainCard = ({ subtitle, data, glowClass }: { subtitle: string, data: Ca
                 </div>
                 <div className="mt-1 md:mt-0 md:ml-2 bg-slate-900 text-white px-1.5 md:px-2 py-0.5 md:py-1 rounded md:rounded-lg shadow-md shadow-slate-200">
                     <div className="text-[10px] md:text-2xl font-black leading-none">
-                        {(data.predicted_points || 0).toFixed(1)}
+                        {Math.round(data.predicted_points || 0)}
                     </div>
                 </div>
             </div>

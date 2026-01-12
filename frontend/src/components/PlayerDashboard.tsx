@@ -28,7 +28,7 @@ const PositionBadge = ({ position }: { position: number }) => {
 };
 
 const MiniPlayerCard = ({ player, isBench = false, isCaptain = false }: { player: any, isBench?: boolean, isCaptain?: boolean }) => (
-    <div className={`glass-card !p-0.5 md:!p-3 flex flex-col gap-0 md:gap-2 group animate-float relative ${isBench ? 'w-20 md:w-32 opacity-70 scale-95 border-white/5' : 'w-[18.5%] md:w-[130px] lg:w-[150px] flex-shrink-0 !bg-black/60 shadow-2xl !rounded-lg md:!rounded-2xl'}`} style={{ animationDelay: `${Math.random() * 2}s` }}>
+    <div className={`glass-card !p-0.5 md:!p-3 flex flex-col gap-0 md:gap-2 group animate-float relative ${isBench ? 'w-20 md:w-32 opacity-70 scale-95 border-white/5' : `w-[18%] md:w-[130px] lg:w-[150px] flex-shrink-0 !bg-black/60 shadow-2xl !rounded-lg md:!rounded-2xl ${isCaptain ? '!border-green-500 !border-2' : ''}`}`} style={{ animationDelay: `${Math.random() * 2}s` }}>
 
         {/* Captain Armband */}
         {isCaptain && !isBench && (
