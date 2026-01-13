@@ -32,8 +32,8 @@ export default function Home() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-bg-color">
         <div className="flex flex-col items-center gap-4">
-          <div className="w-12 h-12 border-4 border-primary-glow border-t-transparent rounded-full animate-spin" />
-          <p className="text-text-muted font-bold animate-pulse tracking-widest text-[10px] uppercase">
+          <div className="w-12 h-12 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin" />
+          <p className="text-slate-400 font-bold animate-pulse tracking-widest text-[10px] uppercase">
             Oracle is Computing...
           </p>
         </div>
@@ -44,12 +44,12 @@ export default function Home() {
   if (error || !data || data.status === 'offline') {
     return (
       <div className="min-h-screen flex items-center justify-center p-6 text-center bg-bg-color">
-        <div className="glass-card border-explosive-glow max-w-md p-8">
-          <h2 className="text-2xl font-bold text-explosive-glow mb-2">Engine Offline</h2>
-          <p className="text-text-muted text-sm mb-6">{error || 'The FPL backend is currently disconnected.'}</p>
+        <div className="bg-white border-2 border-slate-100 rounded-3xl p-8 shadow-xl max-w-sm">
+          <h2 className="text-xl font-black text-slate-800 mb-2">Engine Offline</h2>
+          <p className="text-slate-400 text-xs mb-6 font-medium">{error || 'The FPL backend is currently disconnected.'}</p>
           <button
             onClick={fetchDashboard}
-            className="px-8 py-3 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-full text-[10px] font-bold tracking-widest transition-all"
+            className="px-6 py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-full text-[10px] font-bold tracking-widest transition-all shadow-lg active:scale-95"
           >
             RETRY CONNECTION
           </button>
@@ -59,67 +59,53 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-bg-color text-text-color selection:bg-primary-glow/30" suppressHydrationWarning>
-      {/* Premium Header */}
-      <header className="sticky top-0 z-50 py-6 bg-bg-color/80 backdrop-blur-xl">
-        <div className="container mx-auto px-6 flex justify-between items-center">
-          <div>
-            <h1 className="text-4xl font-black bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-500 uppercase tracking-tight">
-              Gameweek {data.gameweek}
-            </h1>
-          </div>
+    <main className="app-container" suppressHydrationWarning>
 
-          <div className="flex items-center gap-6">
-            <nav className="hidden md:flex items-center gap-6 text-[10px] font-bold tracking-[0.2em] uppercase text-text-muted">
-              <a
-                href="https://github.com/chriseyebagha/fantasy-premier-league/blob/main/TECHNICAL_SPEC.md"
-                target="_blank"
-                className="hover:text-slate-900 transition-colors"
-              >
-                Technical Spec
-              </a>
-              <a
-                href="https://github.com/chriseyebagha/fantasy-premier-league"
-                target="_blank"
-                className="hover:text-slate-900 transition-colors"
-              >
-                View Source
-              </a>
-            </nav>
-
-            <button
-              onClick={fetchDashboard}
-              className="p-2.5 hover:bg-slate-100 rounded-full transition-all border border-transparent hover:border-slate-200"
-              title="Refresh Engine"
-            >
-              <svg className="w-5 h-5 text-text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-              </svg>
-            </button>
-          </div>
+      {/* 
+        PREMIUM HEADER - THIN PILL 
+        - Replicates the .jersey-card aesthetic (white, glass, blur, border)
+        - Compact and clean.
+      */}
+      <header className="sticky top-2 z-50 flex justify-center mb-6 pointer-events-none">
+        <div className="jersey-card !w-auto !h-auto !max-w-none px-10 py-3 !aspect-auto !flex-row !gap-0 !rounded-2xl shadow-lg pointer-events-auto">
+          <h1 className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-slate-500 leading-none">
+            GW {data.gameweek} Predictions
+          </h1>
         </div>
       </header>
 
-      <div className="container mx-auto px-6 py-12">
-        {/* Tiered Captains */}
-        <section className="mb-24 md:mb-32">
-          <CaptainSection captains={data.recommendations} gameweek={data.gameweek} />
-        </section>
+      {/* SECTION TITLE: Captain Options */}
+      <h2 className="text-center text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-4">
+        Captain Options
+      </h2>
 
-        {/* Neural Squad */}
-        <section className="mb-24 md:mb-32">
+      {/* 
+        CAPTAINCY SECTION 
+        - Zero overlap container
+        - "Premium Control Deck"
+      */}
+      <section className="shrink-0 w-full max-w-5xl mx-auto">
+        <CaptainSection captains={data.recommendations} gameweek={data.gameweek} />
+      </section>
 
-          <PlayerDashboard
-            squad={data.squad}
-            bench={data.bench}
-            gameweek={data.gameweek}
-            optimized_squad={data.optimized_squad}
-            weights={data.recommendations.weights}
-            captainId={data.recommendations.obvious?.id}
-          />
-        </section>
+      {/* SECTION TITLE: Top predicted players */}
+      <h2 className="text-center text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-2 mt-2">
+        Top predicted players
+      </h2>
+
+      {/* 
+        THE PITCH 
+        - Occupies remaining space
+      */}
+      <div className="w-full max-w-5xl mx-auto flex-1 flex flex-col min-h-0">
+        <PlayerDashboard
+          squad={data.squad}
+          bench={data.bench}
+          gameweek={data.gameweek}
+          optimized_squad={data.optimized_squad}
+          captainId={data.recommendations.obvious?.id}
+        />
       </div>
-
     </main>
   );
 }

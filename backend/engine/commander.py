@@ -22,6 +22,12 @@ class EngineCommander:
         gw_fixtures = [f for f in fixtures if f['event'] == next_gw]
         
         team_diff = {}
+        # Calculate team-level xGC from defensive players
+        team_xgc = {t['id']: 0.0 for t in bootstrap['teams']}
+        for p in players:
+            if p['element_type'] in [1, 2]: # GK and DEF
+                team_xgc[p['team']] += float(p.get('expected_goals_conceded') or 0)
+
         for f in gw_fixtures:
             team_diff[f['team_h']] = f['team_h_difficulty']
             team_diff[f['team_a']] = f['team_a_difficulty']
@@ -51,7 +57,19 @@ class EngineCommander:
             
             # Prepare features
             diff = team_diff.get(p['team'], 3)
-            features = FeatureFactory.prepare_features(p, history, diff, next_gw)
+            
+            # Map team ID to opponent ID
+            opponent_id = None
+            for f in gw_fixtures:
+                if f['team_h'] == p['team']:
+                    opponent_id = f['team_a']
+                    break
+                elif f['team_a'] == p['team']:
+                    opponent_id = f['team_h']
+                    break
+            
+            opp_xgc = team_xgc.get(opponent_id, 0.0) if opponent_id else 15.0 # Fallback to mid-range
+            features = FeatureFactory.prepare_features(p, history, diff, next_gw, opp_xgc)
             
             # Constraint: Must avg 65+ minutes to be a Starter candidate
             can_start = avg_minutes >= 65

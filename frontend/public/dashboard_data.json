@@ -1,6 +1,6 @@
 {
     "status": "online",
-    "last_updated": "2026-01-13T03:59:48.493557+00:00",
+    "last_updated": "2026-01-13T04:24:53.337916+00:00",
     "gameweek": 22,
     "squad": [
         {
@@ -31,7 +31,8 @@
                 "fixture_difficulty": 2,
                 "selected_by": 12.7,
                 "cost": 6.0,
-                "hauls": 2
+                "hauls": 2,
+                "opponent_xgc": 135.06
             }
         },
         {
@@ -62,7 +63,8 @@
                 "fixture_difficulty": 2,
                 "selected_by": 10.9,
                 "cost": 8.2,
-                "hauls": 2
+                "hauls": 2,
+                "opponent_xgc": 214.56
             }
         },
         {
@@ -93,7 +95,8 @@
                 "fixture_difficulty": 2,
                 "selected_by": 31.8,
                 "cost": 7.6,
-                "hauls": 3
+                "hauls": 3,
+                "opponent_xgc": 146.36
             }
         },
         {
@@ -124,7 +127,8 @@
                 "fixture_difficulty": 3,
                 "selected_by": 3.1,
                 "cost": 5.0,
-                "hauls": 2
+                "hauls": 2,
+                "opponent_xgc": 162.44
             }
         },
         {
@@ -155,7 +159,8 @@
                 "fixture_difficulty": 3,
                 "selected_by": 9.6,
                 "cost": 4.5,
-                "hauls": 2
+                "hauls": 2,
+                "opponent_xgc": 162.44
             }
         },
         {
@@ -186,7 +191,8 @@
                 "fixture_difficulty": 3,
                 "selected_by": 2.4,
                 "cost": 4.9,
-                "hauls": 1
+                "hauls": 1,
+                "opponent_xgc": 162.44
             }
         },
         {
@@ -217,7 +223,8 @@
                 "fixture_difficulty": 3,
                 "selected_by": 31.7,
                 "cost": 6.7,
-                "hauls": 4
+                "hauls": 4,
+                "opponent_xgc": 147.07999999999998
             }
         },
         {
@@ -248,7 +255,8 @@
                 "fixture_difficulty": 3,
                 "selected_by": 26.9,
                 "cost": 7.3,
-                "hauls": 4
+                "hauls": 4,
+                "opponent_xgc": 147.07999999999998
             }
         },
         {
@@ -279,7 +287,8 @@
                 "fixture_difficulty": 3,
                 "selected_by": 3.6,
                 "cost": 5.1,
-                "hauls": 2
+                "hauls": 2,
+                "opponent_xgc": 160.57
             }
         },
         {
@@ -310,7 +319,8 @@
                 "fixture_difficulty": 2,
                 "selected_by": 21.8,
                 "cost": 7.2,
-                "hauls": 7
+                "hauls": 7,
+                "opponent_xgc": 182.48
             }
         },
         {
@@ -341,7 +351,8 @@
                 "fixture_difficulty": 2,
                 "selected_by": 13.8,
                 "cost": 8.8,
-                "hauls": 2
+                "hauls": 2,
+                "opponent_xgc": 146.36
             }
         }
     ],
@@ -374,7 +385,8 @@
                 "fixture_difficulty": 2,
                 "selected_by": 0.5,
                 "cost": 5.4,
-                "hauls": 2
+                "hauls": 2,
+                "opponent_xgc": 135.06
             }
         },
         {
@@ -405,7 +417,8 @@
                 "fixture_difficulty": 3,
                 "selected_by": 74.3,
                 "cost": 15.1,
-                "hauls": 8
+                "hauls": 8,
+                "opponent_xgc": 149.51
             }
         },
         {
@@ -436,7 +449,8 @@
                 "fixture_difficulty": 3,
                 "selected_by": 34.6,
                 "cost": 7.1,
-                "hauls": 5
+                "hauls": 5,
+                "opponent_xgc": 162.44
             }
         },
         {
@@ -467,7 +481,8 @@
                 "fixture_difficulty": 3,
                 "selected_by": 0.2,
                 "cost": 4.9,
-                "hauls": 1
+                "hauls": 1,
+                "opponent_xgc": 162.44
             }
         }
     ],
@@ -795,7 +810,8 @@
                 "fixture_difficulty": 2,
                 "selected_by": 31.8,
                 "cost": 7.6,
-                "hauls": 3
+                "hauls": 3,
+                "opponent_xgc": 146.36
             },
             "reason": "The algorithm identifies Rogers as the most reliable pick with 8.09 projected points."
         },
@@ -827,7 +843,8 @@
                 "fixture_difficulty": 2,
                 "selected_by": 21.8,
                 "cost": 7.2,
-                "hauls": 7
+                "hauls": 7,
+                "opponent_xgc": 182.48
             },
             "reason": "Bruno G. is selected as the best relative differential (21.8% ownership) with explosive potential."
         },
@@ -859,7 +876,8 @@
                 "fixture_difficulty": 3,
                 "selected_by": 3.1,
                 "cost": 5.0,
-                "hauls": 2
+                "hauls": 2,
+                "opponent_xgc": 162.44
             },
             "reason": "Elite Defcon level (100.0): Collins is picked for their massive clean sheet bonus and offensive participation."
         },

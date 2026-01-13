@@ -960,7 +960,7 @@
         ]
     },
     "22": {
-        "timestamp": "2026-01-12T11:50:47.152200",
+        "timestamp": "2026-01-12T22:24:47.093541",
         "predictions": [
             {
                 "id": 691,
@@ -990,7 +990,8 @@
                     "fixture_difficulty": 2,
                     "selected_by": 12.7,
                     "cost": 6.0,
-                    "hauls": 2
+                    "hauls": 2,
+                    "opponent_xgc": 135.06
                 }
             },
             {
@@ -1010,7 +1011,7 @@
                 "next_fixture_difficulty": 2,
                 "explosivity": 22.9,
                 "defcon": 0.0,
-                "ownership": 10.8,
+                "ownership": 10.9,
                 "hauls": 2,
                 "features": {
                     "xGI_90": 0.44,
@@ -1019,9 +1020,10 @@
                     "form": 6.8,
                     "ict_index": 115.0,
                     "fixture_difficulty": 2,
-                    "selected_by": 10.8,
+                    "selected_by": 10.9,
                     "cost": 8.2,
-                    "hauls": 2
+                    "hauls": 2,
+                    "opponent_xgc": 214.56
                 }
             },
             {
@@ -1052,7 +1054,40 @@
                     "fixture_difficulty": 2,
                     "selected_by": 31.8,
                     "cost": 7.6,
-                    "hauls": 3
+                    "hauls": 3,
+                    "opponent_xgc": 146.36
+                }
+            },
+            {
+                "id": 21,
+                "web_name": "Rice",
+                "team": "Arsenal",
+                "position": 3,
+                "price": 7.3,
+                "predicted_points": 7.56,
+                "goals": 4,
+                "assists": 7,
+                "xG": 2.66,
+                "xA": 3.78,
+                "avg_minutes": 90.0,
+                "can_start": true,
+                "next_fixture": "NOT (A)",
+                "next_fixture_difficulty": 3,
+                "explosivity": 25.7,
+                "defcon": 0.0,
+                "ownership": 26.9,
+                "hauls": 4,
+                "features": {
+                    "xGI_90": 0.34,
+                    "defcon": 0.0,
+                    "explosivity": 25.7,
+                    "form": 7.2,
+                    "ict_index": 132.8,
+                    "fixture_difficulty": 3,
+                    "selected_by": 26.9,
+                    "cost": 7.3,
+                    "hauls": 4,
+                    "opponent_xgc": 147.07999999999998
                 }
             },
             {
@@ -1083,7 +1118,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 3.6,
                     "cost": 5.1,
-                    "hauls": 2
+                    "hauls": 2,
+                    "opponent_xgc": 160.57
                 }
             },
             {
@@ -1103,7 +1139,7 @@
                 "next_fixture_difficulty": 2,
                 "explosivity": 85.0,
                 "defcon": 0.0,
-                "ownership": 21.7,
+                "ownership": 21.8,
                 "hauls": 7,
                 "features": {
                     "xGI_90": 0.33,
@@ -1112,9 +1148,10 @@
                     "form": 6.0,
                     "ict_index": 139.2,
                     "fixture_difficulty": 2,
-                    "selected_by": 21.7,
+                    "selected_by": 21.8,
                     "cost": 7.2,
-                    "hauls": 7
+                    "hauls": 7,
+                    "opponent_xgc": 182.48
                 }
             },
             {
@@ -1145,7 +1182,8 @@
                     "fixture_difficulty": 2,
                     "selected_by": 0.5,
                     "cost": 5.4,
-                    "hauls": 2
+                    "hauls": 2,
+                    "opponent_xgc": 135.06
                 }
             },
             {
@@ -1176,7 +1214,8 @@
                     "fixture_difficulty": 2,
                     "selected_by": 13.8,
                     "cost": 8.8,
-                    "hauls": 2
+                    "hauls": 2,
+                    "opponent_xgc": 146.36
                 }
             },
             {
@@ -1207,7 +1246,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 3.1,
                     "cost": 5.0,
-                    "hauls": 2
+                    "hauls": 2,
+                    "opponent_xgc": 162.44
                 }
             },
             {
@@ -1238,7 +1278,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 74.3,
                     "cost": 15.1,
-                    "hauls": 8
+                    "hauls": 8,
+                    "opponent_xgc": 149.51
                 }
             },
             {
@@ -1258,7 +1299,7 @@
                 "next_fixture_difficulty": 3,
                 "explosivity": 37.1,
                 "defcon": 0.0,
-                "ownership": 34.5,
+                "ownership": 34.6,
                 "hauls": 5,
                 "features": {
                     "xGI_90": 0.6900000000000001,
@@ -1267,9 +1308,10 @@
                     "form": 6.7,
                     "ict_index": 161.8,
                     "fixture_difficulty": 3,
-                    "selected_by": 34.5,
+                    "selected_by": 34.6,
                     "cost": 7.1,
-                    "hauls": 5
+                    "hauls": 5,
+                    "opponent_xgc": 162.44
                 }
             },
             {
@@ -1300,38 +1342,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 0.2,
                     "cost": 4.9,
-                    "hauls": 1
-                }
-            },
-            {
-                "id": 21,
-                "web_name": "Rice",
-                "team": "Arsenal",
-                "position": 3,
-                "price": 7.3,
-                "predicted_points": 6.62,
-                "goals": 4,
-                "assists": 7,
-                "xG": 2.66,
-                "xA": 3.78,
-                "avg_minutes": 90.0,
-                "can_start": true,
-                "next_fixture": "NOT (A)",
-                "next_fixture_difficulty": 3,
-                "explosivity": 25.7,
-                "defcon": 0.0,
-                "ownership": 26.8,
-                "hauls": 4,
-                "features": {
-                    "xGI_90": 0.34,
-                    "defcon": 0.0,
-                    "explosivity": 25.7,
-                    "form": 6.3,
-                    "ict_index": 132.8,
-                    "fixture_difficulty": 3,
-                    "selected_by": 26.8,
-                    "cost": 7.3,
-                    "hauls": 4
+                    "hauls": 1,
+                    "opponent_xgc": 162.44
                 }
             },
             {
@@ -1362,7 +1374,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 2.6,
                     "cost": 7.1,
-                    "hauls": 1
+                    "hauls": 1,
+                    "opponent_xgc": 162.44
                 }
             },
             {
@@ -1393,7 +1406,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 43.3,
                     "cost": 7.6,
-                    "hauls": 4
+                    "hauls": 4,
+                    "opponent_xgc": 149.51
                 }
             },
             {
@@ -1424,7 +1438,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 9.6,
                     "cost": 4.5,
-                    "hauls": 2
+                    "hauls": 2,
+                    "opponent_xgc": 162.44
                 }
             },
             {
@@ -1455,7 +1470,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 2.4,
                     "cost": 4.9,
-                    "hauls": 1
+                    "hauls": 1,
+                    "opponent_xgc": 162.44
                 }
             },
             {
@@ -1486,38 +1502,40 @@
                     "fixture_difficulty": 3,
                     "selected_by": 0.3,
                     "cost": 4.8,
-                    "hauls": 1
+                    "hauls": 1,
+                    "opponent_xgc": 157.89999999999998
                 }
             },
             {
-                "id": 16,
-                "web_name": "Saka",
+                "id": 17,
+                "web_name": "\u00d8degaard",
                 "team": "Arsenal",
                 "position": 3,
-                "price": 10.2,
-                "predicted_points": 5.99,
-                "goals": 4,
-                "assists": 7,
-                "xG": 5.38,
-                "xA": 4.3,
-                "avg_minutes": 72.4,
+                "price": 7.8,
+                "predicted_points": 5.88,
+                "goals": 1,
+                "assists": 3,
+                "xG": 0.87,
+                "xA": 2.13,
+                "avg_minutes": 84.6,
                 "can_start": true,
                 "next_fixture": "NOT (A)",
                 "next_fixture_difficulty": 3,
-                "explosivity": 12.9,
+                "explosivity": 11.4,
                 "defcon": 0.0,
-                "ownership": 20.1,
-                "hauls": 2,
+                "ownership": 2.5,
+                "hauls": 1,
                 "features": {
-                    "xGI_90": 0.6100000000000001,
+                    "xGI_90": 0.31,
                     "defcon": 0.0,
-                    "explosivity": 12.9,
-                    "form": 5.7,
-                    "ict_index": 142.8,
+                    "explosivity": 11.4,
+                    "form": 5.6,
+                    "ict_index": 72.3,
                     "fixture_difficulty": 3,
-                    "selected_by": 20.1,
-                    "cost": 10.2,
-                    "hauls": 2
+                    "selected_by": 2.5,
+                    "cost": 7.8,
+                    "hauls": 1,
+                    "opponent_xgc": 147.07999999999998
                 }
             },
             {
@@ -1548,7 +1566,40 @@
                     "fixture_difficulty": 3,
                     "selected_by": 15.6,
                     "cost": 6.8,
-                    "hauls": 3
+                    "hauls": 3,
+                    "opponent_xgc": 149.51
+                }
+            },
+            {
+                "id": 5,
+                "web_name": "Gabriel",
+                "team": "Arsenal",
+                "position": 2,
+                "price": 6.7,
+                "predicted_points": 5.58,
+                "goals": 3,
+                "assists": 2,
+                "xG": 1.56,
+                "xA": 0.76,
+                "avg_minutes": 68.8,
+                "can_start": true,
+                "next_fixture": "NOT (A)",
+                "next_fixture_difficulty": 3,
+                "explosivity": 15.7,
+                "defcon": 100.0,
+                "ownership": 31.7,
+                "hauls": 4,
+                "features": {
+                    "xGI_90": 0.16,
+                    "defcon": 100.0,
+                    "explosivity": 15.7,
+                    "form": 6.2,
+                    "ict_index": 67.3,
+                    "fixture_difficulty": 3,
+                    "selected_by": 31.7,
+                    "cost": 6.7,
+                    "hauls": 4,
+                    "opponent_xgc": 147.07999999999998
                 }
             },
             {
@@ -1579,7 +1630,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 4.6,
                     "cost": 5.5,
-                    "hauls": 4
+                    "hauls": 4,
+                    "opponent_xgc": 149.51
                 }
             },
             {
@@ -1610,7 +1662,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 12.4,
                     "cost": 5.2,
-                    "hauls": 2
+                    "hauls": 2,
+                    "opponent_xgc": 149.51
                 }
             },
             {
@@ -1641,7 +1694,8 @@
                     "fixture_difficulty": 2,
                     "selected_by": 6.4,
                     "cost": 5.7,
-                    "hauls": 3
+                    "hauls": 3,
+                    "opponent_xgc": 214.56
                 }
             },
             {
@@ -1672,7 +1726,40 @@
                     "fixture_difficulty": 3,
                     "selected_by": 2.1,
                     "cost": 6.2,
-                    "hauls": 0
+                    "hauls": 0,
+                    "opponent_xgc": 165.54
+                }
+            },
+            {
+                "id": 749,
+                "web_name": "Man\u00e9",
+                "team": "Wolves",
+                "position": 4,
+                "price": 4.5,
+                "predicted_points": 5.46,
+                "goals": 2,
+                "assists": 2,
+                "xG": 0.53,
+                "xA": 0.38,
+                "avg_minutes": 76.0,
+                "can_start": true,
+                "next_fixture": "NEW (H)",
+                "next_fixture_difficulty": 3,
+                "explosivity": 12.7,
+                "defcon": 0.0,
+                "ownership": 0.8,
+                "hauls": 1,
+                "features": {
+                    "xGI_90": 0.19,
+                    "defcon": 0.0,
+                    "explosivity": 12.7,
+                    "form": 5.2,
+                    "ict_index": 30.5,
+                    "fixture_difficulty": 3,
+                    "selected_by": 0.8,
+                    "cost": 4.5,
+                    "hauls": 1,
+                    "opponent_xgc": 115.17999999999999
                 }
             },
             {
@@ -1703,7 +1790,8 @@
                     "fixture_difficulty": 2,
                     "selected_by": 1.1,
                     "cost": 5.4,
-                    "hauls": 1
+                    "hauls": 1,
+                    "opponent_xgc": 146.36
                 }
             },
             {
@@ -1734,7 +1822,8 @@
                     "fixture_difficulty": 2,
                     "selected_by": 1.1,
                     "cost": 5.9,
-                    "hauls": 0
+                    "hauls": 0,
+                    "opponent_xgc": 146.36
                 }
             },
             {
@@ -1754,7 +1843,7 @@
                 "next_fixture_difficulty": 3,
                 "explosivity": 14.5,
                 "defcon": 100.0,
-                "ownership": 9.8,
+                "ownership": 9.9,
                 "hauls": 3,
                 "features": {
                     "xGI_90": 0.1,
@@ -1763,40 +1852,10 @@
                     "form": 6.0,
                     "ict_index": 71.3,
                     "fixture_difficulty": 3,
-                    "selected_by": 9.8,
+                    "selected_by": 9.9,
                     "cost": 4.4,
-                    "hauls": 3
-                }
-            },
-            {
-                "id": 749,
-                "web_name": "Man\u00e9",
-                "team": "Wolves",
-                "position": 4,
-                "price": 4.5,
-                "predicted_points": 5.25,
-                "goals": 2,
-                "assists": 2,
-                "xG": 0.53,
-                "xA": 0.38,
-                "avg_minutes": 76.0,
-                "can_start": true,
-                "next_fixture": "NEW (H)",
-                "next_fixture_difficulty": 3,
-                "explosivity": 12.7,
-                "defcon": 0.0,
-                "ownership": 0.8,
-                "hauls": 1,
-                "features": {
-                    "xGI_90": 0.19,
-                    "defcon": 0.0,
-                    "explosivity": 12.7,
-                    "form": 5.0,
-                    "ict_index": 30.5,
-                    "fixture_difficulty": 3,
-                    "selected_by": 0.8,
-                    "cost": 4.5,
-                    "hauls": 1
+                    "hauls": 3,
+                    "opponent_xgc": 161.91
                 }
             },
             {
@@ -1827,7 +1886,8 @@
                     "fixture_difficulty": 2,
                     "selected_by": 5.8,
                     "cost": 5.7,
-                    "hauls": 0
+                    "hauls": 0,
+                    "opponent_xgc": 214.56
                 }
             },
             {
@@ -1858,7 +1918,8 @@
                     "fixture_difficulty": 2,
                     "selected_by": 3.2,
                     "cost": 4.9,
-                    "hauls": 2
+                    "hauls": 2,
+                    "opponent_xgc": 135.06
                 }
             },
             {
@@ -1889,7 +1950,8 @@
                     "fixture_difficulty": 2,
                     "selected_by": 0.1,
                     "cost": 4.9,
-                    "hauls": 1
+                    "hauls": 1,
+                    "opponent_xgc": 135.06
                 }
             },
             {
@@ -1909,7 +1971,7 @@
                 "next_fixture_difficulty": 3,
                 "explosivity": 24.3,
                 "defcon": 0.0,
-                "ownership": 20.5,
+                "ownership": 20.6,
                 "hauls": 3,
                 "features": {
                     "xGI_90": 0.38,
@@ -1918,40 +1980,10 @@
                     "form": 4.8,
                     "ict_index": 114.9,
                     "fixture_difficulty": 3,
-                    "selected_by": 20.5,
+                    "selected_by": 20.6,
                     "cost": 5.9,
-                    "hauls": 3
-                }
-            },
-            {
-                "id": 17,
-                "web_name": "\u00d8degaard",
-                "team": "Arsenal",
-                "position": 3,
-                "price": 7.8,
-                "predicted_points": 5.04,
-                "goals": 1,
-                "assists": 3,
-                "xG": 0.87,
-                "xA": 2.13,
-                "avg_minutes": 84.6,
-                "can_start": true,
-                "next_fixture": "NOT (A)",
-                "next_fixture_difficulty": 3,
-                "explosivity": 11.4,
-                "defcon": 0.0,
-                "ownership": 2.5,
-                "hauls": 1,
-                "features": {
-                    "xGI_90": 0.31,
-                    "defcon": 0.0,
-                    "explosivity": 11.4,
-                    "form": 4.8,
-                    "ict_index": 72.3,
-                    "fixture_difficulty": 3,
-                    "selected_by": 2.5,
-                    "cost": 7.8,
-                    "hauls": 1
+                    "hauls": 3,
+                    "opponent_xgc": 165.54
                 }
             },
             {
@@ -1982,7 +2014,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 0.0,
                     "cost": 4.8,
-                    "hauls": 0
+                    "hauls": 0,
+                    "opponent_xgc": 160.57
                 }
             },
             {
@@ -2013,7 +2046,40 @@
                     "fixture_difficulty": 2,
                     "selected_by": 0.4,
                     "cost": 4.3,
-                    "hauls": 0
+                    "hauls": 0,
+                    "opponent_xgc": 135.06
+                }
+            },
+            {
+                "id": 16,
+                "web_name": "Saka",
+                "team": "Arsenal",
+                "position": 3,
+                "price": 10.2,
+                "predicted_points": 4.83,
+                "goals": 4,
+                "assists": 7,
+                "xG": 5.38,
+                "xA": 4.3,
+                "avg_minutes": 72.4,
+                "can_start": true,
+                "next_fixture": "NOT (A)",
+                "next_fixture_difficulty": 3,
+                "explosivity": 12.9,
+                "defcon": 0.0,
+                "ownership": 20.1,
+                "hauls": 2,
+                "features": {
+                    "xGI_90": 0.6100000000000001,
+                    "defcon": 0.0,
+                    "explosivity": 12.9,
+                    "form": 4.6,
+                    "ict_index": 142.8,
+                    "fixture_difficulty": 3,
+                    "selected_by": 20.1,
+                    "cost": 10.2,
+                    "hauls": 2,
+                    "opponent_xgc": 147.07999999999998
                 }
             },
             {
@@ -2044,7 +2110,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 10.3,
                     "cost": 6.4,
-                    "hauls": 4
+                    "hauls": 4,
+                    "opponent_xgc": 161.27
                 }
             },
             {
@@ -2075,7 +2142,8 @@
                     "fixture_difficulty": 2,
                     "selected_by": 6.0,
                     "cost": 5.4,
-                    "hauls": 1
+                    "hauls": 1,
+                    "opponent_xgc": 214.56
                 }
             },
             {
@@ -2106,38 +2174,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 0.1,
                     "cost": 5.0,
-                    "hauls": 0
-                }
-            },
-            {
-                "id": 5,
-                "web_name": "Gabriel",
-                "team": "Arsenal",
-                "position": 2,
-                "price": 6.7,
-                "predicted_points": 4.68,
-                "goals": 3,
-                "assists": 2,
-                "xG": 1.56,
-                "xA": 0.76,
-                "avg_minutes": 68.8,
-                "can_start": true,
-                "next_fixture": "NOT (A)",
-                "next_fixture_difficulty": 3,
-                "explosivity": 15.7,
-                "defcon": 100.0,
-                "ownership": 31.6,
-                "hauls": 4,
-                "features": {
-                    "xGI_90": 0.16,
-                    "defcon": 100.0,
-                    "explosivity": 15.7,
-                    "form": 5.2,
-                    "ict_index": 67.3,
-                    "fixture_difficulty": 3,
-                    "selected_by": 31.6,
-                    "cost": 6.7,
-                    "hauls": 4
+                    "hauls": 0,
+                    "opponent_xgc": 162.44
                 }
             },
             {
@@ -2168,7 +2206,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 12.7,
                     "cost": 5.7,
-                    "hauls": 1
+                    "hauls": 1,
+                    "opponent_xgc": 160.57
                 }
             },
             {
@@ -2199,7 +2238,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 12.3,
                     "cost": 4.9,
-                    "hauls": 2
+                    "hauls": 2,
+                    "opponent_xgc": 161.91
                 }
             },
             {
@@ -2230,7 +2270,8 @@
                     "fixture_difficulty": 2,
                     "selected_by": 3.6,
                     "cost": 4.5,
-                    "hauls": 1
+                    "hauls": 1,
+                    "opponent_xgc": 182.48
                 }
             },
             {
@@ -2261,7 +2302,8 @@
                     "fixture_difficulty": 2,
                     "selected_by": 16.0,
                     "cost": 7.3,
-                    "hauls": 1
+                    "hauls": 1,
+                    "opponent_xgc": 182.48
                 }
             },
             {
@@ -2292,7 +2334,8 @@
                     "fixture_difficulty": 2,
                     "selected_by": 0.4,
                     "cost": 5.9,
-                    "hauls": 0
+                    "hauls": 0,
+                    "opponent_xgc": 182.48
                 }
             },
             {
@@ -2323,7 +2366,40 @@
                     "fixture_difficulty": 2,
                     "selected_by": 6.2,
                     "cost": 5.1,
-                    "hauls": 2
+                    "hauls": 2,
+                    "opponent_xgc": 182.48
+                }
+            },
+            {
+                "id": 20,
+                "web_name": "Trossard",
+                "team": "Arsenal",
+                "position": 3,
+                "price": 6.9,
+                "predicted_points": 4.41,
+                "goals": 5,
+                "assists": 4,
+                "xG": 4.17,
+                "xA": 2.04,
+                "avg_minutes": 67.2,
+                "can_start": true,
+                "next_fixture": "NOT (A)",
+                "next_fixture_difficulty": 3,
+                "explosivity": 24.3,
+                "defcon": 0.0,
+                "ownership": 1.8,
+                "hauls": 3,
+                "features": {
+                    "xGI_90": 0.49,
+                    "defcon": 0.0,
+                    "explosivity": 24.3,
+                    "form": 4.2,
+                    "ict_index": 101.0,
+                    "fixture_difficulty": 3,
+                    "selected_by": 1.8,
+                    "cost": 6.9,
+                    "hauls": 3,
+                    "opponent_xgc": 147.07999999999998
                 }
             },
             {
@@ -2354,7 +2430,40 @@
                     "fixture_difficulty": 3,
                     "selected_by": 2.4,
                     "cost": 5.5,
-                    "hauls": 3
+                    "hauls": 3,
+                    "opponent_xgc": 150.65
+                }
+            },
+            {
+                "id": 26,
+                "web_name": "Zubimendi",
+                "team": "Arsenal",
+                "position": 3,
+                "price": 5.2,
+                "predicted_points": 4.41,
+                "goals": 3,
+                "assists": 1,
+                "xG": 1.87,
+                "xA": 1.45,
+                "avg_minutes": 90.0,
+                "can_start": true,
+                "next_fixture": "NOT (A)",
+                "next_fixture_difficulty": 3,
+                "explosivity": 1.4,
+                "defcon": 0.0,
+                "ownership": 2.2,
+                "hauls": 1,
+                "features": {
+                    "xGI_90": 0.17,
+                    "defcon": 0.0,
+                    "explosivity": 1.4,
+                    "form": 4.2,
+                    "ict_index": 81.2,
+                    "fixture_difficulty": 3,
+                    "selected_by": 2.2,
+                    "cost": 5.2,
+                    "hauls": 1,
+                    "opponent_xgc": 147.07999999999998
                 }
             },
             {
@@ -2385,7 +2494,40 @@
                     "fixture_difficulty": 2,
                     "selected_by": 28.0,
                     "cost": 4.6,
-                    "hauls": 3
+                    "hauls": 3,
+                    "opponent_xgc": 195.17999999999998
+                }
+            },
+            {
+                "id": 8,
+                "web_name": "J.Timber",
+                "team": "Arsenal",
+                "position": 2,
+                "price": 6.3,
+                "predicted_points": 4.32,
+                "goals": 2,
+                "assists": 4,
+                "xG": 4.06,
+                "xA": 0.85,
+                "avg_minutes": 88.0,
+                "can_start": true,
+                "next_fixture": "NOT (A)",
+                "next_fixture_difficulty": 3,
+                "explosivity": 2.9,
+                "defcon": 100.0,
+                "ownership": 27.5,
+                "hauls": 2,
+                "features": {
+                    "xGI_90": 0.27,
+                    "defcon": 100.0,
+                    "explosivity": 2.9,
+                    "form": 4.8,
+                    "ict_index": 97.0,
+                    "fixture_difficulty": 3,
+                    "selected_by": 27.5,
+                    "cost": 6.3,
+                    "hauls": 2,
+                    "opponent_xgc": 147.07999999999998
                 }
             },
             {
@@ -2416,7 +2558,8 @@
                     "fixture_difficulty": 2,
                     "selected_by": 1.4,
                     "cost": 6.1,
-                    "hauls": 2
+                    "hauls": 2,
+                    "opponent_xgc": 182.48
                 }
             },
             {
@@ -2436,7 +2579,7 @@
                 "next_fixture_difficulty": 2,
                 "explosivity": 22.9,
                 "defcon": 0.0,
-                "ownership": 6.0,
+                "ownership": 5.9,
                 "hauls": 2,
                 "features": {
                     "xGI_90": 0.62,
@@ -2445,9 +2588,10 @@
                     "form": 3.5,
                     "ict_index": 70.7,
                     "fixture_difficulty": 2,
-                    "selected_by": 6.0,
+                    "selected_by": 5.9,
                     "cost": 7.5,
-                    "hauls": 2
+                    "hauls": 2,
+                    "opponent_xgc": 182.48
                 }
             },
             {
@@ -2478,7 +2622,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 9.1,
                     "cost": 7.7,
-                    "hauls": 0
+                    "hauls": 0,
+                    "opponent_xgc": 133.82999999999998
                 }
             },
             {
@@ -2509,7 +2654,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 1.6,
                     "cost": 7.0,
-                    "hauls": 0
+                    "hauls": 0,
+                    "opponent_xgc": 150.65
                 }
             },
             {
@@ -2540,7 +2686,8 @@
                     "fixture_difficulty": 4,
                     "selected_by": 12.2,
                     "cost": 8.2,
-                    "hauls": 0
+                    "hauls": 0,
+                    "opponent_xgc": 119.05
                 }
             },
             {
@@ -2571,7 +2718,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 5.8,
                     "cost": 4.5,
-                    "hauls": 1
+                    "hauls": 1,
+                    "opponent_xgc": 157.89999999999998
                 }
             },
             {
@@ -2602,7 +2750,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 0.8,
                     "cost": 4.9,
-                    "hauls": 1
+                    "hauls": 1,
+                    "opponent_xgc": 165.54
                 }
             },
             {
@@ -2633,7 +2782,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 6.4,
                     "cost": 4.1,
-                    "hauls": 1
+                    "hauls": 1,
+                    "opponent_xgc": 161.91
                 }
             },
             {
@@ -2664,7 +2814,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 33.8,
                     "cost": 8.7,
-                    "hauls": 5
+                    "hauls": 5,
+                    "opponent_xgc": 149.51
                 }
             },
             {
@@ -2684,7 +2835,7 @@
                 "next_fixture_difficulty": 3,
                 "explosivity": 1.4,
                 "defcon": 0.0,
-                "ownership": 7.1,
+                "ownership": 7.0,
                 "hauls": 1,
                 "features": {
                     "xGI_90": 0.13,
@@ -2693,9 +2844,10 @@
                     "form": 3.8,
                     "ict_index": 100.6,
                     "fixture_difficulty": 3,
-                    "selected_by": 7.1,
+                    "selected_by": 7.0,
                     "cost": 5.2,
-                    "hauls": 1
+                    "hauls": 1,
+                    "opponent_xgc": 161.91
                 }
             },
             {
@@ -2726,7 +2878,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 13.1,
                     "cost": 5.6,
-                    "hauls": 3
+                    "hauls": 3,
+                    "opponent_xgc": 160.57
                 }
             },
             {
@@ -2757,7 +2910,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 0.3,
                     "cost": 4.4,
-                    "hauls": 0
+                    "hauls": 0,
+                    "opponent_xgc": 157.89999999999998
                 }
             },
             {
@@ -2788,38 +2942,8 @@
                     "fixture_difficulty": 2,
                     "selected_by": 0.6,
                     "cost": 3.9,
-                    "hauls": 1
-                }
-            },
-            {
-                "id": 20,
-                "web_name": "Trossard",
-                "team": "Arsenal",
-                "position": 3,
-                "price": 6.9,
-                "predicted_points": 3.89,
-                "goals": 5,
-                "assists": 4,
-                "xG": 4.17,
-                "xA": 2.04,
-                "avg_minutes": 67.2,
-                "can_start": true,
-                "next_fixture": "NOT (A)",
-                "next_fixture_difficulty": 3,
-                "explosivity": 24.3,
-                "defcon": 0.0,
-                "ownership": 1.8,
-                "hauls": 3,
-                "features": {
-                    "xGI_90": 0.49,
-                    "defcon": 0.0,
-                    "explosivity": 24.3,
-                    "form": 3.7,
-                    "ict_index": 101.0,
-                    "fixture_difficulty": 3,
-                    "selected_by": 1.8,
-                    "cost": 6.9,
-                    "hauls": 3
+                    "hauls": 1,
+                    "opponent_xgc": 135.06
                 }
             },
             {
@@ -2850,69 +2974,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 2.1,
                     "cost": 5.9,
-                    "hauls": 2
-                }
-            },
-            {
-                "id": 26,
-                "web_name": "Zubimendi",
-                "team": "Arsenal",
-                "position": 3,
-                "price": 5.2,
-                "predicted_points": 3.89,
-                "goals": 3,
-                "assists": 1,
-                "xG": 1.87,
-                "xA": 1.45,
-                "avg_minutes": 90.0,
-                "can_start": true,
-                "next_fixture": "NOT (A)",
-                "next_fixture_difficulty": 3,
-                "explosivity": 1.4,
-                "defcon": 0.0,
-                "ownership": 2.2,
-                "hauls": 1,
-                "features": {
-                    "xGI_90": 0.17,
-                    "defcon": 0.0,
-                    "explosivity": 1.4,
-                    "form": 3.7,
-                    "ict_index": 81.2,
-                    "fixture_difficulty": 3,
-                    "selected_by": 2.2,
-                    "cost": 5.2,
-                    "hauls": 1
-                }
-            },
-            {
-                "id": 8,
-                "web_name": "J.Timber",
-                "team": "Arsenal",
-                "position": 2,
-                "price": 6.3,
-                "predicted_points": 3.87,
-                "goals": 2,
-                "assists": 4,
-                "xG": 4.06,
-                "xA": 0.85,
-                "avg_minutes": 88.0,
-                "can_start": true,
-                "next_fixture": "NOT (A)",
-                "next_fixture_difficulty": 3,
-                "explosivity": 2.9,
-                "defcon": 100.0,
-                "ownership": 27.5,
-                "hauls": 2,
-                "features": {
-                    "xGI_90": 0.27,
-                    "defcon": 100.0,
-                    "explosivity": 2.9,
-                    "form": 4.3,
-                    "ict_index": 97.0,
-                    "fixture_difficulty": 3,
-                    "selected_by": 27.5,
-                    "cost": 6.3,
-                    "hauls": 2
+                    "hauls": 2,
+                    "opponent_xgc": 133.82999999999998
                 }
             },
             {
@@ -2943,7 +3006,40 @@
                     "fixture_difficulty": 3,
                     "selected_by": 10.1,
                     "cost": 5.7,
-                    "hauls": 0
+                    "hauls": 0,
+                    "opponent_xgc": 149.51
+                }
+            },
+            {
+                "id": 661,
+                "web_name": "Ekitik\u00e9",
+                "team": "Liverpool",
+                "position": 4,
+                "price": 8.9,
+                "predicted_points": 3.86,
+                "goals": 8,
+                "assists": 2,
+                "xG": 5.78,
+                "xA": 1.11,
+                "avg_minutes": 88.3,
+                "can_start": true,
+                "next_fixture": "BUR (H)",
+                "next_fixture_difficulty": 2,
+                "explosivity": 24.3,
+                "defcon": 0.0,
+                "ownership": 25.9,
+                "hauls": 3,
+                "features": {
+                    "xGI_90": 0.55,
+                    "defcon": 0.0,
+                    "explosivity": 24.3,
+                    "form": 3.2,
+                    "ict_index": 94.4,
+                    "fixture_difficulty": 2,
+                    "selected_by": 25.9,
+                    "cost": 8.9,
+                    "hauls": 3,
+                    "opponent_xgc": 214.56
                 }
             },
             {
@@ -2974,7 +3070,8 @@
                     "fixture_difficulty": 2,
                     "selected_by": 2.9,
                     "cost": 5.3,
-                    "hauls": 0
+                    "hauls": 0,
+                    "opponent_xgc": 182.48
                 }
             },
             {
@@ -3005,7 +3102,8 @@
                     "fixture_difficulty": 4,
                     "selected_by": 0.0,
                     "cost": 4.8,
-                    "hauls": 1
+                    "hauls": 1,
+                    "opponent_xgc": 111.7
                 }
             },
             {
@@ -3036,7 +3134,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 26.5,
                     "cost": 7.1,
-                    "hauls": 1
+                    "hauls": 1,
+                    "opponent_xgc": 161.27
                 }
             },
             {
@@ -3067,7 +3166,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 0.7,
                     "cost": 4.5,
-                    "hauls": 1
+                    "hauls": 1,
+                    "opponent_xgc": 162.44
                 }
             },
             {
@@ -3098,7 +3198,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 0.1,
                     "cost": 4.9,
-                    "hauls": 1
+                    "hauls": 1,
+                    "opponent_xgc": 165.54
                 }
             },
             {
@@ -3129,7 +3230,8 @@
                     "fixture_difficulty": 2,
                     "selected_by": 3.4,
                     "cost": 5.4,
-                    "hauls": 0
+                    "hauls": 0,
+                    "opponent_xgc": 214.56
                 }
             },
             {
@@ -3160,7 +3262,8 @@
                     "fixture_difficulty": 2,
                     "selected_by": 12.6,
                     "cost": 5.2,
-                    "hauls": 2
+                    "hauls": 2,
+                    "opponent_xgc": 195.17999999999998
                 }
             },
             {
@@ -3191,7 +3294,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 0.0,
                     "cost": 4.5,
-                    "hauls": 0
+                    "hauls": 0,
+                    "opponent_xgc": 149.51
                 }
             },
             {
@@ -3222,7 +3326,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 5.5,
                     "cost": 4.6,
-                    "hauls": 2
+                    "hauls": 2,
+                    "opponent_xgc": 165.54
                 }
             },
             {
@@ -3253,7 +3358,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 0.1,
                     "cost": 4.3,
-                    "hauls": 0
+                    "hauls": 0,
+                    "opponent_xgc": 165.54
                 }
             },
             {
@@ -3284,7 +3390,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 0.2,
                     "cost": 4.3,
-                    "hauls": 0
+                    "hauls": 0,
+                    "opponent_xgc": 162.44
                 }
             },
             {
@@ -3315,7 +3422,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 12.3,
                     "cost": 10.4,
-                    "hauls": 0
+                    "hauls": 0,
+                    "opponent_xgc": 161.27
                 }
             },
             {
@@ -3346,7 +3454,8 @@
                     "fixture_difficulty": 4,
                     "selected_by": 0.8,
                     "cost": 5.7,
-                    "hauls": 2
+                    "hauls": 2,
+                    "opponent_xgc": 76.21000000000001
                 }
             },
             {
@@ -3377,7 +3486,8 @@
                     "fixture_difficulty": 2,
                     "selected_by": 22.5,
                     "cost": 5.9,
-                    "hauls": 0
+                    "hauls": 0,
+                    "opponent_xgc": 214.56
                 }
             },
             {
@@ -3408,7 +3518,8 @@
                     "fixture_difficulty": 4,
                     "selected_by": 7.1,
                     "cost": 4.2,
-                    "hauls": 1
+                    "hauls": 1,
+                    "opponent_xgc": 119.05
                 }
             },
             {
@@ -3439,7 +3550,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 0.2,
                     "cost": 5.5,
-                    "hauls": 0
+                    "hauls": 0,
+                    "opponent_xgc": 133.82999999999998
                 }
             },
             {
@@ -3470,7 +3582,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 0.2,
                     "cost": 4.4,
-                    "hauls": 0
+                    "hauls": 0,
+                    "opponent_xgc": 162.44
                 }
             },
             {
@@ -3501,7 +3614,40 @@
                     "fixture_difficulty": 3,
                     "selected_by": 1.7,
                     "cost": 4.9,
-                    "hauls": 0
+                    "hauls": 0,
+                    "opponent_xgc": 165.54
+                }
+            },
+            {
+                "id": 633,
+                "web_name": "H.Bueno",
+                "team": "Wolves",
+                "position": 2,
+                "price": 4.3,
+                "predicted_points": 3.42,
+                "goals": 0,
+                "assists": 2,
+                "xG": 0.37,
+                "xA": 1.57,
+                "avg_minutes": 82.8,
+                "can_start": true,
+                "next_fixture": "NEW (H)",
+                "next_fixture_difficulty": 3,
+                "explosivity": 11.4,
+                "defcon": 100.0,
+                "ownership": 0.1,
+                "hauls": 1,
+                "features": {
+                    "xGI_90": 0.15,
+                    "defcon": 100.0,
+                    "explosivity": 11.4,
+                    "form": 3.8,
+                    "ict_index": 74.7,
+                    "fixture_difficulty": 3,
+                    "selected_by": 0.1,
+                    "cost": 4.3,
+                    "hauls": 1,
+                    "opponent_xgc": 115.17999999999999
                 }
             },
             {
@@ -3532,7 +3678,8 @@
                     "fixture_difficulty": 4,
                     "selected_by": 1.4,
                     "cost": 5.5,
-                    "hauls": 2
+                    "hauls": 2,
+                    "opponent_xgc": 119.05
                 }
             },
             {
@@ -3563,7 +3710,8 @@
                     "fixture_difficulty": 4,
                     "selected_by": 3.0,
                     "cost": 7.3,
-                    "hauls": 1
+                    "hauls": 1,
+                    "opponent_xgc": 76.21000000000001
                 }
             },
             {
@@ -3594,7 +3742,8 @@
                     "fixture_difficulty": 2,
                     "selected_by": 1.0,
                     "cost": 5.5,
-                    "hauls": 1
+                    "hauls": 1,
+                    "opponent_xgc": 195.17999999999998
                 }
             },
             {
@@ -3625,7 +3774,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 11.0,
                     "cost": 7.6,
-                    "hauls": 1
+                    "hauls": 1,
+                    "opponent_xgc": 177.75
                 }
             },
             {
@@ -3656,7 +3806,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 4.1,
                     "cost": 4.6,
-                    "hauls": 1
+                    "hauls": 1,
+                    "opponent_xgc": 150.65
                 }
             },
             {
@@ -3687,7 +3838,104 @@
                     "fixture_difficulty": 4,
                     "selected_by": 4.5,
                     "cost": 5.3,
-                    "hauls": 0
+                    "hauls": 0,
+                    "opponent_xgc": 76.21000000000001
+                }
+            },
+            {
+                "id": 1,
+                "web_name": "Raya",
+                "team": "Arsenal",
+                "position": 1,
+                "price": 5.9,
+                "predicted_points": 3.24,
+                "goals": 0,
+                "assists": 0,
+                "xG": 0.0,
+                "xA": 0.04,
+                "avg_minutes": 90.0,
+                "can_start": true,
+                "next_fixture": "NOT (A)",
+                "next_fixture_difficulty": 3,
+                "explosivity": 1.4,
+                "defcon": 20.0,
+                "ownership": 33.6,
+                "hauls": 1,
+                "features": {
+                    "xGI_90": 0.0,
+                    "defcon": 20.0,
+                    "explosivity": 1.4,
+                    "form": 3.6,
+                    "ict_index": 34.1,
+                    "fixture_difficulty": 3,
+                    "selected_by": 33.6,
+                    "cost": 5.9,
+                    "hauls": 1,
+                    "opponent_xgc": 147.07999999999998
+                }
+            },
+            {
+                "id": 6,
+                "web_name": "Saliba",
+                "team": "Arsenal",
+                "position": 2,
+                "price": 5.9,
+                "predicted_points": 3.24,
+                "goals": 0,
+                "assists": 0,
+                "xG": 0.29,
+                "xA": 0.44,
+                "avg_minutes": 90.0,
+                "can_start": true,
+                "next_fixture": "NOT (A)",
+                "next_fixture_difficulty": 3,
+                "explosivity": 0.0,
+                "defcon": 71.1,
+                "ownership": 11.8,
+                "hauls": 0,
+                "features": {
+                    "xGI_90": 0.05,
+                    "defcon": 71.1,
+                    "explosivity": 0.0,
+                    "form": 3.6,
+                    "ict_index": 35.5,
+                    "fixture_difficulty": 3,
+                    "selected_by": 11.8,
+                    "cost": 5.9,
+                    "hauls": 0,
+                    "opponent_xgc": 147.07999999999998
+                }
+            },
+            {
+                "id": 636,
+                "web_name": "S.Bueno",
+                "team": "Wolves",
+                "position": 2,
+                "price": 4.4,
+                "predicted_points": 3.24,
+                "goals": 2,
+                "assists": 1,
+                "xG": 1.55,
+                "xA": 0.47,
+                "avg_minutes": 90.0,
+                "can_start": true,
+                "next_fixture": "NEW (H)",
+                "next_fixture_difficulty": 3,
+                "explosivity": 1.4,
+                "defcon": 100.0,
+                "ownership": 0.1,
+                "hauls": 1,
+                "features": {
+                    "xGI_90": 0.18000000000000002,
+                    "defcon": 100.0,
+                    "explosivity": 1.4,
+                    "form": 3.6,
+                    "ict_index": 45.1,
+                    "fixture_difficulty": 3,
+                    "selected_by": 0.1,
+                    "cost": 4.4,
+                    "hauls": 1,
+                    "opponent_xgc": 115.17999999999999
                 }
             },
             {
@@ -3718,7 +3966,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 0.7,
                     "cost": 4.9,
-                    "hauls": 0
+                    "hauls": 0,
+                    "opponent_xgc": 160.57
                 }
             },
             {
@@ -3749,7 +3998,8 @@
                     "fixture_difficulty": 4,
                     "selected_by": 3.5,
                     "cost": 7.2,
-                    "hauls": 1
+                    "hauls": 1,
+                    "opponent_xgc": 119.05
                 }
             },
             {
@@ -3780,7 +4030,8 @@
                     "fixture_difficulty": 4,
                     "selected_by": 0.2,
                     "cost": 5.2,
-                    "hauls": 0
+                    "hauls": 0,
+                    "opponent_xgc": 111.7
                 }
             },
             {
@@ -3811,7 +4062,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 0.8,
                     "cost": 5.0,
-                    "hauls": 0
+                    "hauls": 0,
+                    "opponent_xgc": 177.75
                 }
             },
             {
@@ -3842,7 +4094,8 @@
                     "fixture_difficulty": 2,
                     "selected_by": 6.9,
                     "cost": 4.8,
-                    "hauls": 0
+                    "hauls": 0,
+                    "opponent_xgc": 195.17999999999998
                 }
             },
             {
@@ -3873,69 +4126,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 0.8,
                     "cost": 4.9,
-                    "hauls": 0
-                }
-            },
-            {
-                "id": 1,
-                "web_name": "Raya",
-                "team": "Arsenal",
-                "position": 1,
-                "price": 5.9,
-                "predicted_points": 2.97,
-                "goals": 0,
-                "assists": 0,
-                "xG": 0.0,
-                "xA": 0.04,
-                "avg_minutes": 90.0,
-                "can_start": true,
-                "next_fixture": "NOT (A)",
-                "next_fixture_difficulty": 3,
-                "explosivity": 1.4,
-                "defcon": 20.0,
-                "ownership": 33.7,
-                "hauls": 1,
-                "features": {
-                    "xGI_90": 0.0,
-                    "defcon": 20.0,
-                    "explosivity": 1.4,
-                    "form": 3.3,
-                    "ict_index": 34.1,
-                    "fixture_difficulty": 3,
-                    "selected_by": 33.7,
-                    "cost": 5.9,
-                    "hauls": 1
-                }
-            },
-            {
-                "id": 6,
-                "web_name": "Saliba",
-                "team": "Arsenal",
-                "position": 2,
-                "price": 5.9,
-                "predicted_points": 2.97,
-                "goals": 0,
-                "assists": 0,
-                "xG": 0.29,
-                "xA": 0.44,
-                "avg_minutes": 90.0,
-                "can_start": true,
-                "next_fixture": "NOT (A)",
-                "next_fixture_difficulty": 3,
-                "explosivity": 0.0,
-                "defcon": 71.1,
-                "ownership": 11.8,
-                "hauls": 0,
-                "features": {
-                    "xGI_90": 0.05,
-                    "defcon": 71.1,
-                    "explosivity": 0.0,
-                    "form": 3.3,
-                    "ict_index": 35.5,
-                    "fixture_difficulty": 3,
-                    "selected_by": 11.8,
-                    "cost": 5.9,
-                    "hauls": 0
+                    "hauls": 0,
+                    "opponent_xgc": 160.57
                 }
             },
             {
@@ -3966,7 +4158,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 0.4,
                     "cost": 4.5,
-                    "hauls": 2
+                    "hauls": 2,
+                    "opponent_xgc": 161.91
                 }
             },
             {
@@ -3997,7 +4190,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 2.9,
                     "cost": 4.6,
-                    "hauls": 3
+                    "hauls": 3,
+                    "opponent_xgc": 161.91
                 }
             },
             {
@@ -4028,7 +4222,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 11.3,
                     "cost": 5.7,
-                    "hauls": 1
+                    "hauls": 1,
+                    "opponent_xgc": 161.27
                 }
             },
             {
@@ -4059,7 +4254,8 @@
                     "fixture_difficulty": 4,
                     "selected_by": 12.7,
                     "cost": 9.1,
-                    "hauls": 5
+                    "hauls": 5,
+                    "opponent_xgc": 119.05
                 }
             },
             {
@@ -4090,7 +4286,8 @@
                     "fixture_difficulty": 4,
                     "selected_by": 0.1,
                     "cost": 5.4,
-                    "hauls": 0
+                    "hauls": 0,
+                    "opponent_xgc": 76.21000000000001
                 }
             },
             {
@@ -4121,38 +4318,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 6.0,
                     "cost": 5.1,
-                    "hauls": 2
-                }
-            },
-            {
-                "id": 636,
-                "web_name": "S.Bueno",
-                "team": "Wolves",
-                "position": 2,
-                "price": 4.4,
-                "predicted_points": 2.7,
-                "goals": 2,
-                "assists": 1,
-                "xG": 1.55,
-                "xA": 0.47,
-                "avg_minutes": 90.0,
-                "can_start": true,
-                "next_fixture": "NEW (H)",
-                "next_fixture_difficulty": 3,
-                "explosivity": 1.4,
-                "defcon": 100.0,
-                "ownership": 0.1,
-                "hauls": 1,
-                "features": {
-                    "xGI_90": 0.18000000000000002,
-                    "defcon": 100.0,
-                    "explosivity": 1.4,
-                    "form": 3.0,
-                    "ict_index": 45.1,
-                    "fixture_difficulty": 3,
-                    "selected_by": 0.1,
-                    "cost": 4.4,
-                    "hauls": 1
+                    "hauls": 2,
+                    "opponent_xgc": 177.75
                 }
             },
             {
@@ -4183,7 +4350,8 @@
                     "fixture_difficulty": 2,
                     "selected_by": 3.7,
                     "cost": 5.0,
-                    "hauls": 2
+                    "hauls": 2,
+                    "opponent_xgc": 195.17999999999998
                 }
             },
             {
@@ -4214,7 +4382,8 @@
                     "fixture_difficulty": 4,
                     "selected_by": 33.1,
                     "cost": 4.0,
-                    "hauls": 1
+                    "hauls": 1,
+                    "opponent_xgc": 111.7
                 }
             },
             {
@@ -4234,7 +4403,7 @@
                 "next_fixture_difficulty": 3,
                 "explosivity": 1.4,
                 "defcon": 100.0,
-                "ownership": 14.2,
+                "ownership": 14.1,
                 "hauls": 1,
                 "features": {
                     "xGI_90": 0.21,
@@ -4243,9 +4412,10 @@
                     "form": 2.8,
                     "ict_index": 105.2,
                     "fixture_difficulty": 3,
-                    "selected_by": 14.2,
+                    "selected_by": 14.1,
                     "cost": 4.8,
-                    "hauls": 1
+                    "hauls": 1,
+                    "opponent_xgc": 150.65
                 }
             },
             {
@@ -4276,7 +4446,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 9.5,
                     "cost": 5.3,
-                    "hauls": 2
+                    "hauls": 2,
+                    "opponent_xgc": 149.51
                 }
             },
             {
@@ -4307,7 +4478,8 @@
                     "fixture_difficulty": 4,
                     "selected_by": 0.1,
                     "cost": 3.9,
-                    "hauls": 0
+                    "hauls": 0,
+                    "opponent_xgc": 111.7
                 }
             },
             {
@@ -4338,7 +4510,8 @@
                     "fixture_difficulty": 4,
                     "selected_by": 0.1,
                     "cost": 4.9,
-                    "hauls": 1
+                    "hauls": 1,
+                    "opponent_xgc": 76.21000000000001
                 }
             },
             {
@@ -4369,7 +4542,8 @@
                     "fixture_difficulty": 4,
                     "selected_by": 0.9,
                     "cost": 3.9,
-                    "hauls": 0
+                    "hauls": 0,
+                    "opponent_xgc": 111.7
                 }
             },
             {
@@ -4400,7 +4574,8 @@
                     "fixture_difficulty": 4,
                     "selected_by": 4.3,
                     "cost": 4.5,
-                    "hauls": 2
+                    "hauls": 2,
+                    "opponent_xgc": 119.05
                 }
             },
             {
@@ -4431,7 +4606,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 39.8,
                     "cost": 5.3,
-                    "hauls": 3
+                    "hauls": 3,
+                    "opponent_xgc": 177.75
                 }
             },
             {
@@ -4462,7 +4638,8 @@
                     "fixture_difficulty": 3,
                     "selected_by": 17.9,
                     "cost": 5.5,
-                    "hauls": 2
+                    "hauls": 2,
+                    "opponent_xgc": 161.27
                 }
             }
         ]
