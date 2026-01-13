@@ -15,7 +15,7 @@ This project is an automated, data-driven engine that predicts FPL outcomes usin
 - **🤖 XGBoost Engine**: Uses gradient boosting to value player potential over hype.
 - **☁️ Virtual Loop**: Runs on GitHub Actions every day at 3 AM UTC (`cron: 0 3 * * *`).
 - **🧨 Explosivity Index**: A custom metric identifying high-ceiling differential players.
-- **🛡️ Defcon Score**: A hybrid metric for defenders combining clean sheets with goal threat.
+- **Title Contender (Defcon)**: A hybrid metric for defenders combining clean sheets with goal threat.
 - **🧠 Squad Optimization**: Uses a knapsack-like greedy algorithm to build the mathematically "best" 15-man squad within budget (£100m).
 
 ## 🏗️ Portfolio Integration
@@ -47,14 +47,18 @@ Once added, the "Virtual Loop" is fully connected! 🔄
     ```
 2.  **Run the Engine**:
     ```bash
-    python backend/generate_static.py --force
+    # Generate data locally (forces execution even if not deadline day)
+    python3 backend/generate_static.py --force
     ```
-    *This generates a local `dashboard_data.json`.*
+    *This generates a local `frontend/public/dashboard_data.json`.*
 
 3.  **Run the Frontend**:
     ```bash
-    cd frontend && npm run dev
+    cd frontend
+    npm install
+    npm run dev
     ```
+    *Visit `http://localhost:3000` to see the dashboard.*
 
 ---
 *Built with Python 3.10 and Next.js.*

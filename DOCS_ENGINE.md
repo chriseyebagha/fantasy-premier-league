@@ -4,40 +4,34 @@ This document explains the logic behind the FPL Predictor's "Thinking Engine," i
 
 ## Core Prediction Logic
 
-The engine uses a multi-layered approach to predict player performance for the upcoming gameweek:
+The engine uses a multi-layered approach to predict player performance for the upcoming gameweek. The final "Reality Score" is arguably the most advanced metric in the system.
 
-1.  **ML Prediction**: A trained `XGBoost` model analyzes historical player data, form, ICT index, and team strength to provide a baseline projected score.
-2.  **Performance Boost**: Adds a reliability factor based on seasonal total points and current form.
-3.  **Fixture Adjustment (FDR)**: Applies a multiplier based on the Official FPL Fixture Difficulty Rating:
-    *   **FDR 2**: 1.15x boost (Easy fixture)
-    *   **FDR 3**: 1.0x (Neutral)
-    *   **FDR 4**: 0.75x penalty (Hard fixture) / **0.90x** if Fixture-Proof
-    *   **FDR 5**: 0.6x penalty (Extreme difficulty) / **0.80x** if Fixture-Proof
-4.  **Position Bias**:
-    *   **Attackers (MID/FWD)**: Receive a 5% premium to favor potential goal involvements.
-    *   **Defensive (DEF/GKP)**: Receive a 10% discount to account for clean-sheet volatility and "bench fodder" risk.
+### 1. The Core Prediction ("Reality Score")
+The **Reality Score** is the engine's primary output for each player. It is a direct prediction from the **XGBoost Regressor model**, which is trained on historical data including form, fixture difficulty, and xGI.
+
+**Formula**:
+`Reality Score = XGBoost_Prediction`
+
+> **Note**: Previous versions used manual multipliers for fixtures and position. These have been removed to avoid double-counting, as the model now natively learns these factors from the feature set (including FDR and Element Type).
 
 ## Recommendation Categories (The Captains)
 
-The dashboard presents four distinct recommendation tiers, each with strict selection criteria:
+The dashboard presents three distinct recommendation tiers, each with strict selection criteria:
 
-### 1. The Easy Choice
+### 1. The Obvious One
 *   **Position**: Strictly Midfielders or Forwards.
-*   **Ownership**: Must be > 25% (Highly owned).
-*   **Performance**: Prioritizes players with the highest number of double-digit hauls (10+ points) in the current season.
+*   **Metric**: The player with the highest final `predicted_points` score.
 
-### 2. The Obvious One
-*   **Position**: Strictly Midfielders or Forwards.
-*   **Metric**: The player with the highest final `predicted_points` score after all multipliers are applied.
-
-### 3. The Joker (The Differential)
+### 2. The Joker (The Differential)
 *   **Position**: Strictly Midfielders or Forwards.
 *   **Ownership**: Must be < 15% (Low ownership).
 *   **Metric**: Prioritizes the highest **Explosivity Index**.
 
-### 4. The Fun One
+### 3. The Fun One
 *   **Position**: Strictly Defenders or Goalkeepers.
-*   **Metric**: Prioritizes players with high **DEFCON** (Defensive Concentration Index), focusing on clean-sheet security and offensive participation.
+*   **Metric**: Prioritizes players with high **Defcon Score**, identifying defenders who generate points through activity and reliability.
+*   **Formula**: `((Historic Clean Sheet % * 60) * FDR_Modifier) + (Defensive Work * 4.0) + (Attacking Threat * 400)`
+*   **Why**: Proves Reliability (History) + Opportunity (Fixture) + Work Rate (BPS).
 
 ## The Explosivity Index (Unified High Performance Metric)
 The "Explosivity Index" is the master indicator of current performance and haul potential. 
@@ -55,4 +49,4 @@ Any player who achieves an **Explosivity Index >= 70** is codified as **Fixture-
 To be considered for the top 3 recommendation categories (Easy Choice, Obvious, Joker), a player must meet an **Explosivity Floor of 33**.
 
 ## Open Source Contribution
-We welcome contributors to refine the `fixture_multiplier` constants or the `XGBoost` hyper-parameters in `backend/engine/trainer.py`.
+We welcome contributors to refine the `XGBoost` hyper-parameters in `backend/engine/trainer.py`.

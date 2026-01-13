@@ -114,32 +114,11 @@ class EngineCommander:
             venue = "(H)" if is_home else "(A)"
             next_fix_str = f"{opponent_name[:3].upper()} {venue}"
 
-            # Reality Score: Boost high-performing players, but penalize hard fixtures
-            # 1. Base ML Prediction
+            # Reality Score: Boost high-performing players
+            # We now rely fully on the XGBoost model which incorporates FDR and Position in features
             prediction = float(predictions[i])
             
-            # 2. Performance Boost (Balanced Season Pedigree vs Recent Form)
-            # Removed additive boost to prevent double-counting.
-            # We rely on XGBoost's native handling of Form/Points and use multipliers below.
-            
-            # 3. Fixture Adjustment (Boost easy, Penalize hard)
-            fixture_multiplier = 1.0
-            
-            # Fixture-Proof Logic: Unified High Performance Indicator (Explosivity >= 70)
-            explosivity = float(features.get('explosivity', 0))
-            is_fixture_proof = explosivity >= 70
-            
-            if fdr <= 2: 
-                fixture_multiplier = 1.15
-            elif fdr >= 5: 
-                fixture_multiplier = 0.8 if is_fixture_proof else 0.6
-            elif fdr >= 4: 
-                fixture_multiplier = 0.9 if is_fixture_proof else 0.75
-            
-            # 5% Premium for Attackers, 10% Discount for Defenders (Clean Sheet Risk is high)
-            pos_bias = 1.05 if p['element_type'] in [3, 4] else 0.90
-            
-            final_score = round(prediction * fixture_multiplier * pos_bias, 2)
+            final_score = round(prediction, 2)
             
             processed.append({
                 "id": p['id'],

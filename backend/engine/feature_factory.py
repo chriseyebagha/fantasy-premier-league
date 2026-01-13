@@ -11,11 +11,11 @@ class FeatureFactory:
         return xg + xa
 
     @staticmethod
-    def calculate_defcon(player_row: Dict, clean_sheet_prob: float) -> float:
+    def calculate_defcon(player_row: Dict, history: List[Dict], fdr: int) -> float:
         """
         Defensive Contribution (Defcon).
-        Combines Clean Sheet potential with attacking threat (xG/xA/xGI).
-        High Defcon = Defender/GK with significant haul potential.
+        Combines Historic Clean Sheet potential with attacking threat (xG/xA/xGI).
+        Adjusted by Fixture Difficulty (FDR).
         """
         # Element types: 1=GK, 2=DEF
         if player_row['element_type'] not in [1, 2]:
@@ -26,21 +26,37 @@ class FeatureFactory:
         
         defensive_action = float(player_row.get('defensive_contribution_per_90', 0))
         
+        # Calculate Historic Clean Sheet Probability
+        # If history exists, sum clean_sheets (usually 0 or 1) and divide by games
+        if history:
+            total_cs = sum(1 for m in history if m.get('clean_sheets', 0) > 0)
+            historic_cs_prob = total_cs / len(history)
+        else:
+            historic_cs_prob = 0.0
+
         # Attack weight: Defenders who shoot or cross/pass are prioritized
         attacking_threat = (xg_90 * 1.5) + (xa_90 * 1.2)
         
+        # FDR Adjustment: Easy fixture (2) boosts score, Hard fixture (4-5) penalizes
+        # Multiplier: 1.15 for FDR <= 2, 1.0 for FDR 3, 0.85 for FDR 4, 0.7 for FDR 5
+        fdr_multiplier = 1.0
+        if fdr <= 2: fdr_multiplier = 1.15
+        elif fdr == 4: fdr_multiplier = 0.85
+        elif fdr >= 5: fdr_multiplier = 0.7
+        
         # Defcon Score:
-        # 1. Clean Sheet Potential (Foundation)
-        # 2. Defensive Work Rate (Bonus Points magnet) - Weight: 4.0 (Scale ~8.0 -> 32 pts)
-        # 3. Attacking Threat (Goal/Assist upside) - Weight: 400 (Scale ~0.1 -> 40 pts)
-        defcon_score = (clean_sheet_prob * 60) + (defensive_action * 4.0) + (attacking_threat * 400)
+        # 1. Clean Sheet Potential (Historic Data) * FDR Modifier
+        # 2. Defensive Work Rate (Bonus Points magnet) - Weight: 4.0 
+        # 3. Attacking Threat (Goal/Assist upside) - Weight: 400 
+        defcon_score = ((historic_cs_prob * 60) * fdr_multiplier) + (defensive_action * 4.0) + (attacking_threat * 400)
         return min(round(defcon_score, 1), 100.0)
 
     @staticmethod
-    def calculate_explosivity_index(history: List[Dict], current_gw: int, form: float = 0.0, xgi_90: float = 0.0) -> float:
+    def calculate_explosivity_index(history: List[Dict], current_gw: int, fdr: int, form: float = 0.0, xgi_90: float = 0.0) -> float:
         """
         Measures history of 10+ point hauls ('explosivity') and elite current performance.
         Includes "Super Hot" bonuses based on season phase.
+        Adjusted by Fixture Difficulty (FDR).
         """
         if not history:
             return 0.0
@@ -76,7 +92,14 @@ class FeatureFactory:
         haul_bonus = 25.0 if is_super_hot else 0.0
         
         # 4. Aggregated Score
+        # 4. Aggregated Score
         score = hist_score + form_bonus + xgi_bonus + haul_bonus
+        
+        # FDR Bonus for Explosivity: Easy games unlock ceiling
+        if fdr <= 2:
+            score *= 1.10
+        elif fdr >= 5:
+            score *= 0.90
         
         return min(round(score, 1), 100.0)
 
@@ -95,8 +118,9 @@ class FeatureFactory:
         xgi_90 = cls.calculate_xgi(xg_90, xa_90)
         return {
             "xGI_90": xgi_90,
-            "defcon": cls.calculate_defcon(player_data, cs_prob),
-            "explosivity": cls.calculate_explosivity_index(history, current_gw, float(player_data.get('form', 0)), xgi_90),
+            "xGI_90": xgi_90,
+            "defcon": cls.calculate_defcon(player_data, history, next_fixture_diff),
+            "explosivity": cls.calculate_explosivity_index(history, current_gw, next_fixture_diff, float(player_data.get('form', 0)), xgi_90),
             "form": float(player_data.get('form', 0)),
             "ict_index": float(player_data.get('ict_index', 0)),
             "fixture_difficulty": next_fixture_diff,

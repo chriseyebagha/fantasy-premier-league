@@ -192,7 +192,7 @@ def get_all_predicted_players(dm: FPLDataManager, commander: EngineCommander) ->
         elif fdr >= 5: fixture_multiplier = 0.7
         elif fdr >= 4: fixture_multiplier = 0.85
         
-        pos_bias = 1.05 if p['element_type'] in [3, 4] else 0.95
+        pos_bias = 1.05 if p['element_type'] in [3, 4] else 0.90
         
         final_score = round(prediction * fixture_multiplier * pos_bias * item['chance_mult'], 2)
         

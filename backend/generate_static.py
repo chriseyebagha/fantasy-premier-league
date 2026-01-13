@@ -59,6 +59,29 @@ def run_prediction_and_save():
     trainer = modelTrainer(storage)
     commander = EngineCommander(dm, trainer)
     
+    # --- SELF-TRAINING LOOP ---
+    try:
+        bootstrap = dm.get_bootstrap_static()
+        current_gw = dm.get_upcoming_gameweek(bootstrap)
+        previous_gw = current_gw - 1
+        
+        if previous_gw > 0:
+            print(f"Checking for results from GW{previous_gw} to self-train...")
+            actual_points = dm.get_actual_points(previous_gw)
+            
+            if actual_points:
+                print(f"Found points data for {len(actual_points)} players. Evaluating performance...")
+                # 1. Evaluate past predictions
+                trainer.evaluate_performance(previous_gw, actual_points)
+                # 2. Retrain model with new data
+                trainer.train_on_feedback()
+            else:
+                print("No actual points data available yet for previous GW.")
+    except Exception as e:
+        print(f"⚠️ Self-training warning: {e}")
+        # Continue execution even if training fails
+    # --------------------------
+    
     print("Generating top 15 players...")
     data = commander.get_top_15_players()
     starters = data['starters']

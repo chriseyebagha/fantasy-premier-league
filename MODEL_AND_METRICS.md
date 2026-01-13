@@ -2,45 +2,20 @@
 
 This document explains the rigorous "Thinking Engine" behind the FPL Predictor. It details the exact mathematical formulas, weights, and assumptions used to grade players. This transparency allows contributors to audit and improve the model logic.
 
-## 1. The Core Prediction (The "Reality Score")
-The final `predicted_points` you see in the dashboard is a composite score, not just a raw regression output.
+## 1. Core Prediction ("Reality Score")
+The primary metric used for ranking players and selecting the squad.
 
-### The Formula
-```python
-Final Score = (M + P) * F * B
-```
+**Formula**:
+`Score = XGBoost_Model_Output`
 
-Where:
-- **M (Model Prediction)**: The raw XGBoost output based on historical features.
-- **P (Performance Boost)**: A reliability multiplier for proven assets.
-- **F (Fixture Multiplier)**: Adjusts for opponent difficulty.
-- **B (Position Bias)**: Adjusts for the "ceiling" of different positions.
+**Key Features utilized by the Model**:
+- **Form**: Recent points average.
+- **Fixture Difficulty**: FDR of the upcoming opponent.
+- **Position**: (New) Explicit element type filtering.
+- **xGI**: Expected Goal Involvement.
+- **Explosivity**: Likelihood of hauling.
 
-#### Component Breakdown
-
-**1. Performance Boost (P)**
-Recognizes that high-performing players are more reliable than the model might predict (e.g., Palmer/Salah factors).
-```python
-P = (Form * 0.4) + (Total_Points / 60.0)
-```
-*Assumption*: Current form is weighted 40%, while season-long consistency provides a stable baseline.
-
-**2. Fixture Multiplier (F)**
-Based on FDR (Fixture Difficulty Rating from FPL API).
-| FDR | Standard Multiplier | "Fixture Proof" Multiplier* |
-| :--- | :--- | :--- |
-| **1-2 (Easy)** | 1.15x | 1.15x |
-| **3 (Medium)** | 1.00x | 1.00x |
-| **4 (Hard)** | 0.75x | 0.90x |
-| **5 (Hardest)** | 0.60x | 0.80x |
-
-**Assumption*: A player is "Fixture Proof" if their `Explosivity Index >= 70`. This prevents us from benching elite assets like Haaland just because they play Man City.
-
-**3. Position Bias (B)**
-| Role | Multiplier | Rationale |
-| :--- | :--- | :--- |
-| **MID/FWD** | 1.05x | Higher point ceiling (goals = 5/4 pts) |
-| **DEF/GK** | 0.90x | Lower ceiling, higher reliance on clean sheets |
+*Manual multipliers for Fixture and Position have been removed to ensure the model learns these weights optimally via self-training.*
 
 ---
 
@@ -50,15 +25,14 @@ A 0-100 score measuring a player's ability to deliver massive "Hauls" (double-di
 **Formula:**
 ```python
 Score = Historical_Score + Bonuses
+Score = Score * FDR_Bonus (if applicable)
 ```
 
 **1. Historical Score (Base)**
 ```python
-Frequency = (Total Hauls / Total Games Played)
-Recent_Hauls = Count of hauls in last 6 GWs
-
-Historical_Score = (Frequency * 30) + (Recent_Hauls * 10)
+Historical_Score = (Haul_Frequency * 30) + (Recent_10_Hauls * 10)
 ```
+*Frequency is total_hauls / total_games.*
 
 **2. Bonuses (For Elite Ceilings)**
 | Metric | Threshold | Bonus Points |
@@ -66,6 +40,10 @@ Historical_Score = (Frequency * 30) + (Recent_Hauls * 10)
 | **Form** | >= 7.5 | +15 pts |
 | **xGI/90** | >= 0.70 | +15 pts |
 | **Super Hot** | *See below* | +25 pts |
+
+**3. FDR Adjustment**
+- **Easy Fixtures (FDR <= 2)**: Score boosted by **10%** (x1.10) to reward potential ceiling in easy games.
+- **Hard Fixtures (FDR >= 5)**: Score penalized by **10%** (x0.90).
 
 **"Super Hot" Criteria (`is_super_hot`)**
 A player receives the massive +25pt bump if *any* of the following are true:
@@ -77,29 +55,27 @@ A player receives the massive +25pt bump if *any* of the following are true:
 
 ---
 
-## 3. Defcon Score 🛡️
+## 3. Title Contender (Defcon Score) 🛡️
 A 0-100 hybrid score for identifying "The Fun One" (defenders with attacking threat).
 
-**Formula:**
-```python
-Defcon = (Clean_Sheet_Prob * 60) + (Defensive_Work * 4) + (Attacking_Threat * 400)
-```
+**Formula**:
+`Defcon = ((Historic_CS_Prob * 60) * FDR_Modifier) + (Defensive_Work * 4) + (Attacking_Threat * 400)`
 
-**1. Clean Sheet Probability (Foundation)**
-Derived inversely from FDR.
-- Easy Fixture (FDR 2) ≈ 50% chance (0.5)
+1. **Historic Clean Sheet Probability** (Reliability)
+   - Calculated from the player's seasonal history (`Total Clean Sheets / Total Games`).
+   - Weighted heavily (x60) to ensure the foundation of the pick is reliability.
+   - **FDR Modifier**:
+     - Easy (FDR ≤ 2): **1.15x**
+     - Hard (FDR = 4): **0.85x**
+     - Hardest (FDR = 5): **0.70x**
 
-**2. Defensive Work Rate (BPS Magnet)**
-Built directly from FPL's `defensive_contribution_per_90` API field (Clearances, Blocks, Interceptions).
-- **Context**: Defenders with 10+ defensive actions (CBI + Tackles) in a match get **+2 additional points**.
-- **Bonus**: High defensive work rate is the primary driver for Bonus Points (BPS) in low-scoring games.
-- Weighted x4.0 to heavily reward players who hit this "monster" threshold (e.g., 12 actions * 4 = 48 pts).
+2. **Defensive Work Rate** (BPS Magnet)
+   - Built directly from FPL's `defensive_contribution_per_90` API field (Clearances, Blocks, Interceptions).
+   - Weighted x4.0.
 
-**3. Attacking Threat**
-```python
-Threat = (xG_per_90 * 1.5) + (xA_per_90 * 1.2)
-```
-*Assumption*: Goals (xG) are weighted higher than assists (xA) for defenders because a defender goal is worth 6 points vs. 3 for an assist.
+3. **Attacking Threat**
+   - `Threat = (xG_per_90 * 1.5) + (xA_per_90 * 1.2)`
+   - *Assumption*: Goals (xG) are weighted higher than assists (xA) for defenders because a defender goal is worth 6 points vs. 3 for an assist. The high 400x multiplier scales these small per-90 decimals (e.g., 0.10) into meaningful score components (40 pts).
 
 ---
 
@@ -109,7 +85,7 @@ We solve the problem: *Select 15 players within £100m that maximize predicted p
 **The Greedy Strategy:**
 1.  **Lock Minimums**: We enforce 1 starting GK.
 2.  **Top-Down Selection**: We sort all players by `Final Score` and iterate.
-3.  **Bench Optimization**: We explicitly look for "Starting fodder" (players costing £4.0-£4.5m who play >60 mins).
-4.  **Formation Logic**:
+3.  **Formation Logic**:
     - We prefer a 3-4-3 or 3-5-2 (Attacking formations).
     - We rarely select 5 defenders unless their `predicted_points` overlap significantly with midfielders.
+4.  **Bench Strategy**: We minimize bench spend (£17.5m approx) to maximize starting XI value, picking the cheapest viable players who play minutes.
