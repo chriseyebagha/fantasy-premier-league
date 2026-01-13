@@ -52,8 +52,23 @@ class FPLDataManager:
         players = bootstrap['elements']
         actual_points = {}
         
-        # We need individual summaries to get historical points for a specific GW
-        # However, for efficiency, if it's a past GW, we can often find it in player history
+        # Optimization: Check if the requested gameweek is the "current" one in bootstrap
+        # If so, we can simply use p['event_points'] instead of 600+ API calls
+        is_current_gw = False
+        for event in bootstrap['events']:
+            if event['id'] == gameweek and event.get('is_current', False):
+                is_current_gw = True
+                break
+        
+        if is_current_gw:
+            print(f"GW{gameweek} is current. Using bootstrap data for points (Fast).")
+            for p in players:
+                actual_points[p['id']] = float(p['event_points'])
+            return actual_points
+
+        print(f"GW{gameweek} is historical. Fetching individual summaries (Slow)...")
+        # Fallback: We need individual summaries to get historical points
+        count = 0
         for p in players:
             summary = self.get_player_summary(p['id'])
             history = summary.get('history', [])
@@ -61,4 +76,7 @@ class FPLDataManager:
                 if entry['round'] == gameweek:
                     actual_points[p['id']] = float(entry['total_points'])
                     break
+            count += 1
+            if count % 50 == 0: print(f"Fetched {count}/{len(players)}...", end='\r')
+            
         return actual_points

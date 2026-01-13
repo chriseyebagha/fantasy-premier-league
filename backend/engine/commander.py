@@ -248,15 +248,29 @@ class EngineCommander:
         obvious = (attacking_pool[0] if attacking_pool else squad[0]).copy()
         obvious['reason'] = f"The algorithm identifies {obvious['web_name']} as the most reliable pick with {obvious['predicted_points']} projected points."
         
+        # Track selected teams to enforce diversity
+        selected_teams = {obvious['team']}
+        selected_ids = {obvious['id']}
+
         # 3. Joker: Highest Explosivity among low ownership attacking pool (<15%)
-        joker_pool = [p for p in attacking_pool if p['ownership'] < 15]
+        # Exclude players from already selected teams (and same player ID)
+        joker_pool = [p for p in attacking_pool if p['ownership'] < 15 and p['team'] not in selected_teams and p['id'] not in selected_ids]
         joker_pool.sort(key=lambda x: x['explosivity'], reverse=True)
         
-        # If no one under 15% ownership, expand slightly or pick the best differential profile
+        # If no one under 15% ownership fits criteria, try ANY ownership but distinct team
         if not joker_pool:
-            joker_pool = sorted(attacking_pool, key=lambda x: (x['ownership'], -x['explosivity']))
+            # Fallback 1: Any ownership, distinct team
+            fallback_pool = [p for p in attacking_pool if p['team'] not in selected_teams and p['id'] not in selected_ids]
+            if fallback_pool:
+                joker_pool = sorted(fallback_pool, key=lambda x: (x['ownership'], -x['explosivity']))
+            else:
+                # Fallback 2: Must pick someone, even if team duplicates (should be rare)
+                joker_pool = [p for p in attacking_pool if p['id'] not in selected_ids]
+                if not joker_pool: joker_pool = [obvious] # Absolute fail-safe
             
         joker = joker_pool[0].copy()
+        selected_teams.add(joker['team'])
+        selected_ids.add(joker['id'])
         
         if joker['ownership'] < 15:
             joker['reason'] = f"{joker['web_name']} offers high explosivity ({joker['explosivity']}) combined with low ownership ({joker['ownership']}%), a classic differential."
@@ -264,8 +278,18 @@ class EngineCommander:
             joker['reason'] = f"{joker['web_name']} is selected as the best relative differential ({joker['ownership']}% ownership) with explosive potential."
         
         # 4. The Fun One: Best defensive attacking prospect (Defensive candidates with high Defcon)
-        defensive_pool.sort(key=lambda x: x['defcon'], reverse=True)
-        fun_one = (defensive_pool[0] if defensive_pool else squad[0]).copy()
+        # Exclude players from already selected teams
+        defensive_candidates = [p for p in defensive_pool if p['team'] not in selected_teams and p['id'] not in selected_ids]
+        
+        if not defensive_candidates:
+             # Fallback: Ignore team constraint if strictly necessary
+             defensive_candidates = [p for p in defensive_pool if p['id'] not in selected_ids]
+        
+        if not defensive_candidates:
+             defensive_candidates = [joker if joker['id'] != obvious['id'] else obvious] # Absolute fail-safe
+
+        defensive_candidates.sort(key=lambda x: x['defcon'], reverse=True)
+        fun_one = defensive_candidates[0].copy()
         
         if fun_one['defcon'] > 70:
             fun_one['reason'] = f"Elite Defcon level ({fun_one['defcon']}): {fun_one['web_name']} is picked for their massive clean sheet bonus and offensive participation."

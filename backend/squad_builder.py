@@ -263,7 +263,7 @@ def select_starting_11(
         pos_selected = 0
         for p in pool:
             if pos_selected >= count: break
-            if team_counts[p['team_id']] < 3 and total_cost + p['price'] <= budget:
+            if team_counts[p['team_id']] < MAX_PLAYERS_PER_TEAM and total_cost + p['price'] <= budget:
                 selected.append(p)
                 total_cost += p['price']
                 total_points += p['predicted_points']
@@ -293,7 +293,7 @@ def select_bench(
     
     # GK Bench
     for p in sorted(gk_pool, key=lambda x: x['price']):
-        if p['id'] not in selected_ids and team_counts[p['team_id']] < 3 and p['price'] <= budget - 12.0: # leave room for 3 others
+        if p['id'] not in selected_ids and team_counts[p['team_id']] < MAX_PLAYERS_PER_TEAM and p['price'] <= budget - 12.0: # leave room for 3 others
             bench.append(p)
             budget -= p['price']
             selected_ids.add(p['id'])
@@ -304,7 +304,7 @@ def select_bench(
     outfield = sorted(def_pool + mid_pool + fwd_pool, key=lambda x: x['value_score'], reverse=True)
     for p in outfield:
         if len(bench) >= 4: break
-        if p['id'] not in selected_ids and team_counts[p['team_id']] < 3 and p['price'] <= budget:
+        if p['id'] not in selected_ids and team_counts[p['team_id']] < MAX_PLAYERS_PER_TEAM and p['price'] <= budget:
             bench.append(p)
             budget -= p['price']
             selected_ids.add(p['id'])

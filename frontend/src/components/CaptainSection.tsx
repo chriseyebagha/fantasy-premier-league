@@ -44,7 +44,15 @@ const CaptainJerseyCard = ({ subtitle, data }: { subtitle: string, data: Captain
                - !h-auto !aspect-[3/4]: Maintain vertical rectangular pill shape
                - !m-0: Remove margins
             */}
-            <div className="jersey-card captain !w-full !max-w-[100px] !h-auto !aspect-[3/4] !min-h-[110px] !m-0 justify-between py-3 shadow-lg">
+            {/* 
+               The "Jersey Card" Pill.
+               WE MUST OVERRIDE the global .jersey-card width/height/margin constraints 
+               to make it work in this grid context.
+               - !w-full !max-w-[120px]: Increased width
+               - !h-auto !aspect-[3/4]: Maintain vertical rectangular pill shape
+               - !m-0: Remove margins
+            */}
+            <div className="jersey-card captain !w-full !max-w-[120px] !h-auto !aspect-[3/4] !min-h-[130px] !m-0 justify-between py-3 shadow-lg">
 
                 {/* Position Tag */}
                 <div className="text-[7px] font-bold text-slate-400 opacity-80 leading-none mb-1">
@@ -86,7 +94,7 @@ export default function CaptainSection({ captains, gameweek }: CaptainSectionPro
     return (
         <section className="w-full mb-6 md:mb-10">
             {/* Grid: 3 Columns, Side-by-Side on Mobile */}
-            <div className="grid grid-cols-3 gap-2 md:gap-8 justify-items-center w-full max-w-lg mx-auto">
+            <div className="grid grid-cols-3 gap-1 md:gap-4 justify-items-center w-full max-w-lg mx-auto transform scale-110 origin-top">
                 <CaptainJerseyCard
                     subtitle="Obvious"
                     data={captains.obvious}
