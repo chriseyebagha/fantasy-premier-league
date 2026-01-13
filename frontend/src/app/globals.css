@@ -71,7 +71,7 @@
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-  gap: 4px !important;
+  gap: 2px !important;
   width: 100% !important;
   flex: 1 1 auto !important;
   min-height: 80px !important;
@@ -86,8 +86,8 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 18%;
-  max-width: 60px;
+  width: 16%;
+  max-width: 55px;
   height: 90%;
   max-height: 75px;
   padding: 1px;
