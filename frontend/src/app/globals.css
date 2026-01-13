@@ -54,7 +54,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   padding: 8px !important;
-  min-height: 700px !important;
+  min-height: 500px !important;
   aspect-ratio: 4/5;
   position: relative;
 }
