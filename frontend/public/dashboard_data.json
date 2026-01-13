@@ -1,6 +1,6 @@
 {
     "status": "online",
-    "last_updated": "2026-01-12T17:58:34.732951+00:00",
+    "last_updated": "2026-01-13T03:59:48.493557+00:00",
     "gameweek": 22,
     "squad": [
         {
@@ -51,7 +51,7 @@
             "next_fixture_difficulty": 2,
             "explosivity": 22.9,
             "defcon": 0.0,
-            "ownership": 10.8,
+            "ownership": 10.9,
             "hauls": 2,
             "features": {
                 "xGI_90": 0.44,
@@ -60,7 +60,7 @@
                 "form": 6.8,
                 "ict_index": 115.0,
                 "fixture_difficulty": 2,
-                "selected_by": 10.8,
+                "selected_by": 10.9,
                 "cost": 8.2,
                 "hauls": 2
             }
@@ -190,33 +190,64 @@
             }
         },
         {
-            "id": 407,
-            "web_name": "Matheus N.",
-            "team": "Man City",
+            "id": 5,
+            "web_name": "Gabriel",
+            "team": "Arsenal",
             "position": 2,
-            "price": 5.5,
+            "price": 6.7,
             "predicted_points": 5.58,
-            "goals": 1,
-            "assists": 4,
-            "xG": 0.25,
-            "xA": 1.17,
-            "avg_minutes": 86.4,
+            "goals": 3,
+            "assists": 2,
+            "xG": 1.56,
+            "xA": 0.76,
+            "avg_minutes": 68.8,
             "can_start": true,
-            "next_fixture": "MAN (A)",
+            "next_fixture": "NOT (A)",
             "next_fixture_difficulty": 3,
-            "explosivity": 25.7,
-            "defcon": 89.6,
-            "ownership": 4.6,
+            "explosivity": 15.7,
+            "defcon": 100.0,
+            "ownership": 31.7,
             "hauls": 4,
             "features": {
-                "xGI_90": 0.08,
-                "defcon": 89.6,
-                "explosivity": 25.7,
+                "xGI_90": 0.16,
+                "defcon": 100.0,
+                "explosivity": 15.7,
                 "form": 6.2,
-                "ict_index": 71.0,
+                "ict_index": 67.3,
                 "fixture_difficulty": 3,
-                "selected_by": 4.6,
-                "cost": 5.5,
+                "selected_by": 31.7,
+                "cost": 6.7,
+                "hauls": 4
+            }
+        },
+        {
+            "id": 21,
+            "web_name": "Rice",
+            "team": "Arsenal",
+            "position": 3,
+            "price": 7.3,
+            "predicted_points": 7.56,
+            "goals": 4,
+            "assists": 7,
+            "xG": 2.66,
+            "xA": 3.78,
+            "avg_minutes": 90.0,
+            "can_start": true,
+            "next_fixture": "NOT (A)",
+            "next_fixture_difficulty": 3,
+            "explosivity": 25.7,
+            "defcon": 0.0,
+            "ownership": 26.9,
+            "hauls": 4,
+            "features": {
+                "xGI_90": 0.34,
+                "defcon": 0.0,
+                "explosivity": 25.7,
+                "form": 7.2,
+                "ict_index": 132.8,
+                "fixture_difficulty": 3,
+                "selected_by": 26.9,
+                "cost": 7.3,
                 "hauls": 4
             }
         },
@@ -268,7 +299,7 @@
             "next_fixture_difficulty": 2,
             "explosivity": 85.0,
             "defcon": 0.0,
-            "ownership": 21.7,
+            "ownership": 21.8,
             "hauls": 7,
             "features": {
                 "xGI_90": 0.33,
@@ -277,40 +308,9 @@
                 "form": 6.0,
                 "ict_index": 139.2,
                 "fixture_difficulty": 2,
-                "selected_by": 21.7,
+                "selected_by": 21.8,
                 "cost": 7.2,
                 "hauls": 7
-            }
-        },
-        {
-            "id": 350,
-            "web_name": "Aaronson",
-            "team": "Leeds",
-            "position": 3,
-            "price": 5.4,
-            "predicted_points": 7.25,
-            "goals": 4,
-            "assists": 6,
-            "xG": 2.85,
-            "xA": 2.51,
-            "avg_minutes": 82.2,
-            "can_start": true,
-            "next_fixture": "FUL (H)",
-            "next_fixture_difficulty": 2,
-            "explosivity": 12.9,
-            "defcon": 0.0,
-            "ownership": 0.5,
-            "hauls": 2,
-            "features": {
-                "xGI_90": 0.39,
-                "defcon": 0.0,
-                "explosivity": 12.9,
-                "form": 6.0,
-                "ict_index": 94.0,
-                "fixture_difficulty": 2,
-                "selected_by": 0.5,
-                "cost": 5.4,
-                "hauls": 2
             }
         },
         {
@@ -346,6 +346,37 @@
         }
     ],
     "bench": [
+        {
+            "id": 350,
+            "web_name": "Aaronson",
+            "team": "Leeds",
+            "position": 3,
+            "price": 5.4,
+            "predicted_points": 7.25,
+            "goals": 4,
+            "assists": 6,
+            "xG": 2.85,
+            "xA": 2.51,
+            "avg_minutes": 82.2,
+            "can_start": true,
+            "next_fixture": "FUL (H)",
+            "next_fixture_difficulty": 2,
+            "explosivity": 12.9,
+            "defcon": 0.0,
+            "ownership": 0.5,
+            "hauls": 2,
+            "features": {
+                "xGI_90": 0.39,
+                "defcon": 0.0,
+                "explosivity": 12.9,
+                "form": 6.0,
+                "ict_index": 94.0,
+                "fixture_difficulty": 2,
+                "selected_by": 0.5,
+                "cost": 5.4,
+                "hauls": 2
+            }
+        },
         {
             "id": 430,
             "web_name": "Haaland",
@@ -394,7 +425,7 @@
             "next_fixture_difficulty": 3,
             "explosivity": 37.1,
             "defcon": 0.0,
-            "ownership": 34.5,
+            "ownership": 34.6,
             "hauls": 5,
             "features": {
                 "xGI_90": 0.6900000000000001,
@@ -403,7 +434,7 @@
                 "form": 6.7,
                 "ict_index": 161.8,
                 "fixture_difficulty": 3,
-                "selected_by": 34.5,
+                "selected_by": 34.6,
                 "cost": 7.1,
                 "hauls": 5
             }
@@ -437,37 +468,6 @@
                 "selected_by": 0.2,
                 "cost": 4.9,
                 "hauls": 1
-            }
-        },
-        {
-            "id": 21,
-            "web_name": "Rice",
-            "team": "Arsenal",
-            "position": 3,
-            "price": 7.3,
-            "predicted_points": 6.62,
-            "goals": 4,
-            "assists": 7,
-            "xG": 2.66,
-            "xA": 3.78,
-            "avg_minutes": 90.0,
-            "can_start": true,
-            "next_fixture": "NOT (A)",
-            "next_fixture_difficulty": 3,
-            "explosivity": 25.7,
-            "defcon": 0.0,
-            "ownership": 26.8,
-            "hauls": 4,
-            "features": {
-                "xGI_90": 0.34,
-                "defcon": 0.0,
-                "explosivity": 25.7,
-                "form": 6.3,
-                "ict_index": 132.8,
-                "fixture_difficulty": 3,
-                "selected_by": 26.8,
-                "cost": 7.3,
-                "hauls": 4
             }
         }
     ],
@@ -532,23 +532,23 @@
                 "ownership": 2.4
             },
             {
-                "id": 407,
-                "web_name": "Matheus N.",
-                "team": "Man City",
-                "team_id": 13,
+                "id": 5,
+                "web_name": "Gabriel",
+                "team": "Arsenal",
+                "team_id": 1,
                 "position": 2,
-                "price": 5.5,
+                "price": 6.7,
                 "predicted_points": 5.89,
-                "value_score": 1.07,
-                "goals": 1,
-                "assists": 4,
-                "xG": 0.25,
-                "xA": 1.17,
-                "avg_minutes": 86.4,
-                "next_fixture": "MAN (A)",
+                "value_score": 0.88,
+                "goals": 3,
+                "assists": 2,
+                "xG": 1.56,
+                "xA": 0.76,
+                "avg_minutes": 55.0,
+                "next_fixture": "NOT (A)",
                 "next_fixture_difficulty": 3,
-                "explosivity": 25.7,
-                "ownership": 4.6
+                "explosivity": 15.7,
+                "ownership": 31.7
             },
             {
                 "id": 382,
@@ -567,7 +567,7 @@
                 "next_fixture": "BUR (H)",
                 "next_fixture_difficulty": 2,
                 "explosivity": 22.9,
-                "ownership": 10.8
+                "ownership": 10.9
             },
             {
                 "id": 47,
@@ -587,6 +587,25 @@
                 "next_fixture_difficulty": 2,
                 "explosivity": 34.3,
                 "ownership": 31.8
+            },
+            {
+                "id": 21,
+                "web_name": "Rice",
+                "team": "Arsenal",
+                "team_id": 1,
+                "position": 3,
+                "price": 7.3,
+                "predicted_points": 7.56,
+                "value_score": 1.04,
+                "goals": 4,
+                "assists": 7,
+                "xG": 2.66,
+                "xA": 3.78,
+                "avg_minutes": 72.0,
+                "next_fixture": "NOT (A)",
+                "next_fixture_difficulty": 3,
+                "explosivity": 25.7,
+                "ownership": 26.9
             },
             {
                 "id": 303,
@@ -624,26 +643,7 @@
                 "next_fixture": "WOL (A)",
                 "next_fixture_difficulty": 2,
                 "explosivity": 85.0,
-                "ownership": 21.7
-            },
-            {
-                "id": 350,
-                "web_name": "Aaronson",
-                "team": "Leeds",
-                "team_id": 11,
-                "position": 3,
-                "price": 5.4,
-                "predicted_points": 7.25,
-                "value_score": 1.34,
-                "goals": 4,
-                "assists": 6,
-                "xG": 2.85,
-                "xA": 2.51,
-                "avg_minutes": 82.2,
-                "next_fixture": "FUL (H)",
-                "next_fixture_difficulty": 2,
-                "explosivity": 12.9,
-                "ownership": 0.5
+                "ownership": 21.8
             },
             {
                 "id": 691,
@@ -705,6 +705,25 @@
                 "ownership": 33.1
             },
             {
+                "id": 350,
+                "web_name": "Aaronson",
+                "team": "Leeds",
+                "team_id": 11,
+                "position": 3,
+                "price": 5.4,
+                "predicted_points": 7.25,
+                "value_score": 1.34,
+                "goals": 4,
+                "assists": 6,
+                "xG": 2.85,
+                "xA": 2.51,
+                "avg_minutes": 82.2,
+                "next_fixture": "FUL (H)",
+                "next_fixture_difficulty": 2,
+                "explosivity": 12.9,
+                "ownership": 0.5
+            },
+            {
                 "id": 694,
                 "web_name": "Mukiele",
                 "team": "Sunderland",
@@ -721,7 +740,7 @@
                 "next_fixture": "CRY (H)",
                 "next_fixture_difficulty": 3,
                 "explosivity": 14.5,
-                "ownership": 9.8
+                "ownership": 9.9
             },
             {
                 "id": 166,
@@ -741,30 +760,11 @@
                 "next_fixture_difficulty": 3,
                 "explosivity": 11.4,
                 "ownership": 0.3
-            },
-            {
-                "id": 343,
-                "web_name": "Struijk",
-                "team": "Leeds",
-                "team_id": 11,
-                "position": 2,
-                "price": 4.3,
-                "predicted_points": 5.13,
-                "value_score": 1.19,
-                "goals": 0,
-                "assists": 1,
-                "xG": 2.06,
-                "xA": 0.43,
-                "avg_minutes": 90.0,
-                "next_fixture": "FUL (H)",
-                "next_fixture_difficulty": 2,
-                "explosivity": 0.0,
-                "ownership": 0.4
             }
         ],
-        "total_cost": 85.7,
-        "total_predicted_points": 80.02,
-        "bench_predicted_points": 19.99
+        "total_cost": 89.9,
+        "total_predicted_points": 80.33,
+        "bench_predicted_points": 22.11
     },
     "recommendations": {
         "obvious": {
@@ -816,7 +816,7 @@
             "next_fixture_difficulty": 2,
             "explosivity": 85.0,
             "defcon": 0.0,
-            "ownership": 21.7,
+            "ownership": 21.8,
             "hauls": 7,
             "features": {
                 "xGI_90": 0.33,
@@ -825,11 +825,11 @@
                 "form": 6.0,
                 "ict_index": 139.2,
                 "fixture_difficulty": 2,
-                "selected_by": 21.7,
+                "selected_by": 21.8,
                 "cost": 7.2,
                 "hauls": 7
             },
-            "reason": "Bruno G. is selected as the best relative differential (21.7% ownership) with explosive potential."
+            "reason": "Bruno G. is selected as the best relative differential (21.8% ownership) with explosive potential."
         },
         "fun_one": {
             "id": 106,
