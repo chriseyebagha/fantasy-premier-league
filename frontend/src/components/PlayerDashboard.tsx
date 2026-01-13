@@ -14,14 +14,14 @@ interface PlayerDashboardProps {
 import { formatFixture, getPositionText } from '../utils/fplUtils';
 
 const MiniPlayerCard = ({ player, isBench = false, isCaptain = false }: { player: any, isBench?: boolean, isCaptain?: boolean }) => (
-    <div className={`jersey-card ${isBench ? 'bench' : ''} ${isCaptain ? 'captain' : ''} !justify-between py-2`}>
+    <div className={`jersey-card ${isBench ? 'bench' : ''} ${isCaptain ? 'captain' : ''}`}>
         {isCaptain && <div className="captain-badge">C</div>}
 
-        <div className="text-[7px] font-bold text-slate-400 opacity-80 leading-none">
+        <div className="absolute top-[2px] left-0 right-0 flex justify-center text-[7px] font-bold text-slate-400 opacity-80 leading-none z-10">
             {getPositionText(player.element_type || player.position)}
         </div>
 
-        <div className="name-text">{player.web_name}</div>
+        <div className="name-text mt-2">{player.web_name}</div>
 
         <div className="flex flex-col items-center">
             <div className="score-text text-primary-glow">{Math.round(player.predicted_points)}</div>
