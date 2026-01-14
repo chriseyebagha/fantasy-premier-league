@@ -12,12 +12,21 @@ jobs:
 
     steps:
       - name: Checkout FPL Project
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: './frontend/package-lock.json'
+
+      - name: Check for PAT
+        run: |
+          if [ -z "${{ secrets.PERSONAL_WEBSITE_PAT }}" ]; then
+            echo "::error::PERSONAL_WEBSITE_PAT secret is missing! Please add it to repo settings."
+            exit 1
+          fi
 
       - name: Install Dependencies
         working-directory: ./frontend
@@ -28,7 +37,7 @@ jobs:
         run: npm run build
 
       - name: Checkout Personal Website
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: chriseyebagha/personal-website
           token: ${{ secrets.PERSONAL_WEBSITE_PAT }}
