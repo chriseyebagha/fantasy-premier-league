@@ -14,12 +14,15 @@ interface PlayerDashboardProps {
 import { formatFixture, getPositionText } from '../utils/fplUtils';
 
 const MiniPlayerCard = ({ player, isBench = false, isCaptain = false }: { player: any, isBench?: boolean, isCaptain?: boolean }) => (
-    <div className={`jersey-card relative ${isBench ? 'bench' : ''} ${isCaptain ? 'captain' : ''} ${player.haul_alert ? 'border-orange-500/50 shadow-[0_0_15px_rgba(234,88,12,0.15)]' : ''} !flex !flex-col !justify-between !pt-14 !pb-2`}>
+    <div className={`jersey-card relative ${isBench ? 'bench' : ''} ${isCaptain ? 'captain' : ''} ${player.haul_alert ? 'border-orange-500/50 shadow-[0_0_15px_rgba(234,88,12,0.15)]' : ''} !flex !flex-col !pt-0 !pb-1 !gap-0.5`}>
         {isCaptain && <div className="captain-badge">C</div>}
-        <div className="absolute top-[2px] left-0 right-0 flex justify-center text-[7px] font-bold text-slate-400 opacity-80 leading-none z-10">
-            {getPositionText(player.element_type || player.position)}
+        {/* Position Indicator - STATIC IN FLOW (pushes name down) */}
+        <div className="w-full flex justify-center pt-[2px] pb-[1px]">
+            <span className="text-[7px] font-bold text-slate-400 opacity-80 leading-none">
+                {getPositionText(player.element_type || player.position)}
+            </span>
         </div>
-        <div className="name-text mt-0">{player.web_name}</div>
+        <div className="name-text mt-0 leading-tight flex-shrink-0">{player.web_name}</div>
 
         <div className="flex flex-col items-center flex-1 justify-center">
             <div className={`score-text transition-colors duration-500 ${player.haul_alert ? 'text-orange-400 drop-shadow-[0_0_8px_rgba(251,146,60,0.4)]' : 'text-primary-glow'}`}>
@@ -31,7 +34,7 @@ const MiniPlayerCard = ({ player, isBench = false, isCaptain = false }: { player
             <div className="mt-0.5 flex flex-col items-center">
                 {/* Haul Alert - In Flow */}
                 {player.haul_alert && (
-                    <div className="mb-0.5 flex items-center gap-1 bg-gradient-to-r from-orange-600 to-red-600 rounded-full px-1.5 py-0.5 shadow-[0_0_10px_rgba(234,88,12,0.4)] animate-pulse whitespace-nowrap">
+                    <div className="mb-0.5 flex items-center gap-1 bg-gradient-to-r from-orange-600 to-red-600 rounded-full px-1.5 py-0.5 animate-pulse whitespace-nowrap">
                         <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white fill-orange-200"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" /></svg>
                         <span className="text-[6px] font-black italic tracking-tighter text-white uppercase">Haul Alert</span>
                     </div>

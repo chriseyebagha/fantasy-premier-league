@@ -84,12 +84,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
   width: 16%;
   max-width: 55px;
-  height: 90%;
-  max-height: 75px;
+  height: auto;
+  max-height: 100px;
+  min-height: 82px;
   padding: 1px;
   position: relative;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -164,7 +165,8 @@
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
-  margin-bottom: 1px;
+  margin-bottom: 2px;
+  flex-shrink: 0;
 }
 
 .fixture-text {
