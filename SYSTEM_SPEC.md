@@ -24,6 +24,11 @@ graph TD
     
     SB -->|Top 15 & Captains| JSON[dashboard_data.json]
     JSON -->|Repository Dispatch| Portfolio[Personal Portfolio]
+    
+    subgraph "Vesuvius Layer"
+    XGB -->|Raw Predictions| MC[Monte Carlo Simulation]
+    MC -->|Haul Probability| CMD
+    end
 ```
 
 ---
@@ -39,6 +44,13 @@ Unlike traditional models that predict "total points" directly (which are high-v
 4. **Saves head**: Poisson regression for goalkeeper point floors.
 5. **Bonus points head**: Probabilistic ranking based on historical BPS efficiency.
 6. **Defcon head**: A specialized risk head predicting defensive contribution points.
+
+### Vesuvius Simulation Layer
+The engine adds a secondary simulation layer to predict **Double-Digit Hauls (11+ points)**.
+- **Algorithm**: Monte Carlo simulation using Poisson (goals/assists) and Binomial (clean sheets) distributions.
+- **Simulation Count**: 1,500 iterations per player.
+- **Confidence Integration**: Event probabilities are adjusted by the current `confidence_ema` of the corresponding model head before simulation.
+- **Haul Alert**: A `haul_alert: true` flag is triggered when the simulated probability of $\geq 11$ points exceeds **20%**.
 
 ### Intelligence Features
 - **Seasonal Actuals**: Dynamic tracking of a player's current season form vs. historical baseline.

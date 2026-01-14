@@ -66,22 +66,29 @@ export default function Home() {
         - Replicates the .jersey-card aesthetic (white, glass, blur, border)
         - Compact and clean.
       */}
-      <header className="sticky top-2 z-50 flex justify-center mb-6 pointer-events-none">
-        <div className="flex items-center gap-4 pointer-events-auto">
-          <a
-            href="https://chriseyebagha.com"
-            className="jersey-card !w-auto !h-auto !px-4 !py-3 !rounded-2xl shadow-lg hover:scale-105 transition-transform group"
-          >
-            <span className="text-[10px] md:text-xs font-black uppercase tracking-widest text-slate-400 group-hover:text-slate-600 transition-colors">
-              ← Home
-            </span>
-          </a>
-          <div className="jersey-card !w-auto !h-auto !max-w-none px-10 py-3 !aspect-auto !flex-row !gap-0 !rounded-2xl shadow-lg">
-            <h1 className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-slate-500 leading-none">
-              GW {data.gameweek} Predictions
-            </h1>
-          </div>
-        </div>
+      {/* 
+        HOME BUTTON
+        - Absolute Top Left
+        - Clean text only, no borders, no heavy background
+      */}
+      <a
+        href="https://chriseyebagha.com"
+        className="fixed top-6 left-6 z-50 group px-2 py-1"
+      >
+        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-300 group-hover:text-slate-500 transition-colors shadow-sm">
+          Home
+        </span>
+      </a>
+
+      {/* 
+        GW PREDICTIONS HEADER
+        - Scaled up to match section headers
+        - No pill, just clean bold text
+      */}
+      <header className="flex justify-center mt-8 mb-8">
+        <h1 className="text-center text-sm md:text-base font-black uppercase tracking-[0.3em] text-slate-800">
+          GW {data.gameweek} Predictions
+        </h1>
       </header>
 
       {/* SECTION TITLE: Captain Options */}

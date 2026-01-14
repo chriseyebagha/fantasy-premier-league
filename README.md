@@ -11,6 +11,7 @@ A sophisticated, self-learning intelligence system for Fantasy Premier League. T
 - **6-Head Specialized Brain**: Poisson/Logistic regression models for goals, assists, clean sheets, saves, bonus, and defcon points.
 - **Stability Sentinel**: Automated noise reduction and confidence scoring that protects the model during chaotic gameweeks.
 - **Deadline-Aware Automation**: Dynamic synchronization that adjusts to FPL rescheduling, delivering optimized squads exactly 2 days before every deadline.
+- **Vesuvius Haul Alert**: A simulation-based probabilistic layer that identifies "high-ceiling" captains with a >20% chance of double-digit returns (11+ points).
 - **Budget Optimization**: Integrated LP solver that builds the highest-value squad within your team's bank constraints.
 
 ---
@@ -39,6 +40,7 @@ The FPL Predictor isn't just a static heuristic; it's a self-improving engine. E
 
 - **Confidence Scores**: The model tracks its accuracy for 6 different targets (Goals, Assists, etc.) and adjusts its trust in each.
 - **Stability Sentinel**: A noise gate that prevents the model from overreacting to single-week anomalies.
+- **Vesuvius Simulation**: The engine runs 1,500+ Monte Carlo simulations per player using Poisson distributions to move beyond simple "expected points" into "explosivity probability."
 - **Dynamic Hysteresis**: The engine maintains "momentum," requiring significant evidence before shifting its long-term player valuations.
 
 You can view these live metrics in the `weights.brain` section of the dashboard report.

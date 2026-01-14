@@ -13,6 +13,7 @@ The engine recommends three distinct captaincy paths across different teams. Eac
 
 ## 2. Advanced Metrics & "The Brain"
 *   **🧨 Explosivity Index**: A 0-100 rating measuring the probability of a "Haul" (10+ points). A score above 70 indicates a player is currently fixture-proof.
+*   **🌋 Vesuvius Alert**: A premium status triggered by a **Monte Carlo Simulation**. It flags players with a **$\geq 20\%$ probability** of scoring **11 or more points** (a "Vesuvius Haul").
 *   **🛡️ Defcon Score**: A specialized metric for defenders and GKs. High Defcon means high projected bonus points + goal/assist threat + clean sheet floor.
 *   **🧠 Model Brain**: You can now view the internal state of the engine. The **Confidence EMA** shows how much the model currently trusts each of its 6 specialized heads based on recent accuracy.
 

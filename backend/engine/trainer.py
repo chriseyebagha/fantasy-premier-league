@@ -149,6 +149,58 @@ class modelTrainer:
         
         return np.maximum(xp, 0)
 
+    def calculate_haul_probability(self, event_predictions: Dict[str, np.ndarray], element_types: List[int], n_sims: int = 1500) -> np.ndarray:
+        """
+        Calculates the probability of a player scoring 11+ points using a Monte Carlo simulation.
+        Assumes independent Poisson events for counts and Logistic for clean sheets.
+        """
+        n_players = len(element_types)
+        haul_probs = np.zeros(n_players)
+        
+        # FPL Points constants by element type (1=GKP, 2=DEF, 3=MID, 4=FWD)
+        GOAL_VALS = {1: 6, 2: 6, 3: 5, 4: 4}
+        CS_VALS = {1: 4, 2: 4, 3: 1, 4: 0}
+        ASSIST_VALS = 3
+        SAVE_VALS = 0.33
+        
+        c = self.confidence_scores
+
+        for i in range(n_players):
+            pos = element_types[i]
+            
+            # Adjusted lambdas based on confidence scores
+            l_goals = event_predictions['actual_goals'][i] * c.get('actual_goals', 1.0)
+            l_assists = event_predictions['actual_assists'][i] * c.get('actual_assists', 1.0)
+            l_saves = event_predictions['actual_saves'][i] * c.get('actual_saves', 1.0)
+            l_bonus = event_predictions.get('actual_bonus', np.zeros(n_players))[i] * c.get('actual_bonus', 1.0)
+            l_defcon = event_predictions.get('actual_defcon_points', np.zeros(n_players))[i] * c.get('actual_defcon_points', 1.0)
+            
+            # Clean sheet is a biased coin flip
+            p_cs = event_predictions['actual_clean_sheets'][i] * c.get('actual_clean_sheets', 1.0)
+            p_cs = min(max(p_cs, 0), 1)
+            
+            # Monte Carlo Simulation
+            sim_goals = np.random.poisson(l_goals, n_sims)
+            sim_assists = np.random.poisson(l_assists, n_sims)
+            sim_saves = np.random.poisson(l_saves, n_sims)
+            sim_bonus = np.random.poisson(l_bonus, n_sims)
+            sim_defcon = np.random.poisson(l_defcon, n_sims)
+            sim_cs = np.random.binomial(1, p_cs, n_sims)
+            
+            # Calculate points per match simulation
+            points = 2.0 # Baseline for starting
+            points += sim_goals * GOAL_VALS.get(pos, 4)
+            points += sim_assists * ASSIST_VALS
+            points += sim_cs * CS_VALS.get(pos, 0)
+            points += sim_saves * SAVE_VALS
+            points += sim_bonus
+            points += sim_defcon
+            
+            # A haul is defined as 11+ points (User definition)
+            haul_probs[i] = np.mean(points >= 11)
+            
+        return haul_probs
+
     def evaluate_performance(self, gameweek: int, actual_events: Dict[int, Dict]):
         """
         Compares predicted vs actual outcomes with the 'Stability Sentinel' logic.

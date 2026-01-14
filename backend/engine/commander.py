@@ -92,9 +92,10 @@ class EngineCommander:
         self.trainer.load_model()
         event_predictions = self.trainer.predict(feature_df)
         
-        # Translate to Expected Points (xP) using player positions
+        # Translate to Expected Points (xP) and Haul Probabilities
         positions = [item['p']['element_type'] for item in valid_players]
         xp_points = self.trainer.translate_to_xp(event_predictions, positions)
+        haul_probs = self.trainer.calculate_haul_probability(event_predictions, positions)
 
         processed = []
         for i, item in enumerate(valid_players):
@@ -130,8 +131,14 @@ class EngineCommander:
             prob_bonus = float(event_predictions.get('actual_bonus', np.zeros(len(valid_players)))[i])
             prob_defcon = float(event_predictions.get('actual_defcon_points', np.zeros(len(valid_players)))[i])
 
-            # 3. Probabilistic Reasoning
+            # 3. Probabilistic Reasoning & Vesuvius Alert
             reasoning = []
+            haul_prob = float(haul_probs[i])
+            haul_alert = haul_prob >= 0.20 # 20% chance of 11+ points is a major alert
+            
+            if haul_alert:
+                reasoning.append(f"VESUVIUS ALERT: {haul_prob*100:.0f}% Haul Probability (11+ pts)")
+            
             if prob_goal > 0.4: reasoning.append(f"High goal threat ({prob_goal:.1f} Exp)")
             if prob_assist > 0.4: reasoning.append(f"Playmaker potential ({prob_assist:.1f} Exp)")
             if prob_cs > 0.6: reasoning.append(f"Strong CS chance ({prob_cs*100:.0f}%)")
@@ -154,6 +161,8 @@ class EngineCommander:
                 "position": p['element_type'],
                 "price": p['now_cost'] / 10.0,
                 "predicted_points": round(final_score, 2),
+                "haul_prob": round(haul_prob, 2),
+                "haul_alert": haul_alert,
                 "prob_goal": round(prob_goal, 2),
                 "prob_assist": round(prob_assist, 2),
                 "prob_cs": round(prob_cs, 2),
