@@ -34,7 +34,7 @@ export default function Home() {
         <div className="flex flex-col items-center gap-4">
           <div className="w-12 h-12 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin" />
           <p className="text-slate-400 font-bold animate-pulse tracking-widest text-[10px] uppercase">
-            Oracle is Computing...
+            Engine is Computing...
           </p>
         </div>
       </div>
@@ -68,19 +68,19 @@ export default function Home() {
       */}
       <header className="sticky top-2 z-50 flex justify-center mb-6 pointer-events-none">
         <div className="flex items-center gap-4 pointer-events-auto">
-             <a 
-                href="https://chriseyebagha.com" 
-                className="jersey-card !w-auto !h-auto !px-4 !py-3 !rounded-2xl shadow-lg hover:scale-105 transition-transform group"
-            >
-               <span className="text-[10px] md:text-xs font-black uppercase tracking-widest text-slate-400 group-hover:text-slate-600 transition-colors">
-                  ← Home
-               </span>
-            </a>
-            <div className="jersey-card !w-auto !h-auto !max-w-none px-10 py-3 !aspect-auto !flex-row !gap-0 !rounded-2xl shadow-lg">
-              <h1 className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-slate-500 leading-none">
-                GW {data.gameweek} Predictions
-              </h1>
-            </div>
+          <a
+            href="https://chriseyebagha.com"
+            className="jersey-card !w-auto !h-auto !px-4 !py-3 !rounded-2xl shadow-lg hover:scale-105 transition-transform group"
+          >
+            <span className="text-[10px] md:text-xs font-black uppercase tracking-widest text-slate-400 group-hover:text-slate-600 transition-colors">
+              ← Home
+            </span>
+          </a>
+          <div className="jersey-card !w-auto !h-auto !max-w-none px-10 py-3 !aspect-auto !flex-row !gap-0 !rounded-2xl shadow-lg">
+            <h1 className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-slate-500 leading-none">
+              GW {data.gameweek} Predictions
+            </h1>
+          </div>
         </div>
       </header>
 

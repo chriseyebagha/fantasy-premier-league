@@ -33,9 +33,9 @@ def build_optimal_squad(dm: FPLDataManager, commander: EngineCommander, budget: 
     Main entry point for squad building.
     Returns optimal 15-man squad with formation and players using Engine predictions.
     """
-    print("Building optimal squad with Thinking Engine metrics...")
+    print("Building optimal squad with Intelligence Engine metrics...")
     
-    # 1. Get predictions from the Thinking Engine
+    # 1. Get predictions from the Intelligence Engine
     # get_top_15_players actually processes ~120 candidates
     # We'll use the processed results which already have predicted_points and features
     engine_results = commander.get_top_15_players()

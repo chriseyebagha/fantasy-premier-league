@@ -267,7 +267,7 @@ class EngineCommander:
         return {"starters": starters, "bench": bench}
 
     def get_tier_captains(self, squad: List[Dict]) -> Dict[str, Dict]:
-        """Categorizes players into four tiers with strict position and explosivity rules."""
+        """Categorizes players into three distinct tiers across different teams."""
         if not squad:
             return {"obvious": {}, "joker": {}, "fun_one": {}, "weights": {}}
 

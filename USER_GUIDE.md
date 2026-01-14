@@ -1,29 +1,29 @@
 # FPL Predictor User Guide
 
-Welcome to the "Oracle" for Fantasy Premier League. This tool doesn't just give you raw numbers; it translates them into actionable strategy. Here is how to use it to win your mini-leagues.
+Welcome to the **FPL Intelligence Engine**. This system uses a specialized 6-head probabilistic architecture to forecast player performance with higher accuracy than traditional points-based models.
 
 ## 1. Captaincy Personas
-The "Recommendation" section offers 4 distinct paths for your Captaincy armband. Choose the one that fits your playstyle or current rank.
+The engine recommends three distinct captaincy paths across different teams. Each uses a unique cross-section of probabilistic metrics:
 
 | Persona | Best For... | Description |
 | :--- | :--- | :--- |
-| **🛡️ The Easy Choice** | **Protecting Rank** | The safest bet. This player has high ownership and consistent returns. If they haul, everyone has them. If they blank, it doesn't hurt you much. Use this when you are ahead. |
-| **💥 The Obvious** | **Pure Points** | The algorithm's raw #1 pick. Mathematical superiority above all else, ignoring ownership or hype. |
-| **🃏 The Joker** | **Chasing Rank** | High reward, higher risk. A player with low ownership who has "exploded" recently. If they score, you skyrocket past your rivals. Use this when you need to make up ground. |
-| **🎢 The Fun One** | **The Thrill** | Strictly a Defender or Goalkeeper (The "Title Contender"). We pick them based on a mix of clean sheet odds and massive attacking threat (Defcon Score). Pick this if you want a reliable defender who can score. |
+| **� The Obvious** | **Pure Dominance** | The algorithm's raw #1 pick. Mathematical superiority across all 6 heads (Goals, Assists, CS, etc.). This player represents the highest expected utility regardless of ownership. |
+| **🃏 The Joker** | **High-Reward Differentials** | Specifically targets high-explosivity players with low ownership (<15%). This pick is chosen from a different team than the "Obvious" pick to diversify your risk. |
+| **🎢 The Fun One** | **Defensive Upside** | Strictly a Defender or Goalkeeper with elite attacking potential. We use the **Defcon Score** to identify defensive players who hunt for clean sheets AND offensive returns. |
 
-## 2. Key Concepts
-*   **🧨 Explosivity Index**: A 0-100 score on every player card. It measures how likely a player is to get a "Haul" (10+ pts). If it's over 70, the player is "Fixture Proof".
-*   **🛡️ Defcon Score**: The rating for defenders. High Defcon means they hunt for clean sheets AND goals.
+## 2. Advanced Metrics & "The Brain"
+*   **🧨 Explosivity Index**: A 0-100 rating measuring the probability of a "Haul" (10+ points). A score above 70 indicates a player is currently fixture-proof.
+*   **🛡️ Defcon Score**: A specialized metric for defenders and GKs. High Defcon means high projected bonus points + goal/assist threat + clean sheet floor.
+*   **🧠 Model Brain**: You can now view the internal state of the engine. The **Confidence EMA** shows how much the model currently trusts each of its 6 specialized heads based on recent accuracy.
 
-## 3. The Optimized Squad
-The "Squad" view isn't just a list of good players; it's a **blueprint**.
+## 3. The Optimized Blueprint
+The "Squad" view generates a 15-man roster (11 starters + 4 bench) following a strict **Max 3 Players Per Team** constraint.
 
-- **Transfer Planning**: Look at the "Optimized Squad" compared to your current team. Any overlapping players that you *don't* have are prime transfer targets.
-- **Bench Strategy**: Notice who is on the bench. We optimize for a budget bench that still plays (e.g., £4.0m defenders who start games). This frees up money for premium attackers.
+- **Formation Optimization**: The engine automatically picks the formation with the highest cumulative xP.
+- **Budget Management**: The squad is optimized within a standard £100m budget, ensuring a playing bench that offers security against late rotations.
+- **Data Heartbeat**: The system refreshes every 12 hours, with a deep-learning cycle triggered approximately 48 hours before the FPL deadline.
 
-## 4. "The Oracle" vs. Your Gut
-This tool is a decision-support system, not a dictator.
-- **Use the Data**: To narrow down your shortlist (e.g., "I need a midfielder under £7m").
-- **Use Your Gut**: To make the final call between the top 2 candidates.
-- **Watch the Flags**: The algorithm updates daily, but always check for last-minute press conference injury news.
+## 4. Strategic Usage
+*   **Trust but Verify**: Use the "Brain" metrics to see if the engine is currently in a "Stability" phase (Noise Gate active) or in a high-confidence prediction phase.
+*   **Transfer Shortlist**: If the engine suggests a player you don't own with high explosivity, they are a primary trade-in candidate.
+*   **Bench Selection**: Follow the suggested bench order; it is calculated using a value-per-minute metric to ensure the most reliable backup plays first.
