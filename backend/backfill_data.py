@@ -5,17 +5,17 @@ from backend.engine.data_manager import FPLDataManager
 from backend.engine.feature_factory import FeatureFactory
 from backend.engine.storage import EngineStorage
 
-def backfill():
+def backfill(start_gw: int = 1):
     storage = EngineStorage("/Users/chriseyebagha/Documents/Projects/Fantasy Premier League Project/backend/data")
     dm = FPLDataManager()
     bootstrap = dm.get_bootstrap_static()
     players = bootstrap['elements']
     
-    # We'll backfill the last 5 gameweeks to get high-quality labeled data
+    # We'll backfill from start_gw to the current gameweek
     current_gw = dm.get_upcoming_gameweek(bootstrap)
-    gws_to_backfill = sorted(list(range(max(1, current_gw - 5), current_gw)))
+    gws_to_backfill = sorted(list(range(max(1, start_gw), current_gw)))
     
-    print(f"Backfilling GWS: {gws_to_backfill}")
+    print(f"Backfilling GWS: {gws_to_backfill} for 25/26 Season")
     
     # Pre-fetch live event data for all GWs
     gw_events = {}
