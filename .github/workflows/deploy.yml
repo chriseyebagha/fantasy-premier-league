@@ -33,16 +33,22 @@ jobs:
           repository: chriseyebagha/personal-website
           token: ${{ secrets.PERSONAL_WEBSITE_PAT }}
           path: personal-website
+          persist-credentials: false
 
       - name: Sync Build Artifacts
         run: |
-          # Remove old fantasy files to ensure clean state
+          echo "Clearing old fantasy files..."
           rm -rf personal-website/fantasy/*
           
-          # Copy new build files
-          # Note: Next.js static export puts files in 'out'
+          echo "Copying new build files..."
           cp -r frontend/out/* personal-website/fantasy/
           
+          # specific verification of index.html
+          if [ ! -f personal-website/fantasy/index.html ]; then
+            echo "Error: index.html missing after copy!"
+            exit 1
+          fi
+
       - name: Commit and Push Changes
         working-directory: ./personal-website
         run: |
@@ -51,9 +57,14 @@ jobs:
           
           # Check for changes
           if [[ -n $(git status -s) ]]; then
+            echo "Changes detected, pushing to remote..."
             git add .
             git commit -m "feat(fpl): update fantasy predictor from deployment pipeline"
+            
+            # Use the PAT explicitly for the push to avoid permission issues
+            git remote set-url origin https://x-access-token:${{ secrets.PERSONAL_WEBSITE_PAT }}@github.com/chriseyebagha/personal-website.git
             git push
+            echo "Successfully deployed."
           else
             echo "No changes to deploy."
           fi
