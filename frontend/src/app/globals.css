@@ -138,7 +138,14 @@
   align-items: center;
   justify-content: center;
   border: 1px solid white;
-  z-index: 20;
+  z-index: 21;
+}
+
+.haul-alert-badge {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  z-index: 30;
 }
 
 .score-text {
@@ -206,6 +213,12 @@
     font-size: 12px;
     top: -6px;
     right: -6px;
+    z-index: 21;
+  }
+
+  .haul-alert-badge {
+    top: -8px;
+    left: -8px;
   }
 }
 

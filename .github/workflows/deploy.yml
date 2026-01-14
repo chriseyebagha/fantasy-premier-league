@@ -1,0 +1,59 @@
+name: Deploy FPL Predictor
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout FPL Project
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        working-directory: ./frontend
+        run: npm ci
+
+      - name: Build Frontend
+        working-directory: ./frontend
+        run: npm run build
+
+      - name: Checkout Personal Website
+        uses: actions/checkout@v3
+        with:
+          repository: chriseyebagha/personal-website
+          token: ${{ secrets.PERSONAL_WEBSITE_PAT }}
+          path: personal-website
+
+      - name: Sync Build Artifacts
+        run: |
+          # Remove old fantasy files to ensure clean state
+          rm -rf personal-website/fantasy/*
+          
+          # Copy new build files
+          # Note: Next.js static export puts files in 'out'
+          cp -r frontend/out/* personal-website/fantasy/
+          
+      - name: Commit and Push Changes
+        working-directory: ./personal-website
+        run: |
+          git config user.name "FPL Predictor Bot"
+          git config user.email "bot@chriseyebagha.com"
+          
+          # Check for changes
+          if [[ -n $(git status -s) ]]; then
+            git add .
+            git commit -m "feat(fpl): update fantasy predictor from deployment pipeline"
+            git push
+          else
+            echo "No changes to deploy."
+          fi
