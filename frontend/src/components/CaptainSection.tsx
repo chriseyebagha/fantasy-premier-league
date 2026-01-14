@@ -55,16 +55,7 @@ const CaptainJerseyCard = ({ subtitle, data }: { subtitle: string, data: Captain
                - !m-0: Remove margins
             */}
             <div className={`jersey-card captain relative !w-full !max-w-[120px] !h-auto !aspect-[3/4] !min-h-[130px] !m-0 justify-between py-3 shadow-lg transition-all duration-500 ${data.haul_alert ? 'border-orange-500/50 shadow-orange-500/20' : ''}`}>
-                {/* Haul Alert Pulse Badge */}
-                {data.haul_alert && (
-                    <div
-                        style={{ position: 'absolute', top: '2px', left: '2px', zIndex: 100 }}
-                        className="flex items-center gap-1 bg-gradient-to-r from-orange-600 to-red-600 rounded-full px-2 py-0.5 shadow-[0_0_15px_rgba(234,88,12,0.4)] animate-pulse border border-orange-400/30"
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white fill-orange-200"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" /></svg>
-                        <span className="text-[7px] font-black italic tracking-tighter text-white uppercase">Haul Alert</span>
-                    </div>
-                )}
+
 
                 {/* Position Tag */}
                 <div className="text-[7px] font-bold text-slate-400 opacity-80 leading-none mb-1">
@@ -87,8 +78,19 @@ const CaptainJerseyCard = ({ subtitle, data }: { subtitle: string, data: Captain
                     </div>
                 </div>
 
-                {/* Extra Stats (Haul Prob) */}
-                <div className="mt-1 flex flex-col items-center gap-0.5">
+                {/* Extra Stats Container - Relative for Absolute Alert Positioning */}
+                { /* We use a fixed height container or rely on the content. To avoid shifting flow, we absolute position the alert OUTSIDE the flow. */}
+                <div className="mt-1 flex flex-col items-center gap-0.5 relative">
+                    {/* Haul Alert - Absolute Positioned to float above without taking space */}
+                    {data.haul_alert && (
+                        <div
+                            className="absolute bottom-full left-1/2 -translate-x-1/2 mb-0.5 flex items-center gap-1 bg-gradient-to-r from-orange-600 to-red-600 rounded-full px-2 py-0.5 shadow-[0_0_15px_rgba(234,88,12,0.4)] animate-pulse border border-orange-400/30 whitespace-nowrap z-20"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white fill-orange-200"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" /></svg>
+                            <span className="text-[7px] font-black italic tracking-tighter text-white uppercase">Haul Alert</span>
+                        </div>
+                    )}
+
                     {data.haul_prob && data.haul_prob > 0 && (
                         <div className={`text-[7px] font-black tracking-widest px-1.5 py-0.5 rounded-full ${data.haul_alert ? 'bg-orange-500/10 text-orange-400' : 'text-slate-500 opacity-60'}`}>
                             {Math.round(data.haul_prob * 100)}% HAUL
