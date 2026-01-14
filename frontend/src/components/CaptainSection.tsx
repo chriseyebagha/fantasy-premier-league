@@ -49,7 +49,7 @@ const CaptainJerseyCard = ({ subtitle, data }: { subtitle: string, data: Captain
                - !h-auto !aspect-[3/4]: Maintain vertical rectangular pill shape
                - !m-0: Remove margins
             */}
-            <div className={`jersey-card captain relative !w-full !max-w-[120px] !h-auto !aspect-[3/4] !min-h-[130px] !m-0 py-3 shadow-lg transition-all duration-500 ${data.haul_alert ? 'border-orange-500/50 shadow-orange-500/20' : ''} !flex !flex-col !justify-between !pt-10 !pb-2`}>
+            <div className={`jersey-card captain relative !w-full !max-w-[120px] !h-auto !aspect-[3/4] !min-h-[130px] !m-0 py-3 shadow-lg transition-all duration-500 ${data.haul_alert ? 'border-orange-500/50 shadow-orange-500/20' : ''} !flex !flex-col !justify-between !pt-14 !pb-2`}>
                 {/* Position */}
                 <div className="text-[7px] font-bold text-slate-400 opacity-80 leading-none absolute top-[2px] left-0 right-0 flex justify-center z-10">
                     {getPositionText(data.position)}

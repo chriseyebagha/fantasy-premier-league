@@ -14,7 +14,7 @@ interface PlayerDashboardProps {
 import { formatFixture, getPositionText } from '../utils/fplUtils';
 
 const MiniPlayerCard = ({ player, isBench = false, isCaptain = false }: { player: any, isBench?: boolean, isCaptain?: boolean }) => (
-    <div className={`jersey-card relative ${isBench ? 'bench' : ''} ${isCaptain ? 'captain' : ''} ${player.haul_alert ? 'border-orange-500/50 shadow-[0_0_15px_rgba(234,88,12,0.15)]' : ''} !flex !flex-col !justify-between !pt-10 !pb-2`}>
+    <div className={`jersey-card relative ${isBench ? 'bench' : ''} ${isCaptain ? 'captain' : ''} ${player.haul_alert ? 'border-orange-500/50 shadow-[0_0_15px_rgba(234,88,12,0.15)]' : ''} !flex !flex-col !justify-between !pt-14 !pb-2`}>
         {isCaptain && <div className="captain-badge">C</div>}
         <div className="absolute top-[2px] left-0 right-0 flex justify-center text-[7px] font-bold text-slate-400 opacity-80 leading-none z-10">
             {getPositionText(player.element_type || player.position)}
