@@ -81,6 +81,7 @@ class EngineCommander:
         bootstrap = self.dm.get_bootstrap_static()
         players = bootstrap['elements']
         teams = {t['id']: t['name'] for t in bootstrap['teams']}
+        short_names = {t['id']: t['short_name'] for t in bootstrap['teams']}
         
         fixtures = self.dm.get_fixtures()
         next_gw = self.dm.get_upcoming_gameweek(bootstrap)
@@ -203,9 +204,9 @@ class EngineCommander:
                     is_home = False
                     break
             
-            opponent_name = teams.get(opponent_id, "???")
+            opponent_name = short_names.get(opponent_id, "???")
             venue = "(H)" if is_home else "(A)"
-            next_fix_str = f"{opponent_name[:3].upper()} {venue}"
+            next_fix_str = f"{opponent_name} {venue}"
 
             # Reality Score: Now fully derived from the Probabilistic xP model
             final_score = float(xp_points[i])

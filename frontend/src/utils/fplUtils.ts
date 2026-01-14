@@ -40,7 +40,6 @@ export const TEAM_ABBREVIATIONS: Record<string, string> = {
 
     // Robust Mappings for non-standard/feed-specific inputs
     'AST': 'AVL', // Fix for "AST" input
-    'MAN': 'MCI', // Fix for ambiguous "MAN" input
     'MNC': 'MCI',
     'MNU': 'MUN',
     'NOT': 'NFO', // Fix for potential "NOT" input
