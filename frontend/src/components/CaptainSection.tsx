@@ -88,6 +88,51 @@ const CaptainJerseyCard = ({ subtitle, data }: { subtitle: string, data: Captain
     );
 };
 
+const BrainMetric = ({ label, value, subtext }: { label: string, value: string, subtext?: string }) => (
+    <div className="flex flex-col items-center">
+        <span className="text-[8px] font-bold uppercase tracking-wider text-slate-500 mb-0.5">{label}</span>
+        <div className="text-sm font-black text-slate-700">{value}</div>
+        {subtext && <span className="text-[7px] font-bold text-slate-400">{subtext}</span>}
+    </div>
+);
+
+const ModelBrainCard = ({ weights }: { weights: any }) => {
+    if (!weights || !weights.brain) return null;
+    const { brain } = weights;
+
+    // Calculate average confidence from the dictionary
+    const confValues = Object.values(brain.confidence_ema || {}) as number[];
+    const avgConf = confValues.length ? (confValues.reduce((a, b) => a + b, 0) / confValues.length) : 1.0;
+
+    return (
+        <div className="mt-6 w-full max-w-lg mx-auto">
+            <div className="jersey-card !w-full !max-w-none !h-auto !px-4 !py-3 !flex-row !justify-between !items-center !rounded-2xl shadow-sm border border-slate-100/50">
+                <div className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400">
+                        Model Intelligence
+                    </span>
+                </div>
+
+                <div className="flex items-center gap-6 md:gap-8">
+                    <BrainMetric
+                        label="Noise Gate"
+                        value={`${brain.noise_multiplier?.toFixed(2)}x`}
+                    />
+                    <BrainMetric
+                        label="Confidence"
+                        value={`${(avgConf * 100).toFixed(0)}%`}
+                    />
+                    <BrainMetric
+                        label="Squad Acc"
+                        value={`${((brain.squad_accuracy || 0) * 100).toFixed(0)}%`}
+                    />
+                </div>
+            </div>
+        </div>
+    );
+};
+
 export default function CaptainSection({ captains, gameweek }: CaptainSectionProps) {
     if (!captains) return null;
 
@@ -108,6 +153,9 @@ export default function CaptainSection({ captains, gameweek }: CaptainSectionPro
                     data={captains.fun_one}
                 />
             </div>
+
+            {/* Model Brain Metrics */}
+            <ModelBrainCard weights={captains.weights} />
         </section>
     );
 }

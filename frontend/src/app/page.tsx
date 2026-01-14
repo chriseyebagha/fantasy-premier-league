@@ -85,7 +85,7 @@ export default function Home() {
       </header>
 
       {/* SECTION TITLE: Captain Options */}
-      <h2 className="text-center text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-4">
+      <h2 className="text-center text-xs md:text-sm font-black uppercase tracking-[0.2em] text-slate-400 mb-4">
         Captain Options
       </h2>
 
@@ -99,7 +99,7 @@ export default function Home() {
       </section>
 
       {/* SECTION TITLE: Top predicted players */}
-      <h2 className="text-center text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-2 mt-2">
+      <h2 className="text-center text-xs md:text-sm font-black uppercase tracking-[0.2em] text-slate-400 mb-2 mt-2">
         Top predicted players
       </h2>
 
