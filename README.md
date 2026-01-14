@@ -1,64 +1,69 @@
-# Fantasy Premier League Predictor 🔮
+# ⚽ FPL Predictor Engine
 
-**The "Oracle" used by `chriseyebagha.com/fantasy`.**
+A sophisticated, self-learning intelligence system for Fantasy Premier League. This engine uses a multi-head probabilistic architecture and a reinforcement learning feedback loop to provide state-of-the-art player projections.
 
-This project is an automated, data-driven engine that predicts FPL outcomes using machine learning. It runs daily in the cloud, determining the optimal squad and captaincy choices based on Form, Fixtures, and Expected Points (xP).
-
-> **Live Demo**: This engine powers the fantasy section of my portfolio. Check it out at [chriseyebagha.com/fantasy](https://chriseyebagha.com/fantasy).
-
-## 📚 Documentation
-- **[User Guide](./USER_GUIDE.md)**: How to use the "Captaincy Personas" and optimized squad to win your mini-leagues.
-- **[Technical Architecture](./TECHNICAL_ARCHITECTURE.md)**: A look under the hood. System diagrams, directory structure, and the logic behind the "Virtual Loop" automation.
-- **[Model & Metrics](./MODEL_AND_METRICS.md)**: Deep dive into the XGBoost regression model, including exact formulas for the "Explosivity Index" and "Defcon Score".
-
-## 🚀 Key Features
-- **🤖 XGBoost Engine**: Uses gradient boosting to value player potential over hype.
-- **☁️ Virtual Loop**: Runs on GitHub Actions every day at 3 AM UTC (`cron: 0 3 * * *`).
-- **🧨 Explosivity Index**: A custom metric identifying high-ceiling differential players.
-- **Title Contender (Defcon)**: A hybrid metric for defenders combining clean sheets with goal threat.
-- **🧠 Squad Optimization**: Uses a knapsack-like greedy algorithm to build the mathematically "best" 15-man squad within budget (£100m).
-
-## 🏗️ Portfolio Integration
-This repository is designed as a standalone micro-frontend.
-- **Integration**: `chriseyebagha.com` (Main) pulls data from `fantasy-premier-league` (This Repo).
-- **Trigger**: When this repo updates, it sends a signal to the main repo to rebuild.
-
-### 🔌 Connect Your Portfolio (One-Time Setup)
-To allow this FPL engine to trigger your website build, you must add a secret:
-
-1.  **Generate Token**:
-    - Go to [GitHub Developer Settings > Tokens (Classic)](https://github.com/settings/tokens/new).
-    - Generate a new token with **`repo`** scope.
-    - Copy the token immediately.
-
-2.  **Add Secret**:
-    - Go to `fantasy-premier-league` > **Settings** > **Secrets and variables** > **Actions**.
-    - Click **"New repository secret"**.
-    - Name: `PAT_TOKEN`
-    - Value: *(Paste your copied token)*.
-
-Once added, the "Virtual Loop" is fully connected! 🔄
-
-## 🛠️ Quick Start (for Contributors)
-1.  **Clone & Install**:
-    ```bash
-    git clone https://github.com/chriseyebagha/fantasy-premier-league.git
-    pip install -r backend/requirements.txt
-    ```
-2.  **Run the Engine**:
-    ```bash
-    # Generate data locally (forces execution even if not deadline day)
-    python3 backend/generate_static.py --force
-    ```
-    *This generates a local `frontend/public/dashboard_data.json`.*
-
-3.  **Run the Frontend**:
-    ```bash
-    cd frontend
-    npm install
-    npm run dev
-    ```
-    *Visit `http://localhost:3000` to see the dashboard.*
+[**Read the Full System Spec**](./SYSTEM_SPEC.md)
 
 ---
-*Built with Python 3.10 and Next.js.*
+
+## 🚀 Key Features
+
+- **6-Head Specialized Brain**: Poisson/Logistic regression models for goals, assists, clean sheets, saves, bonus, and defcon points.
+- **Stability Sentinel**: Automated noise reduction and confidence scoring that protects the model during chaotic gameweeks.
+- **Deadline-Aware Automation**: Dynamic synchronization that adjusts to FPL rescheduling, delivering optimized squads exactly 2 days before every deadline.
+- **Budget Optimization**: Integrated LP solver that builds the highest-value squad within your team's bank constraints.
+
+---
+
+## 🛠 Project Structure
+
+- `backend/`: Python intelligence engine (XGBoost + Scikit-Learn).
+- `frontend/`: Next.js dashboard for visualizing predictions.
+- `.github/workflows/`: Automated 12-hour heartbeat and deployment pipelines.
+
+---
+
+## 🎯 Target Audiences
+
+This project is built for three distinct groups:
+
+| Audience | What's in it for you? | Key Files |
+| :--- | :--- | :--- |
+| **FPL Managers** | High-performance team tips and captain picks. | `dashboard_data.json` |
+| **ML Engineers** | A real-world example of 6-head probabilistic XGBoost with reinforcement feedback. | `backend/engine/trainer.py` |
+| **Open Source Contributors** | A modular FPL pipeline ready for new features (e.g., chip strategy). | `CONTRIBUTING.md` |
+
+## 🧠 AI Intelligence (How to Read the Model)
+
+The FPL Predictor isn't just a static heuristic; it's a self-improving engine. Every week, it updates its "Brain" based on performance:
+
+- **Confidence Scores**: The model tracks its accuracy for 6 different targets (Goals, Assists, etc.) and adjusts its trust in each.
+- **Stability Sentinel**: A noise gate that prevents the model from overreacting to single-week anomalies.
+- **Dynamic Hysteresis**: The engine maintains "momentum," requiring significant evidence before shifting its long-term player valuations.
+
+You can view these live metrics in the `weights.brain` section of the dashboard report.
+
+## 📦 Quick Start
+
+### Local Setup
+1. **Install dependencies**:
+   ```bash
+   pip install -r backend/requirements.txt
+   ```
+
+2. **Run the engine**:
+   ```bash
+   python backend/generate_static.py --force
+   ```
+
+3. **Start the dashboard**:
+   ```bash
+   cd frontend && npm install && npm run dev
+   ```
+
+---
+
+## 🔗 Portfolio Integration
+This project is automatically integrated into my [main portfolio](https://chriseyebagha.com/fantasy).
+
+The CI/CD pipeline uses `repository_dispatch` to sync data from this engine to the live website, ensuring zero-latency updates whenever predictions are refreshed.

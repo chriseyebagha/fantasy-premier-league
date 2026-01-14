@@ -46,37 +46,29 @@ class FPLDataManager:
                 return event.get('id', 1)
         return 1
 
-    def get_actual_points(self, gameweek: int) -> Dict[int, float]:
-        """Fetches actual points scored by all players in a specific gameweek."""
-        bootstrap = self.get_bootstrap_static()
-        players = bootstrap['elements']
-        actual_points = {}
+    def get_actual_events(self, gameweek: int) -> Dict[int, Dict]:
+        """Fetches detailed actual performance stats for all players in a specific gameweek using the Live API."""
+        print(f"📡 Fetching live event data for GW{gameweek}...")
         
-        # Optimization: Check if the requested gameweek is the "current" one in bootstrap
-        # If so, we can simply use p['event_points'] instead of 600+ API calls
-        is_current_gw = False
-        for event in bootstrap['events']:
-            if event['id'] == gameweek and event.get('is_current', False):
-                is_current_gw = True
-                break
+        response = self.session.get(f"{self.BASE_URL}/event/{gameweek}/live/")
+        response.raise_for_status()
+        data = response.json()
         
-        if is_current_gw:
-            print(f"GW{gameweek} is current. Using bootstrap data for points (Fast).")
-            for p in players:
-                actual_points[p['id']] = float(p['event_points'])
-            return actual_points
-
-        print(f"GW{gameweek} is historical. Fetching individual summaries (Slow)...")
-        # Fallback: We need individual summaries to get historical points
-        count = 0
-        for p in players:
-            summary = self.get_player_summary(p['id'])
-            history = summary.get('history', [])
-            for entry in history:
-                if entry['round'] == gameweek:
-                    actual_points[p['id']] = float(entry['total_points'])
-                    break
-            count += 1
-            if count % 50 == 0: print(f"Fetched {count}/{len(players)}...", end='\r')
+        actual_events = {}
+        for item in data.get('elements', []):
+            stats = item.get('stats', {})
+            actual_events[item['id']] = {
+                "total_points": float(stats.get('total_points', 0)),
+                "goals_scored": int(stats.get('goals_scored', 0)),
+                "assists": int(stats.get('assists', 0)),
+                "clean_sheets": int(stats.get('clean_sheets', 0)),
+                "goals_conceded": int(stats.get('goals_conceded', 0)),
+                "saves": int(stats.get('saves', 0)),
+                "bonus": int(stats.get('bonus', 0)),
+                "yellow_cards": int(stats.get('yellow_cards', 0)),
+                "red_cards": int(stats.get('red_cards', 0)),
+                "minutes": int(stats.get('minutes', 0)),
+                "defensive_contribution": int(stats.get('defensive_contribution', 0))
+            }
             
-        return actual_points
+        return actual_events

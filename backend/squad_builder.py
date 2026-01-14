@@ -175,16 +175,19 @@ def get_all_predicted_players(dm: FPLDataManager, commander: EngineCommander) ->
 
     feature_df = pd.DataFrame(player_features)
     commander.trainer.load_model()
-    predictions = commander.trainer.predict(feature_df)
+    event_predictions = commander.trainer.predict(feature_df)
+    
+    # Translate to Expected Points (xP) using player positions
+    positions = [item['p']['element_type'] for item in valid_players]
+    xp_points = commander.trainer.translate_to_xp(event_predictions, positions)
 
     processed = []
     for i, item in enumerate(valid_players):
         p = item['p']
         fdr = item['diff']
         
-        # Model Prediction
-        # Model Prediction
-        prediction = float(predictions[i])
+        # Probabilistic xP Prediction
+        prediction = float(xp_points[i])
         # performance_boost removed to match commander.py and prevent inflation
         
         fixture_multiplier = 1.0

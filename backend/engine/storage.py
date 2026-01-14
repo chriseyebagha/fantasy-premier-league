@@ -11,15 +11,16 @@ class EngineStorage:
         self.feedback_file = os.path.join(base_path, "feedback_loop.json")
         self.prediction_history_file = os.path.join(base_path, "prediction_history.json")
         self.training_data_file = os.path.join(base_path, "training_data.json")
+        self.deadline_history_file = os.path.join(base_path, "deadline_history.json")
         self._ensure_paths()
 
     def _ensure_paths(self):
         if not os.path.exists(self.base_path):
             os.makedirs(self.base_path)
         
-        for f in [self.feedback_file, self.prediction_history_file, self.training_data_file]:
+        for f in [self.feedback_file, self.prediction_history_file, self.training_data_file, self.deadline_history_file]:
             if not os.path.exists(f):
-                # feedback and prediction_history are dicts, training_data is a list
+                # feedback, prediction_history, and deadline_history are dicts, training_data is a list
                 initial_content = [] if "training_data" in f else {}
                 with open(f, 'w') as fh:
                     json.dump(initial_content, fh)
@@ -55,6 +56,25 @@ class EngineStorage:
             return None
         latest_gw = max(map(int, feedback.keys()))
         return feedback[str(latest_gw)]
+
+    def get_feedback(self) -> Dict:
+        """Returns the full feedback loop history."""
+        return self._load(self.feedback_file)
+
+    def get_confidence_scores(self) -> Dict:
+        """Loads and returns current model confidence scores."""
+        conf_path = os.path.join(self.base_path, "confidence.json")
+        if os.path.exists(conf_path):
+            with open(conf_path, 'r') as f:
+                return json.load(f)
+        return {
+            "actual_goals": 1.0,
+            "actual_assists": 1.0,
+            "actual_clean_sheets": 1.0,
+            "actual_saves": 1.0,
+            "actual_bonus": 1.0,
+            "actual_defcon_points": 1.0
+        }
 
     def _load(self, path: str) -> Dict:
         try:

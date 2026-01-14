@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 from typing import Dict, List, Tuple
 from backend.engine.data_manager import FPLDataManager
 from backend.engine.feature_factory import FeatureFactory
@@ -86,10 +87,14 @@ class EngineCommander:
         if not valid_players:
             return {"starters": [], "bench": []}
 
-        # XGBoost Prediction
+        # Multi-Target Probabilistic Prediction
         feature_df = pd.DataFrame(player_features)
         self.trainer.load_model()
-        predictions = self.trainer.predict(feature_df)
+        event_predictions = self.trainer.predict(feature_df)
+        
+        # Translate to Expected Points (xP) using player positions
+        positions = [item['p']['element_type'] for item in valid_players]
+        xp_points = self.trainer.translate_to_xp(event_predictions, positions)
 
         processed = []
         for i, item in enumerate(valid_players):
@@ -114,19 +119,47 @@ class EngineCommander:
             venue = "(H)" if is_home else "(A)"
             next_fix_str = f"{opponent_name[:3].upper()} {venue}"
 
-            # Reality Score: Boost high-performing players
-            # We now rely fully on the XGBoost model which incorporates FDR and Position in features
-            prediction = float(predictions[i])
+            # Reality Score: Now fully derived from the Probabilistic xP model
+            final_score = float(xp_points[i])
             
-            final_score = round(prediction, 2)
+            # Extract individual probabilities
+            prob_goal = float(event_predictions['actual_goals'][i])
+            prob_assist = float(event_predictions['actual_assists'][i])
+            prob_cs = float(event_predictions['actual_clean_sheets'][i])
+            prob_saves = float(event_predictions['actual_saves'][i])
+            prob_bonus = float(event_predictions.get('actual_bonus', np.zeros(len(valid_players)))[i])
+            prob_defcon = float(event_predictions.get('actual_defcon_points', np.zeros(len(valid_players)))[i])
+
+            # 3. Probabilistic Reasoning
+            reasoning = []
+            if prob_goal > 0.4: reasoning.append(f"High goal threat ({prob_goal:.1f} Exp)")
+            if prob_assist > 0.4: reasoning.append(f"Playmaker potential ({prob_assist:.1f} Exp)")
+            if prob_cs > 0.6: reasoning.append(f"Strong CS chance ({prob_cs*100:.0f}%)")
             
+            # Refined Bonus vs Defcon logic
+            if prob_bonus > 1.2: 
+                reasoning.append(f"Bonus Magnet ({prob_bonus:.1f} Exp)")
+            
+            if prob_defcon > 0.4:
+                # 0.4 probability of +2 points is significant
+                reasoning.append(f"Defcon Point Threat (+2 chance: {prob_defcon*100/2:.0f}%)")
+            
+            if not reasoning:
+                reasoning.append("Solid underlying metric coverage")
+
             processed.append({
                 "id": p['id'],
                 "web_name": p['web_name'],
                 "team": teams.get(p['team'], "Unknown"),
                 "position": p['element_type'],
                 "price": p['now_cost'] / 10.0,
-                "predicted_points": final_score,
+                "predicted_points": round(final_score, 2),
+                "prob_goal": round(prob_goal, 2),
+                "prob_assist": round(prob_assist, 2),
+                "prob_cs": round(prob_cs, 2),
+                "prob_saves": round(prob_saves, 2),
+                "prob_bonus": round(prob_bonus, 2),
+                "prob_defcon": round(prob_defcon, 2),
                 "goals": p.get('goals_scored', 0),
                 "assists": p.get('assists', 0),
                 "xG": round(float(p.get('expected_goals', 0)), 2),
@@ -139,81 +172,93 @@ class EngineCommander:
                 "defcon": float(features.get('defcon', 0)),
                 "ownership": float(features.get('selected_by', 0)),
                 "hauls": int(features.get('hauls', 0)),
+                "reasoning": " | ".join(reasoning),
                 "features": features # Essential for retraining
             })
 
         # Final Selection: 11 Starters (filtered by minutes) + 4 Bench
+        # Constraint: Max 3 players from the same team
         processed.sort(key=lambda x: x['predicted_points'], reverse=True)
         
         starters = []
         remaining = processed[:]
+        team_counts = {}
         
         # Formation Rules (Minima)
         counts = {1: 0, 2: 0, 3: 0, 4: 0}
         
-        # 1. Fill mandatory minimum slots (MUST meet can_start trigger)
+        def can_add_team(team_name):
+            return team_counts.get(team_name, 0) < 3
+
+        # 1. Fill mandatory minimum slots
         for p in remaining[:]:
             if not p['can_start']: continue
+            if not can_add_team(p['team']): continue
+            
             pos = p['position']
             if pos == 1 and counts[1] < 1:
                 starters.append(p)
                 remaining.remove(p)
                 counts[1] += 1
+                team_counts[p['team']] = team_counts.get(p['team'], 0) + 1
             elif pos == 2 and counts[2] < 3:
                 starters.append(p)
                 remaining.remove(p)
                 counts[2] += 1
+                team_counts[p['team']] = team_counts.get(p['team'], 0) + 1
             elif pos == 3 and counts[3] < 2:
                 starters.append(p)
                 remaining.remove(p)
                 counts[3] += 1
+                team_counts[p['team']] = team_counts.get(p['team'], 0) + 1
             elif pos == 4 and counts[4] < 1:
                 starters.append(p)
                 remaining.remove(p)
                 counts[4] += 1
+                team_counts[p['team']] = team_counts.get(p['team'], 0) + 1
 
         # 2. Fill remaining starter slots (Strategic Formation: Favor Attackers)
-        # Rule: Only take a 4th/5th defender if they outscore the best available attacker by 0.8+ points
         max_counts = {1: 1, 2: 5, 3: 5, 4: 3}
         
         while len(starters) < 11 and remaining:
-            # Separate remaining candidates into Def and Attack
-            def_candidates = [p for p in remaining if p['position'] == 2 and counts[2] < max_counts[2] and p['can_start']]
-            atk_candidates = [p for p in remaining if p['position'] in [3, 4] and counts[p['position']] < max_counts[p['position']] and p['can_start']]
+            def_candidates = [p for p in remaining if p['position'] == 2 and counts[2] < max_counts[2] and p['can_start'] and can_add_team(p['team'])]
+            atk_candidates = [p for p in remaining if p['position'] in [3, 4] and counts[p['position']] < max_counts[p['position']] and p['can_start'] and can_add_team(p['team'])]
             
             best_def = def_candidates[0] if def_candidates else None
             best_atk = atk_candidates[0] if atk_candidates else None
             
             if not best_def and not best_atk:
-                # Fallback to any remaining player if no one meets can_start
-                remaining.sort(key=lambda x: x['predicted_points'], reverse=True)
-                p = remaining[0]
-                starters.append(p)
-                remaining.remove(p)
-                counts[p['position']] += 1
-                continue
-
-            # Selection Logic:
-            selected_p = None
-            if best_def and not best_atk:
-                selected_p = best_def
-            elif best_atk and not best_def:
-                selected_p = best_atk
+                # Fallback: Look for ANY player who meets team constraint, even if minutes are low
+                valid_backups = [p for p in remaining if can_add_team(p['team'])]
+                if not valid_backups: break # Complete exhaustion
+                
+                selected_p = valid_backups[0]
             else:
-                # Decider: 4th+ Defender must be 0.8 points better than best attacker
-                is_defender_luxury = counts[2] >= 3
-                if is_defender_luxury and (best_def['predicted_points'] < best_atk['predicted_points'] + 0.8):
+                if best_def and not best_atk:
+                    selected_p = best_def
+                elif best_atk and not best_def:
                     selected_p = best_atk
                 else:
-                    selected_p = best_def if best_def['predicted_points'] > best_atk['predicted_points'] else best_atk
+                    # Decider: 4th+ Defender must be 0.8 points better than best attacker
+                    is_defender_luxury = counts[2] >= 3
+                    if is_defender_luxury and (best_def['predicted_points'] < best_atk['predicted_points'] + 0.8):
+                        selected_p = best_atk
+                    else:
+                        selected_p = best_def if best_def['predicted_points'] > best_atk['predicted_points'] else best_atk
 
             starters.append(selected_p)
             remaining.remove(selected_p)
             counts[selected_p['position']] += 1
+            team_counts[selected_p['team']] = team_counts.get(selected_p['team'], 0) + 1
 
-        # 3. Fill bench (remaining top players, min constraint does NOT apply to bench)
+        # 3. Fill bench (remaining top players, applying team constraint)
         remaining.sort(key=lambda x: x['predicted_points'], reverse=True)
-        bench = remaining[:4]
+        bench = []
+        for p in remaining:
+            if len(bench) >= 4: break
+            if can_add_team(p['team']):
+                bench.append(p)
+                team_counts[p['team']] = team_counts.get(p['team'], 0) + 1
         
         # PERSIST: Save predictions for future feedback loop evaluation
         # We save all 'processed' players who have features extracted
@@ -282,9 +327,15 @@ class EngineCommander:
         defensive_candidates = [p for p in defensive_pool if p['team'] not in selected_teams and p['id'] not in selected_ids]
         
         if not defensive_candidates:
-             # Fallback: Ignore team constraint if strictly necessary
-             defensive_candidates = [p for p in defensive_pool if p['id'] not in selected_ids]
-        
+             # Fallback 1: Try ALL defenders (ignore explosivity threshold) but KEEP team constraint
+             full_def_pool = [p for p in squad if p['position'] in [1, 2]]
+             defensive_candidates = [p for p in full_def_pool if p['team'] not in selected_teams and p['id'] not in selected_ids]
+
+        if not defensive_candidates:
+             # Fallback 2: Ignore team constraint if strictly necessary (use full pool)
+             if 'full_def_pool' not in locals(): full_def_pool = [p for p in squad if p['position'] in [1, 2]]
+             defensive_candidates = [p for p in full_def_pool if p['id'] not in selected_ids]
+
         if not defensive_candidates:
              defensive_candidates = [joker if joker['id'] != obvious['id'] else obvious] # Absolute fail-safe
 
@@ -305,6 +356,11 @@ class EngineCommander:
                 "form_weight": 0.7,
                 "fdr_weight": 0.5,
                 "ict_weight": 0.3,
-                "model_type": self.trainer.model_type
+                "model_type": self.trainer.model_type,
+                "brain": {
+                    "noise_multiplier": (self.trainer.storage.get_latest_feedback() or {}).get('metrics', {}).get('noise_multiplier', 1.0),
+                    "confidence_ema": self.trainer.storage.get_confidence_scores(),
+                    "squad_accuracy": (self.trainer.storage.get_latest_feedback() or {}).get('metrics', {}).get('squad_accuracy', 0.0)
+                }
             }
         }

@@ -4,10 +4,9 @@ on:
   push:
     branches: [ main ]
   schedule:
-    # Run at 03:00 UTC every day
-    - cron: '0 3 * * *'
+    # Run every 12 hours (03:00 and 15:00 UTC) to catch deadline shifts
+    - cron: '0 3,15 * * *'
   workflow_dispatch:
-    # Allow manual trigger
 
 jobs:
   update-fpl:
@@ -43,15 +42,21 @@ jobs:
       - name: Run FPL Prediction (Deadline Aware)
         run: |
           export PYTHONPATH="${PYTHONPATH}:${GITHUB_WORKSPACE}"
-          python backend/generate_static.py --force
+          # Removed --force to allow internal logic (2-day check + Deadline Sentinel)
+          python backend/generate_static.py
+
+      - name: Validate Dashboard Data
+        run: |
+          export PYTHONPATH="${PYTHONPATH}:${GITHUB_WORKSPACE}"
+          python backend/scripts/validate_deployment.py
 
       - name: Commit and Push Changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add frontend/public/dashboard_data.json
+          git add frontend/public/dashboard_data.json backend/data/deadline_history.json
           git status
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update FPL dashboard data" && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update FPL dashboard data [Deadline Aware]" && git push)
 
       - name: Trigger Portfolio Rebuild
         uses: peter-evans/repository-dispatch@v3

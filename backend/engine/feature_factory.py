@@ -108,17 +108,35 @@ class FeatureFactory:
         """Assembles a full feature vector for the XGBoost model."""
         xg_90 = float(player_data.get('expected_goals_per_90', 0))
         xa_90 = float(player_data.get('expected_assists_per_90', 0))
+        saves_90 = float(player_data.get('saves_per_90', 0))
         
-        # Simple heuristic for clean sheet prob based on fixture difficulty (will be refined)
-        cs_prob = 1.0 / next_fixture_diff if next_fixture_diff > 0 else 0.2
+        # Calculate bps_90 manually as it's missing from standard bootstrap
+        mins = float(player_data.get('minutes', 0))
+        total_bps = float(player_data.get('bps', 0))
+        bps_90 = (total_bps / (mins / 90)) if mins > 0 else 0
+        
+        defcon_90 = float(player_data.get('defensive_contribution_per_90', 0))
+        
+        # Calculate actual seasonal delivery per 90 from history (avoids leakage)
+        past_mins = sum(m.get('minutes', 0) for m in history) if history else 0
+        actual_goals_90 = (sum(m.get('goals_scored', 0) for m in history) / (past_mins / 90)) if past_mins > 0 else 0
+        actual_assists_90 = (sum(m.get('assists', 0) for m in history) / (past_mins / 90)) if past_mins > 0 else 0
+        actual_cs_90 = (sum(m.get('clean_sheets', 0) for m in history) / (past_mins / 90)) if past_mins > 0 else 0
         
         # Explicitly count total seasonal hauls
         hauls = sum(1 for m in history if m.get('total_points', 0) >= 10) if history else 0
         
         xgi_90 = cls.calculate_xgi(xg_90, xa_90)
         return {
+            "xG_90": xg_90,
+            "xA_90": xa_90,
+            "actual_goals_90": actual_goals_90,
+            "actual_assists_90": actual_assists_90,
+            "actual_cs_90": actual_cs_90,
             "xGI_90": xgi_90,
-            "xGI_90": xgi_90,
+            "saves_90": saves_90,
+            "bps_90": bps_90,
+            "defcon_90": defcon_90,
             "defcon": cls.calculate_defcon(player_data, history, next_fixture_diff),
             "explosivity": cls.calculate_explosivity_index(history, current_gw, next_fixture_diff, float(player_data.get('form', 0)), xgi_90),
             "form": float(player_data.get('form', 0)),

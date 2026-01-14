@@ -5,7 +5,7 @@ from backend.engine.data_manager import FPLDataManager
 from backend.engine.storage import EngineStorage
 from backend.engine.trainer import modelTrainer
 
-def generate_expert_report(gameweek: int, feedback: dict, predictions: list, actual_points: dict):
+def generate_expert_report(gameweek: int, feedback: dict, predictions: list, actual_events: dict):
     """Generates a markdown report comparing predicted vs actual points."""
     report_path = "backend/data/performance_report.md"
     
@@ -13,8 +13,9 @@ def generate_expert_report(gameweek: int, feedback: dict, predictions: list, act
     rows = []
     for p in predictions:
         p_id = p['id']
-        actual = actual_points.get(str(p_id)) or actual_points.get(p_id)
-        if actual is not None:
+        actual_data = actual_events.get(str(p_id)) or actual_events.get(p_id)
+        if actual_data is not None:
+            actual = actual_data.get('total_points', 0)
             pred = p['predicted_points']
             error = pred - actual
             rows.append({
@@ -35,6 +36,12 @@ def generate_expert_report(gameweek: int, feedback: dict, predictions: list, act
         f.write(f"- **Mean Absolute Error (MAE):** {feedback['mae']:.2f}\n")
         f.write(f"- **Root Mean Squared Error (RMSE):** {feedback['rmse']:.2f}\n")
         f.write(f"- **Sample Size:** {feedback['sample_size']} players\n\n")
+        
+        f.write("## Stability Sentinel Status\n")
+        f.write(f"- **Global MAE:** {feedback.get('global_mae', 0):.2f}\n")
+        f.write(f"- **Squad Accuracy (Hit Rate):** {feedback.get('squad_accuracy', 0):.1%}\n")
+        f.write(f"- **Noise Gate Multiplier:** {feedback.get('noise_multiplier', 1.0):.2f}x\n")
+        f.write(f"- **Effective Learning Rate:** {feedback.get('effective_lr', 1.0):.4f}\n\n")
         
         f.write("## Top Prediction Discrepancies (Experts: Please Review)\n")
         f.write("| Player | Team | Predicted | Actual | Error |\n")
@@ -77,12 +84,12 @@ def main():
     if str(last_gw) in feedback_history:
         print(f"ℹ️ GW{last_gw} already evaluated. Re-running to ensure model is fresh.")
 
-    # 3. Fetch actual points
-    print(f"📡 Fetching actual points for GW{last_gw}...")
-    actual_points = dm.get_actual_points(last_gw)
+    # 3. Fetch actual events
+    print(f"📡 Fetching actual events for GW{last_gw}...")
+    actual_events = dm.get_actual_events(last_gw)
     
     # 4. Trigger evaluation and training data collection
-    trainer.evaluate_performance(last_gw, actual_points)
+    trainer.evaluate_performance(last_gw, actual_events)
     
     # 5. Trigger retraining
     trainer.train_on_feedback()
@@ -91,7 +98,7 @@ def main():
     latest_feedback = storage.get_latest_feedback()
     if latest_feedback:
         predictions = history[str(last_gw)]['predictions']
-        generate_expert_report(last_gw, latest_feedback['metrics'], predictions, actual_points)
+        generate_expert_report(last_gw, latest_feedback['metrics'], predictions, actual_events)
         print(f"✅ Feedback loop complete. Report saved: backend/data/performance_report.md")
     else:
         print("❌ Evaluation failed to produce metrics.")

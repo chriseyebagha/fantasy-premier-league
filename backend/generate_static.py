@@ -8,9 +8,10 @@ from backend.engine.storage import EngineStorage
 from backend.engine.trainer import modelTrainer
 from backend.engine.commander import EngineCommander
 
-def check_deadline_eligibility(dm: FPLDataManager):
+def check_deadline_eligibility(dm: FPLDataManager, storage: EngineStorage):
     """
-    Checks if today is exactly 2 days before the next gameweek deadline.
+    Checks if today is exactly 2 days before the next gameweek deadline,
+    OR if the FPL API reports a deadline change since our last check.
     Returns True if we should run the refresh.
     """
     bootstrap = dm.get_bootstrap_static()
@@ -26,6 +27,7 @@ def check_deadline_eligibility(dm: FPLDataManager):
         print("No upcoming gameweek found.")
         return False
         
+    gw_id = next_event.get('id')
     deadline_str = next_event.get('deadline_time')
     # FPL deadline is in UTC, e.g., '2026-01-13T18:15:00Z'
     deadline = datetime.fromisoformat(deadline_str.replace('Z', '+00:00'))
@@ -34,16 +36,37 @@ def check_deadline_eligibility(dm: FPLDataManager):
     # Target date: 48 hours (2 days) before the deadline
     target_date = deadline - timedelta(days=2)
     
-    print(f"Next Gameweek: {next_event.get('name')}")
+    # --- DEADLINE SENTINEL (Dynamic Tracking) ---
+    history = storage._load(storage.deadline_history_file)
+    last_known_deadline = history.get(str(gw_id))
+    
+    print(f"Next Gameweek: {next_event.get('name')} (GW{gw_id})")
     print(f"Deadline: {deadline}")
     print(f"Target Refresh Date: {target_date.date()}")
     print(f"Current Date: {now.date()}")
     
-    # We run if it's the target date OR if we've already passed the target date but haven't hit the deadline yet
-    # This ensures that even if the daily cron runs a bit late, we still catch it.
+    # Case 1: Deadline Shift Detected (Event Rescheduled)
+    if last_known_deadline and last_known_deadline != deadline_str:
+        print(f"🚨 ALERT: Deadline shift detected for GW{gw_id}!")
+        print(f"   Old: {last_known_deadline}")
+        print(f"   New: {deadline_str}")
+        return True
+
+    # Case 2: Standard 2-day Refresh Window
     if now.date() == target_date.date():
+        # Check if we've already run a refresh for this specific deadline string to avoid double-runs
+        # (Though every 12h run would catch it, we want a clean record)
+        if last_known_deadline == deadline_str:
+            # We already know this deadline, and we are in the window. 
+            # We should check if we already have valid dashboard data for this GW?
+            # For simplicity, we trigger on the target date.
+            pass
         print("MATCH: Today is the scheduled refresh day.")
         return True
+    
+    # Store the current deadline as the "last known" for future runs
+    history[str(gw_id)] = deadline_str
+    storage._save(storage.deadline_history_file, history)
     
     return False
 
@@ -67,12 +90,12 @@ def run_prediction_and_save():
         
         if previous_gw > 0:
             print(f"Checking for results from GW{previous_gw} to self-train...")
-            actual_points = dm.get_actual_points(previous_gw)
+            actual_events = dm.get_actual_events(previous_gw)
             
-            if actual_points:
-                print(f"Found points data for {len(actual_points)} players. Evaluating performance...")
+            if actual_events:
+                print(f"Found events data for {len(actual_events)} players. Evaluating performance...")
                 # 1. Evaluate past predictions
-                trainer.evaluate_performance(previous_gw, actual_points)
+                trainer.evaluate_performance(previous_gw, actual_events)
                 # 2. Retrain model with new data
                 trainer.train_on_feedback()
             else:
@@ -123,12 +146,13 @@ if __name__ == "__main__":
     args = parser.parse_args()
     
     dm_check = FPLDataManager()
+    storage_check = EngineStorage()
     
     try:
         if args.force:
             print("Force flag detected. Proceeding with generation.")
             run_prediction_and_save()
-        elif check_deadline_eligibility(dm_check):
+        elif check_deadline_eligibility(dm_check, storage_check):
             print("Deadline criteria met. Proceeding with generation.")
             run_prediction_and_save()
         else:
