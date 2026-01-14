@@ -104,7 +104,7 @@ class FeatureFactory:
         return min(round(score, 1), 100.0)
 
     @classmethod
-    def prepare_features(cls, player_data: Dict, history: List[Dict], next_fixture_diff: int, current_gw: int, opponent_xgc: float = 0.0) -> Dict:
+    def prepare_features(cls, player_data: Dict, history: List[Dict], next_fixture_diff: int, current_gw: int, opponent_vulnerability: float = 0.0) -> Dict:
         """Assembles a full feature vector for the XGBoost model."""
         xg_90 = float(player_data.get('expected_goals_per_90', 0))
         xa_90 = float(player_data.get('expected_assists_per_90', 0))
@@ -145,5 +145,7 @@ class FeatureFactory:
             "selected_by": float(player_data.get('selected_by_percent', 0)),
             "cost": player_data['now_cost'] / 10.0,
             "hauls": hauls,
-            "opponent_xgc": opponent_xgc
+            # Scale rolling average (per-match) to seasonal equivalent (~25-30 games) 
+            # to maintain compatibility with model weights until fully re-trained.
+            "opponent_vulnerability": opponent_vulnerability * 25.0 
         }

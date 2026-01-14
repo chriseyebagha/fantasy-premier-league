@@ -12,6 +12,70 @@ class EngineCommander:
         self.dm = data_manager
         self.trainer = trainer
 
+    def _get_rolling_team_stats(self, players: List[Dict], window: int = 7) -> Tuple[Dict[int, float], float]:
+        """Calculates blended rolling Vulnerability Score (xGC + GC) per match for each team."""
+        team_vulnerability = {}
+        
+        # Group defenders/keepers by team
+        team_groups = {}
+        for p in players:
+            t_id = p['team']
+            if t_id not in team_groups:
+                team_groups[t_id] = []
+            team_groups[t_id].append(p)
+        
+        # For each team, pick an anchor or ensemble to get the team's recent defensive stats
+        for t_id, members in team_groups.items():
+            gks = [p for p in members if p['element_type'] == 1]
+            defs = [p for p in members if p['element_type'] == 2]
+            candidates = sorted(gks + defs, key=lambda x: x.get('minutes', 0), reverse=True)[:3]
+            
+            if not candidates:
+                team_vulnerability[t_id] = 1.5 # Default approx score
+                continue
+                
+            gw_stats = {} # round -> (xgc, gc)
+            for p in candidates:
+                summary = self.dm.get_player_summary(p['id'])
+                history = summary.get('history', [])
+                for h in history:
+                    gw = h.get('round')
+                    xgc = float(h.get('expected_goals_conceded') or 0)
+                    gc = float(h.get('goals_conceded') or 0)
+                    
+                    if gw not in gw_stats:
+                        gw_stats[gw] = (xgc, gc)
+                    else:
+                        # Take max of candidates to represent the team (avoiding rotation bias)
+                        curr_xgc, curr_gc = gw_stats[gw]
+                        gw_stats[gw] = (max(curr_xgc, xgc), max(curr_gc, gc))
+            
+            recent_gws = sorted(gw_stats.keys(), reverse=True)[:window]
+            recent_xgc = [gw_stats[gw][0] for gw in recent_gws]
+            recent_gc = [gw_stats[gw][1] for gw in recent_gws]
+            
+            avg_xgc = sum(recent_xgc) / len(recent_xgc) if recent_xgc else 1.5
+            avg_gc = sum(recent_gc) / len(recent_gc) if recent_gc else 1.5
+            
+            # Blended Vulnerability Score: 50% Process (xGC) + 50% Reality (GC)
+            vulnerability_score = (avg_xgc * 0.5) + (avg_gc * 0.5)
+            team_vulnerability[t_id] = round(vulnerability_score, 2)
+            
+        # Calculate 30th Percentile Threshold (Worst Defenses)
+        sorted_values = sorted(team_vulnerability.values(), reverse=True)
+        threshold_idx = min(5, len(sorted_values) - 1)
+        leaky_threshold = sorted_values[threshold_idx] if sorted_values else 1.8
+        
+        # Log the rankings with breakdown for transparency
+        sorted_rankings = sorted(team_vulnerability.items(), key=lambda x: x[1], reverse=True)
+        print(f"\n🛡️  Rolling {window}-Game Blended Vulnerability Rankings (0.5*xGC + 0.5*GC):")
+        print(f"📊  Leaky Defense Threshold (30th %ile): {leaky_threshold}")
+        for i, (t_id, score) in enumerate(sorted_rankings):
+            status = " [LEAKY]" if score >= leaky_threshold else ""
+            print(f"  {i+1}. Team {t_id}: {score} score{status}")
+            
+        return team_vulnerability, leaky_threshold
+
     def get_top_15_players(self) -> Dict[str, List[Dict]]:
         """Returns the best 15 players separated into Starting XI and Bench."""
         bootstrap = self.dm.get_bootstrap_static()
@@ -23,11 +87,8 @@ class EngineCommander:
         gw_fixtures = [f for f in fixtures if f['event'] == next_gw]
         
         team_diff = {}
-        # Calculate team-level xGC from defensive players
-        team_xgc = {t['id']: 0.0 for t in bootstrap['teams']}
-        for p in players:
-            if p['element_type'] in [1, 2]: # GK and DEF
-                team_xgc[p['team']] += float(p.get('expected_goals_conceded') or 0)
+        # Calculate rolling team-level Vulnerability (Last 7 games)
+        team_vulnerability, leaky_threshold = self._get_rolling_team_stats(players, window=7)
 
         for f in gw_fixtures:
             team_diff[f['team_h']] = f['team_h_difficulty']
@@ -69,8 +130,8 @@ class EngineCommander:
                     opponent_id = f['team_h']
                     break
             
-            opp_xgc = team_xgc.get(opponent_id, 0.0) if opponent_id else 15.0 # Fallback to mid-range
-            features = FeatureFactory.prepare_features(p, history, diff, next_gw, opp_xgc)
+            opp_vulnerability = team_vulnerability.get(opponent_id, 1.5) if opponent_id else 1.5 # Fallback to mid-range
+            features = FeatureFactory.prepare_features(p, history, diff, next_gw, opp_vulnerability)
             
             # Constraint: Must avg 65+ minutes to be a Starter candidate
             can_start = avg_minutes >= 65
@@ -95,7 +156,33 @@ class EngineCommander:
         # Translate to Expected Points (xP) and Haul Probabilities
         positions = [item['p']['element_type'] for item in valid_players]
         xp_points = self.trainer.translate_to_xp(event_predictions, positions)
-        haul_probs = self.trainer.calculate_haul_probability(event_predictions, positions)
+        
+        # Calculate Vesuvius Multipliers (Booster Layer)
+        # 1. Clinicality Boost: Based on seasonal haul frequency
+        # 2. Vulnerability Boost: Based on opponent xGC
+        haul_multipliers = np.ones(len(valid_players))
+        for idx, item in enumerate(valid_players):
+            p = item['p']
+            features = item['features']
+            
+            # Clinicality: hauls / apps
+            # We use 'hauls' from features and calculate apps from history
+            summary = self.dm.get_player_summary(p['id'])
+            history = summary.get('history', [])
+            apps = len(history) if history else 1
+            haul_freq = features.get('hauls', 0) / apps
+            
+            # Clinicality multiplier: 1.0 (0 hauls) to 1.15 (high frequency)
+            clinicality_boost = 1.0 + (min(haul_freq, 0.4) * 0.375) # Max +15% boost
+            
+            # Matchup: opponent_vulnerability >= leaky_threshold indicates a leaking defense
+            matchup_boost = 1.0
+            if opp_vulnerability >= leaky_threshold:
+                matchup_boost = 1.10 # +10% boost for leaking defense
+                
+            haul_multipliers[idx] = clinicality_boost * matchup_boost
+
+        haul_probs = self.trainer.calculate_haul_probability(event_predictions, positions, haul_multipliers=haul_multipliers)
 
         processed = []
         for i, item in enumerate(valid_players):

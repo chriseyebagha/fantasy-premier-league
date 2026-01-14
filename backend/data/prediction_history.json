@@ -960,7 +960,7 @@
         ]
     },
     "22": {
-        "timestamp": "2026-01-13T23:10:02.969313",
+        "timestamp": "2026-01-13T23:39:06.175465",
         "predictions": [
             {
                 "id": 5,
@@ -969,7 +969,7 @@
                 "position": 2,
                 "price": 6.7,
                 "predicted_points": 7.91,
-                "haul_prob": 0.24,
+                "haul_prob": 0.31,
                 "haul_alert": true,
                 "prob_goal": 0.41,
                 "prob_assist": 0.07,
@@ -989,7 +989,7 @@
                 "defcon": 100.0,
                 "ownership": 31.9,
                 "hauls": 4,
-                "reasoning": "VESUVIUS ALERT: 24% Haul Probability (11+ pts) | High goal threat (0.4 Exp)",
+                "reasoning": "VESUVIUS ALERT: 31% Haul Probability (11+ pts) | High goal threat (0.4 Exp)",
                 "features": {
                     "xG_90": 0.11,
                     "xA_90": 0.05,
@@ -1008,7 +1008,7 @@
                     "selected_by": 31.9,
                     "cost": 6.7,
                     "hauls": 4,
-                    "opponent_xgc": 147.07999999999998
+                    "opponent_vulnerability": 36.0
                 }
             },
             {
@@ -1018,7 +1018,7 @@
                 "position": 4,
                 "price": 7.1,
                 "predicted_points": 7.77,
-                "haul_prob": 0.24,
+                "haul_prob": 0.34,
                 "haul_alert": true,
                 "prob_goal": 0.89,
                 "prob_assist": 0.21,
@@ -1038,7 +1038,7 @@
                 "defcon": 0.0,
                 "ownership": 34.7,
                 "hauls": 5,
-                "reasoning": "VESUVIUS ALERT: 24% Haul Probability (11+ pts) | High goal threat (0.9 Exp) | Strong CS chance (85%) | Bonus Magnet (1.5 Exp)",
+                "reasoning": "VESUVIUS ALERT: 34% Haul Probability (11+ pts) | High goal threat (0.9 Exp) | Strong CS chance (85%) | Bonus Magnet (1.5 Exp)",
                 "features": {
                     "xG_90": 0.65,
                     "xA_90": 0.04,
@@ -1057,7 +1057,7 @@
                     "selected_by": 34.7,
                     "cost": 7.1,
                     "hauls": 5,
-                    "opponent_xgc": 162.44
+                    "opponent_vulnerability": 36.25
                 }
             },
             {
@@ -1067,7 +1067,7 @@
                 "position": 3,
                 "price": 7.1,
                 "predicted_points": 6.66,
-                "haul_prob": 0.17,
+                "haul_prob": 0.2,
                 "haul_alert": false,
                 "prob_goal": 0.4,
                 "prob_assist": 0.37,
@@ -1106,7 +1106,7 @@
                     "selected_by": 2.6,
                     "cost": 7.1,
                     "hauls": 1,
-                    "opponent_xgc": 162.44
+                    "opponent_vulnerability": 36.25
                 }
             },
             {
@@ -1116,7 +1116,7 @@
                 "position": 3,
                 "price": 7.3,
                 "predicted_points": 6.41,
-                "haul_prob": 0.12,
+                "haul_prob": 0.17,
                 "haul_alert": false,
                 "prob_goal": 0.37,
                 "prob_assist": 0.19,
@@ -1155,7 +1155,7 @@
                     "selected_by": 27.1,
                     "cost": 7.3,
                     "hauls": 4,
-                    "opponent_xgc": 147.07999999999998
+                    "opponent_vulnerability": 36.0
                 }
             },
             {
@@ -1165,7 +1165,7 @@
                 "position": 2,
                 "price": 4.9,
                 "predicted_points": 6.09,
-                "haul_prob": 0.12,
+                "haul_prob": 0.16,
                 "haul_alert": false,
                 "prob_goal": 0.21,
                 "prob_assist": 0.08,
@@ -1204,7 +1204,7 @@
                     "selected_by": 2.4,
                     "cost": 4.9,
                     "hauls": 1,
-                    "opponent_xgc": 162.44
+                    "opponent_vulnerability": 36.25
                 }
             },
             {
@@ -1214,7 +1214,7 @@
                 "position": 3,
                 "price": 7.6,
                 "predicted_points": 6.07,
-                "haul_prob": 0.13,
+                "haul_prob": 0.16,
                 "haul_alert": false,
                 "prob_goal": 0.52,
                 "prob_assist": 0.14,
@@ -1253,7 +1253,7 @@
                     "selected_by": 43.6,
                     "cost": 7.6,
                     "hauls": 4,
-                    "opponent_xgc": 149.51
+                    "opponent_vulnerability": 32.75
                 }
             },
             {
@@ -1263,7 +1263,7 @@
                 "position": 3,
                 "price": 7.2,
                 "predicted_points": 5.99,
-                "haul_prob": 0.08,
+                "haul_prob": 0.12,
                 "haul_alert": false,
                 "prob_goal": 0.15,
                 "prob_assist": 0.27,
@@ -1302,7 +1302,7 @@
                     "selected_by": 22.0,
                     "cost": 7.2,
                     "hauls": 7,
-                    "opponent_xgc": 182.48
+                    "opponent_vulnerability": 39.0
                 }
             },
             {
@@ -1312,7 +1312,7 @@
                 "position": 2,
                 "price": 6.3,
                 "predicted_points": 5.91,
-                "haul_prob": 0.1,
+                "haul_prob": 0.11,
                 "haul_alert": false,
                 "prob_goal": 0.15,
                 "prob_assist": 0.15,
@@ -1351,7 +1351,7 @@
                     "selected_by": 27.5,
                     "cost": 6.3,
                     "hauls": 2,
-                    "opponent_xgc": 147.07999999999998
+                    "opponent_vulnerability": 36.0
                 }
             },
             {
@@ -1361,7 +1361,7 @@
                 "position": 3,
                 "price": 8.2,
                 "predicted_points": 5.9,
-                "haul_prob": 0.1,
+                "haul_prob": 0.12,
                 "haul_alert": false,
                 "prob_goal": 0.4,
                 "prob_assist": 0.17,
@@ -1400,7 +1400,7 @@
                     "selected_by": 11.0,
                     "cost": 8.2,
                     "hauls": 2,
-                    "opponent_xgc": 214.56
+                    "opponent_vulnerability": 45.75
                 }
             },
             {
@@ -1410,7 +1410,7 @@
                 "position": 4,
                 "price": 6.0,
                 "predicted_points": 5.84,
-                "haul_prob": 0.11,
+                "haul_prob": 0.13,
                 "haul_alert": false,
                 "prob_goal": 0.62,
                 "prob_assist": 0.18,
@@ -1449,7 +1449,7 @@
                     "selected_by": 12.8,
                     "cost": 6.0,
                     "hauls": 2,
-                    "opponent_xgc": 135.06
+                    "opponent_vulnerability": 34.0
                 }
             },
             {
@@ -1459,7 +1459,7 @@
                 "position": 3,
                 "price": 4.9,
                 "predicted_points": 5.69,
-                "haul_prob": 0.05,
+                "haul_prob": 0.07,
                 "haul_alert": false,
                 "prob_goal": 0.04,
                 "prob_assist": 0.5,
@@ -1498,7 +1498,7 @@
                     "selected_by": 0.2,
                     "cost": 4.9,
                     "hauls": 1,
-                    "opponent_xgc": 162.44
+                    "opponent_vulnerability": 36.25
                 }
             },
             {
@@ -1547,7 +1547,7 @@
                     "selected_by": 12.0,
                     "cost": 8.2,
                     "hauls": 0,
-                    "opponent_xgc": 119.05
+                    "opponent_vulnerability": 19.25
                 }
             },
             {
@@ -1557,7 +1557,7 @@
                 "position": 4,
                 "price": 8.8,
                 "predicted_points": 5.64,
-                "haul_prob": 0.1,
+                "haul_prob": 0.13,
                 "haul_alert": false,
                 "prob_goal": 0.6,
                 "prob_assist": 0.16,
@@ -1596,7 +1596,7 @@
                     "selected_by": 13.8,
                     "cost": 8.8,
                     "hauls": 2,
-                    "opponent_xgc": 146.36
+                    "opponent_vulnerability": 33.5
                 }
             },
             {
@@ -1606,7 +1606,7 @@
                 "position": 3,
                 "price": 5.0,
                 "predicted_points": 5.6,
-                "haul_prob": 0.08,
+                "haul_prob": 0.09,
                 "haul_alert": false,
                 "prob_goal": 0.22,
                 "prob_assist": 0.19,
@@ -1645,7 +1645,7 @@
                     "selected_by": 0.1,
                     "cost": 5.0,
                     "hauls": 0,
-                    "opponent_xgc": 162.44
+                    "opponent_vulnerability": 36.25
                 }
             },
             {
@@ -1655,7 +1655,7 @@
                 "position": 2,
                 "price": 5.7,
                 "predicted_points": 5.59,
-                "haul_prob": 0.04,
+                "haul_prob": 0.05,
                 "haul_alert": false,
                 "prob_goal": 0.04,
                 "prob_assist": 0.03,
@@ -1694,7 +1694,7 @@
                     "selected_by": 12.6,
                     "cost": 5.7,
                     "hauls": 1,
-                    "opponent_xgc": 160.57
+                    "opponent_vulnerability": 39.0
                 }
             },
             {
@@ -1704,7 +1704,7 @@
                 "position": 4,
                 "price": 6.2,
                 "predicted_points": 5.56,
-                "haul_prob": 0.1,
+                "haul_prob": 0.11,
                 "haul_alert": false,
                 "prob_goal": 0.56,
                 "prob_assist": 0.17,
@@ -1743,7 +1743,7 @@
                     "selected_by": 2.1,
                     "cost": 6.2,
                     "hauls": 0,
-                    "opponent_xgc": 165.54
+                    "opponent_vulnerability": 39.0
                 }
             },
             {
@@ -1753,7 +1753,7 @@
                 "position": 3,
                 "price": 5.9,
                 "predicted_points": 5.52,
-                "haul_prob": 0.07,
+                "haul_prob": 0.09,
                 "haul_alert": false,
                 "prob_goal": 0.27,
                 "prob_assist": 0.07,
@@ -1792,7 +1792,7 @@
                     "selected_by": 0.4,
                     "cost": 5.9,
                     "hauls": 0,
-                    "opponent_xgc": 182.48
+                    "opponent_vulnerability": 39.0
                 }
             },
             {
@@ -1802,7 +1802,7 @@
                 "position": 3,
                 "price": 5.1,
                 "predicted_points": 5.47,
-                "haul_prob": 0.04,
+                "haul_prob": 0.06,
                 "haul_alert": false,
                 "prob_goal": 0.1,
                 "prob_assist": 0.13,
@@ -1841,7 +1841,7 @@
                     "selected_by": 3.6,
                     "cost": 5.1,
                     "hauls": 2,
-                    "opponent_xgc": 160.57
+                    "opponent_vulnerability": 39.0
                 }
             },
             {
@@ -1851,7 +1851,7 @@
                 "position": 2,
                 "price": 5.1,
                 "predicted_points": 5.46,
-                "haul_prob": 0.06,
+                "haul_prob": 0.08,
                 "haul_alert": false,
                 "prob_goal": 0.11,
                 "prob_assist": 0.04,
@@ -1890,7 +1890,7 @@
                     "selected_by": 6.2,
                     "cost": 5.1,
                     "hauls": 2,
-                    "opponent_xgc": 182.48
+                    "opponent_vulnerability": 39.0
                 }
             },
             {
@@ -1900,7 +1900,7 @@
                 "position": 2,
                 "price": 5.0,
                 "predicted_points": 5.41,
-                "haul_prob": 0.06,
+                "haul_prob": 0.07,
                 "haul_alert": false,
                 "prob_goal": 0.08,
                 "prob_assist": 0.19,
@@ -1939,7 +1939,7 @@
                     "selected_by": 3.1,
                     "cost": 5.0,
                     "hauls": 2,
-                    "opponent_xgc": 162.44
+                    "opponent_vulnerability": 36.25
                 }
             },
             {
@@ -1949,7 +1949,7 @@
                 "position": 3,
                 "price": 5.4,
                 "predicted_points": 5.32,
-                "haul_prob": 0.09,
+                "haul_prob": 0.11,
                 "haul_alert": false,
                 "prob_goal": 0.36,
                 "prob_assist": 0.2,
@@ -1988,7 +1988,7 @@
                     "selected_by": 0.5,
                     "cost": 5.4,
                     "hauls": 2,
-                    "opponent_xgc": 135.06
+                    "opponent_vulnerability": 34.0
                 }
             },
             {
@@ -1998,7 +1998,7 @@
                 "position": 2,
                 "price": 4.3,
                 "predicted_points": 5.22,
-                "haul_prob": 0.06,
+                "haul_prob": 0.08,
                 "haul_alert": false,
                 "prob_goal": 0.11,
                 "prob_assist": 0.16,
@@ -2037,7 +2037,7 @@
                     "selected_by": 0.4,
                     "cost": 4.3,
                     "hauls": 0,
-                    "opponent_xgc": 135.06
+                    "opponent_vulnerability": 34.0
                 }
             },
             {
@@ -2047,7 +2047,7 @@
                 "position": 2,
                 "price": 4.4,
                 "predicted_points": 5.2,
-                "haul_prob": 0.03,
+                "haul_prob": 0.04,
                 "haul_alert": false,
                 "prob_goal": 0.04,
                 "prob_assist": 0.06,
@@ -2086,7 +2086,7 @@
                     "selected_by": 0.2,
                     "cost": 4.4,
                     "hauls": 0,
-                    "opponent_xgc": 162.44
+                    "opponent_vulnerability": 36.25
                 }
             },
             {
@@ -2096,7 +2096,7 @@
                 "position": 4,
                 "price": 15.1,
                 "predicted_points": 5.19,
-                "haul_prob": 0.05,
+                "haul_prob": 0.1,
                 "haul_alert": false,
                 "prob_goal": 0.68,
                 "prob_assist": 0.08,
@@ -2135,7 +2135,7 @@
                     "selected_by": 74.2,
                     "cost": 15.1,
                     "hauls": 8,
-                    "opponent_xgc": 149.51
+                    "opponent_vulnerability": 32.75
                 }
             },
             {
@@ -2145,7 +2145,7 @@
                 "position": 2,
                 "price": 4.6,
                 "predicted_points": 5.16,
-                "haul_prob": 0.05,
+                "haul_prob": 0.07,
                 "haul_alert": false,
                 "prob_goal": 0.08,
                 "prob_assist": 0.15,
@@ -2184,7 +2184,7 @@
                     "selected_by": 28.0,
                     "cost": 4.6,
                     "hauls": 3,
-                    "opponent_xgc": 195.17999999999998
+                    "opponent_vulnerability": 49.0
                 }
             },
             {
@@ -2194,7 +2194,7 @@
                 "position": 2,
                 "price": 5.7,
                 "predicted_points": 5.13,
-                "haul_prob": 0.04,
+                "haul_prob": 0.05,
                 "haul_alert": false,
                 "prob_goal": 0.04,
                 "prob_assist": 0.38,
@@ -2233,7 +2233,7 @@
                     "selected_by": 5.9,
                     "cost": 5.7,
                     "hauls": 0,
-                    "opponent_xgc": 214.56
+                    "opponent_vulnerability": 45.75
                 }
             },
             {
@@ -2282,7 +2282,7 @@
                     "selected_by": 9.7,
                     "cost": 4.5,
                     "hauls": 2,
-                    "opponent_xgc": 162.44
+                    "opponent_vulnerability": 36.25
                 }
             },
             {
@@ -2292,7 +2292,7 @@
                 "position": 3,
                 "price": 5.4,
                 "predicted_points": 5.1,
-                "haul_prob": 0.07,
+                "haul_prob": 0.1,
                 "haul_alert": false,
                 "prob_goal": 0.33,
                 "prob_assist": 0.19,
@@ -2331,7 +2331,7 @@
                     "selected_by": 1.1,
                     "cost": 5.4,
                     "hauls": 1,
-                    "opponent_xgc": 146.36
+                    "opponent_vulnerability": 33.5
                 }
             },
             {
@@ -2341,7 +2341,7 @@
                 "position": 3,
                 "price": 5.9,
                 "predicted_points": 5.06,
-                "haul_prob": 0.07,
+                "haul_prob": 0.09,
                 "haul_alert": false,
                 "prob_goal": 0.33,
                 "prob_assist": 0.16,
@@ -2380,7 +2380,7 @@
                     "selected_by": 20.7,
                     "cost": 5.9,
                     "hauls": 3,
-                    "opponent_xgc": 165.54
+                    "opponent_vulnerability": 39.0
                 }
             },
             {
@@ -2390,7 +2390,7 @@
                 "position": 1,
                 "price": 4.9,
                 "predicted_points": 5.06,
-                "haul_prob": 0.0,
+                "haul_prob": 0.01,
                 "haul_alert": false,
                 "prob_goal": 0.01,
                 "prob_assist": 0.01,
@@ -2429,7 +2429,7 @@
                     "selected_by": 12.4,
                     "cost": 4.9,
                     "hauls": 2,
-                    "opponent_xgc": 161.91
+                    "opponent_vulnerability": 41.5
                 }
             },
             {
@@ -2439,7 +2439,7 @@
                 "position": 3,
                 "price": 4.8,
                 "predicted_points": 5.02,
-                "haul_prob": 0.04,
+                "haul_prob": 0.06,
                 "haul_alert": false,
                 "prob_goal": 0.13,
                 "prob_assist": 0.27,
@@ -2478,7 +2478,7 @@
                     "selected_by": 0.3,
                     "cost": 4.8,
                     "hauls": 1,
-                    "opponent_xgc": 157.89999999999998
+                    "opponent_vulnerability": 51.74999999999999
                 }
             },
             {
@@ -2488,7 +2488,7 @@
                 "position": 3,
                 "price": 5.2,
                 "predicted_points": 5.0,
-                "haul_prob": 0.06,
+                "haul_prob": 0.09,
                 "haul_alert": false,
                 "prob_goal": 0.37,
                 "prob_assist": 0.09,
@@ -2527,7 +2527,7 @@
                     "selected_by": 12.4,
                     "cost": 5.2,
                     "hauls": 2,
-                    "opponent_xgc": 149.51
+                    "opponent_vulnerability": 32.75
                 }
             },
             {
@@ -2537,7 +2537,7 @@
                 "position": 3,
                 "price": 5.5,
                 "predicted_points": 4.98,
-                "haul_prob": 0.03,
+                "haul_prob": 0.05,
                 "haul_alert": false,
                 "prob_goal": 0.12,
                 "prob_assist": 0.1,
@@ -2576,7 +2576,7 @@
                     "selected_by": 1.4,
                     "cost": 5.5,
                     "hauls": 2,
-                    "opponent_xgc": 119.05
+                    "opponent_vulnerability": 19.25
                 }
             },
             {
@@ -2625,7 +2625,7 @@
                     "selected_by": 0.1,
                     "cost": 4.4,
                     "hauls": 1,
-                    "opponent_xgc": 115.17999999999999
+                    "opponent_vulnerability": 30.5
                 }
             },
             {
@@ -2635,7 +2635,7 @@
                 "position": 3,
                 "price": 7.3,
                 "predicted_points": 4.97,
-                "haul_prob": 0.07,
+                "haul_prob": 0.09,
                 "haul_alert": false,
                 "prob_goal": 0.41,
                 "prob_assist": 0.07,
@@ -2674,7 +2674,7 @@
                     "selected_by": 3.0,
                     "cost": 7.3,
                     "hauls": 1,
-                    "opponent_xgc": 76.21000000000001
+                    "opponent_vulnerability": 27.0
                 }
             },
             {
@@ -2684,7 +2684,7 @@
                 "position": 3,
                 "price": 5.3,
                 "predicted_points": 4.97,
-                "haul_prob": 0.04,
+                "haul_prob": 0.05,
                 "haul_alert": false,
                 "prob_goal": 0.13,
                 "prob_assist": 0.16,
@@ -2723,7 +2723,7 @@
                     "selected_by": 4.5,
                     "cost": 5.3,
                     "hauls": 0,
-                    "opponent_xgc": 76.21000000000001
+                    "opponent_vulnerability": 27.0
                 }
             },
             {
@@ -2733,7 +2733,7 @@
                 "position": 4,
                 "price": 7.2,
                 "predicted_points": 4.96,
-                "haul_prob": 0.08,
+                "haul_prob": 0.09,
                 "haul_alert": false,
                 "prob_goal": 0.58,
                 "prob_assist": 0.06,
@@ -2772,7 +2772,7 @@
                     "selected_by": 3.5,
                     "cost": 7.2,
                     "hauls": 1,
-                    "opponent_xgc": 119.05
+                    "opponent_vulnerability": 19.25
                 }
             },
             {
@@ -2782,7 +2782,7 @@
                 "position": 3,
                 "price": 4.9,
                 "predicted_points": 4.95,
-                "haul_prob": 0.03,
+                "haul_prob": 0.04,
                 "haul_alert": false,
                 "prob_goal": 0.13,
                 "prob_assist": 0.05,
@@ -2821,7 +2821,7 @@
                     "selected_by": 0.1,
                     "cost": 4.9,
                     "hauls": 1,
-                    "opponent_xgc": 135.06
+                    "opponent_vulnerability": 34.0
                 }
             },
             {
@@ -2870,7 +2870,7 @@
                     "selected_by": 5.8,
                     "cost": 4.5,
                     "hauls": 1,
-                    "opponent_xgc": 157.89999999999998
+                    "opponent_vulnerability": 51.74999999999999
                 }
             },
             {
@@ -2880,7 +2880,7 @@
                 "position": 3,
                 "price": 7.8,
                 "predicted_points": 4.88,
-                "haul_prob": 0.03,
+                "haul_prob": 0.05,
                 "haul_alert": false,
                 "prob_goal": 0.1,
                 "prob_assist": 0.35,
@@ -2919,7 +2919,7 @@
                     "selected_by": 2.5,
                     "cost": 7.8,
                     "hauls": 1,
-                    "opponent_xgc": 147.07999999999998
+                    "opponent_vulnerability": 36.0
                 }
             },
             {
@@ -2929,7 +2929,7 @@
                 "position": 4,
                 "price": 4.6,
                 "predicted_points": 4.87,
-                "haul_prob": 0.06,
+                "haul_prob": 0.09,
                 "haul_alert": false,
                 "prob_goal": 0.5,
                 "prob_assist": 0.08,
@@ -2968,7 +2968,7 @@
                     "selected_by": 4.1,
                     "cost": 4.6,
                     "hauls": 1,
-                    "opponent_xgc": 150.65
+                    "opponent_vulnerability": 36.5
                 }
             },
             {
@@ -2978,7 +2978,7 @@
                 "position": 2,
                 "price": 4.4,
                 "predicted_points": 4.78,
-                "haul_prob": 0.01,
+                "haul_prob": 0.02,
                 "haul_alert": false,
                 "prob_goal": 0.03,
                 "prob_assist": 0.03,
@@ -3017,7 +3017,7 @@
                     "selected_by": 9.9,
                     "cost": 4.4,
                     "hauls": 3,
-                    "opponent_xgc": 161.91
+                    "opponent_vulnerability": 41.5
                 }
             },
             {
@@ -3027,7 +3027,7 @@
                 "position": 2,
                 "price": 4.6,
                 "predicted_points": 4.76,
-                "haul_prob": 0.01,
+                "haul_prob": 0.02,
                 "haul_alert": false,
                 "prob_goal": 0.03,
                 "prob_assist": 0.03,
@@ -3066,7 +3066,7 @@
                     "selected_by": 5.5,
                     "cost": 4.6,
                     "hauls": 2,
-                    "opponent_xgc": 165.54
+                    "opponent_vulnerability": 39.0
                 }
             },
             {
@@ -3076,7 +3076,7 @@
                 "position": 2,
                 "price": 4.2,
                 "predicted_points": 4.75,
-                "haul_prob": 0.04,
+                "haul_prob": 0.06,
                 "haul_alert": false,
                 "prob_goal": 0.08,
                 "prob_assist": 0.22,
@@ -3115,7 +3115,7 @@
                     "selected_by": 7.0,
                     "cost": 4.2,
                     "hauls": 1,
-                    "opponent_xgc": 119.05
+                    "opponent_vulnerability": 19.25
                 }
             },
             {
@@ -3125,7 +3125,7 @@
                 "position": 3,
                 "price": 10.2,
                 "predicted_points": 4.74,
-                "haul_prob": 0.04,
+                "haul_prob": 0.06,
                 "haul_alert": false,
                 "prob_goal": 0.09,
                 "prob_assist": 0.47,
@@ -3164,7 +3164,7 @@
                     "selected_by": 20.0,
                     "cost": 10.2,
                     "hauls": 2,
-                    "opponent_xgc": 147.07999999999998
+                    "opponent_vulnerability": 36.0
                 }
             },
             {
@@ -3213,7 +3213,7 @@
                     "selected_by": 0.1,
                     "cost": 4.3,
                     "hauls": 0,
-                    "opponent_xgc": 165.54
+                    "opponent_vulnerability": 39.0
                 }
             },
             {
@@ -3262,7 +3262,7 @@
                     "selected_by": 0.7,
                     "cost": 4.5,
                     "hauls": 1,
-                    "opponent_xgc": 162.44
+                    "opponent_vulnerability": 36.25
                 }
             },
             {
@@ -3272,7 +3272,7 @@
                 "position": 1,
                 "price": 4.9,
                 "predicted_points": 4.55,
-                "haul_prob": 0.0,
+                "haul_prob": 0.01,
                 "haul_alert": false,
                 "prob_goal": 0.01,
                 "prob_assist": 0.01,
@@ -3311,7 +3311,7 @@
                     "selected_by": 1.7,
                     "cost": 4.9,
                     "hauls": 0,
-                    "opponent_xgc": 165.54
+                    "opponent_vulnerability": 39.0
                 }
             },
             {
@@ -3360,7 +3360,7 @@
                     "selected_by": 13.0,
                     "cost": 5.6,
                     "hauls": 3,
-                    "opponent_xgc": 160.57
+                    "opponent_vulnerability": 39.0
                 }
             },
             {
@@ -3370,7 +3370,7 @@
                 "position": 3,
                 "price": 6.8,
                 "predicted_points": 4.53,
-                "haul_prob": 0.02,
+                "haul_prob": 0.05,
                 "haul_alert": false,
                 "prob_goal": 0.13,
                 "prob_assist": 0.17,
@@ -3409,7 +3409,7 @@
                     "selected_by": 15.5,
                     "cost": 6.8,
                     "hauls": 3,
-                    "opponent_xgc": 149.51
+                    "opponent_vulnerability": 32.75
                 }
             },
             {
@@ -3419,7 +3419,7 @@
                 "position": 2,
                 "price": 4.4,
                 "predicted_points": 4.53,
-                "haul_prob": 0.02,
+                "haul_prob": 0.03,
                 "haul_alert": false,
                 "prob_goal": 0.04,
                 "prob_assist": 0.18,
@@ -3458,7 +3458,7 @@
                     "selected_by": 0.3,
                     "cost": 4.4,
                     "hauls": 0,
-                    "opponent_xgc": 157.89999999999998
+                    "opponent_vulnerability": 51.74999999999999
                 }
             },
             {
@@ -3507,7 +3507,7 @@
                     "selected_by": 11.0,
                     "cost": 7.6,
                     "hauls": 1,
-                    "opponent_xgc": 177.75
+                    "opponent_vulnerability": 36.75
                 }
             },
             {
@@ -3517,7 +3517,7 @@
                 "position": 4,
                 "price": 4.5,
                 "predicted_points": 4.5,
-                "haul_prob": 0.04,
+                "haul_prob": 0.05,
                 "haul_alert": false,
                 "prob_goal": 0.28,
                 "prob_assist": 0.16,
@@ -3556,7 +3556,7 @@
                     "selected_by": 0.8,
                     "cost": 4.5,
                     "hauls": 1,
-                    "opponent_xgc": 115.17999999999999
+                    "opponent_vulnerability": 30.5
                 }
             },
             {
@@ -3566,7 +3566,7 @@
                 "position": 1,
                 "price": 5.7,
                 "predicted_points": 4.49,
-                "haul_prob": 0.0,
+                "haul_prob": 0.01,
                 "haul_alert": false,
                 "prob_goal": 0.01,
                 "prob_assist": 0.01,
@@ -3605,7 +3605,7 @@
                     "selected_by": 10.1,
                     "cost": 5.7,
                     "hauls": 0,
-                    "opponent_xgc": 149.51
+                    "opponent_vulnerability": 32.75
                 }
             },
             {
@@ -3615,7 +3615,7 @@
                 "position": 3,
                 "price": 4.9,
                 "predicted_points": 4.47,
-                "haul_prob": 0.02,
+                "haul_prob": 0.04,
                 "haul_alert": false,
                 "prob_goal": 0.16,
                 "prob_assist": 0.11,
@@ -3654,7 +3654,7 @@
                     "selected_by": 3.2,
                     "cost": 4.9,
                     "hauls": 2,
-                    "opponent_xgc": 135.06
+                    "opponent_vulnerability": 34.0
                 }
             },
             {
@@ -3703,7 +3703,7 @@
                     "selected_by": 3.4,
                     "cost": 5.4,
                     "hauls": 0,
-                    "opponent_xgc": 214.56
+                    "opponent_vulnerability": 45.75
                 }
             },
             {
@@ -3752,7 +3752,7 @@
                     "selected_by": 6.1,
                     "cost": 5.4,
                     "hauls": 1,
-                    "opponent_xgc": 214.56
+                    "opponent_vulnerability": 45.75
                 }
             },
             {
@@ -3801,7 +3801,7 @@
                     "selected_by": 0.1,
                     "cost": 4.3,
                     "hauls": 1,
-                    "opponent_xgc": 115.17999999999999
+                    "opponent_vulnerability": 30.5
                 }
             },
             {
@@ -3811,7 +3811,7 @@
                 "position": 2,
                 "price": 3.9,
                 "predicted_points": 4.38,
-                "haul_prob": 0.01,
+                "haul_prob": 0.02,
                 "haul_alert": false,
                 "prob_goal": 0.01,
                 "prob_assist": 0.16,
@@ -3850,7 +3850,7 @@
                     "selected_by": 0.6,
                     "cost": 3.9,
                     "hauls": 1,
-                    "opponent_xgc": 135.06
+                    "opponent_vulnerability": 34.0
                 }
             },
             {
@@ -3899,7 +3899,7 @@
                     "selected_by": 6.4,
                     "cost": 4.1,
                     "hauls": 1,
-                    "opponent_xgc": 161.91
+                    "opponent_vulnerability": 41.5
                 }
             },
             {
@@ -3909,7 +3909,7 @@
                 "position": 2,
                 "price": 5.5,
                 "predicted_points": 4.33,
-                "haul_prob": 0.01,
+                "haul_prob": 0.02,
                 "haul_alert": false,
                 "prob_goal": 0.02,
                 "prob_assist": 0.02,
@@ -3948,7 +3948,7 @@
                     "selected_by": 4.6,
                     "cost": 5.5,
                     "hauls": 4,
-                    "opponent_xgc": 149.51
+                    "opponent_vulnerability": 32.75
                 }
             },
             {
@@ -3958,7 +3958,7 @@
                 "position": 3,
                 "price": 7.6,
                 "predicted_points": 4.31,
-                "haul_prob": 0.04,
+                "haul_prob": 0.05,
                 "haul_alert": false,
                 "prob_goal": 0.22,
                 "prob_assist": 0.18,
@@ -3997,7 +3997,7 @@
                     "selected_by": 31.9,
                     "cost": 7.6,
                     "hauls": 3,
-                    "opponent_xgc": 146.36
+                    "opponent_vulnerability": 33.5
                 }
             },
             {
@@ -4046,7 +4046,7 @@
                     "selected_by": 33.6,
                     "cost": 5.9,
                     "hauls": 1,
-                    "opponent_xgc": 147.07999999999998
+                    "opponent_vulnerability": 36.0
                 }
             },
             {
@@ -4095,7 +4095,7 @@
                     "selected_by": 0.0,
                     "cost": 4.5,
                     "hauls": 0,
-                    "opponent_xgc": 149.51
+                    "opponent_vulnerability": 32.75
                 }
             },
             {
@@ -4105,7 +4105,7 @@
                 "position": 3,
                 "price": 4.5,
                 "predicted_points": 4.24,
-                "haul_prob": 0.02,
+                "haul_prob": 0.03,
                 "haul_alert": false,
                 "prob_goal": 0.07,
                 "prob_assist": 0.2,
@@ -4144,7 +4144,7 @@
                     "selected_by": 3.6,
                     "cost": 4.5,
                     "hauls": 1,
-                    "opponent_xgc": 182.48
+                    "opponent_vulnerability": 39.0
                 }
             },
             {
@@ -4193,7 +4193,7 @@
                     "selected_by": 2.2,
                     "cost": 5.2,
                     "hauls": 1,
-                    "opponent_xgc": 147.07999999999998
+                    "opponent_vulnerability": 36.0
                 }
             },
             {
@@ -4203,7 +4203,7 @@
                 "position": 2,
                 "price": 4.9,
                 "predicted_points": 4.19,
-                "haul_prob": 0.02,
+                "haul_prob": 0.03,
                 "haul_alert": false,
                 "prob_goal": 0.03,
                 "prob_assist": 0.13,
@@ -4242,7 +4242,7 @@
                     "selected_by": 0.8,
                     "cost": 4.9,
                     "hauls": 1,
-                    "opponent_xgc": 165.54
+                    "opponent_vulnerability": 39.0
                 }
             },
             {
@@ -4291,7 +4291,7 @@
                     "selected_by": 11.3,
                     "cost": 5.7,
                     "hauls": 1,
-                    "opponent_xgc": 161.27
+                    "opponent_vulnerability": 30.75
                 }
             },
             {
@@ -4301,7 +4301,7 @@
                 "position": 2,
                 "price": 4.5,
                 "predicted_points": 4.16,
-                "haul_prob": 0.0,
+                "haul_prob": 0.01,
                 "haul_alert": false,
                 "prob_goal": 0.01,
                 "prob_assist": 0.03,
@@ -4340,7 +4340,7 @@
                     "selected_by": 0.4,
                     "cost": 4.5,
                     "hauls": 2,
-                    "opponent_xgc": 161.91
+                    "opponent_vulnerability": 41.5
                 }
             },
             {
@@ -4350,7 +4350,7 @@
                 "position": 3,
                 "price": 5.9,
                 "predicted_points": 4.15,
-                "haul_prob": 0.02,
+                "haul_prob": 0.03,
                 "haul_alert": false,
                 "prob_goal": 0.09,
                 "prob_assist": 0.22,
@@ -4389,7 +4389,7 @@
                     "selected_by": 1.1,
                     "cost": 5.9,
                     "hauls": 0,
-                    "opponent_xgc": 146.36
+                    "opponent_vulnerability": 33.5
                 }
             },
             {
@@ -4438,7 +4438,7 @@
                     "selected_by": 33.0,
                     "cost": 4.0,
                     "hauls": 1,
-                    "opponent_xgc": 111.7
+                    "opponent_vulnerability": 26.0
                 }
             },
             {
@@ -4487,7 +4487,7 @@
                     "selected_by": 7.0,
                     "cost": 5.2,
                     "hauls": 1,
-                    "opponent_xgc": 161.91
+                    "opponent_vulnerability": 41.5
                 }
             },
             {
@@ -4497,7 +4497,7 @@
                 "position": 4,
                 "price": 8.9,
                 "predicted_points": 4.1,
-                "haul_prob": 0.02,
+                "haul_prob": 0.03,
                 "haul_alert": false,
                 "prob_goal": 0.2,
                 "prob_assist": 0.25,
@@ -4536,7 +4536,7 @@
                     "selected_by": 26.0,
                     "cost": 8.9,
                     "hauls": 3,
-                    "opponent_xgc": 214.56
+                    "opponent_vulnerability": 45.75
                 }
             },
             {
@@ -4546,7 +4546,7 @@
                 "position": 4,
                 "price": 7.0,
                 "predicted_points": 4.05,
-                "haul_prob": 0.03,
+                "haul_prob": 0.02,
                 "haul_alert": false,
                 "prob_goal": 0.36,
                 "prob_assist": 0.06,
@@ -4585,7 +4585,7 @@
                     "selected_by": 1.6,
                     "cost": 7.0,
                     "hauls": 0,
-                    "opponent_xgc": 150.65
+                    "opponent_vulnerability": 36.5
                 }
             },
             {
@@ -4595,7 +4595,7 @@
                 "position": 3,
                 "price": 6.4,
                 "predicted_points": 4.04,
-                "haul_prob": 0.03,
+                "haul_prob": 0.04,
                 "haul_alert": false,
                 "prob_goal": 0.21,
                 "prob_assist": 0.11,
@@ -4634,7 +4634,7 @@
                     "selected_by": 10.4,
                     "cost": 6.4,
                     "hauls": 4,
-                    "opponent_xgc": 161.27
+                    "opponent_vulnerability": 30.75
                 }
             },
             {
@@ -4683,7 +4683,7 @@
                     "selected_by": 26.5,
                     "cost": 7.1,
                     "hauls": 1,
-                    "opponent_xgc": 161.27
+                    "opponent_vulnerability": 30.75
                 }
             },
             {
@@ -4732,7 +4732,7 @@
                     "selected_by": 2.9,
                     "cost": 5.3,
                     "hauls": 0,
-                    "opponent_xgc": 182.48
+                    "opponent_vulnerability": 39.0
                 }
             },
             {
@@ -4781,7 +4781,7 @@
                     "selected_by": 8.0,
                     "cost": 5.1,
                     "hauls": 0,
-                    "opponent_xgc": 177.75
+                    "opponent_vulnerability": 36.75
                 }
             },
             {
@@ -4791,7 +4791,7 @@
                 "position": 2,
                 "price": 4.3,
                 "predicted_points": 4.04,
-                "haul_prob": 0.0,
+                "haul_prob": 0.01,
                 "haul_alert": false,
                 "prob_goal": 0.01,
                 "prob_assist": 0.04,
@@ -4830,7 +4830,7 @@
                     "selected_by": 0.2,
                     "cost": 4.3,
                     "hauls": 0,
-                    "opponent_xgc": 162.44
+                    "opponent_vulnerability": 36.25
                 }
             },
             {
@@ -4840,7 +4840,7 @@
                 "position": 3,
                 "price": 10.4,
                 "predicted_points": 4.02,
-                "haul_prob": 0.03,
+                "haul_prob": 0.05,
                 "haul_alert": false,
                 "prob_goal": 0.24,
                 "prob_assist": 0.13,
@@ -4879,7 +4879,7 @@
                     "selected_by": 12.3,
                     "cost": 10.4,
                     "hauls": 0,
-                    "opponent_xgc": 161.27
+                    "opponent_vulnerability": 30.75
                 }
             },
             {
@@ -4889,7 +4889,7 @@
                 "position": 3,
                 "price": 9.1,
                 "predicted_points": 3.97,
-                "haul_prob": 0.02,
+                "haul_prob": 0.03,
                 "haul_alert": false,
                 "prob_goal": 0.06,
                 "prob_assist": 0.36,
@@ -4928,7 +4928,7 @@
                     "selected_by": 12.8,
                     "cost": 9.1,
                     "hauls": 5,
-                    "opponent_xgc": 119.05
+                    "opponent_vulnerability": 19.25
                 }
             },
             {
@@ -4938,7 +4938,7 @@
                 "position": 2,
                 "price": 5.1,
                 "predicted_points": 3.97,
-                "haul_prob": 0.0,
+                "haul_prob": 0.01,
                 "haul_alert": false,
                 "prob_goal": 0.01,
                 "prob_assist": 0.02,
@@ -4977,7 +4977,7 @@
                     "selected_by": 6.0,
                     "cost": 5.1,
                     "hauls": 2,
-                    "opponent_xgc": 177.75
+                    "opponent_vulnerability": 36.75
                 }
             },
             {
@@ -4987,7 +4987,7 @@
                 "position": 2,
                 "price": 4.6,
                 "predicted_points": 3.96,
-                "haul_prob": 0.01,
+                "haul_prob": 0.0,
                 "haul_alert": false,
                 "prob_goal": 0.02,
                 "prob_assist": 0.01,
@@ -5026,7 +5026,7 @@
                     "selected_by": 2.9,
                     "cost": 4.6,
                     "hauls": 3,
-                    "opponent_xgc": 161.91
+                    "opponent_vulnerability": 41.5
                 }
             },
             {
@@ -5036,7 +5036,7 @@
                 "position": 2,
                 "price": 5.2,
                 "predicted_points": 3.95,
-                "haul_prob": 0.02,
+                "haul_prob": 0.01,
                 "haul_alert": false,
                 "prob_goal": 0.03,
                 "prob_assist": 0.06,
@@ -5075,7 +5075,7 @@
                     "selected_by": 12.6,
                     "cost": 5.2,
                     "hauls": 2,
-                    "opponent_xgc": 195.17999999999998
+                    "opponent_vulnerability": 49.0
                 }
             },
             {
@@ -5085,7 +5085,7 @@
                 "position": 2,
                 "price": 4.8,
                 "predicted_points": 3.95,
-                "haul_prob": 0.01,
+                "haul_prob": 0.02,
                 "haul_alert": false,
                 "prob_goal": 0.02,
                 "prob_assist": 0.19,
@@ -5124,7 +5124,7 @@
                     "selected_by": 14.1,
                     "cost": 4.8,
                     "hauls": 1,
-                    "opponent_xgc": 150.65
+                    "opponent_vulnerability": 36.5
                 }
             },
             {
@@ -5173,7 +5173,7 @@
                     "selected_by": 22.5,
                     "cost": 5.9,
                     "hauls": 0,
-                    "opponent_xgc": 214.56
+                    "opponent_vulnerability": 45.75
                 }
             },
             {
@@ -5183,7 +5183,7 @@
                 "position": 3,
                 "price": 6.9,
                 "predicted_points": 3.93,
-                "haul_prob": 0.02,
+                "haul_prob": 0.03,
                 "haul_alert": false,
                 "prob_goal": 0.16,
                 "prob_assist": 0.11,
@@ -5222,7 +5222,7 @@
                     "selected_by": 1.7,
                     "cost": 6.9,
                     "hauls": 3,
-                    "opponent_xgc": 147.07999999999998
+                    "opponent_vulnerability": 36.0
                 }
             },
             {
@@ -5271,7 +5271,7 @@
                     "selected_by": 0.8,
                     "cost": 4.9,
                     "hauls": 0,
-                    "opponent_xgc": 160.57
+                    "opponent_vulnerability": 39.0
                 }
             },
             {
@@ -5320,7 +5320,7 @@
                     "selected_by": 0.0,
                     "cost": 4.8,
                     "hauls": 1,
-                    "opponent_xgc": 111.7
+                    "opponent_vulnerability": 26.0
                 }
             },
             {
@@ -5369,7 +5369,7 @@
                     "selected_by": 11.8,
                     "cost": 5.9,
                     "hauls": 0,
-                    "opponent_xgc": 147.07999999999998
+                    "opponent_vulnerability": 36.0
                 }
             },
             {
@@ -5418,7 +5418,7 @@
                     "selected_by": 1.0,
                     "cost": 5.5,
                     "hauls": 1,
-                    "opponent_xgc": 195.17999999999998
+                    "opponent_vulnerability": 49.0
                 }
             },
             {
@@ -5467,7 +5467,7 @@
                     "selected_by": 0.7,
                     "cost": 4.9,
                     "hauls": 0,
-                    "opponent_xgc": 160.57
+                    "opponent_vulnerability": 39.0
                 }
             },
             {
@@ -5516,7 +5516,7 @@
                     "selected_by": 6.4,
                     "cost": 5.7,
                     "hauls": 3,
-                    "opponent_xgc": 214.56
+                    "opponent_vulnerability": 45.75
                 }
             },
             {
@@ -5565,7 +5565,7 @@
                     "selected_by": 3.7,
                     "cost": 5.0,
                     "hauls": 2,
-                    "opponent_xgc": 195.17999999999998
+                    "opponent_vulnerability": 49.0
                 }
             },
             {
@@ -5614,7 +5614,7 @@
                     "selected_by": 6.9,
                     "cost": 4.8,
                     "hauls": 0,
-                    "opponent_xgc": 195.17999999999998
+                    "opponent_vulnerability": 49.0
                 }
             },
             {
@@ -5624,7 +5624,7 @@
                 "position": 3,
                 "price": 7.5,
                 "predicted_points": 3.87,
-                "haul_prob": 0.01,
+                "haul_prob": 0.02,
                 "haul_alert": false,
                 "prob_goal": 0.06,
                 "prob_assist": 0.28,
@@ -5663,7 +5663,7 @@
                     "selected_by": 5.9,
                     "cost": 7.5,
                     "hauls": 2,
-                    "opponent_xgc": 182.48
+                    "opponent_vulnerability": 39.0
                 }
             },
             {
@@ -5712,7 +5712,7 @@
                     "selected_by": 10.8,
                     "cost": 4.8,
                     "hauls": 2,
-                    "opponent_xgc": 146.36
+                    "opponent_vulnerability": 33.5
                 }
             },
             {
@@ -5761,7 +5761,7 @@
                     "selected_by": 2.1,
                     "cost": 5.9,
                     "hauls": 2,
-                    "opponent_xgc": 133.82999999999998
+                    "opponent_vulnerability": 28.749999999999996
                 }
             },
             {
@@ -5771,7 +5771,7 @@
                 "position": 2,
                 "price": 3.9,
                 "predicted_points": 3.62,
-                "haul_prob": 0.0,
+                "haul_prob": 0.01,
                 "haul_alert": false,
                 "prob_goal": 0.01,
                 "prob_assist": 0.05,
@@ -5810,7 +5810,7 @@
                     "selected_by": 0.9,
                     "cost": 3.9,
                     "hauls": 0,
-                    "opponent_xgc": 111.7
+                    "opponent_vulnerability": 26.0
                 }
             },
             {
@@ -5859,7 +5859,7 @@
                     "selected_by": 0.1,
                     "cost": 4.8,
                     "hauls": 1,
-                    "opponent_xgc": 195.17999999999998
+                    "opponent_vulnerability": 49.0
                 }
             },
             {
@@ -5908,7 +5908,7 @@
                     "selected_by": 9.0,
                     "cost": 7.7,
                     "hauls": 0,
-                    "opponent_xgc": 133.82999999999998
+                    "opponent_vulnerability": 28.749999999999996
                 }
             },
             {
@@ -5957,7 +5957,7 @@
                     "selected_by": 1.4,
                     "cost": 6.1,
                     "hauls": 2,
-                    "opponent_xgc": 182.48
+                    "opponent_vulnerability": 39.0
                 }
             },
             {
@@ -6006,7 +6006,7 @@
                     "selected_by": 0.1,
                     "cost": 3.9,
                     "hauls": 0,
-                    "opponent_xgc": 111.7
+                    "opponent_vulnerability": 26.0
                 }
             },
             {
@@ -6055,7 +6055,7 @@
                     "selected_by": 2.4,
                     "cost": 5.5,
                     "hauls": 3,
-                    "opponent_xgc": 150.65
+                    "opponent_vulnerability": 36.5
                 }
             },
             {
@@ -6104,7 +6104,7 @@
                     "selected_by": 0.2,
                     "cost": 5.2,
                     "hauls": 0,
-                    "opponent_xgc": 111.7
+                    "opponent_vulnerability": 26.0
                 }
             },
             {
@@ -6153,7 +6153,7 @@
                     "selected_by": 15.9,
                     "cost": 7.3,
                     "hauls": 1,
-                    "opponent_xgc": 182.48
+                    "opponent_vulnerability": 39.0
                 }
             },
             {
@@ -6202,7 +6202,7 @@
                     "selected_by": 4.2,
                     "cost": 4.5,
                     "hauls": 2,
-                    "opponent_xgc": 119.05
+                    "opponent_vulnerability": 19.25
                 }
             },
             {
@@ -6251,7 +6251,7 @@
                     "selected_by": 0.1,
                     "cost": 4.9,
                     "hauls": 1,
-                    "opponent_xgc": 165.54
+                    "opponent_vulnerability": 39.0
                 }
             },
             {
@@ -6300,7 +6300,7 @@
                     "selected_by": 39.8,
                     "cost": 5.3,
                     "hauls": 3,
-                    "opponent_xgc": 177.75
+                    "opponent_vulnerability": 36.75
                 }
             },
             {
@@ -6349,7 +6349,7 @@
                     "selected_by": 2.2,
                     "cost": 5.0,
                     "hauls": 1,
-                    "opponent_xgc": 177.75
+                    "opponent_vulnerability": 36.75
                 }
             },
             {
@@ -6398,7 +6398,7 @@
                     "selected_by": 17.9,
                     "cost": 5.5,
                     "hauls": 2,
-                    "opponent_xgc": 161.27
+                    "opponent_vulnerability": 30.75
                 }
             },
             {
@@ -6447,7 +6447,7 @@
                     "selected_by": 33.3,
                     "cost": 8.7,
                     "hauls": 5,
-                    "opponent_xgc": 149.51
+                    "opponent_vulnerability": 32.75
                 }
             }
         ]

@@ -42,7 +42,7 @@ class modelTrainer:
             'xG_90', 'xA_90', 'actual_goals_90', 'actual_assists_90', 'actual_cs_90',
             'xGI_90', 'saves_90', 'bps_90', 'defcon_90',
             'defcon', 'explosivity', 'form', 'ict_index', 
-            'fixture_difficulty', 'selected_by', 'cost', 'hauls', 'opponent_xgc'
+            'fixture_difficulty', 'selected_by', 'cost', 'hauls', 'opponent_vulnerability'
         ]
         
         # RL Reinforcement: Model confidence/trust scores
@@ -149,10 +149,16 @@ class modelTrainer:
         
         return np.maximum(xp, 0)
 
-    def calculate_haul_probability(self, event_predictions: Dict[str, np.ndarray], element_types: List[int], n_sims: int = 1500) -> np.ndarray:
+    def calculate_haul_probability(self, event_predictions: Dict[str, np.ndarray], element_types: List[int], n_sims: int = 1500, haul_multipliers: Optional[np.ndarray] = None) -> np.ndarray:
         """
         Calculates the probability of a player scoring 11+ points using a Monte Carlo simulation.
         Assumes independent Poisson events for counts and Logistic for clean sheets.
+        
+        Args:
+            event_predictions: Dictionary of predicted probabilities/counts per head.
+            element_types: List of player positions.
+            n_sims: Number of Monte Carlo iterations.
+            haul_multipliers: Optional array of clinicality/matchup boosters (default 1.0).
         """
         n_players = len(element_types)
         haul_probs = np.zeros(n_players)
@@ -167,16 +173,18 @@ class modelTrainer:
 
         for i in range(n_players):
             pos = element_types[i]
+            multiplier = haul_multipliers[i] if haul_multipliers is not None else 1.0
             
-            # Adjusted lambdas based on confidence scores
-            l_goals = event_predictions['actual_goals'][i] * c.get('actual_goals', 1.0)
-            l_assists = event_predictions['actual_assists'][i] * c.get('actual_assists', 1.0)
+            # Adjusted lambdas based on confidence scores and Vesuvius Multiplier
+            l_goals = event_predictions['actual_goals'][i] * c.get('actual_goals', 1.0) * multiplier
+            l_assists = event_predictions['actual_assists'][i] * c.get('actual_assists', 1.0) * multiplier
             l_saves = event_predictions['actual_saves'][i] * c.get('actual_saves', 1.0)
-            l_bonus = event_predictions.get('actual_bonus', np.zeros(n_players))[i] * c.get('actual_bonus', 1.0)
+            l_bonus = event_predictions.get('actual_bonus', np.zeros(n_players))[i] * c.get('actual_bonus', 1.0) * multiplier
             l_defcon = event_predictions.get('actual_defcon_points', np.zeros(n_players))[i] * c.get('actual_defcon_points', 1.0)
             
-            # Clean sheet is a biased coin flip
-            p_cs = event_predictions['actual_clean_sheets'][i] * c.get('actual_clean_sheets', 1.0)
+            # Clean sheet is a biased coin flip - also boosted by multiplier
+            p_cs = event_predictions['actual_clean_sheets'][i] * c.get('actual_clean_sheets', 1.0) * multiplier
+            p_cs = min(max(p_cs, 0), 1)
             p_cs = min(max(p_cs, 0), 1)
             
             # Monte Carlo Simulation

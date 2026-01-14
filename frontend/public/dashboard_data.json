@@ -1,6 +1,6 @@
 {
     "status": "online",
-    "last_updated": "2026-01-14T05:10:09.225729+00:00",
+    "last_updated": "2026-01-14T05:39:12.413809+00:00",
     "gameweek": 22,
     "squad": [
         {
@@ -10,7 +10,7 @@
             "position": 2,
             "price": 6.7,
             "predicted_points": 7.91,
-            "haul_prob": 0.23,
+            "haul_prob": 0.3,
             "haul_alert": true,
             "prob_goal": 0.41,
             "prob_assist": 0.07,
@@ -30,7 +30,7 @@
             "defcon": 100.0,
             "ownership": 31.9,
             "hauls": 4,
-            "reasoning": "VESUVIUS ALERT: 23% Haul Probability (11+ pts) | High goal threat (0.4 Exp)",
+            "reasoning": "VESUVIUS ALERT: 30% Haul Probability (11+ pts) | High goal threat (0.4 Exp)",
             "features": {
                 "xG_90": 0.11,
                 "xA_90": 0.05,
@@ -49,7 +49,7 @@
                 "selected_by": 31.9,
                 "cost": 6.7,
                 "hauls": 4,
-                "opponent_xgc": 147.07999999999998
+                "opponent_vulnerability": 36.0
             }
         },
         {
@@ -59,7 +59,7 @@
             "position": 4,
             "price": 7.1,
             "predicted_points": 7.77,
-            "haul_prob": 0.27,
+            "haul_prob": 0.34,
             "haul_alert": true,
             "prob_goal": 0.89,
             "prob_assist": 0.21,
@@ -79,7 +79,7 @@
             "defcon": 0.0,
             "ownership": 34.7,
             "hauls": 5,
-            "reasoning": "VESUVIUS ALERT: 27% Haul Probability (11+ pts) | High goal threat (0.9 Exp) | Strong CS chance (85%) | Bonus Magnet (1.5 Exp)",
+            "reasoning": "VESUVIUS ALERT: 34% Haul Probability (11+ pts) | High goal threat (0.9 Exp) | Strong CS chance (85%) | Bonus Magnet (1.5 Exp)",
             "features": {
                 "xG_90": 0.65,
                 "xA_90": 0.04,
@@ -98,7 +98,7 @@
                 "selected_by": 34.7,
                 "cost": 7.1,
                 "hauls": 5,
-                "opponent_xgc": 162.44
+                "opponent_vulnerability": 36.25
             }
         },
         {
@@ -108,8 +108,8 @@
             "position": 3,
             "price": 7.1,
             "predicted_points": 6.66,
-            "haul_prob": 0.16,
-            "haul_alert": false,
+            "haul_prob": 0.21,
+            "haul_alert": true,
             "prob_goal": 0.4,
             "prob_assist": 0.37,
             "prob_cs": 0.76,
@@ -128,7 +128,7 @@
             "defcon": 0.0,
             "ownership": 2.6,
             "hauls": 1,
-            "reasoning": "Strong CS chance (76%)",
+            "reasoning": "VESUVIUS ALERT: 21% Haul Probability (11+ pts) | Strong CS chance (76%)",
             "features": {
                 "xG_90": 0.42,
                 "xA_90": 0.08,
@@ -147,7 +147,7 @@
                 "selected_by": 2.6,
                 "cost": 7.1,
                 "hauls": 1,
-                "opponent_xgc": 162.44
+                "opponent_vulnerability": 36.25
             }
         },
         {
@@ -157,7 +157,7 @@
             "position": 3,
             "price": 7.3,
             "predicted_points": 6.41,
-            "haul_prob": 0.12,
+            "haul_prob": 0.17,
             "haul_alert": false,
             "prob_goal": 0.37,
             "prob_assist": 0.19,
@@ -196,7 +196,7 @@
                 "selected_by": 27.1,
                 "cost": 7.3,
                 "hauls": 4,
-                "opponent_xgc": 147.07999999999998
+                "opponent_vulnerability": 36.0
             }
         },
         {
@@ -206,7 +206,7 @@
             "position": 2,
             "price": 4.9,
             "predicted_points": 6.09,
-            "haul_prob": 0.12,
+            "haul_prob": 0.16,
             "haul_alert": false,
             "prob_goal": 0.21,
             "prob_assist": 0.08,
@@ -245,7 +245,7 @@
                 "selected_by": 2.4,
                 "cost": 4.9,
                 "hauls": 1,
-                "opponent_xgc": 162.44
+                "opponent_vulnerability": 36.25
             }
         },
         {
@@ -255,7 +255,7 @@
             "position": 2,
             "price": 6.3,
             "predicted_points": 5.91,
-            "haul_prob": 0.1,
+            "haul_prob": 0.13,
             "haul_alert": false,
             "prob_goal": 0.15,
             "prob_assist": 0.15,
@@ -294,7 +294,7 @@
                 "selected_by": 27.5,
                 "cost": 6.3,
                 "hauls": 2,
-                "opponent_xgc": 147.07999999999998
+                "opponent_vulnerability": 36.0
             }
         },
         {
@@ -304,7 +304,7 @@
             "position": 1,
             "price": 4.9,
             "predicted_points": 5.06,
-            "haul_prob": 0.0,
+            "haul_prob": 0.01,
             "haul_alert": false,
             "prob_goal": 0.01,
             "prob_assist": 0.01,
@@ -343,7 +343,7 @@
                 "selected_by": 12.4,
                 "cost": 4.9,
                 "hauls": 2,
-                "opponent_xgc": 161.91
+                "opponent_vulnerability": 41.5
             }
         },
         {
@@ -353,7 +353,7 @@
             "position": 3,
             "price": 7.6,
             "predicted_points": 6.07,
-            "haul_prob": 0.12,
+            "haul_prob": 0.16,
             "haul_alert": false,
             "prob_goal": 0.52,
             "prob_assist": 0.14,
@@ -392,7 +392,7 @@
                 "selected_by": 43.6,
                 "cost": 7.6,
                 "hauls": 4,
-                "opponent_xgc": 149.51
+                "opponent_vulnerability": 32.75
             }
         },
         {
@@ -402,7 +402,7 @@
             "position": 3,
             "price": 7.2,
             "predicted_points": 5.99,
-            "haul_prob": 0.07,
+            "haul_prob": 0.14,
             "haul_alert": false,
             "prob_goal": 0.15,
             "prob_assist": 0.27,
@@ -441,7 +441,7 @@
                 "selected_by": 22.0,
                 "cost": 7.2,
                 "hauls": 7,
-                "opponent_xgc": 182.48
+                "opponent_vulnerability": 39.0
             }
         },
         {
@@ -451,7 +451,7 @@
             "position": 3,
             "price": 8.2,
             "predicted_points": 5.9,
-            "haul_prob": 0.12,
+            "haul_prob": 0.13,
             "haul_alert": false,
             "prob_goal": 0.4,
             "prob_assist": 0.17,
@@ -490,7 +490,7 @@
                 "selected_by": 11.0,
                 "cost": 8.2,
                 "hauls": 2,
-                "opponent_xgc": 214.56
+                "opponent_vulnerability": 45.75
             }
         },
         {
@@ -500,7 +500,7 @@
             "position": 4,
             "price": 6.0,
             "predicted_points": 5.84,
-            "haul_prob": 0.11,
+            "haul_prob": 0.14,
             "haul_alert": false,
             "prob_goal": 0.62,
             "prob_assist": 0.18,
@@ -539,7 +539,7 @@
                 "selected_by": 12.8,
                 "cost": 6.0,
                 "hauls": 2,
-                "opponent_xgc": 135.06
+                "opponent_vulnerability": 34.0
             }
         }
     ],
@@ -551,7 +551,7 @@
             "position": 3,
             "price": 8.2,
             "predicted_points": 5.65,
-            "haul_prob": 0.1,
+            "haul_prob": 0.12,
             "haul_alert": false,
             "prob_goal": 0.47,
             "prob_assist": 0.11,
@@ -590,7 +590,7 @@
                 "selected_by": 12.0,
                 "cost": 8.2,
                 "hauls": 0,
-                "opponent_xgc": 119.05
+                "opponent_vulnerability": 19.25
             }
         },
         {
@@ -600,7 +600,7 @@
             "position": 4,
             "price": 8.8,
             "predicted_points": 5.64,
-            "haul_prob": 0.1,
+            "haul_prob": 0.13,
             "haul_alert": false,
             "prob_goal": 0.6,
             "prob_assist": 0.16,
@@ -639,7 +639,7 @@
                 "selected_by": 13.8,
                 "cost": 8.8,
                 "hauls": 2,
-                "opponent_xgc": 146.36
+                "opponent_vulnerability": 33.5
             }
         },
         {
@@ -649,7 +649,7 @@
             "position": 2,
             "price": 5.7,
             "predicted_points": 5.59,
-            "haul_prob": 0.05,
+            "haul_prob": 0.04,
             "haul_alert": false,
             "prob_goal": 0.04,
             "prob_assist": 0.03,
@@ -688,7 +688,7 @@
                 "selected_by": 12.6,
                 "cost": 5.7,
                 "hauls": 1,
-                "opponent_xgc": 160.57
+                "opponent_vulnerability": 39.0
             }
         },
         {
@@ -698,7 +698,7 @@
             "position": 4,
             "price": 6.2,
             "predicted_points": 5.56,
-            "haul_prob": 0.08,
+            "haul_prob": 0.11,
             "haul_alert": false,
             "prob_goal": 0.56,
             "prob_assist": 0.17,
@@ -737,7 +737,7 @@
                 "selected_by": 2.1,
                 "cost": 6.2,
                 "hauls": 0,
-                "opponent_xgc": 165.54
+                "opponent_vulnerability": 39.0
             }
         }
     ],
@@ -1044,7 +1044,7 @@
             "position": 4,
             "price": 7.1,
             "predicted_points": 7.77,
-            "haul_prob": 0.27,
+            "haul_prob": 0.34,
             "haul_alert": true,
             "prob_goal": 0.89,
             "prob_assist": 0.21,
@@ -1064,7 +1064,7 @@
             "defcon": 0.0,
             "ownership": 34.7,
             "hauls": 5,
-            "reasoning": "VESUVIUS ALERT: 27% Haul Probability (11+ pts) | High goal threat (0.9 Exp) | Strong CS chance (85%) | Bonus Magnet (1.5 Exp)",
+            "reasoning": "VESUVIUS ALERT: 34% Haul Probability (11+ pts) | High goal threat (0.9 Exp) | Strong CS chance (85%) | Bonus Magnet (1.5 Exp)",
             "features": {
                 "xG_90": 0.65,
                 "xA_90": 0.04,
@@ -1083,7 +1083,7 @@
                 "selected_by": 34.7,
                 "cost": 7.1,
                 "hauls": 5,
-                "opponent_xgc": 162.44
+                "opponent_vulnerability": 36.25
             },
             "reason": "The algorithm identifies Thiago as the most reliable pick with 7.77 projected points."
         },
@@ -1094,7 +1094,7 @@
             "position": 3,
             "price": 7.2,
             "predicted_points": 5.99,
-            "haul_prob": 0.07,
+            "haul_prob": 0.14,
             "haul_alert": false,
             "prob_goal": 0.15,
             "prob_assist": 0.27,
@@ -1133,7 +1133,7 @@
                 "selected_by": 22.0,
                 "cost": 7.2,
                 "hauls": 7,
-                "opponent_xgc": 182.48
+                "opponent_vulnerability": 39.0
             },
             "reason": "Bruno G. is selected as the best relative differential (22.0% ownership) with explosive potential."
         },
@@ -1144,7 +1144,7 @@
             "position": 2,
             "price": 6.7,
             "predicted_points": 7.91,
-            "haul_prob": 0.23,
+            "haul_prob": 0.3,
             "haul_alert": true,
             "prob_goal": 0.41,
             "prob_assist": 0.07,
@@ -1164,7 +1164,7 @@
             "defcon": 100.0,
             "ownership": 31.9,
             "hauls": 4,
-            "reasoning": "VESUVIUS ALERT: 23% Haul Probability (11+ pts) | High goal threat (0.4 Exp)",
+            "reasoning": "VESUVIUS ALERT: 30% Haul Probability (11+ pts) | High goal threat (0.4 Exp)",
             "features": {
                 "xG_90": 0.11,
                 "xA_90": 0.05,
@@ -1183,7 +1183,7 @@
                 "selected_by": 31.9,
                 "cost": 6.7,
                 "hauls": 4,
-                "opponent_xgc": 147.07999999999998
+                "opponent_vulnerability": 36.0
             },
             "reason": "Elite Defcon level (100.0): Gabriel is picked for their massive clean sheet bonus and offensive participation."
         },
