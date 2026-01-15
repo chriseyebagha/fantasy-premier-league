@@ -146,9 +146,9 @@ export default function Home() {
         </div>
 
         <section className="w-full max-w-5xl mx-auto">
-          <div className="flex items-center gap-6 mb-12 px-4">
+          <div className="flex items-center gap-10 mb-12 px-4">
             <div className="h-[1px] flex-1 bg-white/5" />
-            <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 flex items-center gap-2">
+            <h2 className="text-xs md:text-sm font-black uppercase tracking-[0.5em] text-slate-400 flex items-center gap-4">
               Captain Options
             </h2>
             <div className="h-[1px] flex-1 bg-white/5" />
@@ -158,9 +158,9 @@ export default function Home() {
 
         {/* Pitch Dashboard */}
         <section className="w-full max-w-5xl mx-auto flex flex-col gap-8 pb-32">
-          <div className="flex items-center gap-4 px-4">
+          <div className="flex items-center gap-10 px-4">
             <div className="h-[1px] flex-1 bg-white/5" />
-            <h2 className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 flex items-center gap-2">
+            <h2 className="text-xs md:text-sm font-black uppercase tracking-[0.5em] text-slate-400 flex items-center gap-4">
               Predicted Starting XI
             </h2>
             <div className="h-[1px] flex-1 bg-white/5" />
