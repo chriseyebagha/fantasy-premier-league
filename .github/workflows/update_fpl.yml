@@ -54,9 +54,9 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add frontend/public/dashboard_data.json backend/data/deadline_history.json
+          git add frontend/public/dashboard_data.json frontend/public/history/ backend/data/deadline_history.json backend/data/prediction_history.json backend/data/confidence.json
           git status
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update FPL dashboard data [Deadline Aware]" && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update FPL dashboard data and history [Deadline Aware]" && git push)
 
       - name: Trigger Portfolio Rebuild
         uses: peter-evans/repository-dispatch@v3

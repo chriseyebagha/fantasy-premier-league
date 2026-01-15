@@ -62,7 +62,13 @@ def validate_dashboard_data(filepath):
             print(f"❌ Error: Team '{team}' has {team_counts[team]} players in squad (Max 3 allowed).")
             return False
 
-    # 6. Captain Diversity
+    # 6. Player Metadata Check (High-Definition UI requirements)
+    for p in squad_full:
+        if 'code' not in p or not p['code']:
+            print(f"❌ Error: Player '{p.get('web_name')}' is missing the 'code' field required for images.")
+            return False
+
+    # 7. Captain Diversity
     recs = data.get("recommendations", {}).get("captains", [])
     if recs:
         # Check unique teams for the first 3 (Obvious, Joker, Fun One)

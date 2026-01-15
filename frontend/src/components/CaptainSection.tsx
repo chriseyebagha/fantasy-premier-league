@@ -1,17 +1,18 @@
 'use client';
 
 import React from 'react';
+import { motion } from 'framer-motion';
+import { Star, Zap, Crown, Flame } from 'lucide-react';
 import { formatFixture, getPositionText } from '../utils/fplUtils';
 
 interface Captain {
+    id: number;
+    code: number;
     web_name: string;
     team: string;
-    next_fixture?: string;
+    position: number;
     predicted_points: number;
-    explosivity: number;
-    ownership: number;
-    reason?: string;
-    position: number; // element_type
+    next_fixture: string;
     haul_prob?: number;
     haul_alert?: boolean;
 }
@@ -21,77 +22,77 @@ interface CaptainSectionProps {
         obvious: Captain;
         joker: Captain;
         fun_one: Captain;
-        weights?: any;
     };
     gameweek: number;
 }
 
-// Replicating the exact structure of MiniPlayerCard from PlayerDashboard
-const CaptainJerseyCard = ({ subtitle, data }: { subtitle: string, data: Captain }) => {
+const CaptainJerseyCard = ({ subtitle, data, icon: Icon, color }: { subtitle: string, data: Captain, icon: any, color: string }) => {
     if (!data) return null;
 
+    const imageUrl = `https://resources.premierleague.com/premierleague/photos/players/250x250/p${data.code}.png`;
+
     return (
-        <div className="flex flex-col items-center gap-2">
-
-            {/* Category Label (Outside the card, clean text) */}
-            <span className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400">
-                {subtitle}
-            </span>
-
-            {/* 
-               The "Jersey Card" Pill.
-               WE MUST OVERRIDE the global .jersey-card width/height/margin constraints 
-               to make it work in this grid context.
-               - !w-full !max-w-[100px]: Allow it to size to the grid but stop it from being huge
-               - !h-auto !aspect-[3/4]: Maintain vertical rectangular pill shape
-               - !m-0: Remove margins
-               - !w-full !max-w-[120px]: Increased width
-               - !h-auto !aspect-[3/4]: Maintain vertical rectangular pill shape
-               - !m-0: Remove margins
-            */}
-            <div className={`jersey-card captain relative !w-full !max-w-[120px] !h-auto !min-h-[140px] !m-0 py-3 shadow-lg transition-all duration-500 ${data.haul_alert ? 'border-orange-500/50 shadow-orange-500/20' : ''} !flex !flex-col !pt-2 !pb-2 !gap-1`}>
-                {/* Position - STATIC IN FLOW */}
-                <div className="w-full flex justify-center pt-[2px] pb-[2px]">
-                    <span className="text-[7px] font-bold text-slate-400 opacity-80 leading-none">
-                        {getPositionText(data.position)}
-                    </span>
-                </div>
-                {/* Name */}
-                <div className="name-text !text-[10px] !mb-1 mt-0 leading-tight flex-shrink-0">{data.web_name}</div>
-                {/* Stats */}
-                <div className="flex flex-col items-center flex-1 justify-center gap-1">
-                    {/* Points - Large like on pitch */}
-                    <div className={`score-text !text-3xl transition-colors duration-500 ${data.haul_alert ? 'text-orange-400 drop-shadow-[0_0_8px_rgba(251,146,60,0.4)]' : 'text-primary-glow'}`}>
-                        {Math.round(data.predicted_points)}
-                    </div>
-
-                    {/* Fixture */}
-                    <div className="fixture-text uppercase !text-[9px] text-slate-500">
-                        {formatFixture(data.next_fixture)}
-                    </div>
-                </div>
-
-                {/* Extra Stats Container - Flex Flow */}
-                <div className="mt-1 flex flex-col items-center gap-0.5">
-                    {/* Haul Alert - In Flow */}
-                    {data.haul_alert && (
-                        <div
-                            className="mb-0.5 flex items-center gap-1 bg-gradient-to-r from-orange-600 to-red-600 rounded-full px-2 py-0.5 animate-pulse whitespace-nowrap"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white fill-orange-200"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" /></svg>
-                            <span className="text-[7px] font-black italic tracking-tighter text-white uppercase">Haul Alert</span>
-                        </div>
-                    )}
-
-                    {data.haul_prob && data.haul_prob > 0 && (
-                        <div className={`text-[7px] font-black tracking-widest px-1.5 py-0.5 rounded-full ${data.haul_alert ? 'bg-orange-500/10 text-orange-400' : 'text-slate-500 opacity-60'}`}>
-                            {Math.round(data.haul_prob * 100)}% HAUL
-                        </div>
-                    )}
-                </div>
-
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            whileHover={{ y: -8 }}
+            className="flex flex-col items-center gap-3 w-full"
+        >
+            <div className="flex items-center gap-1.5 mb-1">
+                <Icon size={14} className={color} />
+                <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-slate-400">{subtitle}</span>
             </div>
-        </div>
+
+            <div className="relative w-full max-w-[160px] group">
+                {/* Captain Glow Effect */}
+                <div className="captain-glow opacity-0 group-hover:opacity-40 transition-opacity duration-500" />
+
+                <div className="glass-card rounded-[24px] overflow-hidden flex flex-col p-4 border border-white/5 relative z-10 transition-colors group-hover:border-white/20">
+                    <div className="relative w-full aspect-square mb-2 -mt-2">
+                        <img
+                            src={imageUrl}
+                            alt={data.web_name}
+                            className="w-full h-full object-contain filter drop-shadow(0 8px 12px rgba(0,0,0,0.4)) group-hover:scale-110 transition-transform duration-500"
+                        />
+                        <div className="absolute top-0 right-0">
+                            <div className="bg-amber-500 text-black text-[10px] font-black w-6 h-6 rounded-lg flex items-center justify-center shadow-lg transform rotate-12 group-hover:rotate-0 transition-transform">
+                                C
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="space-y-1">
+                        <div className="flex justify-center gap-1.5">
+                            <span className="bg-white/10 text-white/60 text-[8px] font-bold px-1.5 py-0.5 rounded-md">
+                                {getPositionText(data.position)}
+                            </span>
+                        </div>
+
+                        <h3 className="text-white font-bold text-sm text-center truncate uppercase tracking-tight">
+                            {data.web_name}
+                        </h3>
+
+                        <div className="flex items-center justify-center gap-1">
+                            <span className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-br from-emerald-400 to-teal-500">
+                                {Math.round(data.predicted_points)}
+                            </span>
+                            <span className="text-[10px] font-bold text-slate-500 uppercase">xP</span>
+                        </div>
+
+                        <div className="text-[9px] font-semibold text-slate-500 text-center uppercase tracking-wide">
+                            {formatFixture(data.next_fixture)}
+                        </div>
+
+                        {data.haul_prob && data.haul_prob > 0.25 && (
+                            <div className="mt-2 flex items-center justify-center gap-1 bg-emerald-500/10 border border-emerald-500/20 rounded-full py-1 px-2">
+                                <Flame size={10} className="text-emerald-400 fill-emerald-400" />
+                                <span className="text-[8px] font-black text-emerald-400 uppercase tracking-tighter">High Haul Chance</span>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </div>
+        </motion.div>
     );
 };
 
@@ -99,20 +100,25 @@ export default function CaptainSection({ captains, gameweek }: CaptainSectionPro
     if (!captains) return null;
 
     return (
-        <section className="w-full mb-6 md:mb-10">
-            {/* Grid: 3 Columns, Side-by-Side on Mobile */}
-            <div className="grid grid-cols-3 gap-1 md:gap-4 justify-items-center w-full max-w-lg mx-auto transform scale-110 origin-top">
+        <section className="w-full py-8">
+            <div className="grid grid-cols-3 gap-3 md:gap-8 max-w-4xl mx-auto px-4">
                 <CaptainJerseyCard
-                    subtitle="Obvious"
+                    subtitle="The Meta Pick"
                     data={captains.obvious}
+                    icon={Star}
+                    color="text-amber-400"
                 />
                 <CaptainJerseyCard
-                    subtitle="Joker"
+                    subtitle="The Risk Taker"
                     data={captains.joker}
+                    icon={Zap}
+                    color="text-violet-400"
                 />
                 <CaptainJerseyCard
-                    subtitle="Fun"
+                    subtitle="The Wildcard"
                     data={captains.fun_one}
+                    icon={Crown}
+                    color="text-rose-400"
                 />
             </div>
         </section>

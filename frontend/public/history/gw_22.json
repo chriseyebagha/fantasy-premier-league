@@ -1,11 +1,12 @@
 {
     "status": "online",
-    "last_updated": "2026-01-15T17:10:33.551709+00:00",
+    "last_updated": "2026-01-15T22:08:06.143788+00:00",
     "gameweek": 22,
     "total_projected_points": 68.44,
     "squad": [
         {
             "id": 430,
+            "code": 223094,
             "web_name": "Haaland",
             "team": "Man City",
             "position": 4,
@@ -57,6 +58,7 @@
         },
         {
             "id": 82,
+            "code": 437730,
             "web_name": "Semenyo",
             "team": "Man City",
             "position": 3,
@@ -82,7 +84,7 @@
             "next_fixture_difficulty": 3,
             "explosivity": 15.7,
             "defcon": 0.0,
-            "ownership": 44.0,
+            "ownership": 44.1,
             "hauls": 4,
             "reasoning": "High goal threat (0.4 Exp)",
             "features": {
@@ -100,7 +102,7 @@
                 "form": 6.2,
                 "ict_index": 151.4,
                 "fixture_difficulty": 3,
-                "selected_by": 44.0,
+                "selected_by": 44.1,
                 "cost": 7.6,
                 "hauls": 4,
                 "opponent_vulnerability": 32.75
@@ -108,6 +110,7 @@
         },
         {
             "id": 21,
+            "code": 204480,
             "web_name": "Rice",
             "team": "Arsenal",
             "position": 3,
@@ -115,7 +118,7 @@
             "predicted_points": 5.7,
             "xp_conservative": 5.7,
             "xp_brave": 5.7,
-            "haul_prob": 0.09,
+            "haul_prob": 0.07,
             "haul_alert": false,
             "prob_goal": 0.18,
             "prob_assist": 0.25,
@@ -133,7 +136,7 @@
             "next_fixture_difficulty": 3,
             "explosivity": 25.7,
             "defcon": 0.0,
-            "ownership": 27.4,
+            "ownership": 27.5,
             "hauls": 4,
             "reasoning": "Defcon Point Threat (+2 chance: 36%)",
             "features": {
@@ -151,7 +154,7 @@
                 "form": 7.2,
                 "ict_index": 132.8,
                 "fixture_difficulty": 3,
-                "selected_by": 27.4,
+                "selected_by": 27.5,
                 "cost": 7.3,
                 "hauls": 4,
                 "opponent_vulnerability": 36.0
@@ -159,6 +162,7 @@
         },
         {
             "id": 670,
+            "code": 498016,
             "web_name": "Roefs",
             "team": "Sunderland",
             "position": 1,
@@ -210,6 +214,7 @@
         },
         {
             "id": 260,
+            "code": 209036,
             "web_name": "Gu\u00e9hi",
             "team": "Crystal Palace",
             "position": 2,
@@ -217,7 +222,7 @@
             "predicted_points": 5.65,
             "xp_conservative": 5.65,
             "xp_brave": 5.65,
-            "haul_prob": 0.12,
+            "haul_prob": 0.1,
             "haul_alert": false,
             "prob_goal": 0.19,
             "prob_assist": 0.09,
@@ -261,6 +266,7 @@
         },
         {
             "id": 5,
+            "code": 226597,
             "web_name": "Gabriel",
             "team": "Arsenal",
             "position": 2,
@@ -268,7 +274,7 @@
             "predicted_points": 5.62,
             "xp_conservative": 5.62,
             "xp_brave": 5.62,
-            "haul_prob": 0.1,
+            "haul_prob": 0.09,
             "haul_alert": false,
             "prob_goal": 0.17,
             "prob_assist": 0.13,
@@ -286,7 +292,7 @@
             "next_fixture_difficulty": 3,
             "explosivity": 15.7,
             "defcon": 100.0,
-            "ownership": 32.3,
+            "ownership": 32.5,
             "hauls": 4,
             "reasoning": "Solid underlying metric coverage",
             "features": {
@@ -304,7 +310,7 @@
                 "form": 6.2,
                 "ict_index": 67.3,
                 "fixture_difficulty": 3,
-                "selected_by": 32.3,
+                "selected_by": 32.5,
                 "cost": 6.7,
                 "hauls": 4,
                 "opponent_vulnerability": 36.0
@@ -312,6 +318,7 @@
         },
         {
             "id": 8,
+            "code": 445122,
             "web_name": "J.Timber",
             "team": "Arsenal",
             "position": 2,
@@ -319,7 +326,7 @@
             "predicted_points": 5.59,
             "xp_conservative": 5.59,
             "xp_brave": 5.59,
-            "haul_prob": 0.12,
+            "haul_prob": 0.11,
             "haul_alert": false,
             "prob_goal": 0.24,
             "prob_assist": 0.16,
@@ -363,6 +370,7 @@
         },
         {
             "id": 136,
+            "code": 502500,
             "web_name": "Thiago",
             "team": "Brentford",
             "position": 4,
@@ -370,7 +378,7 @@
             "predicted_points": 5.94,
             "xp_conservative": 5.94,
             "xp_brave": 5.94,
-            "haul_prob": 0.15,
+            "haul_prob": 0.14,
             "haul_alert": false,
             "prob_goal": 0.66,
             "prob_assist": 0.15,
@@ -414,6 +422,7 @@
         },
         {
             "id": 488,
+            "code": 208706,
             "web_name": "Bruno G.",
             "team": "Newcastle",
             "position": 3,
@@ -439,7 +448,7 @@
             "next_fixture_difficulty": 2,
             "explosivity": 93.5,
             "defcon": 0.0,
-            "ownership": 22.2,
+            "ownership": 22.3,
             "hauls": 7,
             "reasoning": "Solid underlying metric coverage",
             "features": {
@@ -457,7 +466,7 @@
                 "form": 7.0,
                 "ict_index": 139.2,
                 "fixture_difficulty": 2,
-                "selected_by": 22.2,
+                "selected_by": 22.3,
                 "cost": 7.2,
                 "hauls": 7,
                 "opponent_vulnerability": 39.0
@@ -465,6 +474,7 @@
         },
         {
             "id": 329,
+            "code": 153682,
             "web_name": "Wilson",
             "team": "Fulham",
             "position": 3,
@@ -472,7 +482,7 @@
             "predicted_points": 5.31,
             "xp_conservative": 5.06,
             "xp_brave": 5.31,
-            "haul_prob": 0.08,
+            "haul_prob": 0.09,
             "haul_alert": false,
             "prob_goal": 0.29,
             "prob_assist": 0.22,
@@ -516,6 +526,7 @@
         },
         {
             "id": 457,
+            "code": 61256,
             "web_name": "Casemiro",
             "team": "Man Utd",
             "position": 3,
@@ -523,7 +534,7 @@
             "predicted_points": 5.15,
             "xp_conservative": 5.15,
             "xp_brave": 5.15,
-            "haul_prob": 0.07,
+            "haul_prob": 0.06,
             "haul_alert": false,
             "prob_goal": 0.21,
             "prob_assist": 0.17,
@@ -569,6 +580,7 @@
     "bench": [
         {
             "id": 291,
+            "code": 17761,
             "web_name": "Tarkowski",
             "team": "Everton",
             "position": 2,
@@ -576,7 +588,7 @@
             "predicted_points": 5.31,
             "xp_conservative": 5.05,
             "xp_brave": 5.31,
-            "haul_prob": 0.05,
+            "haul_prob": 0.04,
             "haul_alert": false,
             "prob_goal": 0.06,
             "prob_assist": 0.09,
@@ -620,6 +632,7 @@
         },
         {
             "id": 414,
+            "code": 209244,
             "web_name": "Foden",
             "team": "Man City",
             "position": 3,
@@ -645,7 +658,7 @@
             "next_fixture_difficulty": 3,
             "explosivity": 47.1,
             "defcon": 0.0,
-            "ownership": 32.7,
+            "ownership": 32.5,
             "hauls": 5,
             "reasoning": "Solid underlying metric coverage",
             "features": {
@@ -663,7 +676,7 @@
                 "form": 2.4,
                 "ict_index": 145.2,
                 "fixture_difficulty": 3,
-                "selected_by": 32.7,
+                "selected_by": 32.5,
                 "cost": 8.7,
                 "hauls": 5,
                 "opponent_vulnerability": 32.75
@@ -671,6 +684,7 @@
         },
         {
             "id": 72,
+            "code": 221466,
             "web_name": "Senesi",
             "team": "Bournemouth",
             "position": 2,
@@ -678,7 +692,7 @@
             "predicted_points": 5.03,
             "xp_conservative": 5.03,
             "xp_brave": 5.03,
-            "haul_prob": 0.03,
+            "haul_prob": 0.04,
             "haul_alert": false,
             "prob_goal": 0.02,
             "prob_assist": 0.19,
@@ -722,6 +736,7 @@
         },
         {
             "id": 565,
+            "code": 184254,
             "web_name": "Vicario",
             "team": "Spurs",
             "position": 1,
@@ -830,7 +845,7 @@
                 "next_fixture": "NFO (A)",
                 "next_fixture_difficulty": 3,
                 "explosivity": 15.7,
-                "ownership": 32.3
+                "ownership": 32.5
             },
             {
                 "id": 8,
@@ -868,7 +883,7 @@
                 "next_fixture": "WOL (A)",
                 "next_fixture_difficulty": 2,
                 "explosivity": 93.5,
-                "ownership": 22.2
+                "ownership": 22.3
             },
             {
                 "id": 82,
@@ -887,7 +902,7 @@
                 "next_fixture": "MUN (A)",
                 "next_fixture_difficulty": 3,
                 "explosivity": 15.7,
-                "ownership": 44.0
+                "ownership": 44.1
             },
             {
                 "id": 21,
@@ -906,7 +921,7 @@
                 "next_fixture": "NFO (A)",
                 "next_fixture_difficulty": 3,
                 "explosivity": 25.7,
-                "ownership": 27.4
+                "ownership": 27.5
             },
             {
                 "id": 673,
@@ -982,7 +997,7 @@
                 "next_fixture": "FUL (H)",
                 "next_fixture_difficulty": 2,
                 "explosivity": 14.3,
-                "ownership": 12.9
+                "ownership": 13.0
             }
         ],
         "bench": [
@@ -1070,6 +1085,7 @@
     "recommendations": {
         "obvious": {
             "id": 430,
+            "code": 223094,
             "web_name": "Haaland",
             "team": "Man City",
             "position": 4,
@@ -1122,6 +1138,7 @@
         },
         "joker": {
             "id": 488,
+            "code": 208706,
             "web_name": "Bruno G.",
             "team": "Newcastle",
             "position": 3,
@@ -1147,7 +1164,7 @@
             "next_fixture_difficulty": 2,
             "explosivity": 93.5,
             "defcon": 0.0,
-            "ownership": 22.2,
+            "ownership": 22.3,
             "hauls": 7,
             "reasoning": "Solid underlying metric coverage",
             "features": {
@@ -1165,15 +1182,16 @@
                 "form": 7.0,
                 "ict_index": 139.2,
                 "fixture_difficulty": 2,
-                "selected_by": 22.2,
+                "selected_by": 22.3,
                 "cost": 7.2,
                 "hauls": 7,
                 "opponent_vulnerability": 39.0
             },
-            "reason": "Bruno G. is selected as the best relative differential (22.2% ownership) with explosive potential."
+            "reason": "Bruno G. is selected as the best relative differential (22.3% ownership) with explosive potential."
         },
         "fun_one": {
             "id": 260,
+            "code": 209036,
             "web_name": "Gu\u00e9hi",
             "team": "Crystal Palace",
             "position": 2,
@@ -1181,7 +1199,7 @@
             "predicted_points": 5.65,
             "xp_conservative": 5.65,
             "xp_brave": 5.65,
-            "haul_prob": 0.12,
+            "haul_prob": 0.1,
             "haul_alert": false,
             "prob_goal": 0.19,
             "prob_assist": 0.09,

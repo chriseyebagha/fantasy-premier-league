@@ -1,7 +1,10 @@
 'use client';
 
 import React from 'react';
+import { motion } from 'framer-motion';
+import { Flame } from 'lucide-react';
 import { Player } from '../types/player';
+import { formatFixture, getPositionText } from '../utils/fplUtils';
 
 interface PlayerDashboardProps {
     squad: Player[];
@@ -11,45 +14,67 @@ interface PlayerDashboardProps {
     optimized_squad?: any;
 }
 
-import { formatFixture, getPositionText } from '../utils/fplUtils';
+const MiniPlayerCard = ({ player, isBench = false, isCaptain = false }: { player: any, isBench?: boolean, isCaptain?: boolean }) => {
+    const imageUrl = `https://resources.premierleague.com/premierleague/photos/players/250x250/p${player.code}.png`;
+    const position = getPositionText(player.element_type || player.position);
 
-const MiniPlayerCard = ({ player, isBench = false, isCaptain = false }: { player: any, isBench?: boolean, isCaptain?: boolean }) => (
-    <div className={`jersey-card relative ${isBench ? 'bench' : ''} ${isCaptain ? 'captain' : ''} ${player.haul_alert ? 'border-orange-500/50 shadow-[0_0_15px_rgba(234,88,12,0.15)]' : ''} !flex !flex-col !pt-0 !pb-1 !gap-0.5`}>
-        {isCaptain && <div className="captain-badge">C</div>}
-        {/* Position Indicator - STATIC IN FLOW (pushes name down) */}
-        <div className="w-full flex justify-center pt-[2px] pb-[1px]">
-            <span className="text-[7px] font-bold text-slate-400 opacity-80 leading-none">
-                {getPositionText(player.element_type || player.position)}
-            </span>
-        </div>
-        <div className="name-text mt-0 leading-tight flex-shrink-0">{player.web_name}</div>
+    return (
+        <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            whileHover={{ scale: 1.05 }}
+            className={`player-card-container ${isBench ? 'opacity-80 scale-90' : ''}`}
+        >
+            <div className="player-portrait-container">
+                <img
+                    src={imageUrl}
+                    alt={player.web_name}
+                    className="player-portrait"
+                    onError={(e) => {
+                        (e.target as HTMLImageElement).src = 'https://resources.premierleague.com/premierleague/photos/players/250x250/photoless.png';
+                    }}
+                />
 
-        <div className="flex flex-col items-center flex-1 justify-center">
-            <div className={`score-text transition-colors duration-500 ${player.haul_alert ? 'text-orange-400 drop-shadow-[0_0_8px_rgba(251,146,60,0.4)]' : 'text-primary-glow'}`}>
-                {Math.round(player.predicted_points)}
-            </div>
-            <div className="fixture-text uppercase">{formatFixture(player.next_fixture)}</div>
+                {isCaptain && (
+                    <>
+                        <div className="captain-glow" />
+                        <div className="captain-badge-premium">C</div>
+                    </>
+                )}
 
-            {/* Haul & Alert Container - Flex Flow to prevent overlapping fixture */}
-            <div className="mt-0.5 flex flex-col items-center">
-                {/* Haul Alert - In Flow */}
                 {player.haul_alert && (
-                    <div className="mb-0.5 flex items-center gap-1 bg-gradient-to-r from-orange-600 to-red-600 rounded-full px-1.5 py-0.5 animate-pulse whitespace-nowrap">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white fill-orange-200"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" /></svg>
-                        <span className="text-[6px] font-black italic tracking-tighter text-white uppercase">Haul Alert</span>
-                    </div>
-                )}
-
-                {/* Haul Potential % Indicator */}
-                {player.haul_prob !== undefined && player.haul_prob > 0 && (
-                    <div className={`text-[6px] font-black tracking-widest px-1 rounded-full ${player.haul_alert ? 'bg-orange-500/10 text-orange-400' : 'text-slate-500 opacity-40'}`}>
-                        {Math.round(player.haul_prob * 100)}% HAUL
+                    <div className="absolute -top-2 -left-2 z-20">
+                        <motion.div
+                            animate={{ scale: [1, 1.2, 1] }}
+                            transition={{ repeat: Infinity, duration: 2 }}
+                            className="bg-emerald-500 rounded-full p-1 shadow-lg shadow-emerald-500/50"
+                        >
+                            <Flame size={10} className="text-white fill-white" />
+                        </motion.div>
                     </div>
                 )}
             </div>
-        </div>
-    </div>
-);
+
+            <div className="player-info-box glass-card border-white/5 group-hover:border-white/20 transition-colors">
+                <div className="text-[7px] font-black text-slate-500 uppercase tracking-tighter mb-0.5">
+                    {position}
+                </div>
+                <div className="player-name">
+                    {player.web_name}
+                </div>
+                <div className="flex items-center justify-center gap-1">
+                    <span className="player-points">
+                        {Math.round(player.predicted_points)}
+                    </span>
+                    <span className="text-[8px] font-bold text-slate-500 uppercase">xP</span>
+                </div>
+                <div className="player-fixture mt-0.5">
+                    {formatFixture(player.next_fixture)}
+                </div>
+            </div>
+        </motion.div>
+    );
+};
 
 export default function PlayerDashboard({ squad, bench, gameweek, optimized_squad, captainId }: PlayerDashboardProps) {
     const displaySquad = optimized_squad?.players?.starting_11 || squad;
@@ -58,37 +83,57 @@ export default function PlayerDashboard({ squad, bench, gameweek, optimized_squa
     if (!displaySquad) return null;
 
     // Group Starters by position
-    const gks = displaySquad.filter((p: any) => p.position === 1);
-    const defs = displaySquad.filter((p: any) => p.position === 2);
-    const mids = displaySquad.filter((p: any) => p.position === 3);
-    const fwds = displaySquad.filter((p: any) => p.position === 4);
+    const gks = displaySquad.filter((p: any) => (p.element_type || p.position) === 1);
+    const defs = displaySquad.filter((p: any) => (p.element_type || p.position) === 2);
+    const mids = displaySquad.filter((p: any) => (p.element_type || p.position) === 3);
+    const fwds = displaySquad.filter((p: any) => (p.element_type || p.position) === 4);
+
+    // Calculate formation string (e.g., "4-4-2")
+    const formation = `${defs.length}-${mids.length}-${fwds.length}`;
 
     return (
-        <div className="pitch-area">
-            {/* Forwards */}
-            <div className="pitch-row">
-                {fwds.map((p: any) => <MiniPlayerCard key={p.id} player={p} isCaptain={p.id === captainId} />)}
-            </div>
+        <div className="w-full space-y-6">
+            <div className="pitch-container glass-card">
+                <div className="pitch-grid-lines" />
 
-            {/* Midfielders */}
-            <div className="pitch-row">
-                {mids.map((p: any) => <MiniPlayerCard key={p.id} player={p} isCaptain={p.id === captainId} />)}
-            </div>
+                {/* Formation Label */}
+                <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20">
+                    <div className="glass-pill px-4 py-1.5 rounded-full border-white/10">
+                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em]">
+                            System: {formation}
+                        </span>
+                    </div>
+                </div>
 
-            {/* Defenders */}
-            <div className="pitch-row">
-                {defs.map((p: any) => <MiniPlayerCard key={p.id} player={p} isCaptain={p.id === captainId} />)}
-            </div>
-
-            {/* Goalie */}
-            <div className="pitch-row">
-                {gks.map((p: any) => <MiniPlayerCard key={p.id} player={p} isCaptain={p.id === captainId} />)}
-            </div>
-
-            {/* Bench */}
-            <div className="bench-section mt-auto">
-                <div className="bench-title">Substitutes</div>
+                {/* Forwards */}
                 <div className="pitch-row">
+                    {fwds.map((p: any) => <MiniPlayerCard key={p.id} player={p} isCaptain={p.id === captainId} />)}
+                </div>
+
+                {/* Midfielders */}
+                <div className="pitch-row">
+                    {mids.map((p: any) => <MiniPlayerCard key={p.id} player={p} isCaptain={p.id === captainId} />)}
+                </div>
+
+                {/* Defenders */}
+                <div className="pitch-row">
+                    {defs.map((p: any) => <MiniPlayerCard key={p.id} player={p} isCaptain={p.id === captainId} />)}
+                </div>
+
+                {/* Goalie */}
+                <div className="pitch-row">
+                    {gks.map((p: any) => <MiniPlayerCard key={p.id} player={p} isCaptain={p.id === captainId} />)}
+                </div>
+            </div>
+
+            {/* Bench Section */}
+            <div className="w-full max-w-4xl mx-auto space-y-2">
+                <div className="flex items-center justify-center gap-3">
+                    <div className="h-[1px] flex-1 bg-white/5" />
+                    <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em]">Substitutes</span>
+                    <div className="h-[1px] flex-1 bg-white/5" />
+                </div>
+                <div className="bench-tray glass-card border-white/5">
                     {displayBench?.map((p: any) => <MiniPlayerCard key={p.id} player={p} isBench />)}
                 </div>
             </div>

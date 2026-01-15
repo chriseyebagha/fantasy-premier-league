@@ -1,6 +1,8 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { TrendingUp, Target, Layout, ChevronDown, Home as HomeIcon } from 'lucide-react';
 import CaptainSection from '../components/CaptainSection';
 import PlayerDashboard from '../components/PlayerDashboard';
 
@@ -15,8 +17,7 @@ export default function Home() {
     try {
       const res = await fetch('/fantasy/history/metadata.json');
       if (res.ok) {
-        const meta = await res.json();
-        setMetadata(meta);
+        setMetadata(await res.json());
       }
     } catch (err) {
       console.error('Failed to fetch metadata:', err);
@@ -26,18 +27,14 @@ export default function Home() {
   const fetchDashboard = async (gw?: string) => {
     setLoading(true);
     try {
-      const url = gw
-        ? `/fantasy/history/gw_${gw}.json`
-        : `/fantasy/dashboard_data.json`;
-
+      const url = gw ? `/fantasy/history/gw_${gw}.json` : `/fantasy/dashboard_data.json`;
       const res = await fetch(url);
-      if (!res.ok) throw new Error('Failed to fetch dashboard data');
+      if (!res.ok) throw new Error('Engine unreachable');
       const dashboardData = await res.json();
       setData(dashboardData);
       if (!gw) setSelectedGw(dashboardData.gameweek.toString());
     } catch (err: any) {
       setError(err.message);
-      console.error('Dashboard error:', err);
     } finally {
       setLoading(false);
     }
@@ -48,169 +45,141 @@ export default function Home() {
     fetchDashboard();
   }, []);
 
-  const handleGwChange = (gw: string) => {
-    setSelectedGw(gw);
-    // If it's the latest GW in metadata, we could fetch dashboard_data.json, 
-    // but the history version is essentially the same.
-    fetchDashboard(gw);
-  };
-
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-bg-color">
-        <div className="flex flex-col items-center gap-4">
-          <div className="w-12 h-12 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin" />
-          <p className="text-slate-400 font-bold animate-pulse tracking-widest text-[10px] uppercase">
-            Engine is Computing...
+      <div className="min-h-screen flex items-center justify-center bg-[#07090f]">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="flex flex-col items-center gap-6"
+        >
+          <div className="relative w-16 h-16">
+            <div className="absolute inset-0 border-4 border-emerald-500/20 rounded-full" />
+            <div className="absolute inset-0 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin" />
+          </div>
+          <p className="text-slate-400 font-black tracking-[0.3em] text-[10px] uppercase animate-pulse">
+            Syncing FPL Projections...
           </p>
-        </div>
+        </motion.div>
       </div>
     );
   }
 
   if (error || !data || data.status === 'offline') {
     return (
-      <div className="min-h-screen flex items-center justify-center p-6 text-center bg-bg-color">
-        <div className="bg-white border-2 border-slate-100 rounded-3xl p-8 shadow-xl max-w-sm">
-          <h2 className="text-xl font-black text-slate-800 mb-2">Engine Offline</h2>
-          <p className="text-slate-400 text-xs mb-6 font-medium">{error || 'The FPL backend is currently disconnected.'}</p>
+      <div className="min-h-screen flex items-center justify-center p-6 bg-[#07090f]">
+        <div className="glass-card rounded-[32px] p-10 max-w-sm text-center border-white/5">
+          <div className="bg-rose-500/10 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <Target className="text-rose-500" size={32} />
+          </div>
+          <h2 className="text-2xl font-black text-white mb-2 uppercase tracking-tight">System Offline</h2>
+          <p className="text-slate-400 text-xs mb-8 font-medium leading-relaxed">
+            {error || 'The FPL Predictor Engine is currently offline for maintenance.'}
+          </p>
           <button
             onClick={() => fetchDashboard()}
-            className="px-6 py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-full text-[10px] font-bold tracking-widest transition-all shadow-lg active:scale-95"
+            className="w-full py-4 bg-white text-black rounded-2xl text-[11px] font-black tracking-widest transition-all hover:bg-slate-200 active:scale-95"
           >
-            RETRY CONNECTION
+            RETRY CONNECT
           </button>
         </div>
       </div>
     );
   }
 
+  const accuracy = metadata?.[data.gameweek.toString()]?.efficiency;
+
   return (
     <main className="app-container" suppressHydrationWarning>
+      <nav className="fixed top-8 left-8 z-50">
+        <a href="https://chriseyebagha.com" className="group flex items-center gap-3">
+          <div className="w-8 h-8 rounded-lg glass-card flex items-center justify-center group-hover:bg-white/10 transition-colors">
+            <HomeIcon size={14} className="text-slate-400 group-hover:text-white" />
+          </div>
+          <span className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 group-hover:text-white transition-colors hidden md:block">
+            Chris Eyebagha
+          </span>
+        </a>
+      </nav>
 
-      {/* 
-        PREMIUM HEADER - THIN PILL 
-        - Replicates the .jersey-card aesthetic (white, glass, blur, border)
-        - Compact and clean.
-      */}
-      {/* 
-        HOME BUTTON
-        - Absolute Top Left
-        - Clean text only, no borders, no heavy background
-      */}
-      <a
-        href="https://chriseyebagha.com"
-        className="fixed top-8 left-8 z-50 group transition-all"
-      >
-        <span className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-300 group-hover:text-indigo-600 transition-colors">
-          Home
-        </span>
-      </a>
+      <section className="mt-20 flex flex-col items-center gap-12">
+        {/* Header Stats */}
+        <div className="flex flex-col items-center gap-6">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex flex-col items-center"
+          >
+            <div className="flex items-center gap-3 mb-2">
+              <h1 className="text-sm md:text-xl font-black uppercase tracking-[0.5em] text-white">
+                Gameweek {data.gameweek}
+              </h1>
+              {accuracy !== undefined && (
+                <div className="bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full flex items-center gap-1.5">
+                  <TrendingUp size={10} className="text-emerald-400" />
+                  <span className="text-[9px] font-black text-emerald-400 uppercase tracking-tight">
+                    {accuracy}% Success
+                  </span>
+                </div>
+              )}
+            </div>
+          </motion.div>
 
-      {/* 
-        GW PREDICTIONS HEADER
-        - Scaled up to match section headers
-        - Includes a dropdown for historical selection
-      */}
-      <header className="flex flex-col items-center mt-20 mb-16 gap-10 relative">
-
-        <div className="flex flex-col items-center gap-4">
-          <div className="flex flex-col items-center gap-1">
-            <h1 className="text-center text-sm md:text-lg font-black uppercase tracking-[0.4em] text-slate-800">
-              GW {data.gameweek} Predictions
-            </h1>
-            {metadata?.[data.gameweek.toString()]?.efficiency !== undefined && (
-              <span className="px-2 py-0.5 bg-emerald-50 text-emerald-600 text-[8px] font-black uppercase tracking-widest rounded-full border border-emerald-100 shadow-sm">
-                {metadata[data.gameweek.toString()].efficiency}% Accuracy
+          {/* Points Pill */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="glass-card points-pill border-white/10"
+          >
+            <span className="text-[9px] font-black text-slate-500 uppercase tracking-[0.3em] mb-1">
+              Projected Total
+            </span>
+            <div className="flex items-baseline gap-1">
+              <span className="text-4xl font-black text-white tracking-tighter">
+                {Math.round(data.total_projected_points || 0)}
               </span>
-            )}
-          </div>
-
-          <div className="header-pill">
-            <span className="text-[9px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-1">Total Projected</span>
-            <span className="text-3xl font-black text-indigo-600">
-              {data.total_projected_points || '0.0'} pts
-            </span>
-          </div>
-
-          {selectedGw && metadata && selectedGw !== Object.keys(metadata).sort((a, b) => Number(b) - Number(a))[0] && (
-            <span className="mt-1 px-3 py-1 bg-amber-50 text-amber-600 text-[8px] font-black uppercase tracking-widest rounded-full border border-amber-100 animate-pulse shadow-sm">
-              Historical View
-            </span>
-          )}
+              <span className="text-xs font-bold text-slate-500 uppercase">Points</span>
+            </div>
+          </motion.div>
         </div>
 
-        {metadata && Object.keys(metadata).length > 0 && (
-          <div className="week-selector-group">
-            <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] mr-1">
-              Week
-            </span>
-            <div className="relative flex items-center group">
-              <select
-                id="gw-select"
-                value={selectedGw || ''}
-                onChange={(e) => handleGwChange(e.target.value)}
-                className="bg-transparent border-none p-0 pr-6 text-[11px] font-black text-indigo-600 uppercase tracking-[0.1em] outline-none cursor-pointer hover:text-indigo-800 transition-colors appearance-none"
-              >
-
-                {/* Show Live Option */}
-                <option value={Object.keys(metadata).sort((a, b) => Number(b) - Number(a))[0]}>
-                  GW {Object.keys(metadata).sort((a, b) => Number(b) - Number(a))[0]} (Live)
-                </option>
-
-                {/* Show History Options */}
-                {Object.keys(metadata)
-                  .sort((a, b) => Number(b) - Number(a))
-                  .slice(1) // Skip the first one because it's 'Live'
-                  .map(gw => (
-                    <option key={gw} value={gw}>
-                      GW {gw}
-                    </option>
-                  ))}
-              </select>
-              <div className="absolute right-0 pointer-events-none">
-                <svg className="w-2.5 h-2.5 text-slate-400 group-hover:text-indigo-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M19 9l-7 7-7-7" />
-                </svg>
-              </div>
-            </div>
+        {/* Captain Recommendations */}
+        <section className="w-full max-w-5xl mx-auto">
+          <div className="flex items-center gap-4 mb-8 px-4">
+            <div className="h-[1px] flex-1 bg-white/5" />
+            <h2 className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 flex items-center gap-2">
+              <Star size={12} className="text-amber-400" /> Premium Recommendations
+            </h2>
+            <div className="h-[1px] flex-1 bg-white/5" />
           </div>
-        )}
-      </header>
+          <CaptainSection captains={data.recommendations} gameweek={data.gameweek} />
+        </section>
 
-
-      {/* SECTION TITLE: Captain Options */}
-      <h2 className="text-center text-xs md:text-sm font-black uppercase tracking-[0.2em] text-slate-400 mb-4">
-        Captain Options
-      </h2>
-
-      {/* 
-        CAPTAINCY SECTION 
-        - Zero overlap container
-        - "Premium Control Deck"
-      */}
-      <section className="shrink-0 w-full max-w-5xl mx-auto">
-        <CaptainSection captains={data.recommendations} gameweek={data.gameweek} />
+        {/* Pitch Dashboard */}
+        <section className="w-full max-w-5xl mx-auto flex flex-col gap-8 pb-32">
+          <div className="flex items-center gap-4 px-4">
+            <div className="h-[1px] flex-1 bg-white/5" />
+            <h2 className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 flex items-center gap-2">
+              <Layout size={12} className="text-violet-400" /> Predicted Starting XI
+            </h2>
+            <div className="h-[1px] flex-1 bg-white/5" />
+          </div>
+          <PlayerDashboard
+            squad={data.squad}
+            bench={data.bench}
+            gameweek={data.gameweek}
+            optimized_squad={data.optimized_squad}
+            captainId={data.recommendations.obvious?.id}
+          />
+        </section>
       </section>
-
-      {/* SECTION TITLE: Top predicted players */}
-      <h2 className="text-center text-xs md:text-sm font-black uppercase tracking-[0.2em] text-slate-400 mb-2 mt-2">
-        Top predicted players
-      </h2>
-
-      {/* 
-        THE PITCH 
-        - Occupies remaining space
-      */}
-      <div className="w-full max-w-5xl mx-auto flex-1 flex flex-col min-h-0">
-        <PlayerDashboard
-          squad={data.squad}
-          bench={data.bench}
-          gameweek={data.gameweek}
-          optimized_squad={data.optimized_squad}
-          captainId={data.recommendations.obvious?.id}
-        />
-      </div>
     </main>
   );
 }
+
+// Minimal Icons for UI
+const Star = ({ size, className }: any) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+  </svg>
+);

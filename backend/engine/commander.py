@@ -258,6 +258,7 @@ class EngineCommander:
 
             processed.append({
                 "id": p['id'],
+                "code": p['code'],
                 "web_name": p['web_name'],
                 "team": teams.get(p['team'], "Unknown"),
                 "position": p['element_type'],
