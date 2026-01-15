@@ -37,6 +37,15 @@ This document explains the core metrics driving the FPL Projections (xP Predicto
 > **24/25 FPL Rule Update:** Outfield players now earn **+2 points** for reaching defensive action thresholds (10 for Defenders, 12 for Midfielders/Forwards). Our model trains specifically on these "Defcon Points."
 
 ### 4. Opponent Vulnerability (`opponent_vulnerability`)
+### 4. Efficiency Score (Accuracy %)
+For historical gameweeks, the engine reveals a retrospective **Accuracy %**. This is calculated as the percentage of the Recommended Starting XI that achieved at least one "Return":
+- **Attacking**: Goal or Assist.
+- **Defensive**: Clean Sheet (DEF/GK only).
+- **Goalkeeping**: 3+ Saves.
+
+This provides an empirical measure of "Squad Hit Rate" beyond just total points.
+
+### 5. Opponent Vulnerability (`opponent_vulnerability`)
 **What it is:** A score (0-100) representing how likely a team is to concede big chances. Higher is better for your attackers.
 
 **Analysis & "Brave" Integration:**

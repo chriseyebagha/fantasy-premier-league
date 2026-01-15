@@ -66,7 +66,14 @@ The system features a self-correcting feedback loop that evaluates its own perfo
 
 ### Noise Gate & A/B Tracking
 Reduces the global learning rate (`effective_lr`) during "chaotic" gameweeks where the Mean Absolute Error (MAE) exceeds historical norms.
-- **A/B Metric logging**: The engine continuously tracks **mae_conservative** vs **mae_brave** to validate the effectiveness of the matchup-boost targeting strategy.
+- **A/B Metric Logging**: `trainer.py` now logs Mean Absolute Error (MAE) for both `xp_conservative` and `xp_brave`, allowing empirical comparison of the "Brave" strategy performance.
+
+## Data Retention & History
+
+The system maintains a **Stateless JSON Database** in the frontend public directory:
+- **Snapshots**: Every `generate_static.py` run archives a full `gw_{id}.json` in `public/history/`.
+- **Discovery**: A `metadata.json` tracks available gameweeks.
+- **Frontend Switcher**: The UI allows toggle between "Live" and historical predictions, enabling retrospective analysis of model performance.
 
 ### Hysteresis (Trust Momentum)
 Uses an Exponential Moving Average (EMA) for updating model confidence scores. The engine requires **sustained accuracy** over multiple weeks to increase trust in a specific model head.

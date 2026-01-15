@@ -117,10 +117,19 @@ def run_prediction_and_save():
     print("Generating recommendations...")
     recommendations = commander.get_tier_captains(starters + bench)
     
+    # --- METRICS: TOTAL PROJECTED XP ---
+    captain_id = recommendations.get('obvious', {}).get('id')
+    total_xp = sum(p.get('predicted_points', 0) for p in starters)
+    for p in starters:
+        if p.get('id') == captain_id:
+            total_xp += p.get('predicted_points', 0) # Add the double points
+            break
+            
     dashboard_data = {
         "status": "online",
         "last_updated": datetime.now(timezone.utc).isoformat(),
         "gameweek": dm.get_upcoming_gameweek(dm.get_bootstrap_static()),
+        "total_projected_points": round(total_xp, 2),
         "squad": starters,
         "bench": bench,
         "optimized_squad": optimized_squad_data,
@@ -128,13 +137,85 @@ def run_prediction_and_save():
     }
     
     # Path to frontend public folder
-    output_dir = os.path.join(os.path.dirname(__file__), '../frontend/public')
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir)
-        
-    output_path = os.path.join(output_dir, 'dashboard_data.json')
+    public_dir = os.path.join(os.path.dirname(__file__), '../frontend/public')
+    history_dir = os.path.join(public_dir, 'history')
     
-    print(f"Saving static data to {output_path}...")
+    if not os.path.exists(public_dir):
+        os.makedirs(public_dir)
+    if not os.path.exists(history_dir):
+        os.makedirs(history_dir)
+        
+    output_path = os.path.join(public_dir, 'dashboard_data.json')
+    gw_output_path = os.path.join(history_dir, f"gw_{dashboard_data['gameweek']}.json")
+    metadata_path = os.path.join(history_dir, 'metadata.json')
+    
+    # --- METADATA LOADING ---
+    metadata = {}
+    if os.path.exists(metadata_path):
+        try:
+            with open(metadata_path, 'r') as f:
+                metadata = json.load(f)
+        except Exception:
+            metadata = {}
+
+    # --- HISTORICAL ACCURACY (EFFICIENCY) CALCULATION ---
+    # Done during self-training loop if actuals exist for previous_gw
+    efficiency_score = None
+    try:
+        bootstrap = dm.get_bootstrap_static()
+        upcoming_gw = dm.get_upcoming_gameweek(bootstrap)
+        prev_gw = upcoming_gw - 1
+        
+        if str(prev_gw) in metadata:
+            print(f"Calculating accuracy for GW{prev_gw}...")
+            actual_events = dm.get_actual_events(prev_gw)
+            if actual_events:
+                # Load the prev_gw snapshot to get the recommended squad
+                prev_path = os.path.join(public_dir, metadata[str(prev_gw)]['file'])
+                with open(prev_path, 'r') as f:
+                    prev_data = json.load(f)
+                
+                prev_squad = prev_data.get('squad', [])
+                hits = 0
+                for p in prev_squad:
+                    p_id = str(p.get('id'))
+                    actual = actual_events.get(p_id)
+                    if actual:
+                        has_return = (
+                            actual.get('goals_scored', 0) > 0 or 
+                            actual.get('assists', 0) > 0 or 
+                            (p.get('position') in [1, 2] and actual.get('clean_sheets', 0) > 0) or
+                            actual.get('saves', 0) >= 3
+                        )
+                        if has_return:
+                            hits += 1
+                
+                efficiency_score = round((hits / 11) * 100, 1) if prev_squad else 0
+                print(f"GW{prev_gw} Efficiency: {efficiency_score}% ({hits}/11 returns)")
+                metadata[str(prev_gw)]['efficiency'] = efficiency_score
+    except Exception as e:
+        print(f"⚠️ Accuracy calculation warning: {e}")
+
+    # --- HISTORICAL SNAPSHOT ---
+    print(f"Archiving historical snapshot to {gw_output_path}...")
+    with open(gw_output_path, 'w') as f:
+        json.dump(dashboard_data, f, indent=4)
+        
+    # Add/Update current GW in metadata
+    metadata[str(dashboard_data['gameweek'])] = {
+        "timestamp": dashboard_data['last_updated'],
+        "file": f"history/gw_{dashboard_data['gameweek']}.json",
+        "projected_points": dashboard_data['total_projected_points']
+    }
+    
+    # Sort metadata by gameweek for the UI
+    sorted_metadata = dict(sorted(metadata.items(), key=lambda x: int(x[0])))
+    
+    with open(metadata_path, 'w') as f:
+        json.dump(sorted_metadata, f, indent=4)
+    # ---------------------------
+
+    print(f"Saving latest live data to {output_path}...")
     with open(output_path, 'w') as f:
         json.dump(dashboard_data, f, indent=4)
         
