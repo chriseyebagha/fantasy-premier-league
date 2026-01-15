@@ -100,9 +100,9 @@ export default function Home() {
       */}
       <a
         href="https://chriseyebagha.com"
-        className="fixed top-6 left-6 z-50 group px-2 py-1"
+        className="fixed top-8 left-8 z-50 group transition-all"
       >
-        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-300 group-hover:text-slate-500 transition-colors shadow-sm">
+        <span className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-300 group-hover:text-indigo-600 transition-colors">
           Home
         </span>
       </a>
@@ -112,63 +112,72 @@ export default function Home() {
         - Scaled up to match section headers
         - Includes a dropdown for historical selection
       */}
-      <header className="flex flex-col items-center mt-8 mb-8 gap-3 relative">
-        <div className="flex flex-col items-center">
-          <div className="flex items-center gap-2 mb-1">
-            <h1 className="text-center text-sm md:text-base font-black uppercase tracking-[0.3em] text-slate-800">
+      <header className="flex flex-col items-center mt-20 mb-16 gap-10 relative">
+
+        <div className="flex flex-col items-center gap-4">
+          <div className="flex flex-col items-center gap-1">
+            <h1 className="text-center text-sm md:text-lg font-black uppercase tracking-[0.4em] text-slate-800">
               GW {data.gameweek} Predictions
             </h1>
             {metadata?.[data.gameweek.toString()]?.efficiency !== undefined && (
-              <span className="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[8px] font-black uppercase tracking-widest rounded-full border border-emerald-200">
+              <span className="px-2 py-0.5 bg-emerald-50 text-emerald-600 text-[8px] font-black uppercase tracking-widest rounded-full border border-emerald-100 shadow-sm">
                 {metadata[data.gameweek.toString()].efficiency}% Accuracy
               </span>
             )}
           </div>
 
-          <div className="flex items-center gap-4">
-            <div className="flex flex-col items-center">
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Total Projected</span>
-              <span className="text-lg font-black text-indigo-600">
-                {data.total_projected_points || '0.0'} pts
-              </span>
-            </div>
+          <div className="header-pill">
+            <span className="text-[9px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-1">Total Projected</span>
+            <span className="text-3xl font-black text-indigo-600">
+              {data.total_projected_points || '0.0'} pts
+            </span>
           </div>
 
           {selectedGw && metadata && selectedGw !== Object.keys(metadata).sort((a, b) => Number(b) - Number(a))[0] && (
-            <span className="mt-2 px-2 py-0.5 bg-amber-100 text-amber-700 text-[8px] font-black uppercase tracking-widest rounded-full border border-amber-200 animate-pulse">
+            <span className="mt-1 px-3 py-1 bg-amber-50 text-amber-600 text-[8px] font-black uppercase tracking-widest rounded-full border border-amber-100 animate-pulse shadow-sm">
               Historical View
             </span>
           )}
         </div>
 
         {metadata && Object.keys(metadata).length > 0 && (
-          <div className="flex items-center gap-3 bg-white/50 backdrop-blur-sm border border-slate-100 p-1 pl-3 rounded-full shadow-sm">
-            <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">
-              Choose Week:
+          <div className="week-selector-group">
+            <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] mr-1">
+              Week
             </span>
-            <select
-              id="gw-select"
-              value={selectedGw || ''}
-              onChange={(e) => handleGwChange(e.target.value)}
-              className="bg-slate-50 border-none rounded-full px-4 py-1.5 text-[10px] font-bold text-slate-700 outline-none focus:ring-2 focus:ring-indigo-500/20 transition-all cursor-pointer hover:bg-slate-100"
-            >
-              {/* Show Live Option */}
-              <option value={Object.keys(metadata).sort((a, b) => Number(b) - Number(a))[0]}>
-                GW {Object.keys(metadata).sort((a, b) => Number(b) - Number(a))[0]} (Live)
-              </option>
+            <div className="relative flex items-center group">
+              <select
+                id="gw-select"
+                value={selectedGw || ''}
+                onChange={(e) => handleGwChange(e.target.value)}
+                className="bg-transparent border-none p-0 pr-6 text-[11px] font-black text-indigo-600 uppercase tracking-[0.1em] outline-none cursor-pointer hover:text-indigo-800 transition-colors appearance-none"
+              >
 
-              {/* Show History Options */}
-              {Object.keys(metadata)
-                .sort((a, b) => Number(b) - Number(a))
-                .slice(1) // Skip the latest one as it's the 'Live' one
-                .map(gw => (
-                  <option key={gw} value={gw}>GW {gw}</option>
-                ))
-              }
-            </select>
+                {/* Show Live Option */}
+                <option value={Object.keys(metadata).sort((a, b) => Number(b) - Number(a))[0]}>
+                  GW {Object.keys(metadata).sort((a, b) => Number(b) - Number(a))[0]} (Live)
+                </option>
+
+                {/* Show History Options */}
+                {Object.keys(metadata)
+                  .sort((a, b) => Number(b) - Number(a))
+                  .slice(1) // Skip the first one because it's 'Live'
+                  .map(gw => (
+                    <option key={gw} value={gw}>
+                      GW {gw}
+                    </option>
+                  ))}
+              </select>
+              <div className="absolute right-0 pointer-events-none">
+                <svg className="w-2.5 h-2.5 text-slate-400 group-hover:text-indigo-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </div>
           </div>
         )}
       </header>
+
 
       {/* SECTION TITLE: Captain Options */}
       <h2 className="text-center text-xs md:text-sm font-black uppercase tracking-[0.2em] text-slate-400 mb-4">
