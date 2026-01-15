@@ -232,7 +232,11 @@
 }
 
 .points-pill-horizontal {
-  @apply flex items-center justify-center py-4 px-10 rounded-[28px];
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.5rem;
+  border-radius: 28px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
