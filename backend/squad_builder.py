@@ -129,6 +129,7 @@ def get_all_predicted_players(dm: FPLDataManager, commander: EngineCommander) ->
     bootstrap = dm.get_bootstrap_static()
     players = bootstrap['elements']
     teams = {t['id']: t['name'] for t in bootstrap['teams']}
+    short_names = {t['id']: t['short_name'] for t in bootstrap['teams']}
     
     fixtures = dm.get_fixtures()
     next_gw = dm.get_upcoming_gameweek(bootstrap)
@@ -208,11 +209,11 @@ def get_all_predicted_players(dm: FPLDataManager, commander: EngineCommander) ->
         venue = ""
         for f in gw_fixtures:
             if f['team_h'] == p['team']:
-                opponent_name = teams.get(f['team_a'], "???")[:3].upper()
+                opponent_name = short_names.get(f['team_a'], "???")
                 venue = "(H)"
                 break
             elif f['team_a'] == p['team']:
-                opponent_name = teams.get(f['team_h'], "???")[:3].upper()
+                opponent_name = short_names.get(f['team_h'], "???")
                 venue = "(A)"
                 break
         
