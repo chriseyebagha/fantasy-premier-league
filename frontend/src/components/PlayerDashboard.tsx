@@ -129,13 +129,13 @@ export default function PlayerDashboard({ squad, bench, gameweek, optimized_squa
             </div>
 
             {/* Bench Section */}
-            <div className="w-full max-w-4xl mx-auto pt-16 pb-8">
-                <div className="flex items-center justify-center gap-6 mb-10">
+            <div className="w-full max-w-4xl mx-auto pt-24 pb-12">
+                <div className="flex items-center justify-center gap-8 mb-12">
                     <div className="h-[1px] flex-1 bg-white/5" />
                     <span className="text-[11px] font-black text-slate-400 uppercase tracking-[0.5em]">Substitutes</span>
                     <div className="h-[1px] flex-1 bg-white/5" />
                 </div>
-                <div className="bench-tray glass-card border-white/5 py-10 px-6">
+                <div className="bench-tray glass-card border-white/5 py-14 px-8 flex justify-center gap-10">
                     {displayBench?.map((p: any) => <MiniPlayerCard key={p.id} player={p} isBench />)}
                 </div>
             </div>

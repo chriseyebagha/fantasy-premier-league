@@ -104,19 +104,20 @@ class EngineCommander:
         for p in candidates:
             if p['status'] != 'a': continue
             
-            # Smarter Minutes Tracking: Don't penalize consistent starters for one-off rests (e.g. Christmas)
+            # Smarter Minutes Tracking: Based on user rules (65m/10g or 75m/5g)
             summary = self.dm.get_player_summary(p['id'])
             history = summary.get('history', [])
             last_5 = history[-5:] if history else []
-            appearances = [m['minutes'] for m in last_5 if m['minutes'] > 0]
-            starts_last_5 = len(appearances)
+            last_10 = history[-10:] if history else []
             
-            if starts_last_5 >= 3:
-                # Consistent Starter: Use average of non-zero appearances
-                avg_minutes = sum(appearances) / starts_last_5 if starts_last_5 > 0 else 0
-            else:
-                # Bench/Rotation player: Use raw average of last 5
-                avg_minutes = sum(m['minutes'] for m in last_5) / len(last_5) if last_5 else 0
+            avg_5 = sum(m['minutes'] for m in last_5) / len(last_5) if last_5 else 0
+            avg_10 = sum(m['minutes'] for m in last_10) / len(last_10) if last_10 else 0
+            
+            # Constraint: Must meet one of the standard eligibility criteria
+            can_start = avg_10 >= 65 or avg_5 >= 75
+            
+            # For xP scaling, use the higher average to represent playing potential
+            avg_minutes = max(avg_5, avg_10)
             
             # Prepare features
             diff = team_diff.get(p['team'], 3)
@@ -133,9 +134,6 @@ class EngineCommander:
             
             opp_vulnerability = team_vulnerability.get(opponent_id, 1.5) if opponent_id else 1.5 # Fallback to mid-range
             features = FeatureFactory.prepare_features(p, history, diff, next_gw, opp_vulnerability)
-            
-            # Constraint: Must avg 65+ minutes to be a Starter candidate
-            can_start = avg_minutes >= 65
             
             player_features.append(features)
             valid_players.append({
