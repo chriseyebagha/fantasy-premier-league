@@ -9,9 +9,10 @@ A sophisticated, self-learning intelligence system for Fantasy Premier League. T
 ## 🚀 Key Features
 
 - **6-Head Specialized Brain**: Poisson/Logistic regression models for goals, assists, clean sheets, saves, bonus, and defcon points.
-- **Stability Sentinel**: Automated noise reduction and confidence scoring that protects the model during chaotic gameweeks.
-- **Deadline-Aware Automation**: Dynamic synchronization that adjusts to FPL rescheduling, delivering optimized squads exactly 2 days before every deadline.
-- **Vesuvius Haul Alert**: A simulation-based probabilistic layer that identifies "high-ceiling" captains with a >20% chance of double-digit returns (11+ points).
+- **Stability Sentinel**: Automated noise reduction and A/B performance tracking that optimizes the model's targeting strategy.
+- **Brave Targeting Strategy**: Core xP predictions are now boosted (+5%) when facing "Leaky Defenses," ensuring the Starting XI actively targets vulnerable opponents.
+- **Vesuvius Haul Alert**: A simulation-based probabilistic layer that identifies "high-ceiling" captains with a >20% chance of double-digit returns.
+- **Brave Score Captaincy**: Blended selection logic (70% Mean xP / 30% Haul Prob) to find the perfect balance of reliability and upside.
 - **Budget Optimization**: Integrated LP solver that builds the highest-value squad within your team's bank constraints.
 
 ---

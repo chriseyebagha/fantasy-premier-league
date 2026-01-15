@@ -7,15 +7,16 @@ The engine recommends three distinct captaincy paths across different teams. Eac
 
 | Persona | Best For... | Description |
 | :--- | :--- | :--- |
-| **� The Obvious** | **Pure Dominance** | The algorithm's raw #1 pick. Mathematical superiority across all 6 heads (Goals, Assists, CS, etc.). This player represents the highest expected utility regardless of ownership. |
-| **🃏 The Joker** | **High-Reward Differentials** | Specifically targets high-explosivity players with low ownership (<15%). This pick is chosen from a different team than the "Obvious" pick to diversify your risk. |
-| **🎢 The Fun One** | **Defensive Upside** | Strictly a Defender or Goalkeeper with elite attacking potential. We use the **Defcon Score** to identify defensive players who hunt for clean sheets AND offensive returns. |
+| **⚽ The Obvious** | **Pure Dominance** | The algorithm's top pick, ranked by the **Brave Score** (70% Mean xP / 30% Haul Prob). Mathematically superior regardless of ownership. |
+| **🃏 The Joker** | **High-Reward Differentials** | Targets high-explosivity players with low ownership (<15%) using the **Brave Score**. Chosen from a different team than the "Obvious" pick. |
+| **🎢 The Fun One** | **Defensive Upside** | Strictly a Defender or Goalkeeper with elite attacking potential. Identified via the **Defcon Score** and targeting leaky defenses. |
 
 ## 2. Advanced Metrics & "The Brain"
 *   **🧨 Explosivity Index**: A 0-100 rating measuring the probability of a "Haul" (10+ points). A score above 70 indicates a player is currently fixture-proof.
 *   **🌋 Vesuvius Alert**: A premium status triggered by a **Monte Carlo Simulation**. It flags players with a **$\geq 20\%$ probability** of scoring **11 or more points** (a "Vesuvius Haul").
 *   **🛡️ Defcon Score**: A specialized metric for defenders and GKs. High Defcon means high projected bonus points + goal/assist threat + clean sheet floor.
-*   **🧠 Model Brain**: You can now view the internal state of the engine. The **Confidence EMA** shows how much the model currently trusts each of its 6 specialized heads based on recent accuracy.
+*   **🚀 Brave Target**: A label appearing on players whose xP has been boosted (+5%) because they are facing a "Leaky Defense."
+*   **🧠 Model Brain**: You can now view the internal state of the engine. The **Confidence EMA** shows how much the model currently trusts each of its 6 specialized heads.
 
 ## 3. The Optimized Blueprint
 The "Squad" view generates a 15-man roster (11 starters + 4 bench) following a strict **Max 3 Players Per Team** constraint.

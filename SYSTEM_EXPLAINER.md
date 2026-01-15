@@ -39,24 +39,38 @@ This document explains the core metrics driving the FPL Projections (xP Predicto
 ### 4. Opponent Vulnerability (`opponent_vulnerability`)
 **What it is:** A score (0-100) representing how likely a team is to concede big chances. Higher is better for your attackers.
 
-**Analysis:**
+**Analysis & "Brave" Integration:**
 - It is a **50/50 Blend** of **Process (xGC)** and **Reality (GC)** over a rolling 7-game window.
 - **Scale:** A raw vulnerability score of 1.40 (average goals/xgc conceded per game) translates to a 35 on the index.
-- **Threshold:** Scores > 35 trigger **Matchup Boosts** for all opposing attackers in the Vesuvius Layer.
+- **Threshold:** Scores > 35 trigger **Matchup Boosts** (+10% to Haul Probability).
+- **BRAVE MODE LEAK:** In the core prediction engine, **50% of this Matchup Boost** (typically +5%) is "leaked" directly into the player's core Expected Points (xP). This forces the engine to prioritize targeting leaky defenses in your Starting XI.
 
 ---
 
-## Case Study: GW22 Target (Arsenal vs Crystal Palace)
+## The "Brave" Selection Strategy
 
-**Context:** Arsenal (H) vs Crystal Palace (A)
-- **Opponent (Palace) Vulnerability:** Expected to be high (~38.0) due to recent defensive inconsistencies.
-- **Player: Gabriel (DEF)**
-  - **Defcon Alert:** High defensive work rate + Arsenal's strong CS odds + goal threat from corners.
-  - **Prediction:** High xP driven by Clean Sheet potential + "Defcon Points."
+### 1. Brave Captaincy (The 'Brave Score')
+Instead of picking captains based on raw expected points alone, we calculate a **Brave Score**:
+- **70% Mean xP:** The most likely point return.
+- **30% Ceiling (Haul Prob):** The probability of a double-digit return, scaled to point magnitude.
+
+This identifies "The Joker" or "The Fun One" picks who have massive upside, even if their baseline safety is slightly lower than the most "Obvious" pick.
+
+---
+
+## Case Study: GW22 Target (Arsenal vs Chelsea)
+
+**Context:** Arsenal (H) vs Chelsea (A)
+- **Opponent (Chelsea) Vulnerability:** Expected to be high (~37.0) due to defensive transitions.
 - **Player: Saka (MID)**
-  - **Vesuvius Alert:** Likely to trigger a **Matchup Boost** (+10%) and possibly a **Clinicality Boost** based on recent hauls. 
-  - **Haul Probability:** Expecting >25% given Palace's vulnerability.
+- **Brave Matchup Boost:** xP boosted by 5% because Chelsea is currently "Leaky."
+- **Brave Target Alert:** Reasoning will display "BRAVE TARGET" if the haul probability is high against a leaky defense.
 
 ---
-**Verification Logic:**
-The system uses a **Stability Sentinel** feedback loop. After each Gameweek, actual results are compared to predictions. If the model's Mean Absolute Error (MAE) exceeds 3.0, the learning rate is throttled (Noise Gate) to prevent over-reactions to chaotic weeks. Conversely, high accuracy (7/11 predicted starters hitting 4+ points) boosts model confidence.
+
+## Verification Logic: A/B Learning Loop
+The system uses a **Stability Sentinel** feedback loop. After each Gameweek, actual results are compared to predictions:
+- **A/B Performance Testing:** The engine tracks both a **Conservative MAE** (no matchup boost in xP) and a **Brave MAE** (with matchup boost). 
+- **Evolution:** If "Brave" predictions consistently outperform "Conservative" ones in detecting hauls, the model's internal confidence in the Vesuvius Layer increases.
+- **Noise Gate:** If global error exceeds 3.0, the effective learning rate is throttled to prevent reacting to luck/variance.
+

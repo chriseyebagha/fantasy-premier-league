@@ -49,7 +49,8 @@ Unlike traditional models that predict "total points" directly (which are high-v
 The engine adds a secondary simulation layer to predict **Double-Digit Hauls (11+ points)**.
 - **Algorithm**: Monte Carlo simulation using Poisson (goals/assists) and Binomial (clean sheets) distributions.
 - **Simulation Count**: 1,500 iterations per player.
-- **Confidence Integration**: Event probabilities are adjusted by the current `confidence_ema` of the corresponding model head before simulation.
+- **Brave Mode Leak**: 50% of the simulation-based Matchup Boost (targeting leaky defenses) is leaked back into core **xP** to influence Starting XI selection.
+- **Brave Score (Captaincy)**: Captain candidates are ranked using a `70/30` blend of Mean xP and Haul Probability.
 - **Haul Alert**: A `haul_alert: true` flag is triggered when the simulated probability of $\geq 11$ points exceeds **20%**.
 
 ### Intelligence Features
@@ -63,8 +64,9 @@ The engine adds a secondary simulation layer to predict **Double-Digit Hauls (11
 
 The system features a self-correcting feedback loop that evaluates its own performance weekly and updates its confidence scores.
 
-### Noise Gate
-Reduces the global learning rate (`effective_lr`) during "chaotic" gameweeks where the Mean Absolute Error (MAE) exceeds historical norms (e.g., massive upsets or rotation).
+### Noise Gate & A/B Tracking
+Reduces the global learning rate (`effective_lr`) during "chaotic" gameweeks where the Mean Absolute Error (MAE) exceeds historical norms.
+- **A/B Metric logging**: The engine continuously tracks **mae_conservative** vs **mae_brave** to validate the effectiveness of the matchup-boost targeting strategy.
 
 ### Hysteresis (Trust Momentum)
 Uses an Exponential Moving Average (EMA) for updating model confidence scores. The engine requires **sustained accuracy** over multiple weeks to increase trust in a specific model head.
