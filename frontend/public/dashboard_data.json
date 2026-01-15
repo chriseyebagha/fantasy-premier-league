@@ -1,6 +1,6 @@
 {
     "status": "online",
-    "last_updated": "2026-01-15T04:39:25.400216+00:00",
+    "last_updated": "2026-01-15T15:18:12.996778+00:00",
     "gameweek": 22,
     "squad": [
         {
@@ -10,7 +10,7 @@
             "position": 4,
             "price": 15.1,
             "predicted_points": 6.74,
-            "haul_prob": 0.23,
+            "haul_prob": 0.22,
             "haul_alert": true,
             "prob_goal": 0.78,
             "prob_assist": 0.19,
@@ -30,7 +30,7 @@
             "defcon": 0.0,
             "ownership": 74.2,
             "hauls": 8,
-            "reasoning": "VESUVIUS ALERT: 23% Haul Probability (11+ pts) | High goal threat (0.8 Exp)",
+            "reasoning": "VESUVIUS ALERT: 22% Haul Probability (11+ pts) | High goal threat (0.8 Exp)",
             "features": {
                 "xG_90": 0.91,
                 "xA_90": 0.06,
@@ -108,7 +108,7 @@
             "position": 2,
             "price": 6.7,
             "predicted_points": 6.07,
-            "haul_prob": 0.11,
+            "haul_prob": 0.12,
             "haul_alert": false,
             "prob_goal": 0.18,
             "prob_assist": 0.2,
@@ -126,7 +126,7 @@
             "next_fixture_difficulty": 3,
             "explosivity": 15.7,
             "defcon": 100.0,
-            "ownership": 32.2,
+            "ownership": 32.3,
             "hauls": 4,
             "reasoning": "Solid underlying metric coverage",
             "features": {
@@ -144,7 +144,7 @@
                 "form": 6.2,
                 "ict_index": 67.3,
                 "fixture_difficulty": 3,
-                "selected_by": 32.2,
+                "selected_by": 32.3,
                 "cost": 6.7,
                 "hauls": 4,
                 "opponent_vulnerability": 36.0
@@ -157,7 +157,7 @@
             "position": 3,
             "price": 7.6,
             "predicted_points": 6.06,
-            "haul_prob": 0.14,
+            "haul_prob": 0.13,
             "haul_alert": false,
             "prob_goal": 0.48,
             "prob_assist": 0.2,
@@ -175,7 +175,7 @@
             "next_fixture_difficulty": 3,
             "explosivity": 15.7,
             "defcon": 0.0,
-            "ownership": 43.9,
+            "ownership": 44.0,
             "hauls": 4,
             "reasoning": "High goal threat (0.5 Exp)",
             "features": {
@@ -193,7 +193,7 @@
                 "form": 6.2,
                 "ict_index": 151.4,
                 "fixture_difficulty": 3,
-                "selected_by": 43.9,
+                "selected_by": 44.0,
                 "cost": 7.6,
                 "hauls": 4,
                 "opponent_vulnerability": 32.75
@@ -206,7 +206,7 @@
             "position": 1,
             "price": 4.9,
             "predicted_points": 5.98,
-            "haul_prob": 0.04,
+            "haul_prob": 0.05,
             "haul_alert": false,
             "prob_goal": 0.06,
             "prob_assist": 0.07,
@@ -224,7 +224,7 @@
             "next_fixture_difficulty": 3,
             "explosivity": 2.9,
             "defcon": 20.0,
-            "ownership": 12.4,
+            "ownership": 12.5,
             "hauls": 2,
             "reasoning": "Solid underlying metric coverage",
             "features": {
@@ -242,7 +242,7 @@
                 "form": 4.4,
                 "ict_index": 63.2,
                 "fixture_difficulty": 3,
-                "selected_by": 12.4,
+                "selected_by": 12.5,
                 "cost": 4.9,
                 "hauls": 2,
                 "opponent_vulnerability": 41.5
@@ -273,7 +273,7 @@
             "next_fixture_difficulty": 3,
             "explosivity": 25.7,
             "defcon": 0.0,
-            "ownership": 27.3,
+            "ownership": 27.4,
             "hauls": 4,
             "reasoning": "Defcon Point Threat (+2 chance: 38%)",
             "features": {
@@ -291,7 +291,7 @@
                 "form": 7.2,
                 "ict_index": 132.8,
                 "fixture_difficulty": 3,
-                "selected_by": 27.3,
+                "selected_by": 27.4,
                 "cost": 7.3,
                 "hauls": 4,
                 "opponent_vulnerability": 36.0
@@ -304,7 +304,7 @@
             "position": 2,
             "price": 5.3,
             "predicted_points": 5.77,
-            "haul_prob": 0.11,
+            "haul_prob": 0.1,
             "haul_alert": false,
             "prob_goal": 0.18,
             "prob_assist": 0.12,
@@ -353,7 +353,7 @@
             "position": 4,
             "price": 7.1,
             "predicted_points": 6.52,
-            "haul_prob": 0.17,
+            "haul_prob": 0.16,
             "haul_alert": false,
             "prob_goal": 0.77,
             "prob_assist": 0.18,
@@ -402,7 +402,7 @@
             "position": 3,
             "price": 6.8,
             "predicted_points": 5.64,
-            "haul_prob": 0.08,
+            "haul_prob": 0.1,
             "haul_alert": false,
             "prob_goal": 0.19,
             "prob_assist": 0.43,
@@ -451,7 +451,7 @@
             "position": 3,
             "price": 7.2,
             "predicted_points": 5.53,
-            "haul_prob": 0.1,
+            "haul_prob": 0.12,
             "haul_alert": false,
             "prob_goal": 0.31,
             "prob_assist": 0.22,
@@ -469,7 +469,7 @@
             "next_fixture_difficulty": 2,
             "explosivity": 93.5,
             "defcon": 0.0,
-            "ownership": 22.1,
+            "ownership": 22.2,
             "hauls": 7,
             "reasoning": "Defcon Point Threat (+2 chance: 24%)",
             "features": {
@@ -487,7 +487,7 @@
                 "form": 7.0,
                 "ict_index": 139.2,
                 "fixture_difficulty": 2,
-                "selected_by": 22.1,
+                "selected_by": 22.2,
                 "cost": 7.2,
                 "hauls": 7,
                 "opponent_vulnerability": 39.0
@@ -550,12 +550,12 @@
             "team": "Man Utd",
             "position": 3,
             "price": 9.1,
-            "predicted_points": 5.91,
+            "predicted_points": 5.94,
             "haul_prob": 0.11,
             "haul_alert": false,
-            "prob_goal": 0.2,
+            "prob_goal": 0.21,
             "prob_assist": 0.45,
-            "prob_cs": 0.15,
+            "prob_cs": 0.16,
             "prob_saves": 0.06,
             "prob_bonus": 1.01,
             "prob_defcon": 0.36,
@@ -569,7 +569,7 @@
             "next_fixture_difficulty": 4,
             "explosivity": 52.1,
             "defcon": 0.0,
-            "ownership": 12.9,
+            "ownership": 13.0,
             "hauls": 5,
             "reasoning": "Playmaker potential (0.4 Exp)",
             "features": {
@@ -587,7 +587,7 @@
                 "form": 1.6,
                 "ict_index": 179.3,
                 "fixture_difficulty": 4,
-                "selected_by": 12.9,
+                "selected_by": 13.0,
                 "cost": 9.1,
                 "hauls": 5,
                 "opponent_vulnerability": 19.25
@@ -600,7 +600,7 @@
             "position": 2,
             "price": 5.7,
             "predicted_points": 5.55,
-            "haul_prob": 0.09,
+            "haul_prob": 0.08,
             "haul_alert": false,
             "prob_goal": 0.09,
             "prob_assist": 0.14,
@@ -698,7 +698,7 @@
             "position": 2,
             "price": 4.8,
             "predicted_points": 5.42,
-            "haul_prob": 0.08,
+            "haul_prob": 0.09,
             "haul_alert": false,
             "prob_goal": 0.11,
             "prob_assist": 0.16,
@@ -716,7 +716,7 @@
             "next_fixture_difficulty": 2,
             "explosivity": 3.1,
             "defcon": 100.0,
-            "ownership": 10.8,
+            "ownership": 10.9,
             "hauls": 2,
             "reasoning": "Solid underlying metric coverage",
             "features": {
@@ -734,7 +734,7 @@
                 "form": 2.8,
                 "ict_index": 84.4,
                 "fixture_difficulty": 2,
-                "selected_by": 10.8,
+                "selected_by": 10.9,
                 "cost": 4.8,
                 "hauls": 2,
                 "opponent_vulnerability": 33.5
@@ -799,7 +799,7 @@
                 "next_fixture": "EVE (H)",
                 "next_fixture_difficulty": 2,
                 "explosivity": 3.1,
-                "ownership": 10.8
+                "ownership": 10.9
             },
             {
                 "id": 370,
@@ -818,7 +818,7 @@
                 "next_fixture": "BUR (H)",
                 "next_fixture_difficulty": 2,
                 "explosivity": 0.0,
-                "ownership": 5.9
+                "ownership": 6.0
             },
             {
                 "id": 488,
@@ -837,7 +837,7 @@
                 "next_fixture": "WOL (A)",
                 "next_fixture_difficulty": 2,
                 "explosivity": 93.5,
-                "ownership": 22.1
+                "ownership": 22.2
             },
             {
                 "id": 82,
@@ -856,7 +856,7 @@
                 "next_fixture": "MUN (A)",
                 "next_fixture_difficulty": 3,
                 "explosivity": 15.7,
-                "ownership": 43.9
+                "ownership": 44.0
             },
             {
                 "id": 21,
@@ -875,7 +875,7 @@
                 "next_fixture": "NFO (A)",
                 "next_fixture_difficulty": 3,
                 "explosivity": 25.7,
-                "ownership": 27.3
+                "ownership": 27.4
             },
             {
                 "id": 16,
@@ -894,7 +894,7 @@
                 "next_fixture": "NFO (A)",
                 "next_fixture_difficulty": 3,
                 "explosivity": 12.9,
-                "ownership": 20.0
+                "ownership": 19.9
             },
             {
                 "id": 430,
@@ -1044,7 +1044,7 @@
             "position": 4,
             "price": 15.1,
             "predicted_points": 6.74,
-            "haul_prob": 0.23,
+            "haul_prob": 0.22,
             "haul_alert": true,
             "prob_goal": 0.78,
             "prob_assist": 0.19,
@@ -1064,7 +1064,7 @@
             "defcon": 0.0,
             "ownership": 74.2,
             "hauls": 8,
-            "reasoning": "VESUVIUS ALERT: 23% Haul Probability (11+ pts) | High goal threat (0.8 Exp)",
+            "reasoning": "VESUVIUS ALERT: 22% Haul Probability (11+ pts) | High goal threat (0.8 Exp)",
             "features": {
                 "xG_90": 0.91,
                 "xA_90": 0.06,
@@ -1093,12 +1093,12 @@
             "team": "Man Utd",
             "position": 3,
             "price": 9.1,
-            "predicted_points": 5.91,
+            "predicted_points": 5.94,
             "haul_prob": 0.11,
             "haul_alert": false,
-            "prob_goal": 0.2,
+            "prob_goal": 0.21,
             "prob_assist": 0.45,
-            "prob_cs": 0.15,
+            "prob_cs": 0.16,
             "prob_saves": 0.06,
             "prob_bonus": 1.01,
             "prob_defcon": 0.36,
@@ -1112,7 +1112,7 @@
             "next_fixture_difficulty": 4,
             "explosivity": 52.1,
             "defcon": 0.0,
-            "ownership": 12.9,
+            "ownership": 13.0,
             "hauls": 5,
             "reasoning": "Playmaker potential (0.4 Exp)",
             "features": {
@@ -1130,12 +1130,12 @@
                 "form": 1.6,
                 "ict_index": 179.3,
                 "fixture_difficulty": 4,
-                "selected_by": 12.9,
+                "selected_by": 13.0,
                 "cost": 9.1,
                 "hauls": 5,
                 "opponent_vulnerability": 19.25
             },
-            "reason": "B.Fernandes offers high explosivity (52.1) combined with low ownership (12.9%), a classic differential."
+            "reason": "B.Fernandes offers high explosivity (52.1) combined with low ownership (13.0%), a classic differential."
         },
         "fun_one": {
             "id": 8,
