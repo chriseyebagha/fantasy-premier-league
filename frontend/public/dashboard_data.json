@@ -1,6 +1,6 @@
 {
     "status": "online",
-    "last_updated": "2026-01-15T22:18:11.731692+00:00",
+    "last_updated": "2026-01-15T23:24:19.855904+00:00",
     "gameweek": 22,
     "total_projected_points": 73.6,
     "squad": [
@@ -14,7 +14,7 @@
             "predicted_points": 6.74,
             "xp_conservative": 6.74,
             "xp_brave": 6.74,
-            "haul_prob": 0.22,
+            "haul_prob": 0.2,
             "haul_alert": true,
             "prob_goal": 0.78,
             "prob_assist": 0.19,
@@ -34,7 +34,7 @@
             "defcon": 0.0,
             "ownership": 74.2,
             "hauls": 8,
-            "reasoning": "VESUVIUS ALERT: 22% Haul Probability (11+ pts) | High goal threat (0.8 Exp)",
+            "reasoning": "VESUVIUS ALERT: 20% Haul Probability (11+ pts) | High goal threat (0.8 Exp)",
             "features": {
                 "xG_90": 0.91,
                 "xA_90": 0.06,
@@ -66,7 +66,7 @@
             "predicted_points": 6.59,
             "xp_conservative": 6.59,
             "xp_brave": 6.59,
-            "haul_prob": 0.2,
+            "haul_prob": 0.19,
             "haul_alert": false,
             "prob_goal": 0.37,
             "prob_assist": 0.19,
@@ -170,7 +170,7 @@
             "predicted_points": 6.07,
             "xp_conservative": 6.07,
             "xp_brave": 6.07,
-            "haul_prob": 0.12,
+            "haul_prob": 0.11,
             "haul_alert": false,
             "prob_goal": 0.18,
             "prob_assist": 0.2,
@@ -326,7 +326,7 @@
             "predicted_points": 5.83,
             "xp_conservative": 5.55,
             "xp_brave": 5.83,
-            "haul_prob": 0.07,
+            "haul_prob": 0.08,
             "haul_alert": false,
             "prob_goal": 0.09,
             "prob_assist": 0.14,
@@ -534,7 +534,7 @@
             "predicted_points": 5.43,
             "xp_conservative": 5.17,
             "xp_brave": 5.43,
-            "haul_prob": 0.11,
+            "haul_prob": 0.1,
             "haul_alert": false,
             "prob_goal": 0.29,
             "prob_assist": 0.24,
@@ -588,7 +588,7 @@
             "predicted_points": 5.94,
             "xp_conservative": 5.94,
             "xp_brave": 5.94,
-            "haul_prob": 0.1,
+            "haul_prob": 0.11,
             "haul_alert": false,
             "prob_goal": 0.21,
             "prob_assist": 0.45,
@@ -606,7 +606,7 @@
             "next_fixture_difficulty": 4,
             "explosivity": 52.1,
             "defcon": 0.0,
-            "ownership": 13.0,
+            "ownership": 13.1,
             "hauls": 5,
             "reasoning": "Playmaker potential (0.4 Exp)",
             "features": {
@@ -624,7 +624,7 @@
                 "form": 1.6,
                 "ict_index": 179.3,
                 "fixture_difficulty": 4,
-                "selected_by": 13.0,
+                "selected_by": 13.1,
                 "cost": 9.1,
                 "hauls": 5,
                 "opponent_vulnerability": 19.25
@@ -692,7 +692,7 @@
             "predicted_points": 5.62,
             "xp_conservative": 5.35,
             "xp_brave": 5.62,
-            "haul_prob": 0.03,
+            "haul_prob": 0.04,
             "haul_alert": false,
             "prob_goal": 0.05,
             "prob_assist": 0.07,
@@ -1093,7 +1093,7 @@
             "predicted_points": 6.74,
             "xp_conservative": 6.74,
             "xp_brave": 6.74,
-            "haul_prob": 0.22,
+            "haul_prob": 0.2,
             "haul_alert": true,
             "prob_goal": 0.78,
             "prob_assist": 0.19,
@@ -1113,7 +1113,7 @@
             "defcon": 0.0,
             "ownership": 74.2,
             "hauls": 8,
-            "reasoning": "VESUVIUS ALERT: 22% Haul Probability (11+ pts) | High goal threat (0.8 Exp)",
+            "reasoning": "VESUVIUS ALERT: 20% Haul Probability (11+ pts) | High goal threat (0.8 Exp)",
             "features": {
                 "xG_90": 0.91,
                 "xA_90": 0.06,
@@ -1134,7 +1134,7 @@
                 "hauls": 8,
                 "opponent_vulnerability": 32.75
             },
-            "reason": "The 'Brave' algorithm identifies Haaland as the top pick, combining 6.74 xP with a 22% haul probability."
+            "reason": "The 'Brave' algorithm identifies Haaland as the top pick, combining 6.74 xP with a 20% haul probability."
         },
         "joker": {
             "id": 449,
@@ -1146,7 +1146,7 @@
             "predicted_points": 5.94,
             "xp_conservative": 5.94,
             "xp_brave": 5.94,
-            "haul_prob": 0.1,
+            "haul_prob": 0.11,
             "haul_alert": false,
             "prob_goal": 0.21,
             "prob_assist": 0.45,
@@ -1164,7 +1164,7 @@
             "next_fixture_difficulty": 4,
             "explosivity": 52.1,
             "defcon": 0.0,
-            "ownership": 13.0,
+            "ownership": 13.1,
             "hauls": 5,
             "reasoning": "Playmaker potential (0.4 Exp)",
             "features": {
@@ -1182,12 +1182,12 @@
                 "form": 1.6,
                 "ict_index": 179.3,
                 "fixture_difficulty": 4,
-                "selected_by": 13.0,
+                "selected_by": 13.1,
                 "cost": 9.1,
                 "hauls": 5,
                 "opponent_vulnerability": 19.25
             },
-            "reason": "B.Fernandes offers high explosivity (52.1) combined with low ownership (13.0%), a classic differential."
+            "reason": "B.Fernandes offers high explosivity (52.1) combined with low ownership (13.1%), a classic differential."
         },
         "fun_one": {
             "id": 8,
@@ -1199,7 +1199,7 @@
             "predicted_points": 6.59,
             "xp_conservative": 6.59,
             "xp_brave": 6.59,
-            "haul_prob": 0.2,
+            "haul_prob": 0.19,
             "haul_alert": false,
             "prob_goal": 0.37,
             "prob_assist": 0.19,
