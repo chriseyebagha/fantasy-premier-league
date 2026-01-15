@@ -280,6 +280,16 @@ class modelTrainer:
 
                 # Fetch features
                 features = p.get('features', {})
+                # Defcon Logic: 10+ for DEFs, 12+ for MIDs/FWDs (New 24/25 Rules)
+                pos = p.get('position', 2) # Default to DEF if unknown
+                dc_value = actual_data.get('defensive_contribution', 0)
+                if pos == 2:
+                    defcon_points = 2 if dc_value >= 10 else 0
+                elif pos in [3, 4]:
+                    defcon_points = 2 if dc_value >= 12 else 0
+                else:
+                    defcon_points = 0 # GKs don't get defcon points
+                
                 if features:
                     training_records.append({
                         "player_id": p_id,
@@ -291,7 +301,7 @@ class modelTrainer:
                         "actual_saves": actual_data.get('saves', 0),
                         "actual_save_points": actual_data.get('saves', 0) // 3,
                         "actual_bonus": actual_data.get('bonus', 0),
-                        "actual_defcon_points": 2 if actual_data.get('defensive_contribution', 0) >= 12 else 0,
+                        "actual_defcon_points": defcon_points,
                         "actual_minutes": actual_data.get('minutes', 0),
                         "actual_conceded": actual_data.get('goals_conceded', 0)
                     })

@@ -143,7 +143,8 @@ class EngineCommander:
                 "features": features,
                 "diff": diff,
                 "avg_minutes": avg_minutes,
-                "can_start": can_start
+                "can_start": can_start,
+                "opp_vulnerability": opp_vulnerability
             })
 
         if not valid_players:
@@ -177,8 +178,9 @@ class EngineCommander:
             clinicality_boost = 1.0 + (min(haul_freq, 0.4) * 0.375) # Max +15% boost
             
             # Matchup: opponent_vulnerability >= leaky_threshold indicates a leaking defense
+            opp_vuln = item['opp_vulnerability']
             matchup_boost = 1.0
-            if opp_vulnerability >= leaky_threshold:
+            if opp_vuln >= leaky_threshold:
                 matchup_boost = 1.10 # +10% boost for leaking defense
                 
             haul_multipliers[idx] = clinicality_boost * matchup_boost

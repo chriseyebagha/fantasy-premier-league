@@ -1,6 +1,6 @@
 # FPL Engine: System Explainer
 
-This document explains the core metrics driving the FPL Predictor model, how they are calculated, and how to interpret them.
+This document explains the core metrics driving the FPL Projections (xP Predictor), how they are calculated, and how to interpret them.
 
 ## Core Metrics
 
@@ -8,53 +8,55 @@ This document explains the core metrics driving the FPL Predictor model, how the
 **What it is:** The probability that a player will score **11+ points** in the *upcoming* Gameweek.
 
 **How it's calculated:**
-- We simulate the match 10,000 times (Monte Carlo simulation) using the player's predicted event probabilities.
-- **Inputs:**
-  - Predicted Goals, Assists, Clean Sheets (Poisson/Binomial distributions).
-  - **Clinicality Boost:** Multiplier based on the player's seasonal haul frequency (are they a "big game" player?).
-  - **Matchup Boost:** Multiplier based on the opponent's **Vulnerability Score**.
-- **Transformation:** The raw probability is boosted by these multipliers to get the final `%`.
-- **Haul Alert:** Triggered if `haul_prob >= 20%`. This indicates a "Captainable" ceiling.
+- **Monte Carlo Simulation:** We simulate the match 1,500 times using the player's predicted event probabilities.
+- **Advanced Prediction (Vesuvius Layer):** Before simulation, the model's base probabilities (lambdas) for Goals, Assists, Bonus, and Clean Sheets are adjusted by **Vesuvius Multipliers**:
+  - **Clinicality Boost:** Up to **+15%** for players with a high seasonal frequency of 10+ point hauls.
+  - **Matchup Boost:** **+10%** if the opponent's **Vulnerability Score** exceeds the "Leaky Defense" threshold.
+- **Output:** The percentage of simulations where the player's total points reach 11 or higher.
+- **Vesuvius Alert:** Triggered if `haul_prob >= 20%`. This indicates a significant ceiling and a prime captaincy candidate.
 
 ### 2. Explosivity Index (`explosivity`)
-**What it is:** A historical "pedigree" score (0-100) measuring a player's *season-long* ability to deliver massive scores.
+**What it is:** A historical "pedigree" score (0-100) measuring a player's ability to deliver massive scores over the season.
 
 **How it's calculated:**
-- **History:** Frequency of double-digit hauls over the season.
-- **Form:** Specific bonus for hauls in the last 10 games.
-- **Underlying Stats:** Bonus for high xGI (Expected Goal Involvement) per 90.
-- **Fixture:** Slight adjustment for the upcoming fixture difficulty.
+- **Haul Frequency:** Ratio of 10+ point hauls across all played games.
+- **Recent Pedigree:** Bonus for hauls delivered in the last 10 gameweeks.
+- **Underlying Stats:** Weighted bonus for high xGI (Expected Goal Involvement) per 90.
+- **"Super Hot" Status:** A major bonus (25 pts) for players maintaining an elite haul rate (e.g., 5+ hauls in the last 10 games).
+- **FDR Adjustment:** Easy fixtures (FDR 2) boost the index by 10%, as they provide the best opportunity to unlock a player's ceiling.
 
-**Key Difference:**
-> **Explosivity** is about *who the player is* (their ceiling).
-> **Haul Probability** is about *what might happen this week* (the simulation).
->
-> *Example:* A player like **Salah** has high Explosivity (always capable of a haul). But if he plays Man City away, his **Haul Probability** might be lower. Conversely, a mid-tier asset playing a chaotic defense might have a high Haul Probability this week despite lower seasonal Explosivity.
+### 3. Defensive Contribution (`defcon`)
+**What it is:** A specialized metric for Defenders and Goalkeepers (0-100) predicting the likelihood of clean sheets and bonus-point-generating defensive work.
 
-### 3. Opponent Vulnerability (`opponent_vulnerability`)
-**What it is:** A score (0-100 scale) representing how "leaky" a team's defense is. Higher is worse for them (better for your attackers).
+**Calculation Components:**
+- **Clean Sheet Process:** Historic CS probability adjusted by the upcoming fixture difficulty.
+- **Work Rate:** Based on `defensive_contribution_per_90` (tackles, interceptions, clearances, blocks).
+- **Attacking upside:** Defenders with high xG/xA (e.g., set-piece threats or attacking full-backs) receive a significant "Defcon" boost.
 
-**How it's calculated:**
-- It is a **50/50 Blend** of:
-  1.  **Process (xGC):** Expected Goals Conceded per match (Rolling 7-game average).
-  2.  **Reality (GC):** Actual Goals Conceded per match (Rolling 7-game average).
-- **Scale:** The per-match value (e.g., 1.50) is multiplied by 25 to create a 0-100 index (e.g., 37.5).
-- **Threshold:** Teams with a vulnerability score > 35 (approx 1.4 Goals Conceded/Game) are considered "Leaky" and trigger a Haul Boost for opposing attackers.
+> [!NOTE]
+> **24/25 FPL Rule Update:** Outfield players now earn **+2 points** for reaching defensive action thresholds (10 for Defenders, 12 for Midfielders/Forwards). Our model trains specifically on these "Defcon Points."
+
+### 4. Opponent Vulnerability (`opponent_vulnerability`)
+**What it is:** A score (0-100) representing how likely a team is to concede big chances. Higher is better for your attackers.
+
+**Analysis:**
+- It is a **50/50 Blend** of **Process (xGC)** and **Reality (GC)** over a rolling 7-game window.
+- **Scale:** A raw vulnerability score of 1.40 (average goals/xgc conceded per game) translates to a 35 on the index.
+- **Threshold:** Scores > 35 trigger **Matchup Boosts** for all opposing attackers in the Vesuvius Layer.
 
 ---
 
-## Metric Verification (GW22 Example)
+## Case Study: GW22 Target (Arsenal vs Crystal Palace)
 
-**Case Study: Chelsea's Defense**
-- **Vulnerability Score:** 36.25 (implies ~1.45 Goals Conceded/Game).
-- **Reality Check (Last 7 PL Games):**
-  - vs Fulham (2 conceded)
-  - vs Man City (1 conceded)
-  - vs Bournemouth (2 conceded)
-  - vs Aston Villa (2 conceded)
-  - vs Newcastle (2 conceded)
-  - vs Everton (0 conceded)
-  - vs Bournemouth (0 conceded)
-- **Average Conceded:** 1.29 Goals/Game.
-- **Implied xGC:** ~1.61 xGC/Game (to reach the 1.45 average).
-- **Conclusion:** Chelsea consistently conceding 2 goals in recent tough matches justifies the high vulnerability score, triggering Haul Alerts for Brentford attackers.
+**Context:** Arsenal (H) vs Crystal Palace (A)
+- **Opponent (Palace) Vulnerability:** Expected to be high (~38.0) due to recent defensive inconsistencies.
+- **Player: Gabriel (DEF)**
+  - **Defcon Alert:** High defensive work rate + Arsenal's strong CS odds + goal threat from corners.
+  - **Prediction:** High xP driven by Clean Sheet potential + "Defcon Points."
+- **Player: Saka (MID)**
+  - **Vesuvius Alert:** Likely to trigger a **Matchup Boost** (+10%) and possibly a **Clinicality Boost** based on recent hauls. 
+  - **Haul Probability:** Expecting >25% given Palace's vulnerability.
+
+---
+**Verification Logic:**
+The system uses a **Stability Sentinel** feedback loop. After each Gameweek, actual results are compared to predictions. If the model's Mean Absolute Error (MAE) exceeds 3.0, the learning rate is throttled (Noise Gate) to prevent over-reactions to chaotic weeks. Conversely, high accuracy (7/11 predicted starters hitting 4+ points) boosts model confidence.
