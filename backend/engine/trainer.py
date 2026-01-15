@@ -224,6 +224,8 @@ class modelTrainer:
         predictions = gw_data['predictions']
         training_records = []
         errors = []
+        errors_cons = []
+        errors_brave = []
         
         # 1. Systemic Noise Gate Preparation
         temp_errors = []
@@ -265,8 +267,14 @@ class modelTrainer:
             
             if actual_data is not None:
                 total_points = actual_data.get('total_points', 0)
-                error = abs(p['predicted_points'] - total_points)
-                errors.append(error)
+                error_current = abs(p['predicted_points'] - total_points)
+                errors.append(error_current)
+                
+                # A/B Metric Logging: Track how both approaches would have performed
+                xp_cons = p.get('xp_conservative', p['predicted_points'])
+                xp_brave = p.get('xp_brave', p['predicted_points'])
+                errors_cons.append(abs(xp_cons - total_points))
+                errors_brave.append(abs(xp_brave - total_points))
                 
                 # Update Model Confidence with Hysteresis
                 for target in self.targets:
@@ -311,9 +319,15 @@ class modelTrainer:
             
         if errors:
             mae = sum(errors) / len(errors)
+            mae_cons = sum(errors_cons) / len(errors_cons) if errors_cons else mae
+            mae_brave = sum(errors_brave) / len(errors_brave) if errors_brave else mae
+            
             rmse = (sum(e**2 for e in errors) / len(errors))**0.5
+            
             self.storage.store_feedback(gameweek, {
                 "mae": mae,
+                "mae_conservative": mae_cons,
+                "mae_brave": mae_brave,
                 "rmse": rmse,
                 "global_mae": global_mae,
                 "squad_accuracy": squad_accuracy,
@@ -321,6 +335,11 @@ class modelTrainer:
                 "effective_lr": EFFECTIVE_LR,
                 "sample_size": len(errors)
             })
+            
+            print(f"📊 A/B Performance (GW{gameweek}):")
+            print(f"  - Conservative MAE: {mae_cons:.3f}")
+            print(f"  - Brave MAE: {mae_brave:.3f}")
+            print(f"  - Advantage: {'Brave' if mae_brave < mae_cons else 'Conservative'} (+{abs(mae_cons - mae_brave):.3f})")
         
         # Save updated confidence scores to disk
         self.save_model()

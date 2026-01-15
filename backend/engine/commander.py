@@ -211,7 +211,16 @@ class EngineCommander:
             next_fix_str = f"{opponent_name} {venue}"
 
             # Reality Score: Now fully derived from the Probabilistic xP model
-            final_score = float(xp_points[i])
+            # BRAVE MODE: Apply a 'leak' of the matchup boost (50% intensity) to core xP
+            # This ensures players targeting leaky defenses (e.g. Bournemouth) rank higher in the XI.
+            final_conservative = float(xp_points[i])
+            opp_vuln = item['opp_vulnerability']
+            is_brave_matchup = opp_vuln >= leaky_threshold
+            
+            final_score = final_conservative
+            if is_brave_matchup:
+                # If Matchup Boost for ceiling is +10%, apply +5% to the standard xP
+                final_score *= 1.05
             
             # Extract individual probabilities
             prob_goal = float(event_predictions['actual_goals'][i])
@@ -227,7 +236,10 @@ class EngineCommander:
             haul_alert = haul_prob >= 0.20 # 20% chance of 11+ points is a major alert
             
             if haul_alert:
-                reasoning.append(f"VESUVIUS ALERT: {haul_prob*100:.0f}% Haul Probability (11+ pts)")
+                if is_brave_matchup:
+                    reasoning.append(f"BRAVE TARGET: {haul_prob*100:.0f}% Haul Prob vs Leaky Defense")
+                else:
+                    reasoning.append(f"VESUVIUS ALERT: {haul_prob*100:.0f}% Haul Probability (11+ pts)")
             
             if prob_goal > 0.4: reasoning.append(f"High goal threat ({prob_goal:.1f} Exp)")
             if prob_assist > 0.4: reasoning.append(f"Playmaker potential ({prob_assist:.1f} Exp)")
@@ -251,6 +263,8 @@ class EngineCommander:
                 "position": p['element_type'],
                 "price": p['now_cost'] / 10.0,
                 "predicted_points": round(final_score, 2),
+                "xp_conservative": round(final_conservative, 2), # A/B Testing
+                "xp_brave": round(final_score, 2),            # A/B Testing
                 "haul_prob": round(haul_prob, 2),
                 "haul_alert": haul_alert,
                 "prob_goal": round(prob_goal, 2),
@@ -387,19 +401,25 @@ class EngineCommander:
 
 
 
-        # 2. Obvious: Highest Predicted Points among attacking pool
-        attacking_pool.sort(key=lambda x: x['predicted_points'], reverse=True)
+        # BRAVE SCORING: 70% Mean (xP), 30% Ceiling (Haul Prob)
+        # This identifies 'Brave' picks who have high upside.
+        def brave_score(p):
+            # Scale haul_prob to match xP magnitude (0.3 prob -> ~3 points equivalent boost)
+            return (p['predicted_points'] * 0.7) + (p['haul_prob'] * 10 * 0.3)
+
+        # 2. Obvious: Highest Brave Score among attacking pool
+        attacking_pool.sort(key=brave_score, reverse=True)
         obvious = (attacking_pool[0] if attacking_pool else squad[0]).copy()
-        obvious['reason'] = f"The algorithm identifies {obvious['web_name']} as the most reliable pick with {obvious['predicted_points']} projected points."
+        obvious['reason'] = f"The 'Brave' algorithm identifies {obvious['web_name']} as the top pick, combining {obvious['predicted_points']} xP with a {obvious['haul_prob']*100:.0f}% haul probability."
         
         # Track selected teams to enforce diversity
         selected_teams = {obvious['team']}
         selected_ids = {obvious['id']}
 
-        # 3. Joker: Highest Explosivity among low ownership attacking pool (<15%)
+        # 3. Joker: Highest Brave Score among low ownership attacking pool (<15%)
         # Exclude players from already selected teams (and same player ID)
         joker_pool = [p for p in attacking_pool if p['ownership'] < 15 and p['team'] not in selected_teams and p['id'] not in selected_ids]
-        joker_pool.sort(key=lambda x: x['explosivity'], reverse=True)
+        joker_pool.sort(key=brave_score, reverse=True)
         
         # If no one under 15% ownership fits criteria, try ANY ownership but distinct team
         if not joker_pool:
