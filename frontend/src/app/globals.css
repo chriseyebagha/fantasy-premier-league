@@ -232,7 +232,8 @@
 }
 
 .points-pill-horizontal {
-  @apply flex items-center justify-center py-4 px-10 rounded-[28px] shadow-[0_8px_32px_rgba(0, 0, 0, 0.3)];
+  @apply flex items-center justify-center py-4 px-10 rounded-[28px];
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 768px) {
