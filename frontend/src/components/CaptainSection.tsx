@@ -60,6 +60,9 @@ const CaptainJerseyCard = ({ subtitle, data, color, description }: any) => {
                             src={imageUrl}
                             alt={data.web_name}
                             className="w-full h-full object-contain filter drop-shadow(0 8px 12px rgba(0,0,0,0.4)) group-hover:scale-110 transition-transform duration-500"
+                            onError={(e) => {
+                                (e.target as HTMLImageElement).src = 'https://resources.premierleague.com/premierleague/photos/players/250x250/Photo-Missing.png';
+                            }}
                         />
                     </div>
 

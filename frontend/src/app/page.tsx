@@ -131,27 +131,24 @@ export default function Home() {
             animate={{ opacity: 1, scale: 1 }}
             className="glass-card points-pill-horizontal border-white/10"
           >
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-4">
               <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em]">
                 Projected Total
               </span>
-              <div className="flex items-center gap-4 border-l border-white/10 pl-6">
-                <span className="text-4xl font-black text-white tracking-[0.2em]">
-                  {Math.round(data.total_projected_points || 0)}
-                </span>
-                <span className="text-[11px] font-black text-slate-400 uppercase tracking-[0.4em]">
-                  Points
-                </span>
-              </div>
+              <span className="text-3xl font-black text-white tracking-[0.1em]">
+                {Math.round(data.total_projected_points || 0)}
+              </span>
+              <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em]">
+                Points
+              </span>
             </div>
           </motion.div>
         </div>
 
-        {/* Captain Recommendations */}
         <section className="w-full max-w-5xl mx-auto">
-          <div className="flex items-center gap-10 mb-12 px-4">
+          <div className="flex items-center gap-6 mb-12 px-4">
             <div className="h-[1px] flex-1 bg-white/5" />
-            <h2 className="text-xs md:text-sm font-black uppercase tracking-[0.5em] text-slate-400 flex items-center gap-4">
+            <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 flex items-center gap-2">
               Captain Options
             </h2>
             <div className="h-[1px] flex-1 bg-white/5" />

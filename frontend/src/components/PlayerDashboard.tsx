@@ -31,7 +31,7 @@ const MiniPlayerCard = ({ player, isBench = false, isCaptain = false }: { player
                     alt={player.web_name}
                     className="player-portrait"
                     onError={(e) => {
-                        (e.target as HTMLImageElement).src = 'https://resources.premierleague.com/premierleague/photos/players/250x250/photoless.png';
+                        (e.target as HTMLImageElement).src = 'https://resources.premierleague.com/premierleague/photos/players/250x250/Photo-Missing.png';
                     }}
                 />
 
