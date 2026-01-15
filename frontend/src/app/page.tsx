@@ -129,26 +129,30 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="glass-card points-pill border-white/10"
+            className="glass-card points-pill-horizontal border-white/10"
           >
-            <span className="text-[9px] font-black text-slate-500 uppercase tracking-[0.3em] mb-1">
-              Projected Total
-            </span>
-            <div className="flex items-baseline gap-1">
-              <span className="text-4xl font-black text-white tracking-tighter">
-                {Math.round(data.total_projected_points || 0)}
+            <div className="flex items-center gap-6">
+              <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em]">
+                Projected Total
               </span>
-              <span className="text-xs font-bold text-slate-500 uppercase">Points</span>
+              <div className="flex items-center gap-4 border-l border-white/10 pl-6">
+                <span className="text-4xl font-black text-white tracking-[0.2em]">
+                  {Math.round(data.total_projected_points || 0)}
+                </span>
+                <span className="text-[11px] font-black text-slate-400 uppercase tracking-[0.4em]">
+                  Points
+                </span>
+              </div>
             </div>
           </motion.div>
         </div>
 
         {/* Captain Recommendations */}
         <section className="w-full max-w-5xl mx-auto">
-          <div className="flex items-center gap-4 mb-8 px-4">
+          <div className="flex items-center gap-10 mb-12 px-4">
             <div className="h-[1px] flex-1 bg-white/5" />
-            <h2 className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 flex items-center gap-2">
-              <Star size={12} className="text-amber-400" /> Premium Recommendations
+            <h2 className="text-xs md:text-sm font-black uppercase tracking-[0.5em] text-slate-400 flex items-center gap-4">
+              Captain Options
             </h2>
             <div className="h-[1px] flex-1 bg-white/5" />
           </div>
@@ -160,7 +164,7 @@ export default function Home() {
           <div className="flex items-center gap-4 px-4">
             <div className="h-[1px] flex-1 bg-white/5" />
             <h2 className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 flex items-center gap-2">
-              <Layout size={12} className="text-violet-400" /> Predicted Starting XI
+              Predicted Starting XI
             </h2>
             <div className="h-[1px] flex-1 bg-white/5" />
           </div>

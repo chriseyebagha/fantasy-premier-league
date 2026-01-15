@@ -37,7 +37,7 @@ const MiniPlayerCard = ({ player, isBench = false, isCaptain = false }: { player
 
                 {isCaptain && (
                     <>
-                        <div className="captain-glow" />
+                        <div className="absolute inset-0 rounded-2xl border-2 border-amber-500/50 shadow-[0_0_15px_rgba(245,158,11,0.3)] z-10" />
                         <div className="captain-badge-premium">C</div>
                     </>
                 )}
@@ -97,11 +97,13 @@ export default function PlayerDashboard({ squad, bench, gameweek, optimized_squa
                 <div className="pitch-grid-lines" />
 
                 {/* Formation Label */}
-                <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20">
-                    <div className="glass-pill px-4 py-1.5 rounded-full border-white/10">
-                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em]">
-                            System: {formation}
+                <div className="absolute top-6 left-1/2 -translate-x-1/2 z-20">
+                    <div className="flex items-center gap-4 opacity-50">
+                        <div className="h-[1px] w-8 bg-white/20" />
+                        <span className="text-[10px] font-black text-white uppercase tracking-[0.6em]">
+                            System {formation}
                         </span>
+                        <div className="h-[1px] w-8 bg-white/20" />
                     </div>
                 </div>
 
@@ -127,13 +129,13 @@ export default function PlayerDashboard({ squad, bench, gameweek, optimized_squa
             </div>
 
             {/* Bench Section */}
-            <div className="w-full max-w-4xl mx-auto space-y-2">
-                <div className="flex items-center justify-center gap-3">
+            <div className="w-full max-w-4xl mx-auto pt-16 pb-8">
+                <div className="flex items-center justify-center gap-6 mb-10">
                     <div className="h-[1px] flex-1 bg-white/5" />
-                    <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em]">Substitutes</span>
+                    <span className="text-[11px] font-black text-slate-400 uppercase tracking-[0.5em]">Substitutes</span>
                     <div className="h-[1px] flex-1 bg-white/5" />
                 </div>
-                <div className="bench-tray glass-card border-white/5">
+                <div className="bench-tray glass-card border-white/5 py-10 px-6">
                     {displayBench?.map((p: any) => <MiniPlayerCard key={p.id} player={p} isBench />)}
                 </div>
             </div>

@@ -9,16 +9,16 @@
   --glass-surface: rgba(15, 23, 42, 0.7);
   --glass-border: rgba(255, 255, 255, 0.08);
   --glass-highlight: rgba(255, 255, 255, 0.04);
-  
+
   --accent-emerald: #10b981;
   --accent-violet: #8b5cf6;
   --accent-amber: #f59e0b;
   --accent-rose: #f43f5e;
-  
+
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
   --text-dim: #64748b;
-  
+
   --captain-glow: rgba(245, 158, 11, 0.2);
   --haul-glow: rgba(16, 185, 129, 0.15);
 }
@@ -82,7 +82,7 @@
 .pitch-grid-lines {
   position: absolute;
   inset: 0;
-  background-image: 
+  background-image:
     linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 20% 20%;
@@ -180,26 +180,31 @@
 }
 
 @keyframes rotateGlow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .captain-badge-premium {
   position: absolute;
-  top: -4px;
-  right: -4px;
+  top: 0;
+  left: 0;
   width: 20px;
   height: 20px;
   background: var(--accent-amber);
   color: #000;
-  border-radius: 6px;
+  border-radius: 6px 0 6px 0;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 900;
   font-size: 11px;
-  box-shadow: 0 0 10px var(--captain-glow);
-  z-index: 20;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  z-index: 30;
 }
 
 /* Bench Section */
@@ -226,13 +231,8 @@
   margin: 0 auto;
 }
 
-.points-pill {
-  padding: 12px 24px;
-  border-radius: 9999px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 180px;
+.points-pill-horizontal {
+  @apply flex items-center justify-center py-4 px-10 rounded-[28px] shadow-[0_8px_32px_rgba(0, 0, 0, 0.3)];
 }
 
 @media (max-width: 768px) {
@@ -240,17 +240,17 @@
     padding: 12px !important;
     gap: 16px !important;
   }
-  
+
   .pitch-container {
     border-radius: 24px;
     padding-bottom: 12px;
     min-height: 500px;
   }
-  
+
   .player-card-container {
     width: 22%;
   }
-  
+
   .bench-tray {
     width: 95%;
     gap: 8px;
