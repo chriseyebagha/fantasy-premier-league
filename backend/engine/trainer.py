@@ -116,10 +116,11 @@ class modelTrainer:
                 results[target] = np.zeros(len(X))
         return results
 
-    def translate_to_xp(self, event_predictions: Dict[str, np.ndarray], element_types: List[int]) -> np.ndarray:
+    def translate_to_xp(self, event_predictions: Dict[str, np.ndarray], element_types: List[int], avg_minutes: Optional[np.ndarray] = None) -> np.ndarray:
         """
         Translates event probabilities into xP (Expected Points).
         Uses Reinforcement Confidence multipliers (Dynamic Trust).
+        Scales projections by expected minutes to avoid over-optimism for rotation players.
         """
         # FPL Points constants by element type (1=GKP, 2=DEF, 3=MID, 4=FWD)
         GOAL_VALS = {1: 6, 2: 6, 3: 5, 4: 4}
@@ -130,35 +131,36 @@ class modelTrainer:
         e_types = np.array(element_types)
         n = len(e_types)
         
+        # Minute Scaling Multiplier (proxied by avg_minutes / 90)
+        if avg_minutes is not None:
+            m_mult = np.clip(avg_minutes / 90.0, 0, 1.0)
+        else:
+            m_mult = np.ones(n)
+            
         # Vectorized scoring weights based on position
         goal_weights = np.array([GOAL_VALS.get(t, 4) for t in e_types])
         cs_weights = np.array([CS_VALS.get(t, 0) for t in e_types])
         
-        # Calculate xP with Confidence Reinforcement
-        xp = np.full(n, 2.0) # Baseline for 60+ minutes
+        # Calculate xP with Confidence Reinforcement and Minute Scaling
+        xp = np.full(n, 2.0) * m_mult # Baseline for starting scaled by mins
         
         # Get confidence multipliers (default to 1.0)
         c = self.confidence_scores
         
-        xp += event_predictions['actual_goals'] * goal_weights * c.get('actual_goals', 1.0)
-        xp += event_predictions['actual_assists'] * ASSIST_VALS * c.get('actual_assists', 1.0)
-        xp += event_predictions['actual_clean_sheets'] * cs_weights * c.get('actual_clean_sheets', 1.0)
-        xp += event_predictions['actual_saves'] * SAVE_VALS * c.get('actual_saves', 1.0)
-        xp += event_predictions.get('actual_bonus', np.zeros(n)) * c.get('actual_bonus', 1.0)
-        xp += event_predictions.get('actual_defcon_points', np.zeros(n)) * c.get('actual_defcon_points', 1.0)
+        xp += event_predictions['actual_goals'] * goal_weights * c.get('actual_goals', 1.0) * m_mult
+        xp += event_predictions['actual_assists'] * ASSIST_VALS * c.get('actual_assists', 1.0) * m_mult
+        xp += event_predictions['actual_clean_sheets'] * cs_weights * c.get('actual_clean_sheets', 1.0) * m_mult
+        xp += event_predictions['actual_saves'] * SAVE_VALS * c.get('actual_saves', 1.0) * m_mult
+        xp += event_predictions.get('actual_bonus', np.zeros(n)) * c.get('actual_bonus', 1.0) * m_mult
+        xp += event_predictions.get('actual_defcon_points', np.zeros(n)) * c.get('actual_defcon_points', 1.0) * m_mult
         
         return np.maximum(xp, 0)
 
-    def calculate_haul_probability(self, event_predictions: Dict[str, np.ndarray], element_types: List[int], n_sims: int = 1500, haul_multipliers: Optional[np.ndarray] = None) -> np.ndarray:
+    def calculate_haul_probability(self, event_predictions: Dict[str, np.ndarray], element_types: List[int], n_sims: int = 1500, haul_multipliers: Optional[np.ndarray] = None, avg_minutes: Optional[np.ndarray] = None) -> np.ndarray:
         """
         Calculates the probability of a player scoring 11+ points using a Monte Carlo simulation.
         Assumes independent Poisson events for counts and Logistic for clean sheets.
-        
-        Args:
-            event_predictions: Dictionary of predicted probabilities/counts per head.
-            element_types: List of player positions.
-            n_sims: Number of Monte Carlo iterations.
-            haul_multipliers: Optional array of clinicality/matchup boosters (default 1.0).
+        Scales lambdas by expected minutes.
         """
         n_players = len(element_types)
         haul_probs = np.zeros(n_players)
@@ -170,21 +172,27 @@ class modelTrainer:
         SAVE_VALS = 0.33
         
         c = self.confidence_scores
+        
+        # Minute Scaling Multiplier
+        if avg_minutes is not None:
+            m_mults = np.clip(avg_minutes / 90.0, 0, 1.0)
+        else:
+            m_mults = np.ones(n_players)
 
         for i in range(n_players):
             pos = element_types[i]
             multiplier = haul_multipliers[i] if haul_multipliers is not None else 1.0
+            m_mult = m_mults[i]
             
-            # Adjusted lambdas based on confidence scores and Vesuvius Multiplier
-            l_goals = event_predictions['actual_goals'][i] * c.get('actual_goals', 1.0) * multiplier
-            l_assists = event_predictions['actual_assists'][i] * c.get('actual_assists', 1.0) * multiplier
-            l_saves = event_predictions['actual_saves'][i] * c.get('actual_saves', 1.0)
-            l_bonus = event_predictions.get('actual_bonus', np.zeros(n_players))[i] * c.get('actual_bonus', 1.0) * multiplier
-            l_defcon = event_predictions.get('actual_defcon_points', np.zeros(n_players))[i] * c.get('actual_defcon_points', 1.0)
+            # Adjusted lambdas based on confidence scores, Vesuvius Multiplier, and Minutes
+            l_goals = event_predictions['actual_goals'][i] * c.get('actual_goals', 1.0) * multiplier * m_mult
+            l_assists = event_predictions['actual_assists'][i] * c.get('actual_assists', 1.0) * multiplier * m_mult
+            l_saves = event_predictions['actual_saves'][i] * c.get('actual_saves', 1.0) * m_mult
+            l_bonus = event_predictions.get('actual_bonus', np.zeros(n_players))[i] * c.get('actual_bonus', 1.0) * multiplier * m_mult
+            l_defcon = event_predictions.get('actual_defcon_points', np.zeros(n_players))[i] * c.get('actual_defcon_points', 1.0) * m_mult
             
-            # Clean sheet is a biased coin flip - also boosted by multiplier
-            p_cs = event_predictions['actual_clean_sheets'][i] * c.get('actual_clean_sheets', 1.0) * multiplier
-            p_cs = min(max(p_cs, 0), 1)
+            # Clean sheet is a biased coin flip - also boosted by multiplier and scaled by minutes
+            p_cs = event_predictions['actual_clean_sheets'][i] * c.get('actual_clean_sheets', 1.0) * multiplier * m_mult
             p_cs = min(max(p_cs, 0), 1)
             
             # Monte Carlo Simulation
@@ -196,7 +204,7 @@ class modelTrainer:
             sim_cs = np.random.binomial(1, p_cs, n_sims)
             
             # Calculate points per match simulation
-            points = 2.0 # Baseline for starting
+            points = 2.0 * m_mult # Baseline for starting
             points += sim_goals * GOAL_VALS.get(pos, 4)
             points += sim_assists * ASSIST_VALS
             points += sim_cs * CS_VALS.get(pos, 0)

@@ -155,7 +155,9 @@ class EngineCommander:
         
         # Translate to Expected Points (xP) and Haul Probabilities
         positions = [item['p']['element_type'] for item in valid_players]
-        xp_points = self.trainer.translate_to_xp(event_predictions, positions)
+        avg_minutes_array = np.array([item['avg_minutes'] for item in valid_players])
+        
+        xp_points = self.trainer.translate_to_xp(event_predictions, positions, avg_minutes=avg_minutes_array)
         
         # Calculate Vesuvius Multipliers (Booster Layer)
         # 1. Clinicality Boost: Based on seasonal haul frequency
@@ -183,7 +185,12 @@ class EngineCommander:
                 
             haul_multipliers[idx] = clinicality_boost * matchup_boost
 
-        haul_probs = self.trainer.calculate_haul_probability(event_predictions, positions, haul_multipliers=haul_multipliers)
+        haul_probs = self.trainer.calculate_haul_probability(
+            event_predictions, 
+            positions, 
+            haul_multipliers=haul_multipliers,
+            avg_minutes=avg_minutes_array
+        )
 
         processed = []
         for i, item in enumerate(valid_players):
