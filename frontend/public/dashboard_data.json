@@ -1,7 +1,8 @@
 {
     "status": "online",
-    "last_updated": "2026-01-15T16:19:05.336075+00:00",
+    "last_updated": "2026-01-15T17:09:22.162579+00:00",
     "gameweek": 22,
+    "total_projected_points": 73.6,
     "squad": [
         {
             "id": 430,
@@ -12,7 +13,7 @@
             "predicted_points": 6.74,
             "xp_conservative": 6.74,
             "xp_brave": 6.74,
-            "haul_prob": 0.21,
+            "haul_prob": 0.22,
             "haul_alert": true,
             "prob_goal": 0.78,
             "prob_assist": 0.19,
@@ -32,7 +33,7 @@
             "defcon": 0.0,
             "ownership": 74.2,
             "hauls": 8,
-            "reasoning": "VESUVIUS ALERT: 21% Haul Probability (11+ pts) | High goal threat (0.8 Exp)",
+            "reasoning": "VESUVIUS ALERT: 22% Haul Probability (11+ pts) | High goal threat (0.8 Exp)",
             "features": {
                 "xG_90": 0.91,
                 "xA_90": 0.06,
@@ -114,7 +115,7 @@
             "predicted_points": 6.28,
             "xp_conservative": 5.98,
             "xp_brave": 6.28,
-            "haul_prob": 0.05,
+            "haul_prob": 0.06,
             "haul_alert": false,
             "prob_goal": 0.06,
             "prob_assist": 0.07,
@@ -369,7 +370,7 @@
             "predicted_points": 6.52,
             "xp_conservative": 6.52,
             "xp_brave": 6.52,
-            "haul_prob": 0.19,
+            "haul_prob": 0.18,
             "haul_alert": false,
             "prob_goal": 0.77,
             "prob_assist": 0.18,
@@ -387,7 +388,7 @@
             "next_fixture_difficulty": 3,
             "explosivity": 52.1,
             "defcon": 0.0,
-            "ownership": 34.8,
+            "ownership": 34.9,
             "hauls": 5,
             "reasoning": "High goal threat (0.8 Exp)",
             "features": {
@@ -405,7 +406,7 @@
                 "form": 7.6,
                 "ict_index": 161.8,
                 "fixture_difficulty": 3,
-                "selected_by": 34.8,
+                "selected_by": 34.9,
                 "cost": 7.1,
                 "hauls": 5,
                 "opponent_vulnerability": 36.25
@@ -420,7 +421,7 @@
             "predicted_points": 5.81,
             "xp_conservative": 5.53,
             "xp_brave": 5.81,
-            "haul_prob": 0.14,
+            "haul_prob": 0.11,
             "haul_alert": false,
             "prob_goal": 0.31,
             "prob_assist": 0.22,
@@ -522,7 +523,7 @@
             "predicted_points": 5.43,
             "xp_conservative": 5.17,
             "xp_brave": 5.43,
-            "haul_prob": 0.1,
+            "haul_prob": 0.09,
             "haul_alert": false,
             "prob_goal": 0.29,
             "prob_assist": 0.24,
@@ -540,7 +541,7 @@
             "next_fixture_difficulty": 3,
             "explosivity": 24.3,
             "defcon": 0.0,
-            "ownership": 20.9,
+            "ownership": 21.0,
             "hauls": 3,
             "reasoning": "Solid underlying metric coverage",
             "features": {
@@ -558,7 +559,7 @@
                 "form": 4.8,
                 "ict_index": 114.9,
                 "fixture_difficulty": 3,
-                "selected_by": 20.9,
+                "selected_by": 21.0,
                 "cost": 5.9,
                 "hauls": 3,
                 "opponent_vulnerability": 39.0
@@ -575,7 +576,7 @@
             "predicted_points": 5.94,
             "xp_conservative": 5.94,
             "xp_brave": 5.94,
-            "haul_prob": 0.09,
+            "haul_prob": 0.11,
             "haul_alert": false,
             "prob_goal": 0.21,
             "prob_assist": 0.45,
@@ -626,7 +627,7 @@
             "predicted_points": 5.77,
             "xp_conservative": 5.77,
             "xp_brave": 5.77,
-            "haul_prob": 0.09,
+            "haul_prob": 0.11,
             "haul_alert": false,
             "prob_goal": 0.18,
             "prob_assist": 0.12,
@@ -677,7 +678,7 @@
             "predicted_points": 5.62,
             "xp_conservative": 5.35,
             "xp_brave": 5.62,
-            "haul_prob": 0.03,
+            "haul_prob": 0.04,
             "haul_alert": false,
             "prob_goal": 0.05,
             "prob_assist": 0.07,
@@ -728,7 +729,7 @@
             "predicted_points": 5.56,
             "xp_conservative": 5.3,
             "xp_brave": 5.56,
-            "haul_prob": 0.08,
+            "haul_prob": 0.09,
             "haul_alert": false,
             "prob_goal": 0.05,
             "prob_assist": 0.46,
@@ -962,7 +963,7 @@
                 "next_fixture": "CHE (A)",
                 "next_fixture_difficulty": 3,
                 "explosivity": 52.1,
-                "ownership": 34.8
+                "ownership": 34.9
             },
             {
                 "id": 691,
@@ -1076,7 +1077,7 @@
             "predicted_points": 6.74,
             "xp_conservative": 6.74,
             "xp_brave": 6.74,
-            "haul_prob": 0.21,
+            "haul_prob": 0.22,
             "haul_alert": true,
             "prob_goal": 0.78,
             "prob_assist": 0.19,
@@ -1096,7 +1097,7 @@
             "defcon": 0.0,
             "ownership": 74.2,
             "hauls": 8,
-            "reasoning": "VESUVIUS ALERT: 21% Haul Probability (11+ pts) | High goal threat (0.8 Exp)",
+            "reasoning": "VESUVIUS ALERT: 22% Haul Probability (11+ pts) | High goal threat (0.8 Exp)",
             "features": {
                 "xG_90": 0.91,
                 "xA_90": 0.06,
@@ -1117,7 +1118,7 @@
                 "hauls": 8,
                 "opponent_vulnerability": 32.75
             },
-            "reason": "The 'Brave' algorithm identifies Haaland as the top pick, combining 6.74 xP with a 21% haul probability."
+            "reason": "The 'Brave' algorithm identifies Haaland as the top pick, combining 6.74 xP with a 22% haul probability."
         },
         "joker": {
             "id": 449,
@@ -1128,7 +1129,7 @@
             "predicted_points": 5.94,
             "xp_conservative": 5.94,
             "xp_brave": 5.94,
-            "haul_prob": 0.09,
+            "haul_prob": 0.11,
             "haul_alert": false,
             "prob_goal": 0.21,
             "prob_assist": 0.45,
