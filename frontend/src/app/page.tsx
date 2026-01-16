@@ -103,15 +103,15 @@ export default function Home() {
       </nav>
 
       <section className="mt-20 flex flex-col items-center gap-12">
-        {/* Header Stats */}
-        <div className="flex flex-col items-center gap-6">
+        {/* Header - Gameweek */}
+        <div className="flex flex-col items-center gap-6 w-full">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="flex flex-col items-center"
+            className="flex flex-col items-center text-center"
           >
-            <div className="flex items-center gap-3 mb-2">
-              <h1 className="text-sm md:text-xl font-black uppercase tracking-[0.5em] text-white">
+            <div className="flex flex-col md:flex-row items-center gap-3 mb-2">
+              <h1 className="text-lg md:text-xl font-black uppercase tracking-[0.4em] text-white text-center">
                 Gameweek {data.gameweek}
               </h1>
               {accuracy !== undefined && (
@@ -124,22 +124,13 @@ export default function Home() {
               )}
             </div>
           </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="glass-card border-white/10 flex flex-col items-center justify-center py-4 px-10 rounded-3xl"
-          >
-            <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.25em]">Projected Total</span>
-            <span className="text-4xl font-black text-white my-1">{Math.round(data.total_projected_points || 0)}</span>
-            <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.25em]">Points</span>
-          </motion.div>
         </div>
 
+        {/* Captain Options Section */}
         <section className="w-full max-w-5xl mx-auto">
-          <div className="flex items-center gap-10 mb-12 px-4">
+          <div className="flex items-center justify-center gap-4 md:gap-10 mb-8 px-4">
             <div className="h-[1px] flex-1 bg-white/5" />
-            <h2 className="text-xs md:text-sm font-black uppercase tracking-[0.5em] text-slate-400 flex items-center gap-4">
+            <h2 className="text-xs md:text-sm font-black uppercase tracking-[0.3em] md:tracking-[0.5em] text-slate-400 text-center whitespace-nowrap">
               Captain Options
             </h2>
             <div className="h-[1px] flex-1 bg-white/5" />
@@ -147,15 +138,29 @@ export default function Home() {
           <CaptainSection captains={data.recommendations} gameweek={data.gameweek} />
         </section>
 
-        {/* Pitch Dashboard */}
-        <section className="w-full max-w-5xl mx-auto flex flex-col gap-8 pb-32">
-          <div className="flex items-center gap-10 px-4">
+        {/* Pitch Dashboard with Projected Points */}
+        <section className="w-full max-w-5xl mx-auto flex flex-col gap-6 pb-32">
+          <div className="flex items-center justify-center gap-4 md:gap-10 px-4">
             <div className="h-[1px] flex-1 bg-white/5" />
-            <h2 className="text-xs md:text-sm font-black uppercase tracking-[0.5em] text-slate-400 flex items-center gap-4">
+            <h2 className="text-xs md:text-sm font-black uppercase tracking-[0.3em] md:tracking-[0.5em] text-slate-400 text-center whitespace-nowrap">
               Predicted Starting XI
             </h2>
             <div className="h-[1px] flex-1 bg-white/5" />
           </div>
+
+          {/* Projected Points Badge - now under Predicted XI header */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="flex justify-center"
+          >
+            <div className="glass-card border-white/10 flex items-center gap-3 py-3 px-6 rounded-full">
+              <span className="text-[10px] md:text-xs font-black text-slate-400 uppercase tracking-wider">Projected</span>
+              <span className="text-2xl md:text-3xl font-black text-emerald-400">{Math.round(data.total_projected_points || 0)}</span>
+              <span className="text-[10px] md:text-xs font-black text-slate-400 uppercase tracking-wider">Points</span>
+            </div>
+          </motion.div>
+
           <PlayerDashboard
             squad={data.squad}
             bench={data.bench}

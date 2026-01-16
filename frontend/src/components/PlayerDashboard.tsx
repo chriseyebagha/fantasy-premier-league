@@ -92,20 +92,18 @@ export default function PlayerDashboard({ squad, bench, gameweek, optimized_squa
     const formation = `${defs.length}-${mids.length}-${fwds.length}`;
 
     return (
-        <div className="w-full space-y-6">
-            <div className="pitch-container glass-card pt-10 md:pt-14">
-                <div className="pitch-grid-lines" />
+        <div className="w-full space-y-4">
+            {/* Formation Label - Outside pitch container */}
+            <div className="flex items-center justify-center gap-4 opacity-60">
+                <div className="h-[1px] w-8 bg-white/20" />
+                <span className="text-[10px] font-black text-white uppercase tracking-[0.4em]">
+                    System {formation}
+                </span>
+                <div className="h-[1px] w-8 bg-white/20" />
+            </div>
 
-                {/* Formation Label */}
-                <div className="absolute top-2 left-1/2 -translate-x-1/2 z-20">
-                    <div className="flex items-center gap-4 opacity-50">
-                        <div className="h-[1px] w-8 bg-white/20" />
-                        <span className="text-[10px] font-black text-white uppercase tracking-[0.6em]">
-                            System {formation}
-                        </span>
-                        <div className="h-[1px] w-8 bg-white/20" />
-                    </div>
-                </div>
+            <div className="pitch-container glass-card">
+                <div className="pitch-grid-lines" />
 
                 {/* Forwards */}
                 <div className="pitch-row">
