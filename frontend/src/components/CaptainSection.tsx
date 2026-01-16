@@ -112,24 +112,24 @@ export default function CaptainSection({ captains, gameweek }: CaptainSectionPro
 
     return (
         <section className="w-full py-8">
-            <div className="grid grid-cols-3 gap-3 md:gap-8 max-w-4xl mx-auto px-4">
+            <div className="grid grid-cols-3 gap-2 md:gap-4 max-w-3xl mx-auto px-4">
                 <CaptainJerseyCard
                     subtitle="The Obvious One"
                     data={captains.obvious}
                     color="text-amber-400"
-                    description="Most likely to drop a massive haul this gameweek."
+                    description="Safe pick. High ownership, proven performer—if he hauls, you're covered."
                 />
                 <CaptainJerseyCard
                     subtitle="The Joker"
                     data={captains.joker}
                     color="text-violet-400"
-                    description="Low ownership differential to climb mini-league ranks."
+                    description="Differential pick. Low ownership—if he hauls, you climb the ranks."
                 />
                 <CaptainJerseyCard
                     subtitle="The Fun One"
                     data={captains.fun_one}
                     color="text-rose-400"
-                    description="Likely a high-ceiling defender capable of explosive returns."
+                    description="Wild card. Defender with explosive potential for a CS + attacking returns."
                 />
             </div>
         </section>
