@@ -148,16 +148,16 @@ export default function Home() {
             <div className="h-[1px] flex-1 bg-white/5" />
           </div>
 
-          {/* Projected Points Badge - now under Predicted XI header */}
+          {/* Projected Points Badge */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             className="flex justify-center"
           >
-            <div className="glass-card border-white/10 flex items-center gap-6 py-4 px-10 rounded-full">
-              <span className="text-xs md:text-sm font-black text-slate-400 uppercase tracking-widest">Projected</span>
-              <span className="text-3xl md:text-4xl font-black text-emerald-400">{Math.round(data.total_projected_points || 0)}</span>
-              <span className="text-xs md:text-sm font-black text-slate-400 uppercase tracking-widest">Points</span>
+            <div className="glass-card border-white/10 flex items-center py-4 px-8 rounded-full">
+              <span className="text-sm font-bold text-slate-400">Projected</span>
+              <span className="text-4xl font-black text-emerald-400 mx-4">{Math.round(data.total_projected_points || 0)}</span>
+              <span className="text-sm font-bold text-slate-400">Points</span>
             </div>
           </motion.div>
 
