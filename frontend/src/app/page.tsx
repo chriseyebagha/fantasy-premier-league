@@ -152,11 +152,18 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="flex justify-center"
+            className="flex justify-center mb-6"
           >
-            <div className="glass-card border-white/10 flex items-center py-4 px-8 rounded-full">
+            <div
+              className="glass-card flex items-center rounded-full"
+              style={{
+                padding: '20px 40px',
+                border: '2px solid rgba(16, 185, 129, 0.3)',
+                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 30px rgba(16, 185, 129, 0.15)'
+              }}
+            >
               <span style={{ fontSize: '14px', fontWeight: 600, color: '#94a3b8' }}>Projected</span>
-              <span style={{ fontSize: '36px', fontWeight: 900, color: '#10b981', marginLeft: '16px', marginRight: '16px' }}>{Math.round(data.total_projected_points || 0)}</span>
+              <span style={{ fontSize: '36px', fontWeight: 900, color: '#10b981', marginLeft: '20px', marginRight: '20px' }}>{Math.round(data.total_projected_points || 0)}</span>
               <span style={{ fontSize: '14px', fontWeight: 600, color: '#94a3b8' }}>Points</span>
             </div>
           </motion.div>
