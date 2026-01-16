@@ -115,15 +115,32 @@ class EngineCommander:
             last_2 = history[-2:] if history else []
             last_5 = history[-5:] if history else []
             
-            # B. Recent Participation Check: Played in BOTH of last 2 games
-            played_last_2 = len(last_2) == 2 and all(m['minutes'] > 0 for m in last_2)
+            # B. Rotation-Resilient Participation Check (2/3 Rule)
+            # Allows for intentional rest without being benched by the engine
+            last_3 = history[-3:] if history else []
+            last_3_mins = [m.get('minutes', 0) for m in last_3]
             
-            # C. Starter Volume Check: 60+ mins average over last 5
+            # 1. Default Rule: 75+ mins in at least 2 of the last 3 games
+            has_2_of_3_75 = sum(1 for m in last_3_mins if m >= 75) >= 2
+            
+            # C. Starter Volume Check (Baseline)
             avg_5 = sum(m['minutes'] for m in last_5) / len(last_5) if last_5 else 0
-            volume_ok = avg_5 >= 60
+            
+            # Star Player Protection (Talisman Logic)
+            # Protecting elite assets who are established starters (avg_5 > 75)
+            # A star is high ownership (>20%) or high consistency (Hauls > 3)
+            is_star = (float(p.get('selected_by_percent', 0)) > 20.0)
+            seasonal_hauls = sum(1 for m in history if m.get('total_points', 0) >= 10)
+            is_star = is_star or (seasonal_hauls > 3)
+            
+            # For stars, we accept 45+ mins in 2 of last 3 (protects against one outlier early sub)
+            has_2_of_3_45 = sum(1 for m in last_3_mins if m >= 45) >= 2
+            talisman_ok = is_star and (avg_5 > 75) and has_2_of_3_45
+            
+            participation_ok = has_2_of_3_75 or talisman_ok
             
             # Final binary gate for starting eligibility
-            can_start = chance_ok and played_last_2 and volume_ok
+            can_start = chance_ok and participation_ok
             
             # Prepare features
             diff = team_diff.get(p['team'], 3)
