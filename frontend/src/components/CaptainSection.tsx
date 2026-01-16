@@ -48,11 +48,11 @@ const CaptainJerseyCard = ({ subtitle, data, color, description }: any) => {
         >
             {/* Title + Description Header */}
             <div className="flex flex-col items-center text-center mb-1 w-full px-1">
-                <span className="text-[10px] font-extrabold uppercase tracking-[0.15em] text-white/80">{subtitle}</span>
-                <span className="text-[8px] font-medium text-slate-500 leading-tight mt-0.5 max-w-[120px]">{description}</span>
+                <span className="text-[10px] md:text-xs font-extrabold uppercase tracking-[0.15em] text-white/80">{subtitle}</span>
+                <span className="text-[8px] md:text-[11px] font-medium text-slate-500 leading-tight mt-0.5 max-w-[120px] md:max-w-[180px]">{description}</span>
             </div>
 
-            <div className="relative w-full max-w-[160px] group">
+            <div className="relative w-full max-w-[160px] md:max-w-[200px] group">
                 {/* Captain Glow Effect */}
                 <div className="captain-glow opacity-0 group-hover:opacity-40 transition-opacity duration-500" />
 
