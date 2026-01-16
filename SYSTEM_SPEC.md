@@ -19,7 +19,7 @@ graph TD
     
     subgraph "Intelligence Core"
     XGB -->|Event Probabilities| CMD[Engine Commander]
-    CMD -->|xP Calculation| SB[Squad Builder]
+    CMD -->|Rotation-Resilient Logic| SB[Squad Builder]
     end
     
     SB -->|Top 15 & Captains| JSON[dashboard_data.json]
@@ -57,6 +57,27 @@ The engine adds a secondary simulation layer to predict **Double-Digit Hauls (11
 - **Seasonal Actuals**: Dynamic tracking of a player's current season form vs. historical baseline.
 - **Clinicality Index**: Measures goal conversion efficiency relative to expected threat.
 - **FDR-Relative Weighting**: Adjusts feature importance based on upcoming fixture difficulty.
+
+---
+
+## 4. Squad Selection & Eligibility Strategy
+
+The engine prioritizes **predictive reliability** over raw potential. A player must pass a series of "Hard Availability" gates to be considered for the Starting XI.
+
+### Participation & Availability Assumptions
+1. **The 2/3 Rule (Rotation Resilience)**:
+   - To counteract mid-season rotation (e.g., December/January festive fixtures), the engine considers a player "starting material" if they have played **75+ minutes in at least 2 of the last 3 games**.
+   - This allows the model to absorb a single "rest day" without benching a fit star player.
+
+2. **Talisman Protection (Elite Asset Resilience)**:
+   - Established stars (Ownership > 20% or >3 Season Hauls) who average >75 minutes over 5 games are granted a more lenient gate: **45+ minutes in 2 of the last 3**.
+   - This protects against tactical substitutions (e.g., subbed off at 60 mins) while keeping them in the Starting XI if their xP is high.
+
+3. **Binary Availability**:
+   - Fitness and FPL-reported "Chance of Playing" (must be 100% or None) are strictly mandatory. No player with a yellow/red flag is ever recommended for the Starting XI.
+
+4. **Zero-Scaling Policy**:
+   - The engine does NOT scale Expected Points (xP) by predicted minutes. If a player is deemed a starter, they receive their **full potential projected score**. We assume players either start or are rested entirely.
 
 ---
 

@@ -13,6 +13,7 @@ A sophisticated, self-learning intelligence system for Fantasy Premier League. T
 - **Brave Targeting Strategy**: Core xP predictions are now boosted (+5%) when facing "Leaky Defenses," ensuring the Starting XI actively targets vulnerable opponents.
 - **Vesuvius Haul Alert**: A simulation-based probabilistic layer that identifies "high-ceiling" captains with a >20% chance of double-digit returns.
 - **Brave Score Captaincy**: Blended selection logic (70% Mean xP / 30% Haul Prob) to find the perfect balance of reliability and upside.
+- **Rotation-Resilient Selection**: A smart "2/3 Rule" and "Talisman Protection" logic ensure the engine only picks reliable starters while being resilient to festive-period rest days.
 - **Budget Optimization**: Integrated LP solver that builds the highest-value squad within your team's bank constraints.
 
 ---

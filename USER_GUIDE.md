@@ -22,7 +22,8 @@ The engine recommends three distinct captaincy paths across different teams. Eac
 The "Squad" view generates a 15-man roster (11 starters + 4 bench) following a strict **Max 3 Players Per Team** constraint.
 
 - **Formation Optimization**: The engine automatically picks the formation with the highest cumulative xP.
-- **Budget Management**: The squad is optimized within a standard £100m budget, ensuring a playing bench that offers security against late rotations.
+- **Budget Management**: The squad is optimized within a standard £100m budget.
+- **Rotation Resilience**: The engine uses a smart **2/3 Rule** (75+ mins in 2 of last 3 games) and **Talisman Protection** to ensure your starters are reliable even during busy festive fixture periods.
 - **Data Heartbeat**: The system refreshes every 12 hours, with a deep-learning cycle triggered approximately 48 hours before the FPL deadline.
 
 ## 4. Strategic Usage

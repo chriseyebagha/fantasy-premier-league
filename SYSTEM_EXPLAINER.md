@@ -1,6 +1,6 @@
 # FPL Engine: System Explainer
 
-This document explains the core metrics driving the FPL Projections (xP Predictor), how they are calculated, and how to interpret them.
+This document explains the core metrics driving the FPL Projections (xP Predictor), the logic governing squad selection, and how to interpret the results.
 
 ## Core Metrics
 
@@ -53,6 +53,29 @@ This provides an empirical measure of "Squad Hit Rate" beyond just total points.
 - **Scale:** A raw vulnerability score of 1.40 (average goals/xgc conceded per game) translates to a 35 on the index.
 - **Threshold:** Scores > 35 trigger **Matchup Boosts** (+10% to Haul Probability).
 - **BRAVE MODE LEAK:** In the core prediction engine, **50% of this Matchup Boost** (typically +5%) is "leaked" directly into the player's core Expected Points (xP). This forces the engine to prioritize targeting leaky defenses in your Starting XI.
+
+---
+
+## Squad Selection Logic (Eligibility & Participation)
+
+To ensure the engine recommends a reliable team that actually starts, we apply a strict **Hard Availability** gate before a player can be considered for the Starting XI (`can_start: true`).
+
+### 1. Mandatory Fitness Check
+A player is immediately benched if they do not pass these FPL-provided criteria:
+- **Status**: Must be `'a'` (Available).
+- **Match Readiness**: `chance_of_playing_next_round` must be `100` or `None`.
+
+### 2. The "Rotation-Resilient" Participation Gate
+Recognizing that elite players are occasionally rested (especially in December/January), we use a probabilistic window rather than just looking at the previous match.
+
+- **The "2 of Last 3" Rule**: A player is eligible if they played **75+ minutes in at least 2 of their last 3 games**. This allows for one rest game or a minor early substitution without being dropped from the predictions.
+- **Full xP (Unscaled)**: Once a player passes these eligibility checks, they receive their **full projected points**. We do not scale xP down by minutes, as our goal is to select players who are either expected to start fully or not play at all.
+
+### 3. Talisman Protection (Elite Assets)
+Star players who are the "first names on the teamsheet" have an even more resilient eligibility gate to prevent them from being benched due to minor deviations (like a 60-minute tactical sub).
+
+- **Criteria**: High ownership (>20%) OR high seasonal impact (Hauls > 3).
+- **Talisman Rule**: If they established themselves as regular starters (`avg_5 > 75`), they stay eligible if they played at least **45+ minutes in 2 of the last 3**.
 
 ---
 
