@@ -102,22 +102,28 @@ class EngineCommander:
         player_features = []
 
         for p in candidates:
-            if p['status'] != 'a': continue
+            # A. FPL Availability Check
+            status_ok = p.get('status') == 'a'
+            chance = p.get('chance_of_playing_next_round')
+            chance_ok = chance is None or chance >= 100
             
-            # Smarter Minutes Tracking: Based on user rules (65m/10g or 75m/5g)
+            if not status_ok: continue # Hard skip if not available at all
+            
+            # Smarter Minutes Tracking: Based on Option A (Hard Availability)
             summary = self.dm.get_player_summary(p['id'])
             history = summary.get('history', [])
+            last_2 = history[-2:] if history else []
             last_5 = history[-5:] if history else []
-            last_10 = history[-10:] if history else []
             
+            # B. Recent Participation Check: Played in BOTH of last 2 games
+            played_last_2 = len(last_2) == 2 and all(m['minutes'] > 0 for m in last_2)
+            
+            # C. Starter Volume Check: 60+ mins average over last 5
             avg_5 = sum(m['minutes'] for m in last_5) / len(last_5) if last_5 else 0
-            avg_10 = sum(m['minutes'] for m in last_10) / len(last_10) if last_10 else 0
+            volume_ok = avg_5 >= 60
             
-            # Constraint: Must meet one of the standard eligibility criteria
-            can_start = avg_10 >= 65 or avg_5 >= 75
-            
-            # For xP scaling, use the higher average to represent playing potential
-            avg_minutes = max(avg_5, avg_10)
+            # Final binary gate for starting eligibility
+            can_start = chance_ok and played_last_2 and volume_ok
             
             # Prepare features
             diff = team_diff.get(p['team'], 3)
@@ -132,7 +138,7 @@ class EngineCommander:
                     opponent_id = f['team_h']
                     break
             
-            opp_vulnerability = team_vulnerability.get(opponent_id, 1.5) if opponent_id else 1.5 # Fallback to mid-range
+            opp_vulnerability = team_vulnerability.get(opponent_id, 1.5) if opponent_id else 1.5
             features = FeatureFactory.prepare_features(p, history, diff, next_gw, opp_vulnerability)
             
             player_features.append(features)
@@ -140,7 +146,7 @@ class EngineCommander:
                 "p": p,
                 "features": features,
                 "diff": diff,
-                "avg_minutes": avg_minutes,
+                "avg_minutes": avg_5,
                 "can_start": can_start,
                 "opp_vulnerability": opp_vulnerability
             })
@@ -155,9 +161,8 @@ class EngineCommander:
         
         # Translate to Expected Points (xP) and Haul Probabilities
         positions = [item['p']['element_type'] for item in valid_players]
-        avg_minutes_array = np.array([item['avg_minutes'] for item in valid_players])
         
-        xp_points = self.trainer.translate_to_xp(event_predictions, positions, avg_minutes=avg_minutes_array)
+        xp_points = self.trainer.translate_to_xp(event_predictions, positions)
         
         # Calculate Vesuvius Multipliers (Booster Layer)
         # 1. Clinicality Boost: Based on seasonal haul frequency
@@ -188,8 +193,7 @@ class EngineCommander:
         haul_probs = self.trainer.calculate_haul_probability(
             event_predictions, 
             positions, 
-            haul_multipliers=haul_multipliers,
-            avg_minutes=avg_minutes_array
+            haul_multipliers=haul_multipliers
         )
 
         processed = []
