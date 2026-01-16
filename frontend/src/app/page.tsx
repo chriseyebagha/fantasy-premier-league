@@ -140,10 +140,10 @@ export default function Home() {
 
         {/* Pitch Dashboard with Projected Points */}
         <section className="w-full max-w-5xl mx-auto flex flex-col gap-6 pb-32">
-          <div className="flex items-center justify-center gap-4 md:gap-10 px-4">
+          <div className="flex items-center justify-center gap-2 md:gap-10 px-2 md:px-4">
             <div className="h-[1px] flex-1 bg-white/5" />
-            <h2 className="text-xs md:text-sm font-black uppercase tracking-[0.3em] md:tracking-[0.5em] text-slate-400 text-center whitespace-nowrap">
-              Predicted Starting XI
+            <h2 className="text-[10px] md:text-sm font-black uppercase tracking-[0.15em] md:tracking-[0.5em] text-slate-400 text-center">
+              <span className="hidden md:inline">Predicted </span>Starting XI
             </h2>
             <div className="h-[1px] flex-1 bg-white/5" />
           </div>
