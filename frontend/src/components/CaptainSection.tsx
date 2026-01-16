@@ -44,10 +44,12 @@ const CaptainJerseyCard = ({ subtitle, data, color, description }: any) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             whileHover={{ y: -8 }}
-            className="flex flex-col items-center gap-3 w-full"
+            className="flex flex-col items-center gap-2 w-full"
         >
-            <div className="flex items-center justify-center mb-1 w-full">
-                <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-slate-400">{subtitle}</span>
+            {/* Title + Description Header */}
+            <div className="flex flex-col items-center text-center mb-1 w-full px-1">
+                <span className="text-[10px] font-extrabold uppercase tracking-[0.15em] text-white/80">{subtitle}</span>
+                <span className="text-[8px] font-medium text-slate-500 leading-tight mt-0.5 max-w-[120px]">{description}</span>
             </div>
 
             <div className="relative w-full max-w-[160px] group">
@@ -82,12 +84,6 @@ const CaptainJerseyCard = ({ subtitle, data, color, description }: any) => {
                                 {Math.round(data.predicted_points)}
                             </span>
                             <span className="text-[10px] font-bold text-slate-500 uppercase">xP</span>
-                        </div>
-
-                        <div className="pt-2 border-t border-white/5">
-                            <p className="text-[9px] leading-relaxed text-slate-400 text-center font-medium">
-                                {description}
-                            </p>
                         </div>
 
                         <div className="text-[9px] font-semibold text-slate-500 text-center uppercase tracking-wide">
