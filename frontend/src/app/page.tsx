@@ -155,9 +155,9 @@ export default function Home() {
             className="flex justify-center"
           >
             <div className="glass-card border-white/10 flex items-center py-4 px-8 rounded-full">
-              <span className="text-sm font-bold text-slate-400">Projected</span>
-              <span className="text-4xl font-black text-emerald-400 mx-4">{Math.round(data.total_projected_points || 0)}</span>
-              <span className="text-sm font-bold text-slate-400">Points</span>
+              <span style={{ fontSize: '14px', fontWeight: 600, color: '#94a3b8' }}>Projected</span>
+              <span style={{ fontSize: '36px', fontWeight: 900, color: '#10b981', marginLeft: '16px', marginRight: '16px' }}>{Math.round(data.total_projected_points || 0)}</span>
+              <span style={{ fontSize: '14px', fontWeight: 600, color: '#94a3b8' }}>Points</span>
             </div>
           </motion.div>
 
