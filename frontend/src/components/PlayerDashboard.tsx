@@ -93,11 +93,11 @@ export default function PlayerDashboard({ squad, bench, gameweek, optimized_squa
 
     return (
         <div className="w-full space-y-6">
-            <div className="pitch-container glass-card pt-14">
+            <div className="pitch-container glass-card pt-10 md:pt-14">
                 <div className="pitch-grid-lines" />
 
                 {/* Formation Label */}
-                <div className="absolute top-6 left-1/2 -translate-x-1/2 z-20">
+                <div className="absolute top-2 left-1/2 -translate-x-1/2 z-20">
                     <div className="flex items-center gap-4 opacity-50">
                         <div className="h-[1px] w-8 bg-white/20" />
                         <span className="text-[10px] font-black text-white uppercase tracking-[0.6em]">
