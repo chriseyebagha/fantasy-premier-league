@@ -125,23 +125,14 @@ export default function Home() {
             </div>
           </motion.div>
 
-          {/* Points Pill */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="glass-card points-pill-horizontal border-white/10"
+            className="glass-card points-pill-horizontal border-white/10 whitespace-nowrap flex items-center justify-center"
           >
-            <div className="flex items-center gap-4">
-              <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em]">
-                Projected Total
-              </span>
-              <span className="text-3xl font-black text-white tracking-[0.1em]">
-                {Math.round(data.total_projected_points || 0)}
-              </span>
-              <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em]">
-                Points
-              </span>
-            </div>
+            <span className="text-[11px] font-black text-slate-500 uppercase tracking-[0.2em]">Projected Total</span>
+            <span className="text-3xl font-black text-white mx-4">{Math.round(data.total_projected_points || 0)}</span>
+            <span className="text-[11px] font-black text-slate-500 uppercase tracking-[0.2em]">Points</span>
           </motion.div>
         </div>
 
