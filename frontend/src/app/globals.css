@@ -252,8 +252,13 @@
     min-height: 500px;
   }
 
+  .pitch-row {
+    padding: 0 2% !important;
+    gap: 2px !important;
+  }
+
   .player-card-container {
-    width: 22%;
+    width: 18%;
   }
 
   .bench-tray {
