@@ -92,9 +92,9 @@ export default function PlayerDashboard({ squad, bench, gameweek, optimized_squa
     const formation = `${defs.length}-${mids.length}-${fwds.length}`;
 
     return (
-        <div className="w-full space-y-4">
+        <div className="w-full space-y-8">
             {/* Formation Label - Outside pitch container */}
-            <div className="flex items-center justify-center gap-4 opacity-60">
+            <div className="flex items-center justify-center gap-4 opacity-60 mb-4">
                 <div className="h-[1px] w-8 bg-white/20" />
                 <span className="text-[10px] font-black text-white uppercase tracking-[0.4em]">
                     System {formation}

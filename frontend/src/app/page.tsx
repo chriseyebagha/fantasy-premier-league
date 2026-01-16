@@ -152,7 +152,7 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="flex justify-center mb-6"
+            className="flex justify-center mb-10"
           >
             <div
               className="glass-card flex items-center rounded-full"
