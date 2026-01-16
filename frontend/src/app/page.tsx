@@ -154,10 +154,10 @@ export default function Home() {
             animate={{ opacity: 1, scale: 1 }}
             className="flex justify-center"
           >
-            <div className="glass-card border-white/10 flex items-center gap-3 py-3 px-6 rounded-full">
-              <span className="text-[10px] md:text-xs font-black text-slate-400 uppercase tracking-wider">Projected</span>
-              <span className="text-2xl md:text-3xl font-black text-emerald-400">{Math.round(data.total_projected_points || 0)}</span>
-              <span className="text-[10px] md:text-xs font-black text-slate-400 uppercase tracking-wider">Points</span>
+            <div className="glass-card border-white/10 flex items-center gap-6 py-4 px-10 rounded-full">
+              <span className="text-xs md:text-sm font-black text-slate-400 uppercase tracking-widest">Projected</span>
+              <span className="text-3xl md:text-4xl font-black text-emerald-400">{Math.round(data.total_projected_points || 0)}</span>
+              <span className="text-xs md:text-sm font-black text-slate-400 uppercase tracking-widest">Points</span>
             </div>
           </motion.div>
 
